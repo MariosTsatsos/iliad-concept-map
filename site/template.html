@@ -1,0 +1,478 @@
+<title>Iliad Concept Map</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&display=swap">
+<style>
+/* Layout: a working map. One control band on top, the graph fills the left, one card at a time on the right (stacks below on phones). */
+:root {
+  --bg: #f3f4f7;
+  --panel: #ffffff;
+  --ink: #161a22;
+  --muted: #5d6676;
+  --line: #d9dde5;
+  --soft: #eceef3;
+  --accent: #2c3fd1;
+  --accent-ink: #ffffff;
+
+  --c-0: #7d8796; --c-A: #d9485f; --c-B: #2f7de1; --c-C: #0f9d8f; --c-D: #7b4fd6; --c-E: #c99a06;
+  --e-needs: #a3abba; --e-gen: #56627a; --e-tool: #c13f9a; --e-vs: #e8772e; --e-safety: #2f9e4f; --e-eg: #8f7f5f;
+
+  --f-display: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --f-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --r: 8px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1217; --panel: #161a21; --ink: #e7eaf0; --muted: #9ba4b3; --line: #293040; --soft: #1d222b;
+    --accent: #8796ff; --accent-ink: #0f1217;
+    --c-0: #8f99a8; --c-A: #f06a7e; --c-B: #5b9cf0; --c-C: #2cc2b2; --c-D: #9d7cf0; --c-E: #e0b62a;
+    --e-needs: #566073; --e-gen: #9aa6bb; --e-tool: #e061b8; --e-vs: #f39150; --e-safety: #4cc06c; --e-eg: #b39f78;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1217; --panel: #161a21; --ink: #e7eaf0; --muted: #9ba4b3; --line: #293040; --soft: #1d222b;
+  --accent: #8796ff; --accent-ink: #0f1217;
+  --c-0: #8f99a8; --c-A: #f06a7e; --c-B: #5b9cf0; --c-C: #2cc2b2; --c-D: #9d7cf0; --c-E: #e0b62a;
+  --e-needs: #566073; --e-gen: #9aa6bb; --e-tool: #e061b8; --e-vs: #f39150; --e-safety: #4cc06c; --e-eg: #b39f78;
+  color-scheme: dark;
+}
+
+html, body { height: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font: 14px/1.5 var(--f-body);
+  display: flex; flex-direction: column;
+}
+a { color: var(--accent); }
+button, input { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.band {
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+header.band {
+  padding-block: 12px 10px; border-bottom: 1px solid var(--line); background: var(--panel);
+  display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px;
+}
+.brand { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; min-width: 0; }
+.brand h1 { font: 600 19px/1.2 var(--f-display); margin: 0; letter-spacing: 0.01em; text-wrap: balance; }
+.brand .sub { color: var(--muted); font-size: 12.5px; }
+.search { flex: 1 1 240px; display: flex; align-items: center; gap: 8px; min-width: 0; max-width: 460px; margin-left: auto; }
+.search input {
+  flex: 1; min-width: 0; padding: 7px 10px; border: 1px solid var(--line); border-radius: var(--r);
+  background: var(--bg);
+}
+.search .count { color: var(--muted); font: 12px var(--f-mono); min-width: 5ch; }
+.btn {
+  display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: var(--r);
+  border: 1px solid var(--line); background: var(--panel); cursor: pointer; text-decoration: none;
+  color: var(--ink); font-weight: 500; white-space: nowrap;
+}
+.btn:hover { border-color: var(--muted); }
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+
+.controls.band {
+  padding-block: 8px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px;
+  border-bottom: 1px solid var(--line);
+}
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  padding: 3px 10px; border-radius: 999px; border: 1px solid var(--line); background: transparent;
+  cursor: pointer; font-size: 12.5px; color: var(--muted);
+}
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.toggle { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--muted); cursor: pointer; }
+.stats { margin-left: auto; color: var(--muted); font: 12px var(--f-mono); font-variant-numeric: tabular-nums; }
+.stats b { color: var(--ink); font-weight: 500; }
+.small-btns { display: flex; gap: 6px; }
+.small-btns .btn { padding: 3px 10px; font-size: 12.5px; }
+
+main { flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) 390px; }
+.graph-wrap { position: relative; min-width: 0; min-height: 0; }
+#cy { position: absolute; inset: 0; }
+.legend {
+  position: absolute; left: 12px; bottom: 12px; max-width: min(300px, calc(100% - 24px));
+  background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); font-size: 12px;
+}
+.legend summary { cursor: pointer; padding: 6px 10px; font-weight: 500; }
+.legend .inner { padding: 0 10px 10px; display: grid; gap: 8px; }
+.legend h4 { margin: 0; font: 500 10.5px var(--f-body); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.legend ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 3px; }
+.legend li { display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+.swatch { width: 26px; height: 8px; flex: none; }
+.legend .muted { color: var(--muted); }
+
+aside.panel {
+  border-left: 1px solid var(--line); background: var(--panel); overflow-y: auto; min-width: 0;
+  padding: 18px max(18px, env(safe-area-inset-right, 0px)) 28px 18px;
+}
+.panel h2 { font: 600 22px/1.25 var(--f-display); margin: 6px 0 4px; text-wrap: balance; }
+.panel h3 {
+  font: 500 10.5px var(--f-body); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+  margin: 18px 0 6px;
+}
+.panel p { margin: 0 0 8px; }
+.panel .lead { font-size: 15.5px; line-height: 1.55; }
+.panel ul { margin: 0; padding-left: 18px; }
+.meta { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; color: var(--muted); font-size: 12.5px; }
+.mod { font: 500 12px var(--f-mono); padding: 1px 7px; border-radius: 4px; color: #fff; }
+.badges { display: flex; gap: 6px; flex-wrap: wrap; }
+.badge {
+  font: 500 10.5px var(--f-body); letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 2px 7px; border-radius: 4px; background: var(--soft); color: var(--muted);
+}
+.badge.stub { background: transparent; border: 1px dashed var(--muted); }
+.badge.proposed { border: 1px dashed var(--muted); background: transparent; }
+.missing { color: var(--muted); font-size: 13px; background: var(--soft); padding: 8px 10px; border-radius: var(--r); }
+.rel { list-style: none; padding: 0 !important; display: grid; gap: 8px; }
+.rel li { display: grid; gap: 2px; }
+.rel .row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.rel .note { color: var(--muted); font-size: 13px; }
+.linkbtn {
+  background: none; border: 0; padding: 0; color: var(--accent); cursor: pointer; text-align: left;
+  font-weight: 500; text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px;
+}
+.actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px; }
+.back { margin-bottom: 4px; }
+.by { color: var(--muted); font-size: 12.5px; margin-top: 14px; }
+.kbd { font: 11px var(--f-mono); border: 1px solid var(--line); border-radius: 4px; padding: 0 4px; }
+.prose code { font: 12.5px var(--f-mono); background: var(--soft); padding: 0 4px; border-radius: 3px; }
+.home-list { list-style: none; padding: 0 !important; display: flex; flex-wrap: wrap; gap: 6px; }
+.home-list .linkbtn { font-weight: 400; }
+.fallback { padding: 24px; color: var(--muted); }
+
+@media (max-width: 860px) {
+  html, body { height: auto; }
+  main { grid-template-columns: minmax(0, 1fr); }
+  .graph-wrap { height: 62vh; min-height: 360px; }
+  aside.panel { border-left: 0; border-top: 1px solid var(--line); padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  .stats { margin-left: 0; width: 100%; }
+  .search { max-width: none; margin-left: 0; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<header class="band">
+  <div class="brand">
+    <h1>Iliad concept map</h1>
+    <span class="sub" id="sub"></span>
+  </div>
+  <div class="search">
+    <input id="q" type="search" placeholder="Search concepts  ( / )" aria-label="Search concepts" autocomplete="off">
+    <span class="count" id="qcount"></span>
+  </div>
+  <a class="btn primary" id="add" target="_blank" rel="noopener">Add a concept</a>
+</header>
+
+<div class="controls band">
+  <div class="chips" id="days" role="group" aria-label="Filter by day"></div>
+  <label class="toggle"><input type="checkbox" id="proposed" checked> Show proposed links</label>
+  <div class="small-btns">
+    <button class="btn" id="fit" type="button">Fit</button>
+    <button class="btn" id="relayout" type="button">Re-layout</button>
+  </div>
+  <div class="stats" id="stats"></div>
+</div>
+
+<main>
+  <section class="graph-wrap" aria-label="Concept graph">
+    <div id="cy"></div>
+    <details class="legend" id="legend">
+      <summary>Legend</summary>
+      <div class="inner" id="legend-inner"></div>
+    </details>
+  </section>
+  <aside class="panel" id="panel" aria-live="polite"></aside>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/cytoscape@3.28.1/dist/cytoscape.min.js"></script>
+<script>
+const DATA = /*__DATA__*/null;
+
+(function () {
+  const $ = (s) => document.querySelector(s);
+  const M = DATA.meta, LT = M.link_types;
+  const byId = Object.fromEntries(DATA.nodes.map((n) => [n.id, n]));
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const ghBase = M.repo ? `https://github.com/${M.repo}` : "";
+
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  function inline(s) {
+    return esc(s)
+      .replace(/`([^`]+)`/g, "<code>$1</code>")
+      .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+      .replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+  }
+  function md(s) {
+    if (!s) return "";
+    return s.split(/\n\s*\n/).map((block) => {
+      const lines = block.split("\n");
+      if (lines.every((l) => /^\s*[-*]\s+/.test(l))) {
+        return "<ul>" + lines.map((l) => "<li>" + inline(l.replace(/^\s*[-*]\s+/, "")) + "</li>").join("") + "</ul>";
+      }
+      return "<p>" + lines.map(inline).join("<br>") + "</p>";
+    }).join("");
+  }
+  const tok = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  const clusterColor = (c) => tok("--c-" + (c || "0")) || tok("--c-0");
+  const edgeColor = (t) => tok("--e-" + t);
+
+  // ---------- header bits ----------
+  const daysPresent = [...new Set(DATA.nodes.flatMap((n) => n.days))].sort((a, b) => a - b);
+  $("#sub").textContent = `${M.cohort} · days ${daysPresent[0]}–${daysPresent[daysPresent.length - 1]} · built ${M.built}`;
+  if (ghBase) {
+    $("#add").href = `${ghBase}/new/${M.branch}/concepts?filename=new-concept.md&value=${encodeURIComponent(M.card_template)}`;
+  } else { $("#add").hidden = true; }
+  const S = DATA.stats;
+  $("#stats").innerHTML =
+    `<b>${S.cards}</b> concepts · <b>${S.links}</b> links (${S.proposed} proposed) · <b>${S.stubs}</b> stubs · ` +
+    `<b>${S.isolated.length + S.cut_off_groups.length}</b> islands · <b>${S.cross_cluster}</b> cross-cluster`;
+
+  const dayWrap = $("#days");
+  let activeDay = "all";
+  const mkChip = (val, label) => {
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "chip"; b.textContent = label; b.dataset.day = val;
+    b.setAttribute("aria-pressed", String(val === activeDay));
+    b.addEventListener("click", () => { activeDay = val; [...dayWrap.children].forEach((c) => c.setAttribute("aria-pressed", String(c.dataset.day === val))); applyFilters(); });
+    dayWrap.appendChild(b);
+  };
+  mkChip("all", "All days");
+  daysPresent.forEach((d) => mkChip(String(d), `Day ${d}`));
+
+  // ---------- legend ----------
+  function legend() {
+    const counts = {};
+    DATA.nodes.forEach((n) => { counts[n.cluster || "0"] = (counts[n.cluster || "0"] || 0) + 1; });
+    const clusters = Object.entries(M.clusters).map(([k, v]) =>
+      `<li${counts[k] ? "" : ' class="muted"'}><span class="dot" style="background:${clusterColor(k)}"></span>${k === "0" ? "" : k + " · "}${esc(v)} <span class="muted">${counts[k] || 0}</span></li>`).join("");
+    const edges = Object.entries(LT).map(([k, v]) =>
+      `<li><svg class="swatch" viewBox="0 0 26 8" aria-hidden="true"><line x1="1" y1="4" x2="${v.directed ? 19 : 25}" y2="4" stroke="${edgeColor(k)}" stroke-width="2"/>${v.directed ? `<path d="M19 0.5 L25 4 L19 7.5 Z" fill="${edgeColor(k)}"/>` : ""}</svg>${esc(v.label)}</li>`).join("");
+    $("#legend-inner").innerHTML =
+      `<div><h4>Course cluster</h4><ul>${clusters}</ul></div>` +
+      `<div><h4>Link</h4><ul>${edges}<li><svg class="swatch" viewBox="0 0 26 8" aria-hidden="true"><line x1="1" y1="4" x2="25" y2="4" stroke="${tok("--muted")}" stroke-width="2" stroke-dasharray="4 3"/></svg>dashed: proposed, not confirmed</li></ul></div>` +
+      `<div><h4>Card</h4><ul><li>● concept &nbsp; ◆ problem &nbsp; ▬ case</li><li>hollow: stub, no one-sentence yet</li><li>dashed ring: island, no links</li></ul></div>`;
+  }
+
+  // ---------- graph ----------
+  if (typeof cytoscape === "undefined") {
+    $("#cy").innerHTML = '<p class="fallback">The graph library did not load. Check your connection and reload.</p>';
+    return;
+  }
+  const isolated = new Set(S.isolated);
+  const elements = [
+    ...DATA.nodes.map((n) => ({ group: "nodes", data: { ...n, label: n.title, island: isolated.has(n.id) }, position: { x: n.x, y: n.y } })),
+    ...DATA.edges.map((e) => ({ group: "edges", data: { ...e, label: LT[e.type].label } })),
+  ];
+
+  function styles() {
+    const ink = tok("--ink"), bg = tok("--bg"), accent = tok("--accent"), muted = tok("--muted");
+    return [
+      { selector: "node", style: {
+        "width": (e) => 20 + Math.min(e.data("degree"), 8) * 4.5,
+        "height": (e) => 20 + Math.min(e.data("degree"), 8) * 4.5,
+        "shape": (e) => ({ concept: "ellipse", problem: "diamond", case: "round-rectangle" }[e.data("kind")] || "ellipse"),
+        "background-color": (e) => clusterColor(e.data("cluster")),
+        "background-opacity": (e) => (e.data("status") === "stub" ? 0.16 : 1),
+        "border-width": (e) => (e.data("status") === "stub" ? 2 : 0),
+        "border-color": (e) => clusterColor(e.data("cluster")),
+        "label": "data(label)", "color": ink, "font-family": '"IBM Plex Sans", system-ui, sans-serif',
+        "font-size": 11, "text-valign": "bottom", "text-margin-y": 5, "text-wrap": "wrap", "text-max-width": 120,
+        "text-outline-color": bg, "text-outline-width": 2.5, "min-zoomed-font-size": 6,
+      }},
+      { selector: "node[?island]", style: { "border-width": 2.5, "border-style": "dashed", "border-color": ink } },
+      { selector: "edge", style: {
+        "width": 1.6, "curve-style": "bezier", "line-color": (e) => edgeColor(e.data("type")),
+        "target-arrow-color": (e) => edgeColor(e.data("type")),
+        "target-arrow-shape": (e) => (LT[e.data("type")].directed ? "triangle" : "none"),
+        "arrow-scale": 0.85, "opacity": 0.9,
+      }},
+      { selector: "edge[?proposed]", style: { "line-style": "dashed", "line-dash-pattern": [6, 4], "opacity": 0.7 } },
+      { selector: ".faded", style: { "opacity": 0.12, "text-opacity": 0.25 } },
+      { selector: "edge.lit", style: {
+        "width": 2.4, "opacity": 1, "label": "data(label)", "font-size": 10, "color": muted,
+        "text-rotation": "autorotate", "text-background-color": bg, "text-background-opacity": 1, "text-background-padding": 2,
+        "font-family": '"IBM Plex Sans", system-ui, sans-serif',
+      }},
+      { selector: "node.match", style: { "border-width": 3, "border-color": accent, "border-style": "solid" } },
+      { selector: "node:selected", style: { "border-width": 3.5, "border-color": accent, "border-style": "solid", "font-weight": 600 } },
+      { selector: ".hidden", style: { "display": "none" } },
+    ];
+  }
+
+  const cy = cytoscape({
+    container: $("#cy"), elements, style: styles(),
+    layout: { name: "preset", fit: true, padding: 40 },
+    minZoom: 0.15, maxZoom: 3, wheelSensitivity: 0.25, boxSelectionEnabled: false,
+  });
+  legend();
+  if (innerWidth >= 1280 && innerHeight >= 980) $("#legend").open = true;
+
+  const restyle = () => { cy.style(styles()); legend(); };
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", restyle);
+  new MutationObserver(restyle).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => cy.style().update());
+
+  // ---------- filters ----------
+  function applyFilters() {
+    cy.batch(() => {
+      cy.nodes().forEach((n) => n.toggleClass("hidden", activeDay !== "all" && !n.data("days").includes(Number(activeDay))));
+      const showProp = $("#proposed").checked;
+      cy.edges().forEach((e) => e.toggleClass("hidden", !showProp && e.data("proposed")));
+    });
+    cy.animate({ fit: { eles: cy.elements(":visible"), padding: 40 } }, { duration: reduced ? 0 : 300 });
+  }
+  $("#proposed").addEventListener("change", applyFilters);
+  $("#fit").addEventListener("click", () => cy.animate({ fit: { eles: cy.elements(":visible"), padding: 40 } }, { duration: reduced ? 0 : 300 }));
+  $("#relayout").addEventListener("click", () => {
+    cy.elements(":visible").layout({ name: "cose", animate: !reduced, nodeRepulsion: () => 9000, idealEdgeLength: () => 90, padding: 40, randomize: false }).run();
+  });
+
+  // ---------- search ----------
+  const hay = (n) => [n.title, n.id, ...(n.aliases || []), ...Object.values(n.sections)].join(" ").toLowerCase();
+  const index = Object.fromEntries(DATA.nodes.map((n) => [n.id, hay(n)]));
+  let matches = [];
+  $("#q").addEventListener("input", (ev) => {
+    const q = ev.target.value.trim().toLowerCase();
+    cy.batch(() => {
+      cy.elements().removeClass("match faded lit");
+      if (!q) { matches = []; $("#qcount").textContent = ""; return; }
+      matches = DATA.nodes.filter((n) => n.title.toLowerCase().includes(q) || index[n.id].includes(q)).map((n) => n.id);
+      matches.sort((a, b) => Number(!byId[a].title.toLowerCase().includes(q)) - Number(!byId[b].title.toLowerCase().includes(q)));
+      cy.elements().addClass("faded");
+      matches.forEach((id) => cy.getElementById(id).removeClass("faded").addClass("match"));
+      $("#qcount").textContent = `${matches.length} found`;
+    });
+  });
+  $("#q").addEventListener("keydown", (ev) => {
+    if (ev.key === "Enter" && matches.length) { select(matches[0]); }
+    if (ev.key === "Escape") { ev.target.value = ""; ev.target.dispatchEvent(new Event("input")); }
+  });
+  document.addEventListener("keydown", (ev) => {
+    if (ev.key === "/" && document.activeElement !== $("#q")) { ev.preventDefault(); $("#q").focus(); }
+    if (ev.key === "Escape" && document.activeElement !== $("#q")) clear();
+  });
+
+  // ---------- selection ----------
+  const REL = {
+    needs: ["Needs", "Needed by"], gen: ["Generalises", "Special case of"], tool: ["Same maths as", "Same maths as"],
+    vs: ["In tension with", "In tension with"], safety: ["Bears on", "Relevant concepts"], eg: ["Example of", "Examples"],
+  };
+  function select(id) {
+    const node = cy.getElementById(id);
+    if (!node.length) return;
+    cy.batch(() => {
+      cy.elements().removeClass("match lit").addClass("faded").unselect();
+      const hood = node.closedNeighborhood();
+      hood.removeClass("faded");
+      node.connectedEdges().addClass("lit");
+      node.select();
+    });
+    if (!node.hasClass("hidden")) cy.animate({ center: { eles: node }, zoom: Math.max(cy.zoom(), 0.9) }, { duration: reduced ? 0 : 280 });
+    renderCard(id);
+    if (location.hash !== "#" + id) history.replaceState(null, "", "#" + id);
+  }
+  function clear() {
+    cy.elements().removeClass("faded lit match").unselect();
+    renderHome();
+    if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+  }
+  cy.on("tap", "node", (ev) => select(ev.target.id()));
+  cy.on("tap", "edge", (ev) => renderEdge(ev.target));
+  cy.on("tap", (ev) => { if (ev.target === cy) clear(); });
+  window.addEventListener("hashchange", () => { const id = location.hash.slice(1); if (byId[id]) select(id); });
+
+  const panel = $("#panel");
+  panel.addEventListener("click", (ev) => {
+    const b = ev.target.closest("[data-go]");
+    if (b) { ev.preventDefault(); select(b.dataset.go); panel.scrollTop = 0; }
+    const h = ev.target.closest("[data-home]");
+    if (h) { ev.preventDefault(); clear(); }
+    const c = ev.target.closest("[data-copy]");
+    if (c) {
+      const url = location.href;
+      const done = () => { c.textContent = "Link copied"; setTimeout(() => (c.textContent = "Copy link"), 1600); };
+      const fail = () => { c.textContent = "Copy the address bar"; setTimeout(() => (c.textContent = "Copy link"), 2200); };
+      try { navigator.clipboard.writeText(url).then(done, fail); } catch (e) { fail(); }
+    }
+  });
+
+  const go = (id) => `<button class="linkbtn" data-go="${esc(id)}">${esc(byId[id].title)}</button>`;
+  const dayLine = (n) => n.days.map((d) => { const D = M.days[String(d)] || {}; return `Day ${d}${D.lecturer ? " · " + esc(D.lecturer) : ""}`; }).join("<br>");
+  const modChip = (n) => n.module ? `<span class="mod" style="background:${clusterColor(n.cluster)}">${esc(n.module)}</span>` : "";
+
+  function renderCard(id) {
+    const n = byId[id];
+    const sec = n.sections;
+    const fields = [["statement", "In one sentence"], ["twist", "Twist"], ["safety", "Why it matters for safety"], ["question", "Open question"], ["selftest", "Self-test"], ["notes", "Notes"]];
+    const missing = fields.filter(([k]) => k !== "notes" && !sec[k]).map(([, l]) => l.toLowerCase());
+    let html = `<button class="btn back" data-home type="button">← All concepts</button>`;
+    html += `<div class="badges"><span class="badge">${esc(n.kind)}</span>${n.status === "stub" ? '<span class="badge stub">stub</span>' : ""}${n.load_bearing ? '<span class="badge">load-bearing</span>' : ""}${isolated.has(n.id) ? '<span class="badge stub">island</span>' : ""}</div>`;
+    html += `<h2>${esc(n.title)}</h2><div class="meta">${modChip(n)}<span>${dayLine(n)}</span></div>`;
+    fields.forEach(([k, label]) => {
+      if (!sec[k]) return;
+      html += `<h3>${label}</h3><div class="prose${k === "statement" ? " lead" : ""}">${md(sec[k])}</div>`;
+    });
+    if (missing.length) html += `<h3>Not written yet</h3><p class="missing">${esc(missing.join(", "))}. ${ghBase ? `<a href="${ghBase}/edit/${M.branch}/${n.path}" target="_blank" rel="noopener">Write it</a>` : ""}</p>`;
+
+    const groups = {};
+    cy.getElementById(id).connectedEdges().forEach((e) => {
+      const d = e.data(); const out = d.source === id; const other = out ? d.target : d.source;
+      const name = REL[d.type][out || !LT[d.type].directed ? 0 : 1];
+      (groups[name] = groups[name] || []).push({ other, note: d.note, proposed: d.proposed });
+    });
+    const gnames = Object.keys(groups);
+    if (gnames.length) {
+      gnames.forEach((g) => {
+        html += `<h3>${g}</h3><ul class="rel">` + groups[g].map((r) =>
+          `<li><div class="row">${go(r.other)}${r.proposed ? '<span class="badge proposed">proposed</span>' : ""}</div>${r.note ? `<div class="note">${inline(r.note)}</div>` : ""}</li>`).join("") + "</ul>";
+      });
+    } else {
+      html += `<h3>Links</h3><p class="missing">No links yet. This card is an island: what does it need, or what is it an example of?</p>`;
+    }
+    if (sec.sources) html += `<h3>Sources</h3><div class="prose">${md(sec.sources)}</div>`;
+    html += `<div class="actions">${ghBase ? `<a class="btn" href="${ghBase}/edit/${M.branch}/${n.path}" target="_blank" rel="noopener">Edit this card on GitHub</a>` : ""}<button class="btn" type="button" data-copy>Copy link</button></div>`;
+    if (n.by && n.by.length) html += `<p class="by">Card by ${esc(n.by.join(", "))}</p>`;
+    panel.innerHTML = html;
+  }
+
+  function renderEdge(e) {
+    const d = e.data();
+    cy.batch(() => { cy.elements().addClass("faded").removeClass("lit"); e.removeClass("faded").addClass("lit"); e.connectedNodes().removeClass("faded"); });
+    const t = LT[d.type];
+    let html = `<button class="btn back" data-home type="button">← All concepts</button>`;
+    html += `<div class="badges"><span class="badge">link</span>${d.proposed ? '<span class="badge proposed">proposed</span>' : ""}</div>`;
+    html += `<h2>${esc(byId[d.source].title)} <span style="color:var(--muted)">${esc(t.label)}</span> ${esc(byId[d.target].title)}</h2>`;
+    html += `<p class="missing">${esc(t.help)}</p>`;
+    if (d.note) html += `<h3>Why</h3><div class="prose">${md(d.note)}</div>`;
+    html += `<h3>Ends</h3><ul class="rel"><li>${go(d.source)}</li><li>${go(d.target)}</li></ul>`;
+    html += `<p class="by">${d.proposed ? "Proposed by " + esc(d.by || "claude") + ". Confirm it by removing 'proposed: true' from " : "Declared in "}<code>concepts/${esc(d.declared_in)}.md</code></p>`;
+    panel.innerHTML = html;
+  }
+
+  function renderHome() {
+    const isl = S.isolated.map(go).join("");
+    const groups = S.cut_off_groups.map((g) => `<li>${g.map(go).join(", ")}</li>`).join("");
+    const stubs = DATA.nodes.filter((n) => n.status === "stub").sort((a, b) => b.degree - a.degree).slice(0, 12);
+    let html = `<h2>${S.cards} concepts from ${daysPresent.length} days</h2>`;
+    html += `<p>Click a concept to read its card. Click a line to see why two concepts are linked. Every card is written by a participant, in their own words.</p>`;
+    html += `<p class="missing">Colour: course cluster (A alignment, D agency, C interpretability…). Shape: ● concept, ◆ problem, ▬ case. Hollow: stub. Dashed line: proposed link, not yet confirmed. Dashed ring: island.</p>`;
+    html += `<h3>Islands</h3>`;
+    html += isl ? `<p>No links at all:</p><ul class="home-list">${S.isolated.map((id) => `<li>${go(id)}</li>`).join("")}</ul>` : "<p>None. Every card has a link.</p>";
+    if (groups) html += `<p style="margin-top:10px">Groups cut off from the main map:</p><ul>${groups}</ul>`;
+    html += `<h3>Stubs that need one sentence</h3><p class="missing">${S.stubs} cards have no one-sentence statement yet. The most connected ones first:</p><ul class="home-list">${stubs.map((n) => `<li>${go(n.id)}</li>`).join("")}</ul>`;
+    html += `<h3>Contribute</h3><p>Add a card, write a stub, or confirm a proposed link. Each takes about two minutes in the browser, no install.</p>`;
+    html += `<div class="actions">${ghBase ? `<a class="btn primary" href="${$("#add").href}" target="_blank" rel="noopener">Add a concept</a><a class="btn" href="${ghBase}/blob/${M.branch}/CONTRIBUTING.md" target="_blank" rel="noopener">How to contribute</a>` : ""}</div>`;
+    html += `<p class="by">Course material: <a href="https://iliad-intensive.org/" target="_blank" rel="noopener">iliad-intensive.org</a>, CC BY 4.0. Press <span class="kbd">/</span> to search.</p>`;
+    panel.innerHTML = html;
+  }
+
+  const start = location.hash.slice(1);
+  if (byId[start]) select(start); else renderHome();
+})();
+</script>

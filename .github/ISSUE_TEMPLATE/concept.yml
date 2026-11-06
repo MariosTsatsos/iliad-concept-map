@@ -1,0 +1,38 @@
+name: Suggest a concept
+description: Propose a card without editing any files.
+title: "Concept: "
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Concept name
+    validations:
+      required: true
+  - type: input
+    id: days
+    attributes:
+      label: Day(s)
+      placeholder: "6"
+  - type: textarea
+    id: sentence
+    attributes:
+      label: In one sentence, your own words
+    validations:
+      required: true
+  - type: textarea
+    id: twist
+    attributes:
+      label: Twist (what surprised you)
+  - type: textarea
+    id: safety
+    attributes:
+      label: Why it matters for safety
+  - type: textarea
+    id: links
+    attributes:
+      label: Links to existing cards
+      description: "needs, gen, tool, vs, safety, eg. Example: needs bellman-equation; vs corrigibility"
+  - type: input
+    id: source
+    attributes:
+      label: Source (lecture, slide, paper)

@@ -1,0 +1,52 @@
+# Course facts the build uses. Edit here, not in the cards.
+# Schedule: https://intensive-november.pages.dev/schedule
+# Modules: https://iliad-intensive.org/ (CC BY 4.0)
+
+repo: MariosTsatsos/iliad-concept-map   # owner/name on GitHub, used for "Edit" and "Add" links
+branch: main
+cohort: Iliad Intensive, London, November 2026
+
+clusters:
+  "0": Foundations
+  A: Alignment
+  B: Learning
+  C: Interpretability
+  D: Agency
+  E: Safety guarantees
+
+days:
+  1:  {date: 2026-11-02, title: Intro to ML Engineering and Transformers, lecturer: Dan Wilhelm, module: C.1, url: https://iliad-intensive.org/interpretability/intro-to-ml-engineering/}
+  2:  {date: 2026-11-03, title: AI Alignment Introduction, lecturer: George Robinson, module: A.1, url: https://iliad-intensive.org/alignment/ai-alignment-intro/}
+  3:  {date: 2026-11-04, title: Preferences to Rewards, Intro to RL, lecturer: Fernando Rosas, module: D.1.1, url: https://iliad-intensive.org/agency/preferences-to-rewards/}
+  4:  {date: 2026-11-05, title: Agent Foundations, lecturer: Ashe Vazquez Nuñez, module: D.4.1, url: https://iliad-intensive.org/agency/agent-foundations/}
+  5:  {date: 2026-11-06, title: Alignment in Practice, lecturer: Margot Stakenborg, module: A.2, url: https://iliad-intensive.org/alignment/alignment-in-practice/}
+  6:  {date: 2026-11-09, title: Debate and Scalable Oversight, lecturer: Leonardo Costa Lesage, module: E.1, url: https://iliad-intensive.org/safety/debate/}
+  7:  {date: 2026-11-10, title: Solomonoff Induction and AIXI, lecturer: David Quarel, module: D.3.1, url: https://iliad-intensive.org/agency/solomonoff-induction/}
+  8:  {date: 2026-11-11, title: Heuristic Arguments and Verification, lecturer: George Robinson}
+  9:  {date: 2026-11-12, title: Multi-agent Dynamics, lecturer: James Sykes}
+  10: {date: 2026-11-13, title: Steganography and Backdoors, lecturer: Julian Schulz, module: E.2, url: https://iliad-intensive.org/safety/steganography/}
+  11: {date: 2026-11-16, title: ZKP for Compute Governance, lecturer: Pierre Peigné}
+  12: {date: 2026-11-17, title: Project proposal day, lecturer: Leonard Bereska}
+  13: {date: 2026-11-18, title: Physics for Deep Learning, lecturer: Artemy Kolchinsky}
+  14: {date: 2026-11-19, title: Mysteries of Deep Learning, lecturer: Kai Ogden and Miguel Donaire Arcas-Sariot, module: B.2, url: https://iliad-intensive.org/learning/mysteries-of-deep-learning/}
+  15: {date: 2026-11-20, title: Training Dynamics, lecturer: Cheryne Jonay and Christian Copetti, module: B.4, url: https://iliad-intensive.org/learning/training-dynamics/}
+  16: {date: 2026-11-23, title: Singular Learning Theory, lecturer: Kai Ogden, module: B.3, url: https://iliad-intensive.org/learning/singular-learning-theory/}
+  17: {date: 2026-11-24, title: Data Attribution, lecturer: Kyriakos Katsamaktsis, module: B.5, url: https://iliad-intensive.org/learning/data-attribution/}
+  18: {date: 2026-11-25, title: Computational Mechanics, lecturer: Xavier Poncini, module: C.3, url: https://iliad-intensive.org/interpretability/computational-mechanics/}
+  19: {date: 2026-11-26, title: World Models, lecturer: Simon Schrader, module: D.7, url: https://iliad-intensive.org/agency/world-models/}
+  20: {date: 2026-11-27, title: Project proposal day, lecturer: Leonard Bereska}
+
+# Link types. A card lists links from itself to other cards.
+# directed: true means "this card -> other card" reads as the label.
+link_types:
+  needs:   {label: needs, directed: true,  help: "You must understand the other card first."}
+  gen:     {label: generalises, directed: true, help: "The other card is a special case of this one."}
+  tool:    {label: same maths, directed: false, help: "Both use the same mathematical idea."}
+  vs:      {label: in tension with, directed: false, help: "The two pull against each other."}
+  safety:  {label: bears on, directed: true, help: "This card matters for the safety problem on the other card."}
+  eg:      {label: example of, directed: true, help: "This card is a concrete example of the other card."}
+
+kinds:
+  concept: An idea, definition or result.
+  problem: A safety problem or failure mode.
+  case:    A paper, incident, scenario or forecast.
