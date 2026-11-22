@@ -1,17 +1,17 @@
 name: publish map
+# Builds the map and puts the built page on the 'gh-pages' branch, which GitHub Pages serves.
 on:
   push:
     branches: [main]
   workflow_dispatch:
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write   # to push the built page to the gh-pages branch
+  pages: write      # to ask GitHub Pages to rebuild
 concurrency:
-  group: pages
+  group: publish
   cancel-in-progress: true
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,15 +20,12 @@ jobs:
           python-version: "3.12"
       - run: pip install -r requirements.txt
       - run: python scripts/build.py
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: site/dist
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
-    steps:
-      - id: deploy
-        uses: actions/deploy-pages@v4
+      - name: Push the built page to the gh-pages branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash scripts/publish.sh "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+      - name: Ask GitHub Pages to rebuild (passes quietly if Pages is not switched on)
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/${GITHUB_REPOSITORY}/pages/builds"

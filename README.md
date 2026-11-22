@@ -2,7 +2,11 @@
 
 An interactive map of the ideas from the [Iliad Intensive](https://iliad-intensive.org/) (London, November 2026): the course material, and the questions and analogies that participants came up with while studying it.
 
-**Live map:** https://mariostsatsos.github.io/iliad-concept-map/
+[![Preview of the concept map: 147 cards as nodes, coloured by course cluster, with the list of key ideas on the right](docs/preview.png)](https://mariostsatsos.github.io/iliad-concept-map/)
+
+**Open the interactive map:** https://mariostsatsos.github.io/iliad-concept-map/
+
+The picture above is a still image. Click it, or the link, to open the map itself.
 
 Each idea is one **card** (a small text file). Cards are joined by **links** of six types. The map draws every card as a node and every link as a line.
 
@@ -134,7 +138,9 @@ python scripts/build.py          # writes site/dist/index.html; open it in a bro
 - `course.yml`: days, lecturers, clusters, link types, kinds, origins
 - `scripts/build.py`: checks the cards, builds the graph with networkx, writes the page
 - `site/template.html`: the interactive page (Cytoscape.js)
-- `.github/workflows/`: the check on pull requests and the publishing of the live map
+- `.github/workflows/`: the check on pull requests, and the publishing of the live map after every change to `main`
+- `scripts/publish.sh`: puts the built page on the `gh-pages` branch, which GitHub Pages serves at the address above
+- `docs/preview.png`: the still image at the top of this page (a screenshot, replaced by hand)
 
 No slides, PDFs or exercise sheets are stored here. Cards link to the module pages and papers.
 
