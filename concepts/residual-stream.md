@@ -2,11 +2,12 @@
 title: "Residual stream"
 kind: concept
 days: [1]
-by: [marios]
+by: [marios, claude]
 links: []
 ---
 
 ## In one sentence
+The vector at each token position that every layer reads from and adds to; it is the shared channel through which layers communicate.
 
 ## Twist
 

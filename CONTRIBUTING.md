@@ -35,6 +35,8 @@ Dashed lines are suggestions nobody has checked.
 title: Potential-based shaping
 kind: concept          # concept | problem | case
 days: [3]
+origin: participant    # participant | chat | notes | claude
+weight: 2              # 1, 2 or 3 (node size); optional
 by: [your-github-name]
 links:
   - needs: reward
@@ -54,6 +56,8 @@ links:
 ```
 
 Link types: `needs`, `gen` (generalises), `tool` (same maths), `vs` (in tension with), `safety` (bears on a safety problem), `eg` (example of). A link goes on one card only; the map draws it both ways.
+
+All attributes and their allowed values are listed in [README.md](README.md).
 
 ## House rules
 

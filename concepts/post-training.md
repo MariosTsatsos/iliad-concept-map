@@ -2,11 +2,12 @@
 title: "Post-training"
 kind: concept
 days: [5]
-by: [marios]
+by: [marios, claude]
 links: []
 ---
 
 ## In one sentence
+Everything done to a model after pretraining to shape its behaviour: fine-tuning, reinforcement from feedback, and safety training.
 
 ## Twist
 Interp people sometimes say pre-trained models are more aligned than post-trained ones.

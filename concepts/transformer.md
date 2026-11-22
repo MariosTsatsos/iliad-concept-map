@@ -2,7 +2,7 @@
 title: "Transformer"
 kind: concept
 days: [1]
-by: [marios]
+by: [marios, claude]
 links:
   - to: attention
     type: needs
@@ -13,6 +13,7 @@ links:
 ---
 
 ## In one sentence
+A network that processes a sequence by alternating attention layers, which move information between positions, and MLP layers, which transform it at each position.
 
 ## Twist
 

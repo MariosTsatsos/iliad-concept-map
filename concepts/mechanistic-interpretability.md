@@ -2,7 +2,7 @@
 title: "Mechanistic interpretability"
 kind: concept
 days: [1]
-by: [marios]
+by: [marios, claude]
 links:
   - to: transformer
     type: needs
@@ -10,6 +10,7 @@ links:
 ---
 
 ## In one sentence
+Reverse-engineering a trained network: working out which internal components compute what, and how they combine into the behaviour.
 
 ## Twist
 

@@ -112,6 +112,7 @@ def load(probs: Problems):
     course = yaml.safe_load((ROOT / "course.yml").read_text(encoding="utf-8"))
     link_types = course["link_types"]
     kinds = course["kinds"]
+    origins = course["origins"]
     days = {int(k): v for k, v in course["days"].items()}
 
     cards: dict[str, dict] = {}
@@ -151,6 +152,16 @@ def load(probs: Problems):
             probs.warn(where, "no 'days' given")
         module = str(fm.get("module") or (days[cdays[0]].get("module", "") if cdays and cdays[0] in days else ""))
         cluster = module[:1] if module else ""
+        if not cluster and cdays and cdays[0] in days:
+            cluster = str(days[cdays[0]].get("cluster", ""))
+        origin = str(fm.get("origin") or "notes")
+        if origin not in origins:
+            probs.error(where, f"origin must be one of {', '.join(origins)}")
+            origin = "notes"
+        weight = fm.get("weight", origins[origin]["weight"])
+        if weight not in (1, 2, 3):
+            probs.error(where, "weight must be 1, 2 or 3")
+            weight = 2
         by = fm.get("by") or []
         if isinstance(by, str):
             by = [by]
@@ -168,6 +179,8 @@ def load(probs: Problems):
             "module": module,
             "cluster": cluster,
             "by": by,
+            "origin": origin,
+            "weight": weight,
             "load_bearing": fm.get("load_bearing"),
             "aliases": fm.get("aliases") or [],
             "sections": sections,
@@ -227,7 +240,7 @@ def layout(g: nx.MultiDiGraph) -> dict[str, tuple[float, float]]:
     isolates = sorted(n for c in comps if len(c) == 1 for n in c)
     if groups:
         main = u.subgraph(groups[0])
-        scale = 62 * math.sqrt(len(main))
+        scale = 105 * math.sqrt(len(main))
         p = nx.kamada_kawai_layout(main, scale=scale) if len(main) > 2 else nx.circular_layout(main, scale=scale)
         pos.update({n: (float(x), float(y)) for n, (x, y) in p.items()})
         right = scale + 190
@@ -279,7 +292,7 @@ def to_payload(course: dict, g: nx.MultiDiGraph, pos: dict, st: dict, template: 
         x, y = pos.get(n, (0.0, 0.0))
         nodes.append({
             "id": n, "title": d["title"], "kind": d["kind"], "days": d["days"], "module": d["module"],
-            "cluster": d["cluster"], "by": d["by"], "load_bearing": d["load_bearing"], "aliases": d["aliases"],
+            "cluster": d["cluster"], "by": d["by"], "origin": d["origin"], "weight": d["weight"], "load_bearing": d["load_bearing"], "aliases": d["aliases"],
             "status": d["status"], "sections": d["sections"], "path": d["path"],
             "degree": u.degree(n), "x": round(x, 1), "y": round(y, 1),
         })
@@ -299,6 +312,7 @@ def to_payload(course: dict, g: nx.MultiDiGraph, pos: dict, st: dict, template: 
             "clusters": course["clusters"],
             "link_types": course["link_types"],
             "kinds": course["kinds"],
+            "origins": course["origins"],
             "days": days,
             "card_template": template,
         },

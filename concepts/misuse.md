@@ -2,11 +2,12 @@
 title: "Misuse"
 kind: problem
 days: [2]
-by: [marios]
+by: [marios, claude]
 links: []
 ---
 
 ## In one sentence
+Harm that comes from a person using an AI system for a harmful purpose, as distinct from the system pursuing a wrong goal on its own.
 
 ## Twist
 

@@ -3,11 +3,12 @@ title: "Independence (axiom 4)"
 kind: concept
 days: [3]
 module: D.1.1
-by: [marios]
+by: [marios, claude]
 links: []
 ---
 
 ## In one sentence
+A preference between A and B does not change when both are mixed with the same third option in the same proportion.
 
 ## Twist
 

@@ -3,11 +3,12 @@ title: "Dutch book and money pump"
 kind: concept
 days: [3]
 module: D.1.1
-by: [marios]
+by: [marios, claude]
 links: []
 ---
 
 ## In one sentence
+A set of bets, each acceptable to an agent with inconsistent preferences or beliefs, that together make the agent lose for certain.
 
 ## Twist
 

@@ -3,11 +3,12 @@ title: "Goal"
 kind: concept
 days: [2, 3]
 module: D.1.1
-by: [marios]
+by: [marios, claude]
 links: []
 ---
 
 ## In one sentence
+A state of the world or an outcome that an agent's behaviour is directed at.
 
 ## Twist
 

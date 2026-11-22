@@ -1,0 +1,34 @@
+---
+title: "Card puzzle 2: three protocols and a zero-leak one"
+kind: case
+days: [11]
+origin: participant
+by: [MariosTsatsos]
+links:
+  - eg: zero-knowledge-proof
+  - to: entropy
+    type: needs
+    note: "The leak is measured in bits."
+---
+
+## In one sentence
+Marios's protocols for proving that two drawn cards have the same colour: each early version left N of the 650 possible same-colour pairs as candidates, a leak of log2(650/N) bits, and his final protocol leaks nothing: sort the deck into two colour groups with the pair face down in one, shuffle, reveal.
+
+## Twist
+The leak can be counted exactly, in bits.
+
+## Why it matters for safety
+
+
+## Open question
+
+
+## Self-test
+Why are there 650 same-colour pairs in a 52-card deck?
+
+## Notes
+Answer to the self-test: 2 colours x (26 choose 2) = 2 x 325.
+
+## Sources
+- Day 11 slides, David Zeidler: A toy model of zero-knowledge inference verification, warm-up puzzle 2
+- Discussion between Marios and Claude during the course

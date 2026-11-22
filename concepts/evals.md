@@ -2,7 +2,7 @@
 title: "Pre-deployment evals"
 kind: concept
 days: [5]
-by: [marios]
+by: [marios, claude]
 links:
   - to: misuse
     type: safety
@@ -11,6 +11,7 @@ links:
 ---
 
 ## In one sentence
+Tests run on a model before release to measure what it can do and what it tends to do.
 
 ## Twist
 

@@ -2,7 +2,7 @@
 title: "RLAIF"
 kind: concept
 days: [5]
-by: [marios]
+by: [marios, claude]
 links:
   - eg: post-training
   - to: rlhf
@@ -12,6 +12,7 @@ links:
 ---
 
 ## In one sentence
+Reinforcement learning in which the feedback comes from an AI model's judgments in place of human ratings.
 
 ## Twist
 

@@ -2,7 +2,7 @@
 title: "Goal misgeneralization"
 kind: problem
 days: [2]
-by: [marios]
+by: [marios, claude]
 links:
   - to: reward-hypothesis
     type: vs
@@ -11,6 +11,7 @@ links:
 ---
 
 ## In one sentence
+A model keeps its capabilities in a new situation and uses them for a goal other than the intended one, because both goals fitted the training data.
 
 ## Twist
 

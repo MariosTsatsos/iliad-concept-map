@@ -3,11 +3,12 @@ title: "Preference"
 kind: concept
 days: [3]
 module: D.1.1
-by: [marios]
+by: [marios, claude]
 links: []
 ---
 
 ## In one sentence
+A ranking of options by an agent: for a pair of options, which one it would choose.
 
 ## Twist
 Preference ≠ utility ≠ reward.

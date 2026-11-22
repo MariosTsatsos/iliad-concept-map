@@ -1,0 +1,30 @@
+---
+title: "AIXI"
+kind: concept
+days: [7]
+origin: notes
+by: [claude]
+links:
+  - needs: solomonoff-induction
+  - needs: return
+  - safety: wireheading
+---
+
+## In one sentence
+An agent that predicts its environment with Solomonoff induction and picks the actions with the highest expected total reward.
+
+## Twist
+It is optimal in a precise sense and cannot be computed.
+
+## Why it matters for safety
+A formal model of a maximally capable reward maximiser, useful for asking what such an agent would do.
+
+## Open question
+
+
+## Self-test
+Which two ingredients does AIXI combine?
+
+## Sources
+- [Day 7 notes and exercises, David Quarel: Solomonoff Induction and AIXI](https://iliad-intensive.org/agency/solomonoff-induction/)
+- Hutter, Universal Artificial Intelligence (2005)

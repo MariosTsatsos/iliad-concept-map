@@ -2,11 +2,12 @@
 title: "Attention"
 kind: concept
 days: [1]
-by: [marios]
+by: [marios, claude]
 links: []
 ---
 
 ## In one sentence
+The transformer operation in which each token position looks at earlier positions, weights them by relevance, and copies information from them.
 
 ## Twist
 

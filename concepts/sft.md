@@ -2,12 +2,13 @@
 title: "Supervised fine-tuning (SFT)"
 kind: concept
 days: [5]
-by: [marios]
+by: [marios, claude]
 links:
   - eg: post-training
 ---
 
 ## In one sentence
+Further training of a pretrained model on examples of the desired input and output.
 
 ## Twist
 

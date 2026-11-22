@@ -1,0 +1,31 @@
+---
+title: "Training dynamics"
+kind: concept
+days: [15]
+origin: notes
+weight: 1
+by: [claude]
+links:
+  - to: three-temperatures
+    type: tool
+    proposed: true
+    by: claude
+---
+
+## In one sentence
+
+
+## Twist
+
+
+## Why it matters for safety
+
+
+## Open question
+Stub. Day 15 has no card yet. Add what you took from it.
+
+## Self-test
+
+
+## Sources
+- [Day 15, Cheryne Jonay and Christian Copetti: Training Dynamics](https://iliad-intensive.org/learning/training-dynamics/)

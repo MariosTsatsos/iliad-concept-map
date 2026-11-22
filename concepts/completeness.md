@@ -3,11 +3,12 @@ title: "Completeness (axiom 1)"
 kind: concept
 days: [3]
 module: D.1.1
-by: [marios]
+by: [marios, claude]
 links: []
 ---
 
 ## In one sentence
+For any two options A and B, the agent prefers A, prefers B, or is indifferent: it can always compare.
 
 ## Twist
 

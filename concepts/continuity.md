@@ -3,11 +3,12 @@ title: "Continuity (axiom 3)"
 kind: concept
 days: [3]
 module: D.1.1
-by: [marios]
+by: [marios, claude]
 links: []
 ---
 
 ## In one sentence
+If A is preferred to B and B to C, some lottery between A and C is exactly as good as B.
 
 ## Twist
 

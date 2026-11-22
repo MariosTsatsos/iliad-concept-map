@@ -2,7 +2,7 @@
 title: "QK and OV circuits"
 kind: concept
 days: [1]
-by: [marios]
+by: [marios, claude]
 links:
   - to: attention
     type: needs
@@ -17,6 +17,7 @@ links:
 ---
 
 ## In one sentence
+The two parts of an attention head: the QK circuit decides which earlier positions to attend to, the OV circuit decides what is copied from them.
 
 ## Twist
 

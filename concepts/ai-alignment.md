@@ -2,7 +2,7 @@
 title: "AI alignment"
 kind: concept
 days: [2]
-by: [marios]
+by: [marios, claude]
 links:
   - to: goal
     type: needs
@@ -11,6 +11,7 @@ links:
 ---
 
 ## In one sentence
+The problem of making an AI system pursue the goals its developers and users intend, also in situations nobody tested.
 
 ## Twist
 Recent empirical studies (toy models of the past ~4 years), even though deep and formal in their reasoning, are mostly built on shaky ground: undefined or ill-defined concepts like alignment, goals and more.

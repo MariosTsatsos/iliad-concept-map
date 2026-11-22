@@ -3,7 +3,7 @@ title: "Markov decision process (MDP)"
 kind: concept
 days: [3]
 module: D.1.2
-by: [marios]
+by: [marios, claude]
 links:
   - to: agent
     type: needs
@@ -12,6 +12,7 @@ links:
 ---
 
 ## In one sentence
+A model of sequential decisions: states, actions, a rule for how actions change the state, and a reward, where the next state depends only on the current state and action.
 
 ## Twist
 The environment is much better described than the agent itself!

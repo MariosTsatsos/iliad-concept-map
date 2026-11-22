@@ -1,0 +1,33 @@
+---
+title: "Is the deployed model the one that was verified?"
+kind: problem
+days: [11]
+origin: participant
+by: [MariosTsatsos]
+links:
+  - vs: zk-compute-verification
+  - needs: commitment
+  - to: watching-training
+    type: tool
+    note: "Both ask whether the object in hand came from the verified process."
+    proposed: true
+    by: claude
+---
+
+## In one sentence
+Marios's question: a proof about a committed model says nothing unless the model that is later deployed is the same one that was committed.
+
+## Twist
+
+
+## Why it matters for safety
+
+
+## Open question
+What binds the commitment to the deployment?
+
+## Self-test
+
+
+## Sources
+- Discussion between Marios and Claude during the course

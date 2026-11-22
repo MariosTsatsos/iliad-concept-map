@@ -2,7 +2,7 @@
 title: "RLVR (verifiable rewards)"
 kind: concept
 days: [5]
-by: [marios]
+by: [marios, claude]
 links:
   - eg: post-training
   - to: reward
@@ -15,6 +15,7 @@ links:
 ---
 
 ## In one sentence
+Reinforcement learning where the reward comes from an automatic check that the answer is correct, such as a test suite or a proof checker.
 
 ## Twist
 

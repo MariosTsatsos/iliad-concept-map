@@ -2,11 +2,12 @@
 title: "Bayesian update"
 kind: concept
 days: [4]
-by: [marios]
+by: [marios, claude]
 links: []
 ---
 
 ## In one sentence
+Revise the probability of each hypothesis after an observation by multiplying it by how well the hypothesis predicted the observation, then renormalise.
 
 ## Twist
 

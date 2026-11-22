@@ -2,7 +2,7 @@
 title: "RLHF"
 kind: concept
 days: [5]
-by: [marios]
+by: [marios, claude]
 links:
   - eg: post-training
   - to: representability
@@ -16,6 +16,7 @@ links:
 ---
 
 ## In one sentence
+Reinforcement learning from human feedback: train a reward model on human comparisons of outputs, then optimise the model against it.
 
 ## Twist
 

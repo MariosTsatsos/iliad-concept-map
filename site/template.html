@@ -105,7 +105,7 @@ main { flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, 1
 .legend li { display: flex; align-items: center; gap: 8px; }
 .dot { width: 10px; height: 10px; border-radius: 50%; flex: none; }
 .swatch { width: 26px; height: 8px; flex: none; }
-.legend .muted { color: var(--muted); }
+.legend .muted, .panel .muted { color: var(--muted); }
 
 aside.panel {
   border-left: 1px solid var(--line); background: var(--panel); overflow-y: auto; min-width: 0;
@@ -126,6 +126,8 @@ aside.panel {
   font: 500 10.5px var(--f-body); letter-spacing: 0.06em; text-transform: uppercase;
   padding: 2px 7px; border-radius: 4px; background: var(--soft); color: var(--muted);
 }
+.badge.origin { color: var(--ink); border: 1px solid var(--line); background: transparent; }
+.badge.key { background: var(--accent); color: var(--accent-ink); }
 .badge.stub { background: transparent; border: 1px dashed var(--muted); }
 .badge.proposed { border: 1px dashed var(--muted); background: transparent; }
 .missing { color: var(--muted); font-size: 13px; background: var(--soft); padding: 8px 10px; border-radius: var(--r); }
@@ -171,8 +173,11 @@ aside.panel {
 
 <div class="controls band">
   <div class="chips" id="days" role="group" aria-label="Filter by day"></div>
+  <div class="chips" id="origins" role="group" aria-label="Filter by origin"></div>
+  <label class="toggle"><input type="checkbox" id="keyonly"> Key ideas only</label>
   <label class="toggle"><input type="checkbox" id="proposed" checked> Show proposed links</label>
   <div class="small-btns">
+    <button class="btn" id="random" type="button" title="Open a random card (r)">Surprise me</button>
     <button class="btn" id="fit" type="button">Fit</button>
     <button class="btn" id="relayout" type="button">Re-layout</button>
   </div>
@@ -245,6 +250,20 @@ const DATA = /*__DATA__*/null;
   mkChip("all", "All days");
   daysPresent.forEach((d) => mkChip(String(d), `Day ${d}`));
 
+  const OR = M.origins || {};
+  const SIZE = { 1: 22, 2: 34, 3: 54 };
+  const originWrap = $("#origins");
+  let activeOrigin = "all";
+  const mkOrigin = (val, label) => {
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "chip"; b.textContent = label; b.dataset.origin = val;
+    b.setAttribute("aria-pressed", String(val === activeOrigin));
+    b.addEventListener("click", () => { activeOrigin = val; [...originWrap.children].forEach((c) => c.setAttribute("aria-pressed", String(c.dataset.origin === val))); applyFilters(); });
+    originWrap.appendChild(b);
+  };
+  mkOrigin("all", "All origins");
+  Object.entries(OR).forEach(([k, v]) => { if (DATA.nodes.some((n) => n.origin === k)) mkOrigin(k, v.label); });
+
   // ---------- legend ----------
   function legend() {
     const counts = {};
@@ -256,7 +275,7 @@ const DATA = /*__DATA__*/null;
     $("#legend-inner").innerHTML =
       `<div><h4>Course cluster</h4><ul>${clusters}</ul></div>` +
       `<div><h4>Link</h4><ul>${edges}<li><svg class="swatch" viewBox="0 0 26 8" aria-hidden="true"><line x1="1" y1="4" x2="25" y2="4" stroke="${tok("--muted")}" stroke-width="2" stroke-dasharray="4 3"/></svg>dashed: proposed, not confirmed</li></ul></div>` +
-      `<div><h4>Card</h4><ul><li>● concept &nbsp; ◆ problem &nbsp; ▬ case</li><li>hollow: stub, no one-sentence yet</li><li>dashed ring: island, no links</li></ul></div>`;
+      `<div><h4>Card</h4><ul><li>● concept &nbsp; ◆ problem &nbsp; ▬ case</li><li>hollow: stub, no one-sentence yet</li><li>dashed ring: island, no links</li><li>size: weight 1, 2 or 3 (3 = key idea)</li></ul></div>`;
   }
 
   // ---------- graph ----------
@@ -274,15 +293,15 @@ const DATA = /*__DATA__*/null;
     const ink = tok("--ink"), bg = tok("--bg"), accent = tok("--accent"), muted = tok("--muted");
     return [
       { selector: "node", style: {
-        "width": (e) => 20 + Math.min(e.data("degree"), 8) * 4.5,
-        "height": (e) => 20 + Math.min(e.data("degree"), 8) * 4.5,
+        "width": (e) => SIZE[e.data("weight")] || 34,
+        "height": (e) => SIZE[e.data("weight")] || 34,
         "shape": (e) => ({ concept: "ellipse", problem: "diamond", case: "round-rectangle" }[e.data("kind")] || "ellipse"),
         "background-color": (e) => clusterColor(e.data("cluster")),
         "background-opacity": (e) => (e.data("status") === "stub" ? 0.16 : 1),
         "border-width": (e) => (e.data("status") === "stub" ? 2 : 0),
         "border-color": (e) => clusterColor(e.data("cluster")),
         "label": "data(label)", "color": ink, "font-family": '"IBM Plex Sans", system-ui, sans-serif',
-        "font-size": 11, "text-valign": "bottom", "text-margin-y": 5, "text-wrap": "wrap", "text-max-width": 120,
+        "font-size": (e) => ({ 1: 10, 2: 11, 3: 14 }[e.data("weight")] || 11), "font-weight": (e) => (e.data("weight") === 3 ? 600 : 400), "text-valign": "bottom", "text-margin-y": 5, "text-wrap": "wrap", "text-max-width": 120,
         "text-outline-color": bg, "text-outline-width": 2.5, "min-zoomed-font-size": 6,
       }},
       { selector: "node[?island]", style: { "border-width": 2.5, "border-style": "dashed", "border-color": ink } },
@@ -321,13 +340,23 @@ const DATA = /*__DATA__*/null;
   // ---------- filters ----------
   function applyFilters() {
     cy.batch(() => {
-      cy.nodes().forEach((n) => n.toggleClass("hidden", activeDay !== "all" && !n.data("days").includes(Number(activeDay))));
+      const keyOnly = $("#keyonly").checked;
+      cy.nodes().forEach((n) => n.toggleClass("hidden",
+        (activeDay !== "all" && !n.data("days").includes(Number(activeDay))) ||
+        (activeOrigin !== "all" && n.data("origin") !== activeOrigin) ||
+        (keyOnly && n.data("weight") < 3)));
       const showProp = $("#proposed").checked;
       cy.edges().forEach((e) => e.toggleClass("hidden", !showProp && e.data("proposed")));
     });
     cy.animate({ fit: { eles: cy.elements(":visible"), padding: 40 } }, { duration: reduced ? 0 : 300 });
   }
   $("#proposed").addEventListener("change", applyFilters);
+  $("#keyonly").addEventListener("change", applyFilters);
+  const randomCard = () => {
+    const vis = cy.nodes(":visible").filter((n) => n.data("status") !== "stub");
+    if (vis.length) select(vis[Math.floor(Math.random() * vis.length)].id());
+  };
+  $("#random").addEventListener("click", randomCard);
   $("#fit").addEventListener("click", () => cy.animate({ fit: { eles: cy.elements(":visible"), padding: 40 } }, { duration: reduced ? 0 : 300 }));
   $("#relayout").addEventListener("click", () => {
     cy.elements(":visible").layout({ name: "cose", animate: !reduced, nodeRepulsion: () => 9000, idealEdgeLength: () => 90, padding: 40, randomize: false }).run();
@@ -356,6 +385,7 @@ const DATA = /*__DATA__*/null;
   document.addEventListener("keydown", (ev) => {
     if (ev.key === "/" && document.activeElement !== $("#q")) { ev.preventDefault(); $("#q").focus(); }
     if (ev.key === "Escape" && document.activeElement !== $("#q")) clear();
+    if (ev.key === "r" && document.activeElement !== $("#q") && !ev.metaKey && !ev.ctrlKey) randomCard();
   });
 
   // ---------- selection ----------
@@ -412,7 +442,7 @@ const DATA = /*__DATA__*/null;
     const fields = [["statement", "In one sentence"], ["twist", "Twist"], ["safety", "Why it matters for safety"], ["question", "Open question"], ["selftest", "Self-test"], ["notes", "Notes"]];
     const missing = fields.filter(([k]) => k !== "notes" && !sec[k]).map(([, l]) => l.toLowerCase());
     let html = `<button class="btn back" data-home type="button">← All concepts</button>`;
-    html += `<div class="badges"><span class="badge">${esc(n.kind)}</span>${n.status === "stub" ? '<span class="badge stub">stub</span>' : ""}${n.load_bearing ? '<span class="badge">load-bearing</span>' : ""}${isolated.has(n.id) ? '<span class="badge stub">island</span>' : ""}</div>`;
+    html += `<div class="badges"><span class="badge">${esc(n.kind)}</span>${n.weight === 3 ? '<span class="badge key">key idea</span>' : ""}<span class="badge origin">${esc((OR[n.origin] || {}).label || n.origin)}</span>${n.status === "stub" ? '<span class="badge stub">stub</span>' : ""}${n.load_bearing ? '<span class="badge">load-bearing</span>' : ""}${isolated.has(n.id) ? '<span class="badge stub">island</span>' : ""}</div>`;
     html += `<h2>${esc(n.title)}</h2><div class="meta">${modChip(n)}<span>${dayLine(n)}</span></div>`;
     fields.forEach(([k, label]) => {
       if (!sec[k]) return;
@@ -460,15 +490,17 @@ const DATA = /*__DATA__*/null;
     const groups = S.cut_off_groups.map((g) => `<li>${g.map(go).join(", ")}</li>`).join("");
     const stubs = DATA.nodes.filter((n) => n.status === "stub").sort((a, b) => b.degree - a.degree).slice(0, 12);
     let html = `<h2>${S.cards} concepts from ${daysPresent.length} days</h2>`;
-    html += `<p>Click a concept to read its card. Click a line to see why two concepts are linked. Every card is written by a participant, in their own words.</p>`;
-    html += `<p class="missing">Colour: course cluster (A alignment, D agency, C interpretability…). Shape: ● concept, ◆ problem, ▬ case. Hollow: stub. Dashed line: proposed link, not yet confirmed. Dashed ring: island.</p>`;
+    html += `<p>Click a concept to read its card. Click a line to see why two concepts are linked. Large nodes are the key ideas. Each card names who wrote it.</p>`;
+    html += `<p class="missing">Colour: course cluster (A alignment, D agency, C interpretability…). Shape: ● concept, ◆ problem, ▬ case. Size: weight (large = key idea). Hollow: stub. Dashed line: proposed link, not yet confirmed. Dashed ring: island.</p>`;
+    const keys = DATA.nodes.filter((n) => n.weight === 3).sort((a, b) => (a.days[0] || 0) - (b.days[0] || 0));
+    if (keys.length) html += `<h3>Start here: ${keys.length} key ideas</h3><ul class="home-list">${keys.map((n) => `<li>${go(n.id)} <span class="muted">day ${n.days.join(", ")}</span></li>`).join("")}</ul>`;
     html += `<h3>Islands</h3>`;
     html += isl ? `<p>No links at all:</p><ul class="home-list">${S.isolated.map((id) => `<li>${go(id)}</li>`).join("")}</ul>` : "<p>None. Every card has a link.</p>";
     if (groups) html += `<p style="margin-top:10px">Groups cut off from the main map:</p><ul>${groups}</ul>`;
     html += `<h3>Stubs that need one sentence</h3><p class="missing">${S.stubs} cards have no one-sentence statement yet. The most connected ones first:</p><ul class="home-list">${stubs.map((n) => `<li>${go(n.id)}</li>`).join("")}</ul>`;
     html += `<h3>Contribute</h3><p>Add a card, write a stub, or confirm a proposed link. Each takes about two minutes in the browser, no install.</p>`;
     html += `<div class="actions">${ghBase ? `<a class="btn primary" href="${$("#add").href}" target="_blank" rel="noopener">Add a concept</a><a class="btn" href="${ghBase}/blob/${M.branch}/CONTRIBUTING.md" target="_blank" rel="noopener">How to contribute</a>` : ""}</div>`;
-    html += `<p class="by">Course material: <a href="https://iliad-intensive.org/" target="_blank" rel="noopener">iliad-intensive.org</a>, CC BY 4.0. Press <span class="kbd">/</span> to search.</p>`;
+    html += `<p class="by">Course material: <a href="https://iliad-intensive.org/" target="_blank" rel="noopener">iliad-intensive.org</a>, CC BY 4.0. Press <span class="kbd">/</span> to search, <span class="kbd">r</span> for a random card.</p>`;
     panel.innerHTML = html;
   }
 

@@ -3,7 +3,7 @@ title: "Reward shaping"
 kind: concept
 days: [2, 3]
 module: D.1.1
-by: [marios]
+by: [marios, claude]
 links:
   - to: transitivity
     type: tool
@@ -16,6 +16,7 @@ links:
 ---
 
 ## In one sentence
+Adding extra reward to guide learning; done carelessly it changes which behaviour is optimal.
 
 ## Twist
 

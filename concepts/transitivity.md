@@ -3,11 +3,12 @@ title: "Transitivity (axiom 2)"
 kind: concept
 days: [3]
 module: D.1.1
-by: [marios]
+by: [marios, claude]
 links: []
 ---
 
 ## In one sentence
+If A is preferred to B and B to C, then A is preferred to C.
 
 ## Twist
 Transitivity is equivalent to requiring no rotations in a vector field, so the preferences come from a potential V.

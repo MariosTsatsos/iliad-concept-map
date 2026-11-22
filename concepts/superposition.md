@@ -2,7 +2,7 @@
 title: "Superposition and polysemanticity"
 kind: concept
 days: [1]
-by: [marios]
+by: [marios, claude]
 links:
   - to: mechanistic-interpretability
     type: vs
@@ -11,6 +11,7 @@ links:
 ---
 
 ## In one sentence
+A network stores more features than it has dimensions by using directions that overlap a little; a single neuron then responds to several unrelated things (polysemanticity).
 
 ## Twist
 

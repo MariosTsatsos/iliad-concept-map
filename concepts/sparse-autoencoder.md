@@ -2,7 +2,7 @@
 title: "Sparse autoencoder (SAE)"
 kind: concept
 days: [1]
-by: [marios]
+by: [marios, claude]
 links:
   - to: superposition
     type: needs
@@ -14,6 +14,7 @@ links:
 ---
 
 ## In one sentence
+A second network trained to rewrite a model's activations as a sum of a few active features out of a very large dictionary, in the hope that each feature means one thing.
 
 ## Twist
 
