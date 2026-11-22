@@ -17,7 +17,7 @@ links:
 ---
 
 ## In one sentence
-Bayesian model comparison penalises a model for the volume of parameter space it wastes; for regular models with d parameters and n examples the penalty is about (d/2) log n.
+Bayesian model comparison penalises a model for the volume of parameter space it wastes; for regular models with d parameters and n examples the penalty is about (d/2) log n, which is the Bayesian information criterion (BIC).
 
 ## Twist
 

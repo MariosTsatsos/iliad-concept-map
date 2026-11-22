@@ -1,9 +1,9 @@
 ---
-title: "Ordinal utility (Lemma 3)"
+title: "Ordinal utility"
 kind: concept
 days: [3, 4]
 module: D.1.1
-by: [MariosTsatsos]
+by: [MariosTsatsos, claude]
 links:
   - needs: completeness
   - needs: transitivity
@@ -13,19 +13,19 @@ links:
 ---
 
 ## In one sentence
-On a countable set H*, completeness plus transitivity give a function u: H* → ℝ with h ≥ h′ exactly when u(h) ≥ u(h′).
+If an agent's preferences over a countable set of options are complete and transitive, they can be written as numbers: there is a function u that gives one option a number at least as high as another's exactly when the agent likes it at least as much. Only the order of the numbers matters.
 
 ## Twist
 
 ## Why it matters for safety
 
 ## Open question
-What if H* is not countable?
+What if the set of options is not countable?
 
 ## Self-test
 
 ## Notes
-Day 4 reading: ordinal utility means only the ordering of the numbers matters (ordinal scale).
+Answer to the open question: then such a function can fail to exist. Example: rank points in the plane by x first and use y only to break ties; no single number per point can represent that ranking. The result was Lemma 3 in the Day 3 lecture. Day 4 reading: 'ordinal' means that only the ordering of the numbers carries meaning.
 
 ## Sources
 - [Day 3 notes and slides, Fernando Rosas](https://iliad-intensive.org/agency/preferences-to-rewards/)

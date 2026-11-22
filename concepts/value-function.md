@@ -3,7 +3,7 @@ title: "Value function"
 kind: concept
 days: [3]
 module: D.1.2
-by: [MariosTsatsos]
+by: [MariosTsatsos, claude]
 links:
   - to: policy
     type: needs
@@ -14,7 +14,7 @@ links:
 ---
 
 ## In one sentence
-Value = expected return for a fixed policy.
+The value of a state is the return the agent can expect from that state onward if it follows a fixed policy.
 
 ## Twist
 
@@ -25,7 +25,7 @@ Value = expected return for a fixed policy.
 ## Self-test
 
 ## Notes
-My note said "expectation value of reward". It is the expected return, the (discounted) sum of future rewards.
+It is the expected return (the discounted sum of all future rewards), not the expected reward of one step.
 
 ## Sources
 - [Day 3 RL slides and exercises, Fernando Rosas](https://iliad-intensive.org/agency/reinforcement-learning/)

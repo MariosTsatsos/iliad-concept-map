@@ -1,5 +1,5 @@
 ---
-title: "RLAIF"
+title: "RLAIF: reinforcement learning from AI feedback"
 kind: concept
 days: [5]
 by: [MariosTsatsos, claude]

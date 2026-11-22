@@ -17,7 +17,7 @@ links:
 ---
 
 ## In one sentence
-The two parts of an attention head: the QK circuit decides which earlier positions to attend to, the OV circuit decides what is copied from them.
+The two parts of an attention head: the QK circuit (query and key) decides which earlier positions to attend to, and the OV circuit (output and value) decides what is copied from them.
 
 ## Twist
 

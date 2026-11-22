@@ -20,7 +20,7 @@ links:
 ---
 
 ## In one sentence
-At sampling temperature 0 the model always emits the most likely token, so the output has zero entropy and the choice of tokens cannot carry a hidden message.
+At sampling temperature 0 the model always emits the most likely token (word or piece of a word), so the output has zero entropy and the choice of tokens cannot carry a hidden message.
 
 ## Twist
 

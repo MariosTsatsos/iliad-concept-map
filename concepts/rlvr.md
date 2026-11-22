@@ -1,5 +1,5 @@
 ---
-title: "RLVR (verifiable rewards)"
+title: "RLVR: reinforcement learning with verifiable rewards"
 kind: concept
 days: [5]
 by: [MariosTsatsos, claude]

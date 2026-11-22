@@ -2,12 +2,12 @@
 title: "Personas and simulators"
 kind: concept
 days: [5]
-by: [MariosTsatsos]
+by: [MariosTsatsos, claude]
 links: []
 ---
 
 ## In one sentence
-Models hold representations of characters (the simulator view).
+A language model holds representations of many characters and can speak as any of them. Seeing the model as the thing that plays the characters, and not as one of the characters, is called the simulator view.
 
 ## Twist
 

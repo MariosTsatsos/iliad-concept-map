@@ -16,10 +16,10 @@ links:
 ---
 
 ## In one sentence
-'Temperature' means three different things: the physical temperature of the hardware, the training temperature that sets how much the weights are shaken (T = 1/n for exact Bayesian learning, T = eta sigma^2 / (2B) for SGD), and the sampling temperature that sets how random the output tokens are.
+'Temperature' means three different things: the physical temperature of the hardware, the training temperature that sets how much the weights are shaken (T = 1/n for exact Bayesian learning, T = eta sigma^2 / (2B) for stochastic gradient descent, SGD, where each step uses a small random batch of examples), and the sampling temperature that sets how random the output tokens are.
 
 ## Twist
-The SGD temperature is set by the optimiser and differs from 1/n in general; and real SGD noise has no single clean temperature.
+The temperature of SGD is set by the optimiser and differs from 1/n in general; and real SGD noise has no single clean temperature.
 
 ## Why it matters for safety
 

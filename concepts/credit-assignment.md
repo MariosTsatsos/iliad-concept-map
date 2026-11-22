@@ -3,12 +3,12 @@ title: "Credit assignment"
 kind: concept
 days: [3]
 module: D.1.2
-by: [MariosTsatsos]
+by: [MariosTsatsos, claude]
 links: []
 ---
 
 ## In one sentence
-Reward attribution: which action mattered? There is no ground truth.
+When a reward arrives after many actions, which of those actions earned it? There is no ground truth to check an answer against.
 
 ## Twist
 

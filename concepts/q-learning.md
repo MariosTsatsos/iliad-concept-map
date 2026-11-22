@@ -3,7 +3,7 @@ title: "Q-learning"
 kind: concept
 days: [3]
 module: D.1.2
-by: [MariosTsatsos]
+by: [MariosTsatsos, claude]
 links:
   - to: bellman-equation
     type: needs
@@ -15,7 +15,7 @@ links:
 ---
 
 ## In one sentence
-Without T (the environment's dynamics) you can still find the optimal value but not the optimal policy; Q-learning solves this.
+Knowing the best achievable value of each state does not tell the agent which action to take, unless it also knows how the environment responds to actions. Q-learning learns from experience alone the value of each action in each state (written Q), and that gives the best action directly.
 
 ## Twist
 
@@ -26,7 +26,7 @@ Without T (the environment's dynamics) you can still find the optimal value but 
 ## Self-test
 
 ## Notes
-In some applications Q is learned with deep neural networks.
+In some applications Q is represented by a deep neural network.
 
 ## Sources
 - [Day 3 RL slides and exercises, Fernando Rosas](https://iliad-intensive.org/agency/reinforcement-learning/)

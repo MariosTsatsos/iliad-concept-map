@@ -12,7 +12,7 @@ links:
 ---
 
 ## In one sentence
-Classes of yes/no problems, sorted by the resources needed: P is solvable in polynomial time, NP has yes answers with a short checkable certificate, IP has yes answers a randomised checker accepts after questioning a prover, PSPACE is solvable with polynomial memory.
+Classes of yes/no problems, sorted by the resources needed: P is solvable in polynomial time (time that grows as a fixed power of the input size), NP has yes answers with a short checkable certificate, IP has yes answers a randomised checker accepts after questioning a prover, PSPACE is solvable with polynomial memory.
 
 ## Twist
 IP = PSPACE: letting the checker ask random questions takes it from NP all the way to PSPACE.

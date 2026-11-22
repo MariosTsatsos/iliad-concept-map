@@ -13,7 +13,7 @@ links:
 ---
 
 ## In one sentence
-Under Article 51(2) of the EU AI Act a general-purpose model is presumed to have high impact capabilities when the cumulative amount of computation used for its training, measured in floating point operations, is greater than 10^25.
+Under Article 51(2) of the EU AI Act a general-purpose model is presumed to have high impact capabilities when the cumulative amount of computation used for its training, measured in floating point operations (FLOPs), is greater than 10^25.
 
 ## Twist
 

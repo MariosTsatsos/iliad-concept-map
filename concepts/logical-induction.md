@@ -2,7 +2,7 @@
 title: "Logical induction"
 kind: concept
 days: [4]
-by: [MariosTsatsos]
+by: [MariosTsatsos, claude]
 links:
   - to: bayesian-update
     type: needs
@@ -15,7 +15,7 @@ links:
 ---
 
 ## In one sentence
-Beliefs as a market: every sentence φ gets a price P(φ) in [0, 1], and traders buy and sell sentences at those prices.
+Logical induction treats beliefs about mathematical statements as a market: every statement has a price between 0 and 1, read as the probability that it is true, and traders buy and sell statements at those prices.
 
 ## Twist
 
@@ -27,7 +27,7 @@ Got completely lost after the market part.
 ## Self-test
 
 ## Notes
-Example: φ = "1+1 is even", P(φ) = 0.7, a buyer buys at this price. Related: bounded reasoner, inductors, inductive and deductive processes, belief states.
+Example: the statement '1 + 1 is even' has price 0.7, and a trader who thinks it is true buys at that price. Related ideas from the lecture: a reasoner with limited computing power, and the difference between inductive and deductive reasoning.
 
 ## Sources
 - [Day 4 slides, Ashe Vazquez Nuñez](https://iliad-intensive.org/agency/agent-foundations/)

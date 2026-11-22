@@ -24,7 +24,7 @@ links:
 Two AI systems argue for opposite answers and a judge with limited time picks a winner; the hope is that telling the truth is the winning strategy.
 
 ## Twist
-With optimal debaters, a polynomial-time judge can decide every problem in PSPACE, far beyond what the judge could check alone.
+With optimal debaters, a polynomial-time judge can decide every problem in PSPACE (the problems solvable with a polynomial amount of memory), far beyond what the judge could check alone.
 
 ## Why it matters for safety
 A proposal for scalable oversight: the judge only has to check one small step that the debaters disagree on.

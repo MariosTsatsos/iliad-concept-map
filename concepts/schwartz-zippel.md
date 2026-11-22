@@ -13,7 +13,7 @@ links:
 ---
 
 ## In one sentence
-Two different polynomials of total degree at most d agree at a uniformly random point of a finite field F with probability at most d/|F|, so equality can be tested at one random point.
+Two different polynomials of total degree at most d agree at a uniformly random point of a finite field F (a finite set of numbers with addition and multiplication, such as the integers modulo a prime) with probability at most d/|F|, so equality can be tested at one random point.
 
 ## Twist
 Two functions on 100 bits that differ at a single input need about 2^99 direct queries for a 50% chance of seeing the difference; after extending them to polynomials, one query at a random point is enough.

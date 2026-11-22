@@ -3,7 +3,7 @@ title: "Policy"
 kind: concept
 days: [3]
 module: D.1.2
-by: [MariosTsatsos]
+by: [MariosTsatsos, claude]
 links:
   - to: mdp
     type: needs
@@ -22,7 +22,7 @@ A policy says what the agent should do in every situation: at time t it gives a 
 ## Self-test
 
 ## Notes
-Then the environment samples the next state from its distribution given s_t and a_t, and computes the reward.
+After the agent acts, the environment picks the next state at random, with probabilities that depend on the current state and the action, and gives the reward.
 
 ## Sources
 - [Day 3 RL slides and exercises, Fernando Rosas](https://iliad-intensive.org/agency/reinforcement-learning/)

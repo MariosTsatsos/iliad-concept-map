@@ -2,7 +2,7 @@
 title: "Corrigibility"
 kind: concept
 days: [2]
-by: [MariosTsatsos]
+by: [MariosTsatsos, claude]
 links:
   - to: vnm-theorem
     type: vs
@@ -22,7 +22,7 @@ A corrigible agent does not resist being corrected, updated or shut down: if we 
 ## Self-test
 
 ## Notes
-From my notes: utility maximising agent.
+Discussed for an agent that maximises a utility function.
 
 ## Sources
 - [Day 2 slides, George Robinson](https://iliad-intensive.org/alignment/ai-alignment-intro/)

@@ -12,7 +12,7 @@ links:
 ---
 
 ## In one sentence
-The gap between test loss and training loss; classical bounds control it by the capacity of the model class (such as its VC dimension), and for large networks those bounds come out above 100%, which says nothing.
+The gap between test loss and training loss; classical bounds control it by the capacity of the model class (such as its VC dimension, the size of the largest set of points that the class can label in every possible way), and for large networks those bounds come out above 100%, which says nothing.
 
 ## Twist
 

@@ -13,7 +13,7 @@ links:
 ---
 
 ## In one sentence
-A backdoor for random ReLU networks that stays undetectable even to someone who sees the weights, based on the hardness of the Sparse PCA problem.
+A backdoor for random ReLU networks that stays undetectable even to someone who sees the weights, based on the hardness of Sparse PCA (a statistics problem believed to be slow to solve).
 
 ## Twist
 

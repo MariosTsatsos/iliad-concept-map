@@ -3,7 +3,7 @@ title: "Agent and agency"
 kind: concept
 days: [3, 4]
 module: D.4.1
-by: [MariosTsatsos]
+by: [MariosTsatsos, claude]
 links: []
 ---
 
@@ -11,7 +11,7 @@ links: []
 An agent is a thing that (i) is distinguishable from the world, has structure or learns, and (ii) exchanges with or acts upon the environment.
 
 ## Twist
-Agency = planning (doing things) + beliefs (reasons).
+Agency was described as planning (doing things) together with beliefs (reasons for doing them).
 
 ## Why it matters for safety
 

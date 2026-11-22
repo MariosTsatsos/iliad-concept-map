@@ -1,5 +1,5 @@
 ---
-title: "Independence (axiom 4)"
+title: "Independence (axiom 4 on preferences)"
 kind: concept
 days: [3]
 module: D.1.1

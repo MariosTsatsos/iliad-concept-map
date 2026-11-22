@@ -1,5 +1,5 @@
 ---
-title: "Transitivity (axiom 2)"
+title: "Transitivity (axiom 2 on preferences)"
 kind: concept
 days: [3]
 module: D.1.1
@@ -11,7 +11,7 @@ links: []
 If A is preferred to B and B to C, then A is preferred to C.
 
 ## Twist
-Transitivity is equivalent to requiring no rotations in a vector field, so the preferences come from a potential V.
+In the picture used in the lecture, transitive preferences are like a vector field with no rotation: such a field comes from a potential V, a single quantity that the preferences climb.
 
 ## Why it matters for safety
 

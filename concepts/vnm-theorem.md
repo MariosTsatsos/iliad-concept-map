@@ -3,7 +3,7 @@ title: "von Neumann-Morgenstern theorem"
 kind: concept
 days: [3, 4]
 module: D.1.1
-by: [MariosTsatsos]
+by: [MariosTsatsos, claude]
 links:
   - needs: completeness
   - needs: transitivity
@@ -19,10 +19,10 @@ links:
 ---
 
 ## In one sentence
-If completeness, transitivity, continuity and independence hold for lotteries over a finite set X, there is a u: X → ℝ with μ ≥ ν exactly when Σ μ(x)u(x) ≥ Σ ν(x)u(x).
+If an agent's preferences between lotteries (random choices among a finite set of options, with fixed probabilities) satisfy four axioms (completeness, transitivity, continuity, independence), then each option can be given a number, its utility, such that the agent prefers one lottery to another exactly when its expected utility is higher.
 
 ## Twist
-u is unique only up to positive affine transformations: u′ = a + b·u with b > 0.
+The utility is not unique: adding a constant or multiplying by a positive number gives another utility that represents the same preferences (u′ = a + b × u with b > 0).
 
 ## Why it matters for safety
 
@@ -31,7 +31,7 @@ u is unique only up to positive affine transformations: u′ = a + b·u with b >
 ## Self-test
 
 ## Notes
-Day 4 reading: cardinal utility means ratios of differences matter too (interval scale).
+Day 4 reading: this kind of utility is called cardinal, which means that ratios of differences between the numbers carry meaning too, not only their order.
 
 ## Sources
 - [Day 3 notes and slides, Fernando Rosas](https://iliad-intensive.org/agency/preferences-to-rewards/)

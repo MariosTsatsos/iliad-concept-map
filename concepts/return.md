@@ -3,7 +3,7 @@ title: "Return"
 kind: concept
 days: [3]
 module: D.1.2
-by: [MariosTsatsos]
+by: [MariosTsatsos, claude]
 links:
   - to: reward
     type: needs
@@ -11,7 +11,7 @@ links:
 ---
 
 ## In one sentence
-Return = sum of all future rewards.
+The return is the sum of all the rewards an agent collects from a given moment onward, usually with later rewards counted less (discounted).
 
 ## Twist
 

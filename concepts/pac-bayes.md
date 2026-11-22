@@ -16,7 +16,7 @@ links:
 ---
 
 ## In one sentence
-A guarantee that the test loss of a distribution over weights is at most its training loss plus a term that grows with its KL divergence from the prior and shrinks with the number of examples.
+A guarantee that the test loss of a distribution over weights is at most its training loss plus a term that grows with its KL divergence from the prior (a measure of how far it is from the distribution over weights assumed before seeing data) and shrinks with the number of examples.
 
 ## Twist
 For the Ising perceptron the notes show the bound is valid but loose.
@@ -29,6 +29,9 @@ For the Ising perceptron the notes show the bound is valid but loose.
 
 ## Self-test
 
+
+## Notes
+PAC stands for 'probably approximately correct': the guarantee holds with high probability and up to a small error.
 
 ## Sources
 - Day 13 notes, Artemy Kolchinsky: Physics of Deep Learning, Sec. III A, Eq. (31)

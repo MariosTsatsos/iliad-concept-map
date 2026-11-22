@@ -1,5 +1,5 @@
 ---
-title: "Continuity (axiom 3)"
+title: "Continuity (axiom 3 on preferences)"
 kind: concept
 days: [3]
 module: D.1.1
@@ -8,7 +8,7 @@ links: []
 ---
 
 ## In one sentence
-If A is preferred to B and B to C, some lottery between A and C is exactly as good as B.
+If A is preferred to B and B to C, then some lottery between A and C (a random choice between them with fixed probabilities) is exactly as good as B.
 
 ## Twist
 

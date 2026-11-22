@@ -1,5 +1,5 @@
 ---
-title: "RLHF"
+title: "RLHF: reinforcement learning from human feedback"
 kind: concept
 days: [5]
 by: [MariosTsatsos, claude]

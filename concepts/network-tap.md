@@ -8,7 +8,7 @@ by: [claude]
 ---
 
 ## In one sentence
-A device that records all data passing into and out of a group of GPUs, so the verifier can bound what left the machines.
+A device that records all data passing into and out of a group of graphics processors (GPUs), so the verifier can bound what left the machines.
 
 ## Twist
 

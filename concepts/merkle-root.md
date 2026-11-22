@@ -13,7 +13,7 @@ links:
 ---
 
 ## In one sentence
-One short hash that commits to a long list of items, such that any single item can be shown to belong to the list with a short proof.
+One short hash (a fingerprint computed from data) that commits to a long list of items, such that any single item can be shown to belong to the list with a short proof.
 
 ## Twist
 

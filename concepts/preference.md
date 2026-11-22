@@ -11,7 +11,7 @@ links: []
 A ranking of options by an agent: for a pair of options, which one it would choose.
 
 ## Twist
-Preference ≠ utility ≠ reward.
+Preference, utility and reward are three different things: a preference is a ranking, a utility is a number that represents the ranking, and a reward is a number given step by step.
 
 ## Why it matters for safety
 
@@ -20,7 +20,7 @@ Preference ≠ utility ≠ reward.
 ## Self-test
 
 ## Notes
-Preferences are the goal of the class. Other concepts that came up: policy, trade, axioms.
+Preferences were the starting point of the Day 3 class.
 
 ## Sources
 - [Day 3 notes and slides, Fernando Rosas](https://iliad-intensive.org/agency/preferences-to-rewards/)

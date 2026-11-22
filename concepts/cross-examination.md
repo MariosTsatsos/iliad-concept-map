@@ -15,7 +15,7 @@ links:
 A debate rule that lets one debater question a copy of the other that cannot see the rest of the debate, so it must commit to consistent answers.
 
 ## Twist
-With cross-examination the class a polynomial-time judge can decide grows from PSPACE to NEXP.
+With cross-examination the class a polynomial-time judge can decide grows from PSPACE (problems solvable with a polynomial amount of memory) to NEXP (problems whose yes answers have a certificate that can be checked in exponential time).
 
 ## Why it matters for safety
 

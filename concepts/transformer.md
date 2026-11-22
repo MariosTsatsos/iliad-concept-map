@@ -13,7 +13,7 @@ links:
 ---
 
 ## In one sentence
-A network that processes a sequence by alternating attention layers, which move information between positions, and MLP layers, which transform it at each position.
+A network that processes a sequence of tokens (words or pieces of words) by alternating two kinds of layer: attention layers, which move information between positions, and MLP layers (small fully connected networks), which transform the information at each position.
 
 ## Twist
 

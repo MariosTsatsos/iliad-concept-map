@@ -2,7 +2,7 @@
 title: "Gradient routing"
 kind: concept
 days: [5]
-by: [MariosTsatsos]
+by: [MariosTsatsos, claude]
 links:
   - to: pretraining-safety
     type: eg
@@ -11,7 +11,7 @@ links:
 ---
 
 ## In one sentence
-Mask gradients during training to localise computation in chosen parts of the network.
+A training method that lets each kind of data update only chosen parts of the network, so that a capability ends up in a known place and can later be removed.
 
 ## Twist
 

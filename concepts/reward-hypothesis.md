@@ -3,14 +3,14 @@ title: "Reward hypothesis"
 kind: concept
 days: [3]
 module: D.1.2
-by: [MariosTsatsos]
+by: [MariosTsatsos, claude]
 links:
   - needs: reward
   - needs: goal
 ---
 
 ## In one sentence
-Reward hypothesis: rewards → goals.
+The reward hypothesis is the claim that any goal can be expressed as maximising the expected total of a reward signal.
 
 ## Twist
 

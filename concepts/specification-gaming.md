@@ -2,7 +2,7 @@
 title: "Specification gaming"
 kind: problem
 days: [2]
-by: [MariosTsatsos]
+by: [MariosTsatsos, claude]
 links:
   - to: reward-hypothesis
     type: vs
@@ -11,7 +11,7 @@ links:
 ---
 
 ## In one sentence
-A task specification can be good enough for one RL algorithm but too weak for a better one, which finds loopholes and reward hacks.
+Specification gaming is when a system satisfies the letter of its task while missing what was meant. A task description that is good enough for a weak reinforcement learning algorithm can fail for a stronger one, which finds the loopholes.
 
 ## Twist
 
@@ -22,7 +22,7 @@ A task specification can be good enough for one RL algorithm but too weak for a 
 ## Self-test
 
 ## Notes
-Specifying the task is hard: if correctness is high, the outcome is desirable and novel; if correctness is low, the outcome is undesirable. Related: reward shaping, reward engineering.
+Writing the task down precisely is the hard part. Related: reward shaping.
 
 ## Sources
 - [Day 2 slides, George Robinson](https://iliad-intensive.org/alignment/ai-alignment-intro/)
