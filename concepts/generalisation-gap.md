@@ -5,7 +5,10 @@ days: [14]
 origin: chat
 by: [MariosTsatsos, claude]
 links:
-  - needs: three-mysteries
+  - to: three-mysteries
+    type: needs
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence
@@ -24,6 +27,6 @@ The gap between test loss and training loss; classical bounds control it by the 
 What does 'vacuous' mean for a bound on an error rate?
 
 ## Sources
-- [Day 14 slides, Zach Furman: Mysteries of Deep Learning](https://iliad-intensive.org/learning/mysteries-of-deep-learning/)
+- [Day 14 slide deck by Zach Furman: Mysteries of Deep Learning](https://iliad-intensive.org/learning/mysteries-of-deep-learning/)
 - Day 14 slides, Miguel Donaire Arcas-Sariot: Historical introduction to the science of deep learning
 - Discussion between Marios and Claude during the course

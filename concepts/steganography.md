@@ -8,7 +8,12 @@ links:
   - to: total-variation-distance
     type: needs
     note: "The watcher's best test is bounded by this distance."
-  - needs: entropy
+    proposed: true
+    by: claude
+  - to: entropy
+    type: needs
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

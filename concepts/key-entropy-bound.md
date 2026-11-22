@@ -3,10 +3,16 @@ title: "The key must carry as much entropy as the message"
 kind: concept
 days: [10]
 origin: participant
-by: [MariosTsatsos]
+by: [MariosTsatsos, claude]
 links:
-  - needs: entropy
-  - safety: steganography
+  - to: entropy
+    type: needs
+    proposed: true
+    by: claude
+  - to: steganography
+    type: safety
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

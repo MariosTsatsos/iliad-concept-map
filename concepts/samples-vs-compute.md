@@ -3,11 +3,20 @@ title: "Samples versus computing, and the bitter lesson"
 kind: concept
 days: [14]
 origin: participant
-by: [MariosTsatsos]
+by: [MariosTsatsos, claude]
 links:
-  - needs: sparse-parity
-  - needs: bitter-lesson
-  - needs: hardness-of-learning
+  - to: sparse-parity
+    type: needs
+    proposed: true
+    by: claude
+  - to: bitter-lesson
+    type: needs
+    proposed: true
+    by: claude
+  - to: hardness-of-learning
+    type: needs
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

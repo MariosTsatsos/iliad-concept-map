@@ -2,7 +2,8 @@
 """Build the Iliad concept map.
 
 Reads course.yml and every card in concepts/*.md, checks them, builds a
-networkx graph, and writes site/index.html (self-contained) and site/graph.json.
+networkx graph, and writes site/dist/index.html and site/dist/graph.json.
+The page loads Cytoscape.js and its fonts from public CDNs.
 
     python scripts/build.py           # check and build
     python scripts/build.py --check   # check only; exit 1 on errors (used in CI)
@@ -33,6 +34,7 @@ SECTIONS = {
     "notes": "notes",
     "sources": "sources",
 }
+KNOWN_KEYS = {"title", "kind", "days", "origin", "weight", "by", "links", "module", "aliases", "load_bearing"}
 ID_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 COMMENT_RE = re.compile(r"<!--.*?-->", re.S)
 
@@ -113,6 +115,13 @@ def load(probs: Problems):
     link_types = course["link_types"]
     kinds = course["kinds"]
     origins = course["origins"]
+    for name, spec in origins.items():
+        if not isinstance(spec, dict) or not spec.get("label"):
+            probs.error("course.yml", f"origin '{name}' needs a 'label'")
+            origins[name] = spec = {"label": str(name), **(spec if isinstance(spec, dict) else {})}
+        if type(spec.get("weight")) is not int or spec["weight"] not in (1, 2, 3):
+            probs.error("course.yml", f"origin '{name}' needs 'weight: 1', '2' or '3'")
+            spec["weight"] = 2
     days = {int(k): v for k, v in course["days"].items()}
 
     cards: dict[str, dict] = {}
@@ -134,6 +143,12 @@ def load(probs: Problems):
         except yaml.YAMLError as exc:
             probs.error(where, f"header is not valid YAML: {exc}")
             continue
+        if not isinstance(fm, dict):
+            probs.error(where, "the header must be a list of 'name: value' lines")
+            continue
+        unknown = sorted(k for k in fm if k not in KNOWN_KEYS)   # review finding 11
+        if unknown:
+            probs.warn(where, f"unknown attribute(s) {', '.join(map(str, unknown))} (ignored). Known: {', '.join(sorted(KNOWN_KEYS))}")
         title = str(fm.get("title") or "").strip()
         if not title:
             probs.error(where, "missing 'title'")
@@ -143,8 +158,11 @@ def load(probs: Problems):
             probs.error(where, f"kind must be one of {', '.join(kinds)}")
             kind = "concept"
         cdays = fm.get("days") or []
-        if isinstance(cdays, int):
+        if isinstance(cdays, int) and not isinstance(cdays, bool):
             cdays = [cdays]
+        if not isinstance(cdays, list) or any(type(d) is not int for d in cdays):
+            probs.error(where, "days must be a list of day numbers without quotes, e.g. [14] or [10, 13]")
+            cdays = []
         bad_days = [d for d in cdays if d not in days]
         if bad_days:
             probs.error(where, f"days {bad_days} are not in course.yml")
@@ -158,9 +176,11 @@ def load(probs: Problems):
         if origin not in origins:
             probs.error(where, f"origin must be one of {', '.join(origins)}")
             origin = "notes"
-        weight = fm.get("weight", origins[origin]["weight"])
-        if weight not in (1, 2, 3):
-            probs.error(where, "weight must be 1, 2 or 3")
+        weight = fm.get("weight")
+        if weight is None:                      # omitted or left blank: use the origin's default
+            weight = origins[origin]["weight"]
+        if type(weight) is not int or weight not in (1, 2, 3):
+            probs.error(where, "weight must be the number 1, 2 or 3, without quotes")
             weight = 2
         by = fm.get("by") or []
         if isinstance(by, str):
@@ -240,7 +260,7 @@ def layout(g: nx.MultiDiGraph) -> dict[str, tuple[float, float]]:
     isolates = sorted(n for c in comps if len(c) == 1 for n in c)
     if groups:
         main = u.subgraph(groups[0])
-        scale = 105 * math.sqrt(len(main))
+        scale = 90 * math.sqrt(len(main))
         p = nx.kamada_kawai_layout(main, scale=scale) if len(main) > 2 else nx.circular_layout(main, scale=scale)
         pos.update({n: (float(x), float(y)) for n, (x, y) in p.items()})
         right = scale + 190

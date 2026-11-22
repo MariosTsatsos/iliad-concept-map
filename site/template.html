@@ -126,6 +126,10 @@ aside.panel {
   font: 500 10.5px var(--f-body); letter-spacing: 0.06em; text-transform: uppercase;
   padding: 2px 7px; border-radius: 4px; background: var(--soft); color: var(--muted);
 }
+.empty-note { position: absolute; inset: 0; display: grid; place-items: center; color: var(--muted); pointer-events: none; }
+.empty-note[hidden], .tip[hidden] { display: none; }
+.tip { position: absolute; pointer-events: none; z-index: 5; max-width: 260px; padding: 4px 8px; border-radius: 6px;
+  background: var(--ink); color: var(--bg); font-size: 12.5px; line-height: 1.3; transform: translate(-50%, -100%); }
 .badge.origin { color: var(--ink); border: 1px solid var(--line); background: transparent; }
 .badge.key { background: var(--accent); color: var(--accent-ink); }
 .badge.stub { background: transparent; border: 1px dashed var(--muted); }
@@ -174,8 +178,8 @@ aside.panel {
 <div class="controls band">
   <div class="chips" id="days" role="group" aria-label="Filter by day"></div>
   <div class="chips" id="origins" role="group" aria-label="Filter by origin"></div>
-  <label class="toggle"><input type="checkbox" id="keyonly"> Key ideas only</label>
-  <label class="toggle"><input type="checkbox" id="proposed" checked> Show proposed links</label>
+  <label class="toggle"><input type="checkbox" id="keyonly" autocomplete="off"> Key ideas only</label>
+  <label class="toggle"><input type="checkbox" id="proposed" checked autocomplete="off"> Show proposed links</label>
   <div class="small-btns">
     <button class="btn" id="random" type="button" title="Open a random card (r)">Surprise me</button>
     <button class="btn" id="fit" type="button">Fit</button>
@@ -187,6 +191,8 @@ aside.panel {
 <main>
   <section class="graph-wrap" aria-label="Concept graph">
     <div id="cy"></div>
+    <div id="empty" class="empty-note" hidden>No cards match these filters.</div>
+    <div id="tip" class="tip" hidden></div>
     <details class="legend" id="legend">
       <summary>Legend</summary>
       <div class="inner" id="legend-inner"></div>
@@ -229,7 +235,7 @@ const DATA = /*__DATA__*/null;
 
   // ---------- header bits ----------
   const daysPresent = [...new Set(DATA.nodes.flatMap((n) => n.days))].sort((a, b) => a - b);
-  $("#sub").textContent = `${M.cohort} · days ${daysPresent[0]}–${daysPresent[daysPresent.length - 1]} · built ${M.built}`;
+  $("#sub").textContent = `${M.cohort} · days ${daysPresent[0]} to ${daysPresent[daysPresent.length - 1]} · built ${M.built}`;
   if (ghBase) {
     $("#add").href = `${ghBase}/new/${M.branch}/concepts?filename=new-concept.md&value=${encodeURIComponent(M.card_template)}`;
   } else { $("#add").hidden = true; }
@@ -262,7 +268,7 @@ const DATA = /*__DATA__*/null;
     originWrap.appendChild(b);
   };
   mkOrigin("all", "All origins");
-  Object.entries(OR).forEach(([k, v]) => { if (DATA.nodes.some((n) => n.origin === k)) mkOrigin(k, v.label); });
+  Object.entries(OR).forEach(([k, v]) => { if (DATA.nodes.some((n) => n.origin === k)) mkOrigin(k, v.label || k); });
 
   // ---------- legend ----------
   function legend() {
@@ -348,14 +354,35 @@ const DATA = /*__DATA__*/null;
       const showProp = $("#proposed").checked;
       cy.edges().forEach((e) => e.toggleClass("hidden", !showProp && e.data("proposed")));
     });
+    $("#empty").hidden = cy.nodes().some((n) => !n.hasClass("hidden"));
+    const sel = cy.$("node:selected");
+    if (sel.length && sel.hasClass("hidden")) clear();           // the open card was filtered out
+    if ($("#q").value.trim()) runSearch();                        // keep the search in step with the filters
     cy.animate({ fit: { eles: cy.elements(":visible"), padding: 40 } }, { duration: reduced ? 0 : 300 });
   }
   $("#proposed").addEventListener("change", applyFilters);
   $("#keyonly").addEventListener("change", applyFilters);
+  function resetFilters() {
+    activeDay = "all"; activeOrigin = "all"; $("#keyonly").checked = false;
+    [...dayWrap.children].forEach((c) => c.setAttribute("aria-pressed", String(c.dataset.day === "all")));
+    [...originWrap.children].forEach((c) => c.setAttribute("aria-pressed", String(c.dataset.origin === "all")));
+    applyFilters();
+  }
   const randomCard = () => {
-    const vis = cy.nodes(":visible").filter((n) => n.data("status") !== "stub");
+    let vis = cy.nodes().filter((n) => !n.hasClass("hidden") && n.data("status") !== "stub");
+    if (vis.length > 1) vis = vis.filter((n) => !n.selected());   // do not reopen the card that is already open
     if (vis.length) select(vis[Math.floor(Math.random() * vis.length)].id());
   };
+  // hover label: titles stay readable when the map is zoomed out
+  const tip = $("#tip");
+  cy.on("mouseover", "node", (ev) => {
+    const p = ev.target.renderedPosition();
+    tip.textContent = ev.target.data("title");
+    tip.style.left = p.x + "px"; tip.style.top = (p.y - ev.target.renderedHeight() / 2 - 6) + "px";
+    tip.hidden = false;
+  });
+  cy.on("mouseout", "node", () => { tip.hidden = true; });
+  cy.on("pan zoom", () => { tip.hidden = true; });
   $("#random").addEventListener("click", randomCard);
   $("#fit").addEventListener("click", () => cy.animate({ fit: { eles: cy.elements(":visible"), padding: 40 } }, { duration: reduced ? 0 : 300 }));
   $("#relayout").addEventListener("click", () => {
@@ -366,26 +393,30 @@ const DATA = /*__DATA__*/null;
   const hay = (n) => [n.title, n.id, ...(n.aliases || []), ...Object.values(n.sections)].join(" ").toLowerCase();
   const index = Object.fromEntries(DATA.nodes.map((n) => [n.id, hay(n)]));
   let matches = [];
-  $("#q").addEventListener("input", (ev) => {
-    const q = ev.target.value.trim().toLowerCase();
+  function runSearch() {
+    const q = $("#q").value.trim().toLowerCase();
     cy.batch(() => {
       cy.elements().removeClass("match faded lit");
       if (!q) { matches = []; $("#qcount").textContent = ""; return; }
-      matches = DATA.nodes.filter((n) => n.title.toLowerCase().includes(q) || index[n.id].includes(q)).map((n) => n.id);
+      matches = DATA.nodes.filter((n) => !cy.getElementById(n.id).hasClass("hidden") && (n.title.toLowerCase().includes(q) || index[n.id].includes(q))).map((n) => n.id);
       matches.sort((a, b) => Number(!byId[a].title.toLowerCase().includes(q)) - Number(!byId[b].title.toLowerCase().includes(q)));
       cy.elements().addClass("faded");
       matches.forEach((id) => cy.getElementById(id).removeClass("faded").addClass("match"));
       $("#qcount").textContent = `${matches.length} found`;
     });
-  });
+  }
+  $("#q").addEventListener("input", runSearch);
   $("#q").addEventListener("keydown", (ev) => {
     if (ev.key === "Enter" && matches.length) { select(matches[0]); }
     if (ev.key === "Escape") { ev.target.value = ""; ev.target.dispatchEvent(new Event("input")); }
   });
   document.addEventListener("keydown", (ev) => {
-    if (ev.key === "/" && document.activeElement !== $("#q")) { ev.preventDefault(); $("#q").focus(); }
     if (ev.key === "Escape" && document.activeElement !== $("#q")) clear();
-    if (ev.key === "r" && document.activeElement !== $("#q") && !ev.metaKey && !ev.ctrlKey) randomCard();
+    const t = ev.target;
+    if (t && t.closest && t.closest("input, textarea, select, [contenteditable]")) return;   // the user is typing or on a control
+    if (ev.metaKey || ev.ctrlKey || ev.altKey || ev.repeat) return;
+    if (ev.key === "/") { ev.preventDefault(); $("#q").focus(); }
+    if (ev.key.toLowerCase() === "r") randomCard();
   });
 
   // ---------- selection ----------
@@ -396,6 +427,7 @@ const DATA = /*__DATA__*/null;
   function select(id) {
     const node = cy.getElementById(id);
     if (!node.length) return;
+    if (node.hasClass("hidden")) resetFilters();                  // show the card that was asked for
     cy.batch(() => {
       cy.elements().removeClass("match lit").addClass("faded").unselect();
       const hood = node.closedNeighborhood();
@@ -453,7 +485,9 @@ const DATA = /*__DATA__*/null;
     const groups = {};
     cy.getElementById(id).connectedEdges().forEach((e) => {
       const d = e.data(); const out = d.source === id; const other = out ? d.target : d.source;
-      const name = REL[d.type][out || !LT[d.type].directed ? 0 : 1];
+      const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+      const rel = REL[d.type] || [cap(LT[d.type].label), cap(LT[d.type].label) + " (incoming)"];
+      const name = rel[out || !LT[d.type].directed ? 0 : 1];
       (groups[name] = groups[name] || []).push({ other, note: d.note, proposed: d.proposed });
     });
     const gnames = Object.keys(groups);
@@ -493,7 +527,7 @@ const DATA = /*__DATA__*/null;
     html += `<p>Click a concept to read its card. Click a line to see why two concepts are linked. Large nodes are the key ideas. Each card names who wrote it.</p>`;
     html += `<p class="missing">Colour: course cluster (A alignment, D agency, C interpretability…). Shape: ● concept, ◆ problem, ▬ case. Size: weight (large = key idea). Hollow: stub. Dashed line: proposed link, not yet confirmed. Dashed ring: island.</p>`;
     const keys = DATA.nodes.filter((n) => n.weight === 3).sort((a, b) => (a.days[0] || 0) - (b.days[0] || 0));
-    if (keys.length) html += `<h3>Start here: ${keys.length} key ideas</h3><ul class="home-list">${keys.map((n) => `<li>${go(n.id)} <span class="muted">day ${n.days.join(", ")}</span></li>`).join("")}</ul>`;
+    if (keys.length) html += `<h3>Start here: ${keys.length} key ideas</h3><ul class="home-list">${keys.map((n) => `<li>${go(n.id)}${n.days.length ? ` <span class="muted">day ${n.days.join(", ")}</span>` : ""}</li>`).join("")}</ul>`;
     html += `<h3>Islands</h3>`;
     html += isl ? `<p>No links at all:</p><ul class="home-list">${S.isolated.map((id) => `<li>${go(id)}</li>`).join("")}</ul>` : "<p>None. Every card has a link.</p>";
     if (groups) html += `<p style="margin-top:10px">Groups cut off from the main map:</p><ul>${groups}</ul>`;

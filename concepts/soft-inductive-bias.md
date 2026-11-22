@@ -12,7 +12,12 @@ links:
   - to: solomonoff-induction
     type: tool
     note: "A prior that favours short programs is a soft bias."
-  - needs: pac-bayes
+    proposed: true
+    by: claude
+  - to: pac-bayes
+    type: needs
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

@@ -6,7 +6,10 @@ origin: notes
 weight: 1
 by: [claude]
 links:
-  - eg: backdoor
+  - to: backdoor
+    type: eg
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

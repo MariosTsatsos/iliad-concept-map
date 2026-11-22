@@ -5,7 +5,10 @@ days: [6]
 origin: notes
 by: [claude]
 links:
-  - safety: ai-alignment
+  - to: ai-alignment
+    type: safety
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

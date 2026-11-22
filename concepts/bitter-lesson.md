@@ -5,7 +5,10 @@ days: [14]
 origin: notes
 by: [claude]
 links:
-  - tool: scaling-laws
+  - to: scaling-laws
+    type: tool
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

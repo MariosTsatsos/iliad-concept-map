@@ -5,7 +5,10 @@ days: [13, 14]
 origin: notes
 by: [claude]
 links:
-  - safety: generalisation-gap
+  - to: generalisation-gap
+    type: safety
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence
@@ -25,4 +28,4 @@ What a model does off the training data is decided by this bias, so it decides g
 
 ## Sources
 - Day 13 notes, Artemy Kolchinsky: Physics of Deep Learning, Sec. IV C
-- [Day 14 slides, Zach Furman: Mysteries of Deep Learning](https://iliad-intensive.org/learning/mysteries-of-deep-learning/)
+- [Day 14 slide deck by Zach Furman: Mysteries of Deep Learning](https://iliad-intensive.org/learning/mysteries-of-deep-learning/)

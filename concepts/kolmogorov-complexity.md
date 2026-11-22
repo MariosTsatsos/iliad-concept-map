@@ -4,6 +4,11 @@ kind: concept
 days: [7]
 origin: notes
 by: [claude]
+links:
+  - to: uncomputability
+    type: eg
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

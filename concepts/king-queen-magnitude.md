@@ -3,9 +3,12 @@ title: "king + female = queen: does magnitude matter?"
 kind: concept
 days: [10]
 origin: participant
-by: [MariosTsatsos]
+by: [MariosTsatsos, claude]
 links:
-  - needs: linear-representation
+  - to: linear-representation
+    type: needs
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

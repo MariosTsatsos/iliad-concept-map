@@ -5,8 +5,14 @@ days: [10]
 origin: chat
 by: [MariosTsatsos, claude]
 links:
-  - needs: entropy
-  - safety: steganography
+  - to: entropy
+    type: needs
+    proposed: true
+    by: claude
+  - to: steganography
+    type: safety
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

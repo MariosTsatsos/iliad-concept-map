@@ -8,7 +8,7 @@ by: [MariosTsatsos, claude]
 ---
 
 ## In one sentence
-The average number of yes/no questions (bits) needed to learn the outcome of a random choice: H = - sum of p log2 p.
+The smallest average number of yes/no questions (bits) per outcome needed to learn the outcomes of a long run of random choices: H = - sum of p log2 p.
 
 ## Twist
 It measures the uncertainty of a distribution, not of a single outcome.

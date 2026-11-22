@@ -3,7 +3,7 @@ title: "Optimal policy and policy iteration"
 kind: concept
 days: [3]
 module: D.1.2
-by: [marios]
+by: [MariosTsatsos]
 links:
   - to: bellman-equation
     type: needs

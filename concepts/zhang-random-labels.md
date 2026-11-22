@@ -5,7 +5,10 @@ days: [13, 14]
 origin: notes
 by: [claude]
 links:
-  - vs: generalisation-gap
+  - to: generalisation-gap
+    type: vs
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

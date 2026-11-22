@@ -2,7 +2,7 @@
 title: "Corrigibility"
 kind: concept
 days: [2]
-by: [marios]
+by: [MariosTsatsos]
 links:
   - to: vnm-theorem
     type: vs

@@ -5,7 +5,10 @@ days: [7]
 origin: notes
 by: [claude]
 links:
-  - needs: bayesian-update
+  - to: bayesian-update
+    type: needs
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

@@ -4,8 +4,6 @@ kind: concept
 days: [14]
 origin: notes
 by: [claude]
-links:
-  - safety: three-mysteries
 ---
 
 ## In one sentence

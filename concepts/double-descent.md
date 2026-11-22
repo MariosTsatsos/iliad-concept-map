@@ -8,6 +8,8 @@ links:
   - to: generalisation-gap
     type: vs
     note: "Against the classical picture that more parameters means more overfitting."
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

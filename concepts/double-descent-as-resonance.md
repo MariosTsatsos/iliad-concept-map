@@ -3,9 +3,12 @@ title: "Double descent as resonance"
 kind: concept
 days: [13]
 origin: participant
-by: [MariosTsatsos]
+by: [MariosTsatsos, claude]
 links:
-  - needs: double-descent
+  - to: double-descent
+    type: needs
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

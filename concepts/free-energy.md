@@ -6,11 +6,19 @@ origin: notes
 weight: 3
 by: [claude]
 links:
-  - needs: boltzmann-distribution
-  - needs: entropy
+  - to: boltzmann-distribution
+    type: needs
+    proposed: true
+    by: claude
+  - to: entropy
+    type: needs
+    proposed: true
+    by: claude
   - to: pac-bayes
     type: tool
     note: "The PAC-Bayes bound is written in terms of the free energy."
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

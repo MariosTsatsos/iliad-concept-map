@@ -3,12 +3,17 @@ title: "Card puzzle 2: three protocols and a zero-leak one"
 kind: case
 days: [11]
 origin: participant
-by: [MariosTsatsos]
+by: [MariosTsatsos, claude]
 links:
-  - eg: zero-knowledge-proof
+  - to: zero-knowledge-proof
+    type: eg
+    proposed: true
+    by: claude
   - to: entropy
     type: needs
     note: "The leak is measured in bits."
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

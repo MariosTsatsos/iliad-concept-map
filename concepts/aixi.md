@@ -5,9 +5,18 @@ days: [7]
 origin: notes
 by: [claude]
 links:
-  - needs: solomonoff-induction
-  - needs: return
-  - safety: wireheading
+  - to: solomonoff-induction
+    type: needs
+    proposed: true
+    by: claude
+  - to: return
+    type: needs
+    proposed: true
+    by: claude
+  - to: wireheading
+    type: safety
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

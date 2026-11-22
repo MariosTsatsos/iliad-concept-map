@@ -3,7 +3,7 @@ title: "Completeness (axiom 1)"
 kind: concept
 days: [3]
 module: D.1.1
-by: [marios, claude]
+by: [MariosTsatsos, claude]
 links: []
 ---
 

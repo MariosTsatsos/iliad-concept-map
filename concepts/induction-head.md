@@ -5,8 +5,14 @@ days: [10]
 origin: chat
 by: [MariosTsatsos, claude]
 links:
-  - needs: k-q-composition
-  - eg: mechanistic-interpretability
+  - to: k-q-composition
+    type: needs
+    proposed: true
+    by: claude
+  - to: mechanistic-interpretability
+    type: eg
+    proposed: true
+    by: claude
   - to: in-context-learning
     type: eg
     note: "One mechanism behind it."

@@ -9,6 +9,13 @@ links:
   - to: solomonoff-induction
     type: needs
     note: "The Day 14 recap uses it as the ideal answer to two of the three."
+    proposed: true
+    by: claude
+  - to: curse-of-dimensionality
+    type: needs
+    note: "The classical warning behind the approximation question."
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence
@@ -30,5 +37,5 @@ Solomonoff induction answers two of the three. Which one does it leave unsolved?
 Answer to the self-test: optimisation.
 
 ## Sources
-- [Day 14 slides, Zach Furman: Mysteries of Deep Learning](https://iliad-intensive.org/learning/mysteries-of-deep-learning/)
+- [Day 14 slide deck by Zach Furman: Mysteries of Deep Learning](https://iliad-intensive.org/learning/mysteries-of-deep-learning/)
 - Day 14 slides, Miguel Donaire Arcas-Sariot: Historical introduction to the science of deep learning

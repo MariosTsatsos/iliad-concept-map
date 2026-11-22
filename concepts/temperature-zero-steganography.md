@@ -3,11 +3,20 @@ title: "Temperature 0 leaves no room for steganography"
 kind: concept
 days: [10]
 origin: participant
-by: [MariosTsatsos]
+by: [MariosTsatsos, claude]
 links:
-  - needs: entropy
-  - safety: steganography
-  - needs: three-temperatures
+  - to: entropy
+    type: needs
+    proposed: true
+    by: claude
+  - to: steganography
+    type: safety
+    proposed: true
+    by: claude
+  - to: three-temperatures
+    type: needs
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

@@ -9,8 +9,14 @@ links:
     type: gen
     proposed: true
     by: claude
-  - vs: evals
-  - needs: implicit-bias
+  - to: evals
+    type: vs
+    proposed: true
+    by: claude
+  - to: implicit-bias
+    type: needs
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

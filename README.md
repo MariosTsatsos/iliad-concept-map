@@ -14,10 +14,10 @@ Each idea is one **card** (a small text file). Cards are joined by **links** of 
 | Node colour | Course cluster: A alignment, B learning, C interpretability, D agency, E safety guarantees |
 | Node shape | ● concept, ◆ safety problem, ▬ case (paper, incident, example) |
 | Hollow node | Stub: nobody has written its one sentence yet |
-| Dashed line | Proposed link that no participant has confirmed yet |
+| Dashed line | Proposed link that no participant has confirmed yet. Every link drafted by Claude starts as proposed. |
 | Dashed ring | Island: a card with no links |
 
-Controls: click a node to read its card; click a line to see why two cards are linked; filter by day or by origin; tick **Key ideas only** to see the large nodes alone; **Surprise me** (or the `r` key) opens a random card; `/` searches.
+Controls: hover over a node to see its title; click a node to read its card; click a line to see why two cards are linked; filter by day or by origin; tick **Key ideas only** to see the large nodes alone; **Surprise me** (or the `r` key) opens a random card; `/` searches.
 
 ## How to add a card (a node)
 
@@ -28,7 +28,7 @@ You need a GitHub account and a browser. Nothing to install.
 3. **Fill in the header** (the block between the two `---` lines). The attributes are listed in the next section. Only `title` is required.
 4. **Write the sentence** under `## In one sentence`, in your own words. The other sections are optional. A card with an empty sentence is shown as a hollow stub.
 5. **Link it** to at least one existing card (see "How to add a link").
-6. Click **Commit changes**, then **Propose changes**, then **Create pull request**. A check runs automatically. If it turns red, its log names the file and the line to fix. Once the pull request is merged, the live map rebuilds within a few minutes.
+6. Click **Commit changes**, then **Propose changes**, then **Create pull request**. A check runs on the pull request (for a first-time contributor, GitHub may wait for the maintainer to approve the run). If it turns red, its log names the file and says what is wrong. Once the pull request is merged, the live map rebuilds within a few minutes.
 
 To **edit** an existing card: click its node, then **Edit this card on GitHub**, change the text, and commit in the same way.
 
@@ -52,10 +52,10 @@ links:
 | Attribute | Required | Values | What it does on the map |
 |---|---|---|---|
 | `title` | yes | any text; put it in quotes if it contains `:` | The node's label |
-| `kind` | no, default `concept` | `concept` (idea, definition, result), `problem` (safety problem or failure mode), `case` (paper, incident, worked example) | Node shape |
-| `days` | recommended | list of course days, e.g. `[9]` or `[10, 13]` | Day filter; the first day sets the colour |
+| `kind` | no, default `concept` | `concept` (idea, definition, result), `problem` (safety problem or failure mode), `case` (paper, incident, scenario, forecast, worked example) | Node shape |
+| `days` | recommended | list of course day numbers without quotes, e.g. `[9]` or `[10, 13]` | Day filter; the first day sets the colour. A card with no day is grey and appears only under "All days". |
 | `origin` | no, default `notes` | `participant` (your own idea, question or analogy), `chat` (worked out in discussion), `notes` (from the course material), `claude` (added by Claude) | Badge on the card, origin filter, and the default weight |
-| `weight` | no | `1`, `2` or `3` | Node size. If omitted: `participant` 3, `chat` 2, `notes` 2, `claude` 1 |
+| `weight` | no | the number `1`, `2` or `3`, without quotes | Node size. If omitted or left blank: `participant` 3, `chat` 2, `notes` 2, `claude` 1 |
 | `by` | recommended | list of GitHub names | Credit line on the card |
 | `links` | recommended | see below | Lines to other cards |
 | `module` | no | course module code, e.g. `B.2` | Overrides the colour that `days` gives |
@@ -74,7 +74,9 @@ links:
 | `## Notes` | Anything else, for example the answer to the self-test. |
 | `## Sources` | A list. Link the module page or paper; do not paste slides. |
 
-Headings must be spelled exactly as above. Any section can be left empty or left out.
+Use these headings (capital letters do not matter). A heading that is not in this list is ignored with a warning, and its text does not appear on the map. Any section can be left empty or left out.
+
+An attribute name that is not in the table above (for example a misspelt `orgin`) is also ignored with a warning, so read the check's log even when it is green.
 
 ## How to add a link
 
@@ -111,12 +113,12 @@ To **confirm** a dashed link, delete its `proposed: true` line. To **reject** it
 
 ## How to add a new tag value
 
-The allowed values live in `course.yml`, not in the code.
+The allowed values live in `course.yml`. Colours and shapes live in `site/template.html`.
 
 - A new **origin**: add a line under `origins:` with a `label` and a default `weight`.
-- A new **link type**: add a line under `link_types:` with `label`, `directed` (`true` draws an arrow) and `help`. Then add a colour for it in `site/template.html` (search for `--e-needs` and add `--e-yourtype` next to it in each of the three places it appears).
-- A new **kind**: add a line under `kinds:`. It is drawn as a circle unless you add a shape in `site/template.html` (search for `round-rectangle`).
-- A new **day**: add a line under `days:`.
+- A new **link type**: add a line under `link_types:` with `label`, `directed` (`true` draws an arrow) and `help`. Then add a colour for it in `site/template.html` (search for `--e-needs` and add `--e-yourtype` next to it in each of the three places it appears). The card panel then shows the link under its `label`; to give it two phrasings, one for each direction, add a line to the `REL` table in the same file.
+- A new **kind**: add a line under `kinds:`. It is drawn as a circle unless you add a shape in `site/template.html` (search for `round-rectangle`). The legend text for shapes is written by hand in the same file (search for `◆ problem`).
+- A new **day**: add a line under `days:`. Give it a `module` (such as `B.2`) or a `cluster` letter, otherwise its cards are grey.
 
 ## Run it locally (optional)
 
@@ -139,7 +141,7 @@ No slides, PDFs or exercise sheets are stored here. Cards link to the module pag
 ## Authors
 
 - Marios Tsatsos ([@MariosTsatsos](https://github.com/MariosTsatsos)): the ideas marked "Participant's own idea", the notes behind Days 1 to 5, and the direction of the map.
-- Claude (Anthropic): the code, the cards credited `claude` in their `by:` line, and the first draft of the links. Sentences written by Claude are Claude's wording of the course material or of the discussion; edit them freely.
+- Claude (Anthropic): the code, the wording of every card that lists `claude` in its `by:` line (this includes the wording of Marios's own ideas, until he rewrites them), and the first draft of the links, all marked as proposed. Edit them freely.
 
 Every card names its authors in `by:`. Add your name when you edit one.
 

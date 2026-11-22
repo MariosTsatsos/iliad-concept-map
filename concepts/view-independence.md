@@ -3,9 +3,12 @@ title: "Zero-knowledge means the view does not depend on the secret"
 kind: concept
 days: [11]
 origin: participant
-by: [MariosTsatsos]
+by: [MariosTsatsos, claude]
 links:
-  - needs: zero-knowledge-proof
+  - to: zero-knowledge-proof
+    type: needs
+    proposed: true
+    by: claude
   - to: total-variation-distance
     type: tool
     note: "Distance zero between the views for any two secrets."

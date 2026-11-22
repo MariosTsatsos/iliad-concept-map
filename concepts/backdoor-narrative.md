@@ -3,11 +3,20 @@ title: "From software backdoors to obfuscated weights, in five steps"
 kind: concept
 days: [8]
 origin: participant
-by: [MariosTsatsos]
+by: [MariosTsatsos, claude]
 links:
-  - needs: backdoor
-  - needs: indistinguishability-obfuscation
-  - needs: relu-gates
+  - to: backdoor
+    type: needs
+    proposed: true
+    by: claude
+  - to: indistinguishability-obfuscation
+    type: needs
+    proposed: true
+    by: claude
+  - to: relu-gates
+    type: needs
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

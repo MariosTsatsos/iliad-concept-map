@@ -3,7 +3,7 @@ title: "Markov decision process (MDP)"
 kind: concept
 days: [3]
 module: D.1.2
-by: [marios, claude]
+by: [MariosTsatsos, claude]
 links:
   - to: agent
     type: needs

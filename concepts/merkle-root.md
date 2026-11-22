@@ -6,7 +6,10 @@ origin: notes
 weight: 1
 by: [claude]
 links:
-  - eg: commitment
+  - to: commitment
+    type: eg
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

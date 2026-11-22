@@ -5,8 +5,14 @@ days: [14]
 origin: chat
 by: [MariosTsatsos, claude]
 links:
-  - eg: hardness-of-learning
-  - eg: hidden-progress
+  - to: hardness-of-learning
+    type: eg
+    proposed: true
+    by: claude
+  - to: hidden-progress
+    type: eg
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

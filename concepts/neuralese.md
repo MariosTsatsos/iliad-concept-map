@@ -4,7 +4,7 @@ kind: problem
 days: [10]
 origin: chat
 weight: 1
-by: [MariosTsatsos]
+by: [MariosTsatsos, claude]
 links:
   - to: steganography
     type: tool

@@ -3,7 +3,7 @@ title: "Policy"
 kind: concept
 days: [3]
 module: D.1.2
-by: [marios]
+by: [MariosTsatsos]
 links:
   - to: mdp
     type: needs

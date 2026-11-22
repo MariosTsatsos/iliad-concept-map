@@ -2,7 +2,7 @@
 title: "Gradient routing"
 kind: concept
 days: [5]
-by: [marios]
+by: [MariosTsatsos]
 links:
   - to: pretraining-safety
     type: eg

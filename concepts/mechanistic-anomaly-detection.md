@@ -6,8 +6,14 @@ origin: notes
 weight: 1
 by: [claude]
 links:
-  - needs: heuristic-arguments
-  - safety: backdoor
+  - to: heuristic-arguments
+    type: needs
+    proposed: true
+    by: claude
+  - to: backdoor
+    type: safety
+    proposed: true
+    by: claude
   - to: backdoor-checker-trace
     type: safety
     note: "A possible route to an answer."

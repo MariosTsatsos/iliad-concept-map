@@ -9,7 +9,10 @@ links:
     type: eg
     proposed: true
     by: claude
-  - needs: reward
+  - to: reward
+    type: needs
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

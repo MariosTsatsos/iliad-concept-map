@@ -3,7 +3,7 @@ title: "Agent and agency"
 kind: concept
 days: [3, 4]
 module: D.4.1
-by: [marios]
+by: [MariosTsatsos]
 links: []
 ---
 

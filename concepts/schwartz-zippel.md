@@ -8,6 +8,8 @@ links:
   - to: spot-check
     type: tool
     note: "A random check that catches a difference with high probability."
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

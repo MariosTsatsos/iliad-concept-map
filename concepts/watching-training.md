@@ -5,7 +5,10 @@ days: [8]
 origin: chat
 by: [MariosTsatsos, claude]
 links:
-  - safety: backdoor
+  - to: backdoor
+    type: safety
+    proposed: true
+    by: claude
   - to: zk-compute-verification
     type: tool
     note: "Both verify the process that produced a model, not the model."

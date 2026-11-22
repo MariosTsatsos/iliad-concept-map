@@ -5,7 +5,10 @@ days: [6]
 origin: notes
 by: [claude]
 links:
-  - vs: debate
+  - to: debate
+    type: vs
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

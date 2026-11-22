@@ -5,7 +5,10 @@ days: [8]
 origin: notes
 by: [claude]
 links:
-  - safety: backdoor
+  - to: backdoor
+    type: safety
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

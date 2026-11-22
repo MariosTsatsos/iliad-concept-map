@@ -6,8 +6,14 @@ origin: notes
 weight: 1
 by: [claude]
 links:
-  - needs: schwartz-zippel
-  - eg: interactive-proof
+  - to: schwartz-zippel
+    type: needs
+    proposed: true
+    by: claude
+  - to: interactive-proof
+    type: eg
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

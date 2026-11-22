@@ -5,8 +5,19 @@ days: [10]
 origin: chat
 by: [MariosTsatsos, claude]
 links:
-  - needs: prf
-  - safety: steganography
+  - to: prf
+    type: needs
+    proposed: true
+    by: claude
+  - to: steganography
+    type: safety
+    proposed: true
+    by: claude
+  - to: no-fixed-key
+    type: needs
+    note: "The problem this scheme answers."
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

@@ -5,8 +5,14 @@ days: [13]
 origin: chat
 by: [MariosTsatsos, claude]
 links:
-  - needs: boltzmann-distribution
-  - tool: free-energy
+  - to: boltzmann-distribution
+    type: needs
+    proposed: true
+    by: claude
+  - to: free-energy
+    type: tool
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

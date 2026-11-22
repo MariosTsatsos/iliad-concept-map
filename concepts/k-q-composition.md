@@ -5,8 +5,14 @@ days: [10]
 origin: chat
 by: [MariosTsatsos, claude]
 links:
-  - needs: qk-ov-circuits
-  - needs: attention
+  - to: qk-ov-circuits
+    type: needs
+    proposed: true
+    by: claude
+  - to: attention
+    type: needs
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

@@ -5,7 +5,10 @@ days: [8]
 origin: notes
 by: [claude]
 links:
-  - needs: heuristic-arguments
+  - to: heuristic-arguments
+    type: needs
+    proposed: true
+    by: claude
   - to: backdoor
     type: safety
     proposed: true

@@ -3,7 +3,7 @@ title: "Continuity (axiom 3)"
 kind: concept
 days: [3]
 module: D.1.1
-by: [marios, claude]
+by: [MariosTsatsos, claude]
 links: []
 ---
 

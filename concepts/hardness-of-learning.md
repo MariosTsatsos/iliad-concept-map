@@ -5,7 +5,10 @@ days: [14]
 origin: notes
 by: [claude]
 links:
-  - needs: three-mysteries
+  - to: three-mysteries
+    type: needs
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

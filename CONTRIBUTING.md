@@ -1,6 +1,6 @@
 # Contributing
 
-Every change takes about two minutes in the browser. You need a GitHub account, nothing else. When you save, GitHub makes a copy of the repo for you and opens a pull request. A check runs on it; if it goes red, the log says which line to fix.
+Every change takes about two minutes in the browser. You need a GitHub account, nothing else. When you save, GitHub makes a copy of the repo for you and opens a pull request. A check runs on it; if it goes red, the log names the file and says what is wrong.
 
 ## 1. Write a stub (most useful)
 
@@ -9,7 +9,7 @@ Hollow nodes have no one-sentence statement yet.
 1. On the map, click a hollow node, then **Write it**.
 2. Under `## In one sentence`, write one sentence in your own words.
 3. Add a `## Twist` or `## Self-test` question if you have one.
-4. Add your GitHub name to `by:`, for example `by: [marios, your-name]`.
+4. Add your GitHub name to `by:`, for example `by: [MariosTsatsos, your-name]`.
 5. **Commit changes** → **Propose changes** → **Create pull request**.
 
 ## 2. Add a concept

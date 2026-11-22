@@ -3,20 +3,28 @@ title: "Compressibility and intelligence"
 kind: concept
 days: [7]
 origin: participant
-by: [MariosTsatsos]
+by: [MariosTsatsos, claude]
 links:
-  - needs: kolmogorov-complexity
-  - tool: solomonoff-induction
+  - to: kolmogorov-complexity
+    type: needs
+    proposed: true
+    by: claude
+  - to: solomonoff-induction
+    type: tool
+    proposed: true
+    by: claude
   - to: entropy
     type: tool
     note: "Entropy is the number of bits per symbol after ideal compression."
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence
 A string that can be compressed has a pattern, and finding the pattern is what a predictor does, so compressing data well and predicting it well are closely linked.
 
 ## Twist
-Marios marked this link as the thing to keep from Day 7.
+Marios marked this link as worth keeping in mind and in his notes.
 
 ## Why it matters for safety
 

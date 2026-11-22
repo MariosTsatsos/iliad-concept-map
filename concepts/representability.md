@@ -3,7 +3,7 @@ title: "Representability"
 kind: concept
 days: [3]
 module: D.1.1
-by: [marios]
+by: [MariosTsatsos]
 links:
   - needs: preference
 ---

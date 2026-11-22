@@ -10,7 +10,7 @@ by: [MariosTsatsos, claude]
 On inputs 0 and 1: NOT x = ReLU(1 - x), x AND y = ReLU(x + y - 1), x OR y = ReLU(x + y) - ReLU(x + y - 1); so every Boolean circuit can be written as a ReLU network.
 
 ## Twist
-OR is the one that needs two units.
+In this form OR uses two units (the Day 8 exercise asks which gate needs two, and why). With a constant added after the unit, one is enough: x OR y = 1 - ReLU(1 - x - y).
 
 ## Why it matters for safety
 

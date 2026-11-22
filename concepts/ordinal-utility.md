@@ -3,7 +3,7 @@ title: "Ordinal utility (Lemma 3)"
 kind: concept
 days: [3, 4]
 module: D.1.1
-by: [marios]
+by: [MariosTsatsos]
 links:
   - needs: completeness
   - needs: transitivity

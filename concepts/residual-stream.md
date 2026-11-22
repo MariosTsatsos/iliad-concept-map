@@ -2,7 +2,7 @@
 title: "Residual stream"
 kind: concept
 days: [1]
-by: [marios, claude]
+by: [MariosTsatsos, claude]
 links: []
 ---
 

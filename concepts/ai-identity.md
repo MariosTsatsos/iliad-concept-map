@@ -2,7 +2,7 @@
 title: "AI identity"
 kind: concept
 days: [4]
-by: [marios]
+by: [MariosTsatsos]
 links:
   - to: corrigibility
     type: safety

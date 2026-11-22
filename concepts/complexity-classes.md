@@ -5,7 +5,10 @@ days: [6]
 origin: notes
 by: [claude]
 links:
-  - needs: certificate
+  - to: certificate
+    type: needs
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

@@ -5,8 +5,14 @@ days: [10]
 origin: notes
 by: [claude]
 links:
-  - needs: residual-stream
-  - tool: superposition
+  - to: residual-stream
+    type: needs
+    proposed: true
+    by: claude
+  - to: superposition
+    type: tool
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

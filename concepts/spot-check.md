@@ -5,10 +5,15 @@ days: [11]
 origin: chat
 by: [MariosTsatsos, claude]
 links:
-  - needs: commitment
+  - to: commitment
+    type: needs
+    proposed: true
+    by: claude
   - to: interactive-proof
     type: tool
     note: "The verifier's randomness does the work in both."
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

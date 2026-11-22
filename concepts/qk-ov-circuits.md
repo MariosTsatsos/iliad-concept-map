@@ -2,7 +2,7 @@
 title: "QK and OV circuits"
 kind: concept
 days: [1]
-by: [marios, claude]
+by: [MariosTsatsos, claude]
 links:
   - to: attention
     type: needs

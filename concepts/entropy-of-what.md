@@ -3,10 +3,16 @@ title: "Entropy falls in training and in inference: entropy of what?"
 kind: concept
 days: [13]
 origin: participant
-by: [MariosTsatsos]
+by: [MariosTsatsos, claude]
 links:
-  - needs: entropy
-  - needs: three-temperatures
+  - to: entropy
+    type: needs
+    proposed: true
+    by: claude
+  - to: three-temperatures
+    type: needs
+    proposed: true
+    by: claude
   - to: compression-and-intelligence
     type: tool
     note: "Learning as compression of the data into the weights."

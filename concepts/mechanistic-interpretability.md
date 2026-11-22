@@ -2,7 +2,7 @@
 title: "Mechanistic interpretability"
 kind: concept
 days: [1]
-by: [marios, claude]
+by: [MariosTsatsos, claude]
 links:
   - to: transformer
     type: needs

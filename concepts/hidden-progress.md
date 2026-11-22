@@ -6,7 +6,8 @@ origin: chat
 by: [MariosTsatsos, claude]
 links:
   - to: evals
-    type: safety
+    type: vs
+    note: "A flat metric before a sudden jump gives an evaluation nothing to warn about."
     proposed: true
     by: claude
 ---

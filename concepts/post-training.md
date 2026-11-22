@@ -2,7 +2,7 @@
 title: "Post-training"
 kind: concept
 days: [5]
-by: [marios, claude]
+by: [MariosTsatsos, claude]
 links: []
 ---
 

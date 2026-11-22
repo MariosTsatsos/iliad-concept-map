@@ -4,6 +4,12 @@ kind: case
 days: [11]
 origin: notes
 by: [claude]
+links:
+  - to: compute-verification
+    type: eg
+    note: "A rule whose enforcement needs this kind of check."
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

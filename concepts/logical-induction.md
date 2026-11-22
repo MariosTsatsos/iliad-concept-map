@@ -2,7 +2,7 @@
 title: "Logical induction"
 kind: concept
 days: [4]
-by: [marios]
+by: [MariosTsatsos]
 links:
   - to: bayesian-update
     type: needs

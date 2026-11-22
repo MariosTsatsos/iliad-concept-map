@@ -3,13 +3,23 @@ title: "Is the deployed model the one that was verified?"
 kind: problem
 days: [11]
 origin: participant
-by: [MariosTsatsos]
+by: [MariosTsatsos, claude]
 links:
-  - vs: zk-compute-verification
-  - needs: commitment
+  - to: zk-compute-verification
+    type: vs
+    proposed: true
+    by: claude
+  - to: commitment
+    type: needs
+    proposed: true
+    by: claude
   - to: watching-training
     type: tool
     note: "Both ask whether the object in hand came from the verified process."
+    proposed: true
+    by: claude
+  - to: compute-verification
+    type: safety
     proposed: true
     by: claude
 ---

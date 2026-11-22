@@ -5,10 +5,20 @@ days: [9]
 origin: notes
 by: [claude]
 links:
-  - eg: nash-equilibrium
+  - to: nash-equilibrium
+    type: eg
+    proposed: true
+    by: claude
   - to: mixed-strategy
     type: eg
     note: "It has a mixed equilibrium as well as two pure ones."
+    proposed: true
+    by: claude
+  - to: break-even-point
+    type: eg
+    note: "Marios's derivation was done for this game."
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

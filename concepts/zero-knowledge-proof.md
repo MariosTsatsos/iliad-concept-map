@@ -6,7 +6,10 @@ origin: notes
 weight: 3
 by: [claude]
 links:
-  - eg: interactive-proof
+  - to: interactive-proof
+    type: eg
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

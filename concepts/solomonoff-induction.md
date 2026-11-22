@@ -6,8 +6,15 @@ origin: chat
 weight: 3
 by: [MariosTsatsos, claude]
 links:
-  - gen: bayesian-mixture
-  - needs: kolmogorov-complexity
+  - to: bayesian-mixture
+    type: eg
+    note: "A Bayesian mixture over all computable hypotheses."
+    proposed: true
+    by: claude
+  - to: kolmogorov-complexity
+    type: needs
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

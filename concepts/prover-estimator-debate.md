@@ -6,7 +6,10 @@ origin: notes
 weight: 1
 by: [claude]
 links:
-  - safety: obfuscated-arguments
+  - to: obfuscated-arguments
+    type: safety
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

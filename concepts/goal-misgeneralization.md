@@ -2,7 +2,7 @@
 title: "Goal misgeneralization"
 kind: problem
 days: [2]
-by: [marios, claude]
+by: [MariosTsatsos, claude]
 links:
   - to: reward-hypothesis
     type: vs

@@ -3,11 +3,16 @@ title: "The mixed strategy as a break-even point"
 kind: concept
 days: [9]
 origin: participant
-by: [MariosTsatsos]
+by: [MariosTsatsos, claude]
 links:
-  - needs: mixed-strategy
-  - needs: nash-equilibrium
-  - eg: chicken
+  - to: mixed-strategy
+    type: needs
+    proposed: true
+    by: claude
+  - to: nash-equilibrium
+    type: needs
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

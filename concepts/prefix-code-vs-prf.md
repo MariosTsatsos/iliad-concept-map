@@ -3,10 +3,16 @@ title: "Prefix code versus PRF: looks random but is not"
 kind: concept
 days: [10]
 origin: participant
-by: [MariosTsatsos]
+by: [MariosTsatsos, claude]
 links:
-  - needs: prf
-  - needs: prf-sampling-scheme
+  - to: prf
+    type: needs
+    proposed: true
+    by: claude
+  - to: prf-sampling-scheme
+    type: needs
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

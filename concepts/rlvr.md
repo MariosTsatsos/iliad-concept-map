@@ -2,7 +2,7 @@
 title: "RLVR (verifiable rewards)"
 kind: concept
 days: [5]
-by: [marios, claude]
+by: [MariosTsatsos, claude]
 links:
   - eg: post-training
   - to: reward

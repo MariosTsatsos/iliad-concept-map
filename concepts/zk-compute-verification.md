@@ -5,11 +5,26 @@ days: [11]
 origin: notes
 by: [claude]
 links:
-  - needs: zero-knowledge-proof
-  - needs: commitment
-  - needs: spot-check
-  - needs: network-tap
-  - safety: compute-threshold
+  - to: zero-knowledge-proof
+    type: needs
+    proposed: true
+    by: claude
+  - to: commitment
+    type: needs
+    proposed: true
+    by: claude
+  - to: spot-check
+    type: needs
+    proposed: true
+    by: claude
+  - to: network-tap
+    type: needs
+    proposed: true
+    by: claude
+  - to: compute-verification
+    type: safety
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

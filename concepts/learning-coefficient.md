@@ -6,7 +6,10 @@ origin: notes
 weight: 1
 by: [claude]
 links:
-  - needs: degeneracy
+  - to: degeneracy
+    type: needs
+    proposed: true
+    by: claude
   - to: occam-factor
     type: gen
     proposed: true

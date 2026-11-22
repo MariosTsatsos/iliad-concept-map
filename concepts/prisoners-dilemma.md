@@ -5,10 +5,15 @@ days: [9]
 origin: notes
 by: [claude]
 links:
-  - eg: nash-equilibrium
+  - to: nash-equilibrium
+    type: eg
+    proposed: true
+    by: claude
   - to: pareto-efficiency
     type: eg
     note: "Its only Nash equilibrium is not Pareto efficient."
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

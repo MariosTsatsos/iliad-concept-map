@@ -5,8 +5,14 @@ days: [6]
 origin: chat
 by: [MariosTsatsos, claude]
 links:
-  - safety: scalable-oversight
-  - needs: complexity-classes
+  - to: scalable-oversight
+    type: safety
+    proposed: true
+    by: claude
+  - to: complexity-classes
+    type: needs
+    proposed: true
+    by: claude
   - to: interactive-proof
     type: eg
     note: "Two provers that oppose each other."

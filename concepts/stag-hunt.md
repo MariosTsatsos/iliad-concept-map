@@ -5,11 +5,14 @@ days: [9]
 origin: notes
 by: [claude]
 links:
-  - eg: nash-equilibrium
+  - to: nash-equilibrium
+    type: eg
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence
-A two-player game with two Nash equilibria: both hunt the stag (best for both, risky) or both hunt hare (safe, worse).
+A two-player game with two pure-strategy Nash equilibria (and a mixed one): both hunt the stag (best for both, risky) or both hunt hare (safe, worse).
 
 ## Twist
 The problem is trust, not conflicting interests.

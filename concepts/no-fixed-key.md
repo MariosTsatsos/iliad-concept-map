@@ -3,10 +3,12 @@ title: "No fixed key fits every context"
 kind: concept
 days: [10]
 origin: participant
-by: [MariosTsatsos]
+by: [MariosTsatsos, claude]
 links:
-  - safety: steganography
-  - needs: prf-sampling-scheme
+  - to: steganography
+    type: safety
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

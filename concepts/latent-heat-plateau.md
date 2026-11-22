@@ -3,10 +3,16 @@ title: "The loss plateau as latent heat"
 kind: concept
 days: [14]
 origin: participant
-by: [MariosTsatsos]
+by: [MariosTsatsos, claude]
 links:
-  - needs: hidden-progress
-  - tool: thermodynamics-of-learning
+  - to: hidden-progress
+    type: needs
+    proposed: true
+    by: claude
+  - to: thermodynamics-of-learning
+    type: tool
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

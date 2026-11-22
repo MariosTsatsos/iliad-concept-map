@@ -3,7 +3,7 @@ title: "Goal"
 kind: concept
 days: [2, 3]
 module: D.1.1
-by: [marios, claude]
+by: [MariosTsatsos, claude]
 links: []
 ---
 

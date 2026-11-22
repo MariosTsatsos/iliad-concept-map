@@ -3,10 +3,16 @@ title: "Does a backdoor's checker leave a trace?"
 kind: problem
 days: [8]
 origin: participant
-by: [MariosTsatsos]
+by: [MariosTsatsos, claude]
 links:
-  - vs: indistinguishability-obfuscation
-  - safety: backdoor
+  - to: indistinguishability-obfuscation
+    type: vs
+    proposed: true
+    by: claude
+  - to: backdoor
+    type: safety
+    proposed: true
+    by: claude
   - to: mechanistic-interpretability
     type: tool
     note: "Looking for the checker is a mechanistic interpretability task."

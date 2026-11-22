@@ -3,12 +3,17 @@ title: "Why not add a 'Frenchness' vector?"
 kind: concept
 days: [10]
 origin: participant
-by: [MariosTsatsos]
+by: [MariosTsatsos, claude]
 links:
-  - needs: steering-vector
+  - to: steering-vector
+    type: needs
+    proposed: true
+    by: claude
   - to: linear-representation
     type: vs
     note: "A test of how far the direction picture goes."
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

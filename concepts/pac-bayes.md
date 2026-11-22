@@ -5,8 +5,14 @@ days: [13]
 origin: notes
 by: [claude]
 links:
-  - needs: free-energy
-  - safety: generalisation-gap
+  - to: free-energy
+    type: needs
+    proposed: true
+    by: claude
+  - to: generalisation-gap
+    type: safety
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

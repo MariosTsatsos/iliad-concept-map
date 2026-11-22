@@ -5,7 +5,10 @@ days: [8]
 origin: notes
 by: [claude]
 links:
-  - needs: no-coincidence-principle
+  - to: no-coincidence-principle
+    type: needs
+    proposed: true
+    by: claude
   - to: spot-check
     type: tool
     note: "Sampling is the baseline in both."
@@ -33,4 +36,4 @@ Marios's Notion note for this concept reads: cumulant propagation.
 
 ## Sources
 - Day 8 slides, George Robinson: Heuristic arguments and verification, session 4
-- Neyman, Lecomte, Wu, Winer, Hilton, R., Competing with sampling (ARC, 2025)
+- Neyman, Lecomte, Wu, Winer, Hilton, R., Competing with sampling (ARC, 2025), cited as printed on the slide

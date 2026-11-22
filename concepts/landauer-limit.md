@@ -6,7 +6,10 @@ origin: chat
 weight: 1
 by: [MariosTsatsos, claude]
 links:
-  - needs: entropy
+  - to: entropy
+    type: needs
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

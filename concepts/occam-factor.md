@@ -5,7 +5,10 @@ days: [13]
 origin: notes
 by: [claude]
 links:
-  - needs: free-energy
+  - to: free-energy
+    type: needs
+    proposed: true
+    by: claude
   - to: kolmogorov-complexity
     type: tool
     note: "Both prefer the shorter description."

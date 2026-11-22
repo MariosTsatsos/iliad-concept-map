@@ -8,6 +8,8 @@ links:
   - to: nash-equilibrium
     type: vs
     note: "A Nash equilibrium need not be Pareto efficient, and the reverse."
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

@@ -6,8 +6,11 @@ origin: notes
 weight: 1
 by: [claude]
 links:
-  - vs: solomonoff-induction
-  - vs: kolmogorov-complexity
+  - to: solomonoff-induction
+    type: vs
+    note: "The ideal predictor cannot be run."
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

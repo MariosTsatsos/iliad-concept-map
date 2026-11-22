@@ -9,6 +9,8 @@ links:
   - to: hidden-progress
     type: vs
     note: "Smooth in aggregate, abrupt per capability."
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

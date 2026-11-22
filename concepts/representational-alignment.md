@@ -28,4 +28,4 @@ Marios listed 'feature alignment' as a topic to come back to.
 
 
 ## Sources
-- [Day 14 slides, Zach Furman: Mysteries of Deep Learning](https://iliad-intensive.org/learning/mysteries-of-deep-learning/)
+- [Day 14 slide deck by Zach Furman: Mysteries of Deep Learning](https://iliad-intensive.org/learning/mysteries-of-deep-learning/)

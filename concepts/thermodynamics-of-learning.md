@@ -3,11 +3,20 @@ title: "Thermodynamics of learning: training as cooling"
 kind: concept
 days: [13]
 origin: participant
-by: [MariosTsatsos]
+by: [MariosTsatsos, claude]
 links:
-  - needs: free-energy
-  - needs: three-temperatures
-  - tool: landauer-limit
+  - to: free-energy
+    type: needs
+    proposed: true
+    by: claude
+  - to: three-temperatures
+    type: needs
+    proposed: true
+    by: claude
+  - to: landauer-limit
+    type: tool
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

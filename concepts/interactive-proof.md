@@ -8,7 +8,12 @@ links:
   - to: certificate
     type: gen
     note: "A certificate is an interactive proof with one message and no questions."
-  - needs: complexity-classes
+    proposed: true
+    by: claude
+  - to: complexity-classes
+    type: needs
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

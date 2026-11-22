@@ -5,9 +5,13 @@ days: [16]
 origin: chat
 by: [MariosTsatsos, claude]
 links:
-  - needs: parameter-function-map
+  - to: parameter-function-map
+    type: needs
+    proposed: true
+    by: claude
   - to: implicit-bias
-    type: safety
+    type: eg
+    note: "A preference for more degenerate solutions is one candidate for such a bias."
     proposed: true
     by: claude
 ---

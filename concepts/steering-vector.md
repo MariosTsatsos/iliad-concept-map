@@ -5,10 +5,15 @@ days: [10]
 origin: chat
 by: [MariosTsatsos, claude]
 links:
-  - needs: linear-representation
+  - to: linear-representation
+    type: needs
+    proposed: true
+    by: claude
   - to: sparse-autoencoder
     type: tool
     note: "SAE features are a source of steering directions."
+    proposed: true
+    by: claude
 ---
 
 ## In one sentence

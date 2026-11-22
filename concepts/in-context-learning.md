@@ -22,4 +22,4 @@ A trained language model solves a new task from a few examples or a description 
 
 
 ## Sources
-- [Day 14 slides, Zach Furman: Mysteries of Deep Learning](https://iliad-intensive.org/learning/mysteries-of-deep-learning/)
+- [Day 14 slide deck by Zach Furman: Mysteries of Deep Learning](https://iliad-intensive.org/learning/mysteries-of-deep-learning/)
