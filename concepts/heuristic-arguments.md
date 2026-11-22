@@ -12,7 +12,7 @@ links:
 ---
 
 ## In one sentence
-An argument that estimates what a system does from its structure without a full proof; Day 8 presents it under 'worst-case alignment, and ambitious mechanistic interpretability'.
+An argument that gives a reason for a property without proving it, often by assuming that there is no additional structure; the slides' example is the estimate that makes us believe Goldbach's conjecture by treating the primes as random.
 
 ## Twist
 
@@ -21,7 +21,7 @@ An argument that estimates what a system does from its structure without a full 
 
 
 ## Open question
-The card is thin: the definition used in the lecture should be added by someone who has it in their notes.
+The slides: nobody yet knows exactly what 'structure' should mean.
 
 ## Self-test
 
