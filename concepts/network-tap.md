@@ -24,3 +24,4 @@ The scheme assumes all data leaving the compute pods passes a tap. How is that a
 
 ## Sources
 - Day 11 slides, David Zeidler: A toy model of zero-knowledge inference verification
+- [Zeidler, Zero-Knowledge Training Pause (LessWrong, 2026)](https://www.lesswrong.com/posts/CuzBTs3RfekGiBaAj/zero-knowledge-training-pause)

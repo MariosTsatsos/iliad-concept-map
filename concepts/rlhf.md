@@ -8,7 +8,7 @@ links:
   - to: representability
     type: needs
     proposed: true
-    note: "Raters compare two outputs and a reward model is fitted to the comparisons (Bradley–Terry). That assumes the preferences can be summarised by one number per output."
+    note: "Raters compare two outputs and a reward model is fitted to the comparisons (Bradley-Terry). That assumes the preferences can be summarised by one number per output."
   - to: transitivity
     type: vs
     proposed: true

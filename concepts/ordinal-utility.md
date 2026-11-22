@@ -29,4 +29,4 @@ Day 4 reading: ordinal utility means only the ordering of the numbers matters (o
 
 ## Sources
 - [Day 3 notes and slides, Fernando Rosas](https://iliad-intensive.org/agency/preferences-to-rewards/)
-- [Narahari, Game Theory lecture notes, ch. 7: von Neumann–Morgenstern utilities](https://gtl.csa.iisc.ac.in/gametheory/ln/web-ncp7-utility.pdf)
+- [Narahari, Game Theory lecture notes, ch. 7: von Neumann-Morgenstern utilities](https://gtl.csa.iisc.ac.in/gametheory/ln/web-ncp7-utility.pdf)

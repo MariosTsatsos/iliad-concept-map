@@ -13,7 +13,7 @@ links:
 ---
 
 ## In one sentence
-A backdoor planted in the random first layer of a network, built so that it stays undetectable under a cryptographic hardness assumption even to someone who sees the weights.
+A backdoor for random ReLU networks that stays undetectable even to someone who sees the weights, based on the hardness of the Sparse PCA problem.
 
 ## Twist
 
@@ -29,4 +29,4 @@ A backdoor planted in the random first layer of a network, built so that it stay
 
 ## Sources
 - [Day 10 slides, Julian Schulz: Steganography and Backdoors](https://iliad-intensive.org/safety/steganography/)
-- Goldwasser, Kim, Vaikuntanathan, Zamir (2022)
+- [Goldwasser, Kim, Vaikuntanathan, Zamir (2022)](https://arxiv.org/abs/2204.06974)

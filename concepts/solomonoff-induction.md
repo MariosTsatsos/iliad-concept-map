@@ -37,4 +37,4 @@ Marios: "Solomonoff rocks."
 
 ## Sources
 - [Day 7 notes and exercises, David Quarel: Solomonoff Induction and AIXI](https://iliad-intensive.org/agency/solomonoff-induction/)
-- Day 14 slides, Zach Furman: Mysteries of Deep Learning
+- [Day 14 slide deck by Zach Furman: Mysteries of Deep Learning](https://iliad-intensive.org/learning/mysteries-of-deep-learning/)

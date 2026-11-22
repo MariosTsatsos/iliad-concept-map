@@ -38,4 +38,4 @@ Flag the inputs on which a model acts for unusual reasons, which requires a desc
 
 ## Sources
 - Day 8 slides, George Robinson: Heuristic arguments and verification, session 2
-- Christiano, Mechanistic anomaly detection and ELK (2022)
+- [Christiano, Mechanistic anomaly detection and ELK (2022)](https://www.alignment.org/blog/mechanistic-anomaly-detection-and-elk/)

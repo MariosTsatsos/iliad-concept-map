@@ -28,4 +28,4 @@ Marked by Marios as a gap to study.
 
 ## Sources
 - [Day 6 slides, Leonardo Costa Lesage: Debate and Scalable Oversight](https://iliad-intensive.org/safety/debate/)
-- Barnes and Christiano (2020)
+- [Barnes, Debate update: Obfuscated arguments problem (2020)](https://www.alignmentforum.org/posts/PJLABqQ962hZEqhdB/debateupdate-obfuscated-arg)

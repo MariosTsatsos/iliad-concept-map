@@ -29,4 +29,4 @@ Marked by Marios as a gap to study. The card states only the purpose; the mechan
 
 ## Sources
 - Day 6 file pe_debate_slides.pdf
-- Brown-Cohen, Irving, Piliouras, Avoiding obfuscation with prover-estimator debate (2025)
+- [Brown-Cohen, Irving, Piliouras, Avoiding obfuscation with prover-estimator debate (2025)](https://arxiv.org/abs/2506.13609)

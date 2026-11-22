@@ -25,7 +25,7 @@ Three questions any learning machine must answer: does a good hypothesis exist i
 Classical theory predicted failure on all three for large networks, and all three work in practice.
 
 ## Why it matters for safety
-Safety methods for deep learning rest on vibes until these are understood.
+The Day 14 slides say that state-of-the-art safety methods are often based 'more on vibes than rigorous understanding'; understanding these three questions is the proposed remedy.
 
 ## Open question
 
@@ -38,4 +38,4 @@ Answer to the self-test: optimisation.
 
 ## Sources
 - [Day 14 slide deck by Zach Furman: Mysteries of Deep Learning](https://iliad-intensive.org/learning/mysteries-of-deep-learning/)
-- Day 14 slides, Miguel Donaire Arcas-Sariot: Historical introduction to the science of deep learning
+- [Day 14 slides, Miguel Donaire Arcas-Sariot: Historical introduction to the science of deep learning](https://iliad-intensive.org/learning/mysteries-of-deep-learning/)

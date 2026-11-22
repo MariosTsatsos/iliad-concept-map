@@ -37,4 +37,4 @@ Why does the judge need to check only one step of a long argument?
 
 ## Sources
 - [Day 6 slides, Leonardo Costa Lesage: Debate and Scalable Oversight](https://iliad-intensive.org/safety/debate/)
-- Irving, Christiano, Amodei, AI safety via debate (2018)
+- [Irving, Christiano, Amodei, AI safety via debate (2018)](https://arxiv.org/pdf/1805.00899)

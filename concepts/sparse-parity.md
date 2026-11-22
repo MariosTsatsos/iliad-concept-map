@@ -34,5 +34,5 @@ For n = 50 and k = 3, how do k log2 n and n^k compare?
 Answer to the self-test: about 17 against 125,000.
 
 ## Sources
-- Barak et al., Hidden Progress in Deep Learning: SGD Learns Parities Near the Computational Limit (arXiv 2207.08799)
+- [Barak et al., Hidden Progress in Deep Learning: SGD Learns Parities Near the Computational Limit (arXiv 2207.08799)](https://arxiv.org/abs/2207.08799)
 - Discussion between Marios and Claude during the course

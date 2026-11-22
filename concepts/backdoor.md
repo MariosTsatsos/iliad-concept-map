@@ -23,4 +23,4 @@ Who can produce a triggering input in the signature construction?
 
 ## Sources
 - Day 8 slides, George Robinson: Heuristic arguments and verification
-- Goldwasser, Kim, Vaikuntanathan, Zamir, Planting undetectable backdoors in ML models (2022)
+- [Goldwasser, Kim, Vaikuntanathan, Zamir, Planting undetectable backdoors in ML models (2022)](https://arxiv.org/abs/2204.06974)

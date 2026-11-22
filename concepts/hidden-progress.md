@@ -19,7 +19,7 @@ A network can be steadily building the solution inside while its loss stays flat
 
 
 ## Why it matters for safety
-A capability can appear suddenly on the loss or an evaluation with no visible warning.
+A capability can appear suddenly in the loss or in an evaluation, with no visible warning.
 
 ## Open question
 
@@ -28,5 +28,5 @@ A capability can appear suddenly on the loss or an evaluation with no visible wa
 
 
 ## Sources
-- Barak et al. (2022)
+- [Barak et al. (2022)](https://arxiv.org/abs/2207.08799)
 - Discussion between Marios and Claude during the course

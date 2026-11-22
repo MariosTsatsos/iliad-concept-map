@@ -31,5 +31,5 @@ A later attention head uses the output of an earlier head as part of its key (K-
 
 
 ## Sources
-- Day 10 slides: Mech Interp, p. 73
-- Elhage et al., A Mathematical Framework for Transformer Circuits (2021)
+- [Day 10 slides: Mech Interp](https://iliad-intensive.org/interpretability/mechanistic-interpretability/), p. 73
+- [Elhage et al., A Mathematical Framework for Transformer Circuits (2021)](https://transformer-circuits.pub/2021/framework/index.html)

@@ -21,7 +21,7 @@ links:
 ---
 
 ## In one sentence
-A backdoor has to check every input for the trigger, so the checking computation runs on every input, also the normal ones; Marios's question is whether that leaves something a defender can see.
+A backdoor has to check every input for the trigger, so the checking computation runs on every input, including the normal ones; Marios's question is whether that leaves something a defender can see.
 
 ## Twist
 

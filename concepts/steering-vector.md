@@ -35,5 +35,5 @@ What two numbers do you have to choose besides the direction?
 Answer to the self-test: the layer and the strength.
 
 ## Sources
-- Day 10 slides: Mech Interp
+- [Day 10 slides: Mech Interp](https://iliad-intensive.org/interpretability/mechanistic-interpretability/)
 - Discussion between Marios and Claude during the course

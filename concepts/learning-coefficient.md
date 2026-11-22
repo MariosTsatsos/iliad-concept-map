@@ -1,7 +1,7 @@
 ---
 title: "Learning coefficient"
 kind: concept
-days: [16]
+days: [15]
 origin: notes
 weight: 1
 by: [claude]
@@ -26,7 +26,7 @@ links:
 
 
 ## Open question
-Stub for Day 16. Proposed link: it takes the place of d/2 in the BIC penalty when the model is degenerate.
+Stub for Day 15. Proposed link: it takes the place of d/2 in the BIC penalty when the model is degenerate.
 
 ## Self-test
 

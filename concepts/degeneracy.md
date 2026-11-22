@@ -1,7 +1,7 @@
 ---
 title: "Degeneracy"
 kind: concept
-days: [16]
+days: [15]
 origin: chat
 by: [MariosTsatsos, claude]
 links:

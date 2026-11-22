@@ -28,4 +28,4 @@ Open. What sets the scale of a feature direction, and is scale itself used to st
 
 ## Sources
 - Discussion between Marios and Claude during the course
-- Day 10 slides: Mech Interp
+- [Day 10 slides: Mech Interp](https://iliad-intensive.org/interpretability/mechanistic-interpretability/)

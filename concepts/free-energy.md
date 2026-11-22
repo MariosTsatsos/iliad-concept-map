@@ -22,7 +22,7 @@ links:
 ---
 
 ## In one sentence
-F = (average loss under a distribution over weights) + T x (KL divergence of that distribution from the prior): a trade between fitting the data and staying close to the prior.
+F = (average loss under a distribution over weights) + T x (KL divergence of that distribution from the prior): a trade-off between fitting the data and staying close to the prior.
 
 ## Twist
 The distribution that minimises F is the Boltzmann distribution with the loss as energy.

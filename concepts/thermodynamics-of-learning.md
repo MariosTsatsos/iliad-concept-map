@@ -36,4 +36,4 @@ Open. What are the two reservoirs, and what is the work?
 
 ## Sources
 - Discussion between Marios and Claude during the course
-- Day 14 slides, Miguel Donaire Arcas-Sariot: Historical introduction to the science of deep learning, 'Steam engines to thermodynamics'
+- [Day 14 slides, Miguel Donaire Arcas-Sariot: Historical introduction to the science of deep learning](https://iliad-intensive.org/learning/mysteries-of-deep-learning/), 'Steam engines to thermodynamics'

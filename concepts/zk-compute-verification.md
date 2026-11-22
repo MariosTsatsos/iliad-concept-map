@@ -31,10 +31,10 @@ links:
 A proposal in which a prover commits to an approved model, logs commitments to its outputs, and proves in zero knowledge that randomly sampled outputs came from that model, while network taps record everything leaving the compute pods.
 
 ## Twist
-"Zero-knowledge proofs tell the verifier what is happening. Network taps tell the verifier what isn't."
+The two parts do different jobs: the proofs cover the computation that the prover declares, and the taps bound everything else that could leave the machines.
 
 ## Why it matters for safety
-One layer of a defence in depth for compute governance: the prover's covert goal is to train powerful models, the verifier's is to steal intellectual property, and the protocol blocks both.
+One layer of a defence in depth for compute governance: the prover's covert goal is to train powerful models, the verifier's is to steal intellectual property, and the protocol is meant to block both.
 
 ## Open question
 
@@ -45,3 +45,4 @@ One layer of a defence in depth for compute governance: the prover's covert goal
 ## Sources
 - Day 11 slides, David Zeidler: A toy model of zero-knowledge inference verification
 - [Peigné et al., Zero knowledge verification for frontier AI training is possible (arXiv 2606.05433)](https://arxiv.org/abs/2606.05433)
+- [Zeidler, Zero-Knowledge Training Pause (LessWrong, 2026)](https://www.lesswrong.com/posts/CuzBTs3RfekGiBaAj/zero-knowledge-training-pause)

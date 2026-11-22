@@ -33,3 +33,4 @@ Stub. The slides describe it as a way to prove that a sum has a claimed value; s
 
 ## Sources
 - Day 11 slides, David Zeidler: A toy model of zero-knowledge inference verification, part 2
+- [Zeidler, Zero-Knowledge Training Pause (LessWrong, 2026)](https://www.lesswrong.com/posts/CuzBTs3RfekGiBaAj/zero-knowledge-training-pause)

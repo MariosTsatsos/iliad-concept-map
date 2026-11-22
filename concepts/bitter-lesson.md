@@ -27,5 +27,5 @@ Sutton's reading of 70 years of AI research: general methods that use more compu
 
 
 ## Sources
-- Sutton, The Bitter Lesson (2019)
-- Day 14 slides, Miguel Donaire Arcas-Sariot: Historical introduction to the science of deep learning
+- [Sutton, The Bitter Lesson (2019)](https://www.incompleteideas.net/IncIdeas/BitterLesson.html)
+- [Day 14 slides, Miguel Donaire Arcas-Sariot: Historical introduction to the science of deep learning](https://iliad-intensive.org/learning/mysteries-of-deep-learning/)

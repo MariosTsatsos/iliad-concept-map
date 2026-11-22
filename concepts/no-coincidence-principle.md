@@ -32,5 +32,5 @@ Why do we believe Goldbach's conjecture without a proof?
 
 ## Sources
 - Day 8 slides, George Robinson: Heuristic arguments and verification, session 3
-- Gowers, What makes mathematicians believe unproved mathematical statements? (2023)
-- Neyman, A computational no-coincidence principle (ARC, 2025)
+- [Gowers, What makes mathematicians believe unproved mathematical statements? (2023)](https://mxphi.com/all-issues/volume-i-number-1-2023/what-makes-mathematicians-believe/)
+- [Neyman, A computational no-coincidence principle (ARC, 2025)](https://alignment.org/blog/a-computational-no-coincidence-principle)

@@ -29,4 +29,4 @@ With cross-examination the class a polynomial-time judge can decide grows from P
 ## Sources
 - [Day 6 slides, Leonardo Costa Lesage: Debate and Scalable Oversight](https://iliad-intensive.org/safety/debate/)
 - Day 6 file cx_debate_nexp.pdf
-- Barnes and Christiano, Writeup: progress on AI safety via debate (2020)
+- [Barnes and Christiano, Writeup: progress on AI safety via debate (2020)](https://www.lesswrong.com/posts/Br4xDbYu4Frwrb64a/writeup-progress-on-ai-safety-via-debate-1)

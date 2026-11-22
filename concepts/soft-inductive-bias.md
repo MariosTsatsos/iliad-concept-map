@@ -36,5 +36,5 @@ Wilson's argument is that this, with bounds such as PAC-Bayes, makes deep learni
 
 
 ## Sources
-- Wilson, Deep Learning is Not So Mysterious or Different (2025)
-- Day 14 slides, Miguel Donaire Arcas-Sariot: Historical introduction to the science of deep learning
+- [Wilson, Deep Learning is Not So Mysterious or Different (2025)](https://arxiv.org/abs/2503.02113)
+- [Day 14 slides, Miguel Donaire Arcas-Sariot: Historical introduction to the science of deep learning](https://iliad-intensive.org/learning/mysteries-of-deep-learning/)

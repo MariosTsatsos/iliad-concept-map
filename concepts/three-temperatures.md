@@ -30,6 +30,9 @@ The SGD temperature is set by the optimiser and differs from 1/n in general; and
 ## Self-test
 Which of the three does a user change in a chat interface?
 
+## Notes
+Symbols: n is the number of training examples, eta the step size, B the batch size, and sigma^2 measures how much the gradients of single examples differ from each other.
+
 ## Sources
 - Day 13 notes, Artemy Kolchinsky: Physics of Deep Learning, Sec. IV and Eq. (42)
 - Discussion between Marios and Claude during the course

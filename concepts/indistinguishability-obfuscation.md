@@ -28,5 +28,5 @@ Scrambled circuits are huge and unnatural, and training would not produce them. 
 
 ## Sources
 - Day 8 slides, George Robinson: Heuristic arguments and verification
-- Jain, Lin, Sahai, Indistinguishability obfuscation from well-founded assumptions (2021)
-- Christiano, Hilton, Lecomte, Xu, Backdoor defense, learnability and obfuscation (2024)
+- [Jain, Lin, Sahai, Indistinguishability obfuscation from well-founded assumptions (2021)](https://eprint.iacr.org/2020/1003)
+- [Christiano, Hilton, Lecomte, Xu, Backdoor defense, learnability and obfuscation (2024)](https://arxiv.org/abs/2409.03077)

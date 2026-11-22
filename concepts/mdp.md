@@ -8,7 +8,7 @@ links:
   - to: agent
     type: needs
     proposed: true
-    note: "An MDP writes down the agent–environment loop, and only the environment side gets a formal description."
+    note: "An MDP writes down the loop between agent and environment, and only the environment side gets a formal description."
 ---
 
 ## In one sentence

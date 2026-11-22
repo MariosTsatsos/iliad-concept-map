@@ -23,3 +23,4 @@ The Day 11 threat model: the prover's overt goal is to prove that approved compu
 
 ## Sources
 - Day 11 slides, David Zeidler: A toy model of zero-knowledge inference verification, 'Threat model: prover and verifier'
+- [Zeidler, Zero-Knowledge Training Pause (LessWrong, 2026)](https://www.lesswrong.com/posts/CuzBTs3RfekGiBaAj/zero-knowledge-training-pause)

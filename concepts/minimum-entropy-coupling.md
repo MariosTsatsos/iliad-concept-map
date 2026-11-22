@@ -19,7 +19,7 @@ links:
 A joint distribution of message and output text that keeps both of their own distributions unchanged and has the smallest joint entropy, so the text reveals as much as possible about the message while looking exactly like normal output.
 
 ## Twist
-In the chat we pictured it as handing out tickets: each cell of the table is a share of probability given to one (message, text) pair.
+Marios and Claude pictured it as handing out tickets: each cell of the table is a share of probability given to one (message, text) pair.
 
 ## Why it matters for safety
 

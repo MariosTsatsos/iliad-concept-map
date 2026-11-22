@@ -17,7 +17,7 @@ links:
 ---
 
 ## In one sentence
-A conversation in which a prover with unlimited power tries to convince a checker with limited time and random coins that a statement is true.
+A conversation in which a prover with unlimited power tries to convince a checker that has limited time and makes random choices that a statement is true.
 
 ## Twist
 The checker's randomness is what makes it strong: the prover cannot prepare for questions it cannot predict.

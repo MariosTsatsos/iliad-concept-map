@@ -36,4 +36,5 @@ Which two ingredients does AIXI combine?
 
 ## Sources
 - [Day 7 notes and exercises, David Quarel: Solomonoff Induction and AIXI](https://iliad-intensive.org/agency/solomonoff-induction/)
-- Hutter, Universal Artificial Intelligence (2005)
+- [Hutter, Universal Artificial Intelligence (2005)](https://link.springer.com/book/9783642060526)
+- [Module D.3.2: AIXI](https://iliad-intensive.org/agency/aixi/)

@@ -18,7 +18,7 @@ When many weight settings fit the training data, the training procedure itself p
 
 
 ## Why it matters for safety
-What a model does off the training data is decided by this bias, so it decides generalisation.
+What a model does outside the training data is decided by this bias, so it decides generalisation.
 
 ## Open question
 

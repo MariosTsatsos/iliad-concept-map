@@ -1,5 +1,5 @@
 ---
-title: "von Neumann–Morgenstern theorem"
+title: "von Neumann-Morgenstern theorem"
 kind: concept
 days: [3, 4]
 module: D.1.1
@@ -35,4 +35,4 @@ Day 4 reading: cardinal utility means ratios of differences matter too (interval
 
 ## Sources
 - [Day 3 notes and slides, Fernando Rosas](https://iliad-intensive.org/agency/preferences-to-rewards/)
-- [Narahari, Game Theory lecture notes, ch. 7: von Neumann–Morgenstern utilities](https://gtl.csa.iisc.ac.in/gametheory/ln/web-ncp7-utility.pdf)
+- [Narahari, Game Theory lecture notes, ch. 7: von Neumann-Morgenstern utilities](https://gtl.csa.iisc.ac.in/gametheory/ln/web-ncp7-utility.pdf)

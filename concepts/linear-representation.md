@@ -31,4 +31,4 @@ The working assumption that a model represents a concept as a direction in its a
 
 
 ## Sources
-- Day 10 slides: Mech Interp
+- [Day 10 slides: Mech Interp](https://iliad-intensive.org/interpretability/mechanistic-interpretability/)

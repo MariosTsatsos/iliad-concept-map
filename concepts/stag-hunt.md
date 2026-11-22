@@ -12,7 +12,7 @@ links:
 ---
 
 ## In one sentence
-A two-player game with two pure-strategy Nash equilibria (and a mixed one): both hunt the stag (best for both, risky) or both hunt hare (safe, worse).
+A two-player game with two pure-strategy Nash equilibria (and a mixed one): both hunt the stag (best for both, risky) or both hunt the hare (safe, worse).
 
 ## Twist
 The problem is trust, not conflicting interests.

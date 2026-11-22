@@ -1,7 +1,7 @@
 ---
 title: "Training dynamics"
 kind: concept
-days: [15]
+days: [16]
 origin: notes
 weight: 1
 by: [claude]
@@ -22,10 +22,10 @@ links:
 
 
 ## Open question
-Stub. Day 15 has no card yet. Add what you took from it.
+Stub. Day 16 has no card yet. Add what you took from it.
 
 ## Self-test
 
 
 ## Sources
-- [Day 15, Cheryne Jonay and Christian Copetti: Training Dynamics](https://iliad-intensive.org/learning/training-dynamics/)
+- [Day 16, Cheryne Jonay and Christian Copetti: Training Dynamics](https://iliad-intensive.org/learning/training-dynamics/)

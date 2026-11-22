@@ -36,4 +36,4 @@ Marios's Notion note for this concept reads: cumulant propagation.
 
 ## Sources
 - Day 8 slides, George Robinson: Heuristic arguments and verification, session 4
-- Neyman, Lecomte, Wu, Winer, Hilton, R., Competing with sampling (ARC, 2025), cited as printed on the slide
+- [Neyman, Lecomte, Wu, Winer, Hilton, R., Competing with sampling (ARC, 2025)](https://www.alignment.org/blog/competing-with-sampling/), cited as printed on the slide

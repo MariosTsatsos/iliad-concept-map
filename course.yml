@@ -29,8 +29,8 @@ days:
   12: {date: 2026-11-17, title: Project proposal day, lecturer: Leonard Bereska}
   13: {date: 2026-11-18, title: Physics for Deep Learning, lecturer: Artemy Kolchinsky, cluster: B}
   14: {date: 2026-11-19, title: Mysteries of Deep Learning, lecturer: Kai Ogden and Miguel Donaire Arcas-Sariot, module: B.2, url: https://iliad-intensive.org/learning/mysteries-of-deep-learning/}
-  15: {date: 2026-11-20, title: Training Dynamics, lecturer: Cheryne Jonay and Christian Copetti, module: B.4, url: https://iliad-intensive.org/learning/training-dynamics/}
-  16: {date: 2026-11-23, title: Singular Learning Theory, lecturer: Kai Ogden, module: B.3, url: https://iliad-intensive.org/learning/singular-learning-theory/}
+  15: {date: 2026-11-20, title: Singular Learning Theory, lecturer: Kai Ogden, module: B.3, url: https://iliad-intensive.org/learning/singular-learning-theory/}
+  16: {date: 2026-11-23, title: Training Dynamics, lecturer: Cheryne Jonay and Christian Copetti, module: B.4, url: https://iliad-intensive.org/learning/training-dynamics/}
   17: {date: 2026-11-24, title: Data Attribution, lecturer: Kyriakos Katsamaktsis, module: B.5, url: https://iliad-intensive.org/learning/data-attribution/}
   18: {date: 2026-11-25, title: Computational Mechanics, lecturer: Xavier Poncini, module: C.3, url: https://iliad-intensive.org/interpretability/computational-mechanics/}
   19: {date: 2026-11-26, title: World Models, lecturer: Simon Schrader, module: D.7, url: https://iliad-intensive.org/agency/world-models/}

@@ -29,3 +29,4 @@ Which of the three properties protects the prover, and which protect the verifie
 
 ## Sources
 - Day 11 slides, David Zeidler: A toy model of zero-knowledge inference verification
+- [Zeidler, Zero-Knowledge Training Pause (LessWrong, 2026)](https://www.lesswrong.com/posts/CuzBTs3RfekGiBaAj/zero-knowledge-training-pause)

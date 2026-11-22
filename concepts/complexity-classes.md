@@ -28,4 +28,4 @@ Which of the four classes needs no prover at all?
 
 ## Sources
 - [Day 6 slides, Leonardo Costa Lesage: Debate and Scalable Oversight](https://iliad-intensive.org/safety/debate/)
-- Shamir, IP = PSPACE (1992)
+- [Shamir, IP = PSPACE (1992)](https://doi.org/10.1145/146585.146609)

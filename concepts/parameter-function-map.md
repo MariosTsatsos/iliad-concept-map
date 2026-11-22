@@ -1,7 +1,7 @@
 ---
 title: "Parameter-function map"
 kind: concept
-days: [16]
+days: [15]
 origin: notes
 by: [claude]
 ---
@@ -22,7 +22,7 @@ The map that sends a setting of the weights to the function the network computes
 Give a change to the weights of a ReLU network that leaves its function unchanged.
 
 ## Notes
-One answer to the self-test: multiply the weights into a ReLU unit by 2 and the weights out of it by 1/2.
+One answer to the self-test: multiply the weights and the bias going into a ReLU unit by 2 and the weights out of it by 1/2.
 
 ## Sources
 - [Kai Ogden, Oxford SLT course notes, Lectures 1 to 5](https://iliad-intensive.org/learning/singular-learning-theory/), Sec. 1.2

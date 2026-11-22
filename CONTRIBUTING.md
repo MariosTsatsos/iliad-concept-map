@@ -1,6 +1,6 @@
 # Contributing
 
-Every change takes about two minutes in the browser. You need a GitHub account, nothing else. When you save, GitHub makes a copy of the repo for you and opens a pull request. A check runs on it; if it goes red, the log names the file and says what is wrong.
+Every change takes about two minutes in the browser. You need a GitHub account, nothing else. When you save, GitHub makes a copy of the repository for you and opens a pull request. A check runs on it; if it goes red, the log names the file and says what is wrong.
 
 ## 1. Write a stub (most useful)
 

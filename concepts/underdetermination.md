@@ -35,4 +35,4 @@ Behavioural evaluation alone cannot tell them apart.
 
 
 ## Sources
-- Day 14 slides, Miguel Donaire Arcas-Sariot: Historical introduction to the science of deep learning, slide 9
+- [Day 14 slides, Miguel Donaire Arcas-Sariot: Historical introduction to the science of deep learning](https://iliad-intensive.org/learning/mysteries-of-deep-learning/), slide 9

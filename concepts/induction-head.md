@@ -39,5 +39,5 @@ Which earlier head does it rely on, and what does that head do?
 Answer to the self-test: a previous-token head, which writes into each position what the token before it was.
 
 ## Sources
-- Day 10 slides: Mech Interp
-- Olsson et al., In-context Learning and Induction Heads (2022)
+- [Day 10 slides: Mech Interp](https://iliad-intensive.org/interpretability/mechanistic-interpretability/)
+- [Olsson et al., In-context Learning and Induction Heads (2022)](https://transformer-circuits.pub/2022/in-context-learning-and-induction-heads/index.html)
