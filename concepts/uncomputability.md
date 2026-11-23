@@ -3,7 +3,6 @@ title: "Uncomputability"
 kind: concept
 days: [7]
 origin: notes
-weight: 1
 by: [claude]
 links:
   - to: solomonoff-induction

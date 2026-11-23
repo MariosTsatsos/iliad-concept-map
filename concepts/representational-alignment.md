@@ -3,7 +3,6 @@ title: "Representational alignment"
 kind: concept
 days: [14]
 origin: notes
-weight: 1
 by: [claude]
 links:
   - to: linear-representation

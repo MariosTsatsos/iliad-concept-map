@@ -3,7 +3,6 @@ title: "Landauer limit"
 kind: concept
 days: [13]
 origin: extension
-weight: 1
 by: [MT, claude]
 links:
   - to: entropy

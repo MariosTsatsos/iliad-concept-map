@@ -3,7 +3,6 @@ title: "Zero-knowledge proof"
 kind: concept
 days: [11]
 origin: notes
-weight: 3
 by: [claude]
 links:
   - to: interactive-proof

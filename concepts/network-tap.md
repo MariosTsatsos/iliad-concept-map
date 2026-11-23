@@ -3,7 +3,6 @@ title: "Network tap"
 kind: concept
 days: [11]
 origin: notes
-weight: 1
 by: [claude]
 ---
 

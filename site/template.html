@@ -185,12 +185,12 @@ aside.panel {
 <div class="controls band">
   <div class="chips" id="days" role="group" aria-label="Filter by day"></div>
   <div class="chips" id="origins" role="group" aria-label="Filter by origin"></div>
-  <label class="toggle"><input type="checkbox" id="keyonly" autocomplete="off"> Key ideas only</label>
+  <label class="toggle"><input type="checkbox" id="keyonly" autocomplete="off"> Most linked only</label>
   <label class="toggle"><input type="checkbox" id="proposed" checked autocomplete="off"> Show proposed links</label>
   <div class="small-btns">
     <button class="btn" id="random" type="button" title="Open a random card (r)">Surprise me</button>
     <button class="btn" id="fit" type="button">Fit</button>
-    <button class="btn" id="relayout" type="button">Re-layout</button>
+    <button class="btn" id="relax" type="button" title="Shake the map and let it settle">Relax</button>
   </div>
   <div class="stats" id="stats"></div>
 </div>
@@ -265,7 +265,11 @@ const DATA = /*__DATA__*/null;
   const setDay = (val) => { activeDay = String(val); [...dayWrap.children].forEach((c) => c.setAttribute("aria-pressed", String(c.dataset.day === activeDay))); applyFilters(); };
 
   const OR = M.origins || {};
-  const SIZE = { 1: 22, 2: 34, 3: 54 };
+  // Node size follows the number of cards a card is linked to: 18 for none, 33 for one, 63 for nine.
+  const sizeOf = (deg) => Math.round(18 + 15 * Math.sqrt(deg || 0));
+  const degs = DATA.nodes.map((n) => n.degree || 0).sort((a, b) => b - a);
+  const KEY_MIN = Math.max(2, degs[Math.min(14, degs.length - 1)] || 0);   // "most linked": about the top fifteen
+  const isKey = (n) => (n.degree || 0) >= KEY_MIN;
   const originWrap = $("#origins");
   let activeOrigin = "all";
   const mkOrigin = (val, label) => {
@@ -289,7 +293,7 @@ const DATA = /*__DATA__*/null;
     $("#legend-inner").innerHTML =
       `<div><h4>Course cluster</h4><ul>${clusters}</ul></div>` +
       `<div><h4>Link</h4><ul>${edges}<li><svg class="swatch" viewBox="0 0 26 8" aria-hidden="true"><line x1="1" y1="4" x2="25" y2="4" stroke="${tok("--muted")}" stroke-width="2" stroke-dasharray="4 3"/></svg>dashed: proposed, not confirmed</li></ul></div>` +
-      `<div><h4>Card</h4><ul><li>ring: a participant's own idea</li><li>hollow: stub, no one-sentence yet</li><li>dashed ring: island, no links</li><li>size: weight 1, 2 or 3 (3 = key idea)</li></ul></div>`;
+      `<div><h4>Card</h4><ul><li>ring: a participant's own idea</li><li>hollow: stub, no one-sentence yet</li><li>dashed ring: island, no links</li><li>size: number of linked cards</li></ul></div>`;
   }
 
   // ---------- graph ----------
@@ -309,15 +313,15 @@ const DATA = /*__DATA__*/null;
     const ink = tok("--ink"), bg = tok("--bg"), accent = tok("--accent"), muted = tok("--muted");
     return [
       { selector: "node", style: {
-        "width": (e) => SIZE[e.data("weight")] || 34,
-        "height": (e) => SIZE[e.data("weight")] || 34,
-        "shape": "ellipse", "z-index": (e) => (e.data("weight") || 2),
+        "width": (e) => sizeOf(e.data("degree")),
+        "height": (e) => sizeOf(e.data("degree")),
+        "shape": "ellipse", "z-index": (e) => (e.data("degree") || 0),
         "background-color": (e) => clusterColor(e.data("cluster")),
         "background-opacity": (e) => (e.data("status") === "stub" ? 0.16 : 1),
         "border-width": (e) => (e.data("status") === "stub" ? 2 : 0),
         "border-color": (e) => clusterColor(e.data("cluster")),
         "label": "data(shown)", "color": ink, "font-family": '"IBM Plex Sans", system-ui, sans-serif',
-        "font-size": "data(fs)", "font-weight": (e) => (e.data("weight") === 3 ? 600 : 400), "text-valign": "data(tv)", "text-halign": "data(th)", "text-margin-x": "data(mx)", "text-margin-y": "data(my)", "text-wrap": "wrap", "text-max-width": "data(tw)",
+        "font-size": "data(fs)", "font-weight": (e) => (isKey(e.data()) ? 600 : 400), "text-valign": "data(tv)", "text-halign": "data(th)", "text-margin-x": "data(mx)", "text-margin-y": "data(my)", "text-wrap": "wrap", "text-max-width": "data(tw)",
         "text-outline-color": bg, "text-outline-width": "data(to)", "min-zoomed-font-size": 0,
       }},
       { selector: 'node[origin = "participant"]', style: { "outline-width": 2.5, "outline-color": ink, "outline-offset": 3, "outline-style": "solid" } },
@@ -351,7 +355,7 @@ const DATA = /*__DATA__*/null;
 
   // ---------- labels ----------
   // Labels keep a fixed size on screen at every zoom. At each view the map shows as many labels
-  // as fit without covering each other: the selected card and its neighbours first, then by weight, then by number of links.
+  // as fit without covering each other: the selected card and its neighbours first, then by number of links.
   const LABEL_PX = { 1: 10, 2: 10.5, 3: 12.5 }, LABEL_W = 150;
   const meas = document.createElement("canvas").getContext("2d");
   function labelBox(text, px, bold, maxW) {
@@ -366,7 +370,7 @@ const DATA = /*__DATA__*/null;
   function relabel() {
     const z = cy.zoom(), W = cy.width(), H = cy.height(), grow = Math.min(1.6, Math.max(1, Math.sqrt(z))), maxW = LABEL_W * grow;
     const sel = cy.$("node:selected"), hood = sel.length ? sel.closedNeighborhood().nodes() : cy.collection();
-    const rank = (n) => (n.selected() ? 1e6 : 0) + (hood.contains(n) ? 1e5 : 0) + (n.hasClass("faded") ? -1e4 : 0) + (n.data("weight") || 2) * 100 + (n.data("degree") || 0);
+    const rank = (n) => (n.selected() ? 1e6 : 0) + (hood.contains(n) ? 1e5 : 0) + (n.hasClass("faded") ? -1e4 : 0) + (n.data("degree") || 0) * 100;
     const discs = [], texts = [];
     cy.nodes().forEach((n) => {                      // every visible node is an obstacle: a label should not cover a node
       if (n.hasClass("hidden")) return;
@@ -376,7 +380,7 @@ const DATA = /*__DATA__*/null;
     const over = (b, list, skip) => list.some((p) => (skip === undefined || p.id !== skip) && b.x1 < p.x2 && b.x2 > p.x1 && b.y1 < p.y2 && b.y2 > p.y1);
     const next = new Map();
     cy.nodes().filter((n) => !n.hasClass("hidden")).sort((a, b) => rank(b) - rank(a)).forEach((n) => {
-      const rp = n.renderedPosition(), r = n.renderedHeight() / 2, wt = n.data("weight") || 2, px = (LABEL_PX[wt] || 10.5) * grow, g = 4;
+      const rp = n.renderedPosition(), r = n.renderedHeight() / 2, wt = isKey(n.data()) ? 3 : ((n.data("degree") || 0) >= 2 ? 2 : 1), px = (LABEL_PX[wt] || 10.5) * grow, g = 4;
       if (rp.x < -60 || rp.x > W + 60 || rp.y < -40 || rp.y > H + 40) return;
       const s = labelBox(n.data("label"), px, wt === 3, maxW);
       const spots = [                                  // below, above, right, left of the node
@@ -416,7 +420,7 @@ const DATA = /*__DATA__*/null;
       cy.nodes().forEach((n) => n.toggleClass("hidden",
         (activeDay !== "all" && !n.data("days").includes(Number(activeDay))) ||
         (activeOrigin !== "all" && n.data("origin") !== activeOrigin) ||
-        (keyOnly && n.data("weight") < 3)));
+        (keyOnly && !isKey(n.data()))));
       const showProp = $("#proposed").checked;
       cy.edges().forEach((e) => e.toggleClass("hidden", !showProp && e.data("proposed")));
     });
@@ -453,9 +457,58 @@ const DATA = /*__DATA__*/null;
   cy.on("pan zoom", () => { tip.hidden = true; });
   $("#random").addEventListener("click", randomCard);
   $("#fit").addEventListener("click", () => cy.animate({ fit: { eles: cy.elements(":visible"), padding: 60 } }, { duration: reduced ? 0 : 300 }));
-  $("#relayout").addEventListener("click", () => {
-    cy.elements(":visible").layout({ name: "cose", animate: !reduced, nodeRepulsion: () => 9000, idealEdgeLength: () => 90, padding: 40, randomize: false }).run();
-  });
+
+  // ---------- relaxation ----------
+  // A small physics simulation. Every node is held to its computed place by a soft spring, and every link is a spring
+  // between its two cards. When the map opens, or when Relax is pressed, the nodes are thrown off their places and
+  // settle back. While a node is dragged, its neighbours are pulled along. The settled picture is the same for everyone.
+  const ORIGIN = new Map(), HOME = new Map(), VEL = new Map(), GRAB = new Set();
+  cy.nodes().forEach((n) => { const p = n.position(); ORIGIN.set(n.id(), { x: p.x, y: p.y }); HOME.set(n.id(), { x: p.x, y: p.y }); });
+  const SPRINGS = cy.edges().map((e) => { const a = e.source().id(), b = e.target().id(), ha = ORIGIN.get(a), hb = ORIGIN.get(b); return [a, b, Math.hypot(ha.x - hb.x, ha.y - hb.y)]; });
+  const K_HOME = 0.008, K_LINK = 0.012, DAMP = 0.92;
+  let simOn = false, simLabel = 0;
+  function simStep() {
+    const P = new Map();
+    cy.nodes().forEach((n) => { if (!n.hasClass("hidden")) { const p = n.position(); P.set(n.id(), { x: p.x, y: p.y }); } });
+    const F = new Map();
+    P.forEach((p, id) => { const h = HOME.get(id); F.set(id, { x: K_HOME * (h.x - p.x), y: K_HOME * (h.y - p.y) }); });
+    SPRINGS.forEach(([a, b, rest]) => {
+      const pa = P.get(a), pb = P.get(b);
+      if (!pa || !pb) return;
+      const dx = pb.x - pa.x, dy = pb.y - pa.y, d = Math.hypot(dx, dy) || 1, f = K_LINK * (d - rest) / d;
+      F.get(a).x += f * dx; F.get(a).y += f * dy; F.get(b).x -= f * dx; F.get(b).y -= f * dy;
+    });
+    let moving = 0;
+    cy.batch(() => P.forEach((p, id) => {
+      if (GRAB.has(id)) return;
+      const v = VEL.get(id) || { x: 0, y: 0 }, f = F.get(id);
+      v.x = (v.x + f.x) * DAMP; v.y = (v.y + f.y) * DAMP; VEL.set(id, v);
+      if (Math.abs(v.x) + Math.abs(v.y) > 0.08) moving += 1;
+      cy.getElementById(id).position({ x: p.x + v.x, y: p.y + v.y });
+    }));
+    const now = performance.now();
+    if (now - simLabel > 250) { simLabel = now; relabel(); }
+    if (moving || GRAB.size) requestAnimationFrame(simStep); else { simOn = false; relabel(); }
+  }
+  function simStart() { if (reduced || simOn) return; simOn = true; requestAnimationFrame(simStep); }
+  // throw the visible nodes off their places: pulled towards the middle by 'squeeze' (0 to 1), plus a random kick
+  function shake(squeeze, kick) {
+    if (reduced) return;
+    const vis = cy.nodes().filter((n) => !n.hasClass("hidden"));
+    if (!vis.length) return;
+    let cx = 0, cyy = 0;
+    vis.forEach((n) => { const h = HOME.get(n.id()); cx += h.x; cyy += h.y; });
+    cx /= vis.length; cyy /= vis.length;
+    cy.batch(() => vis.forEach((n) => {
+      const h = HOME.get(n.id());
+      n.position({ x: cx + (h.x - cx) * (1 - squeeze) + (Math.random() - 0.5) * kick, y: cyy + (h.y - cyy) * (1 - squeeze) + (Math.random() - 0.5) * kick });
+      VEL.set(n.id(), { x: (Math.random() - 0.5) * kick * 0.2, y: (Math.random() - 0.5) * kick * 0.2 });
+    }));
+    simStart();
+  }
+  cy.on("grab", "node", (ev) => { GRAB.add(ev.target.id()); simStart(); });
+  cy.on("free", "node", (ev) => { const n = ev.target, p = n.position(); GRAB.delete(n.id()); HOME.set(n.id(), { x: p.x, y: p.y }); VEL.set(n.id(), { x: 0, y: 0 }); });
+  $("#relax").addEventListener("click", () => { ORIGIN.forEach((p, id) => HOME.set(id, { x: p.x, y: p.y })); shake(0.55, 260); });
 
   // ---------- search ----------
   const hay = (n) => [n.title, n.id, ...(n.aliases || []), ...Object.values(n.sections)].join(" ").toLowerCase();
@@ -560,7 +613,7 @@ const DATA = /*__DATA__*/null;
     const fields = [["statement", "In one sentence"], ["twist", "Twist"], ["safety", "Why it matters for safety"], ["question", "Open question"], ["selftest", "Quiz"], ["notes", "Notes"]];
     const missing = fields.filter(([k]) => k !== "notes" && !sec[k]).map(([, l]) => l.toLowerCase());
     let html = `<button class="btn back" data-home type="button">← All concepts</button>`;
-    html += `<div class="badges">${n.weight === 3 ? '<span class="badge key">key idea</span>' : ""}<span class="badge origin">${esc((OR[n.origin] || {}).label || n.origin)}</span>${n.status === "stub" ? '<span class="badge stub">stub</span>' : ""}${n.load_bearing ? '<span class="badge">load-bearing</span>' : ""}${isolated.has(n.id) ? '<span class="badge stub">island</span>' : ""}</div>`;
+    html += `<div class="badges">${isKey(n) ? '<span class="badge key">most linked</span>' : ""}<span class="badge origin">${esc((OR[n.origin] || {}).label || n.origin)}</span>${n.status === "stub" ? '<span class="badge stub">stub</span>' : ""}${n.load_bearing ? '<span class="badge">load-bearing</span>' : ""}${isolated.has(n.id) ? '<span class="badge stub">island</span>' : ""}</div>`;
     html += `<h2>${esc(n.title)}</h2><div class="meta">${modChip(n)}<span>${dayLine(n)}</span></div>`;
     const dayBtns = n.days.filter((d) => (RES[String(d)] || []).length).map((d) => `<button class="linkbtn" data-day="${d}">Day ${d}: exercises and reading (${RES[String(d)].length})</button>`).join(" · ");
     if (dayBtns) html += `<p class="daylinks">${dayBtns}</p>`;
@@ -613,10 +666,10 @@ const DATA = /*__DATA__*/null;
     const stubs = DATA.nodes.filter((n) => n.status === "stub").sort((a, b) => b.degree - a.degree).slice(0, 12);
     let html = activeDay !== "all" ? dayBox(Number(activeDay)) : "";
     html += `<h2>${S.cards} concepts from ${daysPresent.length} days</h2>`;
-    html += `<p>Click a concept to read its card. Click a line to see why two concepts are linked. Large nodes are the key ideas. Each card names who wrote it.</p>`;
-    html += `<p class="missing">Colour: course cluster (A alignment, D agency, C interpretability…). Ring: a participant's own idea. Size: weight (large = key idea). Hollow: stub. Dashed line: proposed link, not yet confirmed. Dashed ring: island.</p>`;
-    const keys = DATA.nodes.filter((n) => n.weight === 3).sort((a, b) => (a.days[0] || 0) - (b.days[0] || 0));
-    if (keys.length) html += `<h3>Start here: ${keys.length} key ideas</h3><ul class="home-list">${keys.map((n) => `<li>${go(n.id)}${n.days.length ? ` <span class="muted">day ${n.days.join(", ")}</span>` : ""}</li>`).join("")}</ul>`;
+    html += `<p>Click a concept to read its card. Click a line to see why two concepts are linked. The more cards a concept is linked to, the larger its node. Drag a node and its neighbours follow. Each card names who wrote it.</p>`;
+    html += `<p class="missing">Colour: course cluster (A alignment, D agency, C interpretability…). Ring: a participant's own idea. Size: number of linked cards. Hollow: stub. Dashed line: proposed link, not yet confirmed. Dashed ring: island.</p>`;
+    const keys = DATA.nodes.filter(isKey).sort((a, b) => (b.degree || 0) - (a.degree || 0));
+    if (keys.length) html += `<h3>Start here: the ${keys.length} most linked concepts</h3><ul class="home-list">${keys.map((n) => `<li>${go(n.id)}<span class="muted"> ${n.degree} links</span></li>`).join("")}</ul>`;
     const resDays = Object.keys(RES).map(Number).sort((a, b) => a - b);
     if (resDays.length) html += `<h3>Exercises and reading, by day</h3><ul class="home-list">${resDays.map((d) => `<li><button class="linkbtn" data-day="${d}">Day ${d}${(M.days[String(d)] || {}).title ? ": " + esc(M.days[String(d)].title) : ""}</button> <span class="muted">${RES[String(d)].length} links</span></li>`).join("")}</ul>`;
     html += `<h3>Islands</h3>`;
@@ -630,6 +683,6 @@ const DATA = /*__DATA__*/null;
   }
 
   const start = location.hash.slice(1);
-  if (byId[start]) select(start); else renderHome();
+  if (byId[start]) select(start); else { renderHome(); shake(0.8, 160); }      // the map opens by settling into place
 })();
 </script>

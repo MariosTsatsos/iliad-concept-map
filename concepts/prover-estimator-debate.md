@@ -3,7 +3,6 @@ title: "Prover-estimator debate"
 kind: concept
 days: [6]
 origin: notes
-weight: 1
 by: [claude]
 links:
   - to: obfuscated-arguments

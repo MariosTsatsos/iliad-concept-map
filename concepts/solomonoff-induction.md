@@ -3,7 +3,6 @@ title: "Solomonoff induction"
 kind: concept
 days: [7, 14]
 origin: extension
-weight: 3
 by: [MT, claude]
 links:
   - to: bayesian-mixture

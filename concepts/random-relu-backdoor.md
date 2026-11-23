@@ -3,7 +3,6 @@ title: "Random ReLU backdoor: hidden even from someone who sees the weights"
 kind: case
 days: [10]
 origin: notes
-weight: 1
 by: [claude]
 links:
   - to: backdoor

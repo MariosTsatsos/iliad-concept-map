@@ -3,7 +3,6 @@ title: "Three questions of learning: approximation, generalisation, optimisation
 kind: concept
 days: [14]
 origin: notes
-weight: 3
 by: [claude]
 links:
   - to: solomonoff-induction

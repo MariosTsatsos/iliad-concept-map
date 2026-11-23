@@ -3,7 +3,6 @@ title: "World models"
 kind: concept
 days: [19]
 origin: notes
-weight: 1
 by: [claude]
 ---
 

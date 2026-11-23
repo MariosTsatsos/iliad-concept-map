@@ -3,7 +3,6 @@ title: "Computational mechanics"
 kind: concept
 days: [18]
 origin: notes
-weight: 1
 by: [claude]
 ---
 

@@ -3,7 +3,6 @@ title: "Mechanistic anomaly detection"
 kind: concept
 days: [8]
 origin: notes
-weight: 1
 by: [claude]
 links:
   - to: heuristic-arguments

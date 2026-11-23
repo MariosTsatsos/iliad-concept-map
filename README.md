@@ -14,14 +14,14 @@ Each idea is one **card** (a small text file). Cards are joined by **links** of 
 
 | You see | It means |
 |---|---|
-| Node size | Weight: 1 small, 2 normal, 3 large (a key idea) |
+| Node size | The number of cards the card is linked to. More links, larger node. |
 | Node colour | Course cluster: A alignment, B learning, C interpretability, D agency, E safety guarantees |
 | Ring around a node | A participant's own idea |
 | Hollow node | Stub: nobody has written its one sentence yet |
 | Dashed line | Proposed link that no participant has confirmed yet. Every link drafted by Claude starts as proposed. |
 | Dashed ring | Island: a card with no links |
 
-Controls: hover over a node to see its title; click a node to read its card; click a line to see why two cards are linked; filter by day or by origin; tick **Key ideas only** to see the large nodes alone; **Surprise me** (or the `r` key) opens a random card; `/` searches.
+Controls: hover over a node to see its title; click a node to read its card; click a line to see why two cards are linked; filter by day or by origin; tick **Most linked only** to see the large nodes alone; **Relax** shakes the map and lets it settle; drag a node and its neighbours follow; **Surprise me** (or the `r` key) opens a random card; `/` searches.
 
 ## Exercises and reading for each day
 
@@ -50,7 +50,6 @@ title: "The loss plateau as latent heat"
 kind: concept
 days: [14]
 origin: participant
-weight: 3
 by: [your-github-name]
 links:
   - needs: hidden-progress
@@ -62,8 +61,7 @@ links:
 | `title` | yes | any text; put it in quotes if it contains `:` | The node's label |
 | `kind` | no, default `concept` | `concept` (idea, definition, result), `problem` (safety problem or failure mode), `case` (paper, incident, scenario, forecast, worked example) | Not drawn at present; kept for later use |
 | `days` | recommended | list of course day numbers without quotes, e.g. `[9]` or `[10, 13]` | Day filter; the first day sets the colour. A card with no day is grey and appears only under "All days". |
-| `origin` | no, default `notes` | `participant` (your own idea, question or analogy), `extension` (developed beyond the lecture), `notes` (from the course material), `claude` (added by Claude) | Badge on the card, origin filter, and the default weight |
-| `weight` | no | the number `1`, `2` or `3`, without quotes | Node size. If omitted or left blank: `participant` 3, `extension` 2, `notes` 2, `claude` 1 |
+| `origin` | no, default `notes` | `participant` (your own idea, question or analogy), `extension` (developed beyond the lecture), `notes` (from the course material), `claude` (added by Claude) | Badge on the card and the origin filter |
 | `by` | recommended | list of GitHub names | Credit line on the card |
 | `links` | recommended | see below | Lines to other cards |
 | `module` | no | course module code, e.g. `B.2` | Overrides the colour that `days` gives |
@@ -121,7 +119,7 @@ To **confirm** a dashed link, delete its `proposed: true` line. To **reject** it
 
 The allowed values live in `course.yml`. Colours live in `site/template.html`.
 
-- A new **origin**: add a line under `origins:` with a `label` and a default `weight`.
+- A new **origin**: add a line under `origins:` with a `label`.
 - A new **link type**: add a line under `link_types:` with `label`, `directed` (`true` draws an arrow) and `help`. Then add a colour for it in `site/template.html` (search for `--e-needs` and add `--e-yourtype` next to it in each of the three places it appears). The card panel then shows the link under its `label`; to give it two phrasings, one for each direction, add a line to the `REL` table in the same file.
 - A new **kind**: add a line under `kinds:`. Kinds are stored in the cards but not drawn at present.
 - A new **day**: add a line under `days:`. Give it a `module` (such as `B.2`) or a `cluster` letter, otherwise its cards are grey.

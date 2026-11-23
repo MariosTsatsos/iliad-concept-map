@@ -3,7 +3,6 @@ title: "Free energy of learning"
 kind: concept
 days: [13]
 origin: notes
-weight: 3
 by: [claude]
 links:
   - to: boltzmann-distribution

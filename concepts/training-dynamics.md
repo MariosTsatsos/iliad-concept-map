@@ -3,7 +3,6 @@ title: "Training dynamics"
 kind: concept
 days: [16]
 origin: notes
-weight: 1
 by: [claude]
 links:
   - to: three-temperatures

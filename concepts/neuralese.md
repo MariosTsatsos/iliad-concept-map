@@ -3,7 +3,6 @@ title: "Neuralese: reasoning without written steps"
 kind: problem
 days: [10]
 origin: extension
-weight: 1
 by: [MT, claude]
 links:
   - to: steganography

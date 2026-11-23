@@ -3,7 +3,6 @@ title: "Scaling laws"
 kind: case
 days: [14]
 origin: notes
-weight: 1
 by: [claude]
 links:
   - to: hidden-progress

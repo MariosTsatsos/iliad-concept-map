@@ -3,7 +3,6 @@ title: "Learning coefficient"
 kind: concept
 days: [15]
 origin: notes
-weight: 1
 by: [claude]
 links:
   - to: degeneracy

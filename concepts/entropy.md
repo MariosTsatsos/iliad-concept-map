@@ -3,7 +3,6 @@ title: "Entropy"
 kind: concept
 days: [10, 13]
 origin: extension
-weight: 3
 by: [MT, claude]
 ---
 

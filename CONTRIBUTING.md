@@ -36,7 +36,6 @@ title: Potential-based shaping
 kind: concept          # concept | problem | case
 days: [3]
 origin: participant    # participant | extension | notes | claude
-weight: 2              # 1, 2 or 3 (node size); optional
 by: [your-github-name]
 links:
   - needs: reward

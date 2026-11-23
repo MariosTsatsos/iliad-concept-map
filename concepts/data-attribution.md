@@ -3,7 +3,6 @@ title: "Data attribution"
 kind: concept
 days: [17]
 origin: notes
-weight: 1
 by: [claude]
 ---
 

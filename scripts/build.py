@@ -35,7 +35,7 @@ SECTIONS = {
     "notes": "notes",
     "sources": "sources",
 }
-KNOWN_KEYS = {"title", "kind", "days", "origin", "weight", "by", "links", "module", "aliases", "load_bearing"}
+KNOWN_KEYS = {"title", "kind", "days", "origin", "by", "links", "module", "aliases", "load_bearing"}
 ID_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 COMMENT_RE = re.compile(r"<!--.*?-->", re.S)
 
@@ -120,9 +120,6 @@ def load(probs: Problems):
         if not isinstance(spec, dict) or not spec.get("label"):
             probs.error("course.yml", f"origin '{name}' needs a 'label'")
             origins[name] = spec = {"label": str(name), **(spec if isinstance(spec, dict) else {})}
-        if type(spec.get("weight")) is not int or spec["weight"] not in (1, 2, 3):
-            probs.error("course.yml", f"origin '{name}' needs 'weight: 1', '2' or '3'")
-            spec["weight"] = 2
     days = {int(k): v for k, v in course["days"].items()}
 
     # links from the lectures, by day (resources.yml)
@@ -199,12 +196,6 @@ def load(probs: Problems):
         if origin not in origins:
             probs.error(where, f"origin must be one of {', '.join(origins)}")
             origin = "notes"
-        weight = fm.get("weight")
-        if weight is None:                      # omitted or left blank: use the origin's default
-            weight = origins[origin]["weight"]
-        if type(weight) is not int or weight not in (1, 2, 3):
-            probs.error(where, "weight must be the number 1, 2 or 3, without quotes")
-            weight = 2
         by = fm.get("by") or []
         if isinstance(by, str):
             by = [by]
@@ -223,7 +214,6 @@ def load(probs: Problems):
             "cluster": cluster,
             "by": by,
             "origin": origin,
-            "weight": weight,
             "load_bearing": fm.get("load_bearing"),
             "aliases": fm.get("aliases") or [],
             "sections": sections,
@@ -355,7 +345,7 @@ def to_payload(course: dict, g: nx.MultiDiGraph, pos: dict, st: dict, template: 
         x, y = pos.get(n, (0.0, 0.0))
         nodes.append({
             "id": n, "title": d["title"], "kind": d["kind"], "days": d["days"], "module": d["module"],
-            "cluster": d["cluster"], "by": d["by"], "origin": d["origin"], "weight": d["weight"], "load_bearing": d["load_bearing"], "aliases": d["aliases"],
+            "cluster": d["cluster"], "by": d["by"], "origin": d["origin"], "load_bearing": d["load_bearing"], "aliases": d["aliases"],
             "status": d["status"], "sections": d["sections"], "path": d["path"],
             "degree": u.degree(n), "x": round(x, 1), "y": round(y, 1),
         })
