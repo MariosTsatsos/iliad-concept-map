@@ -1,5 +1,5 @@
 ---
-title: "Random ReLU backdoor"
+title: "Random ReLU backdoor: hidden even from someone who sees the weights"
 kind: case
 days: [10]
 origin: notes

@@ -7,7 +7,7 @@ weight: 1
 by: [claude]
 links:
   - to: solomonoff-induction
-    type: vs
+    type: challenges
     note: "The ideal predictor cannot be run."
     proposed: true
     by: claude

@@ -1,5 +1,5 @@
 ---
-title: "Zero-knowledge means the view does not depend on the secret"
+title: "Zero-knowledge: what the verifier sees does not depend on the secret"
 kind: concept
 days: [11]
 origin: participant
@@ -10,7 +10,7 @@ links:
     proposed: true
     by: claude
   - to: total-variation-distance
-    type: tool
+    type: related
     note: "Distance zero between the views for any two secrets."
     proposed: true
     by: claude

@@ -10,7 +10,7 @@ links:
     proposed: true
     by: claude
   - to: latent-heat-plateau
-    type: tool
+    type: related
     note: "A sudden change after a quiet stretch."
     proposed: true
     by: claude

@@ -10,7 +10,7 @@ links:
     proposed: true
     by: claude
   - to: spot-check
-    type: tool
+    type: related
     note: "Sampling is the baseline in both."
     proposed: true
     by: claude

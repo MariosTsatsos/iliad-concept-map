@@ -6,11 +6,11 @@ module: D.1.1
 by: [MT, claude]
 links:
   - to: transitivity
-    type: tool
+    type: related
     proposed: true
     note: "Both rest on a potential. Transitive preferences come from a potential V (no cycles). Potential-based shaping adds γΦ(s′) − Φ(s), which telescopes away over a trajectory, so the optimal policy does not change (Ng, Harada and Russell 1999)."
   - to: specification-gaming
-    type: safety
+    type: related
     proposed: true
     note: "Shaping that is not potential-based can be gamed: Randløv and Alstrøm's bicycle agent rode in circles to collect shaping reward. Potential-based shaping was designed to rule that out."
 ---

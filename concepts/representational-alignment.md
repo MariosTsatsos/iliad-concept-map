@@ -7,7 +7,7 @@ weight: 1
 by: [claude]
 links:
   - to: linear-representation
-    type: tool
+    type: related
     proposed: true
     by: claude
 ---

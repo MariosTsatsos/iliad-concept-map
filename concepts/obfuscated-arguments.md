@@ -6,7 +6,7 @@ origin: notes
 by: [claude]
 links:
   - to: debate
-    type: vs
+    type: challenges
     proposed: true
     by: claude
 ---

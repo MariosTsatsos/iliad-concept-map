@@ -6,7 +6,11 @@ origin: notes
 by: [claude]
 links:
   - to: backdoor
-    type: safety
+    type: related
+    proposed: true
+    by: claude
+  - to: backdoor-checker-trace
+    type: challenges
     proposed: true
     by: claude
 ---

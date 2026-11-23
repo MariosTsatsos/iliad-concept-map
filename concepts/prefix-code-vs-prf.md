@@ -1,5 +1,5 @@
 ---
-title: "Prefix code versus PRF: looks random but is not"
+title: "Prefix code versus pseudo-random function: two ways to hide a message"
 kind: concept
 days: [10]
 origin: participant

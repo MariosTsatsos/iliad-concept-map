@@ -6,11 +6,11 @@ origin: notes
 by: [claude]
 links:
   - to: implicit-bias
-    type: gen
+    type: related
     proposed: true
     by: claude
   - to: solomonoff-induction
-    type: tool
+    type: related
     note: "A prior that favours short programs is a soft bias."
     proposed: true
     by: claude

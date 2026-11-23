@@ -6,7 +6,7 @@ origin: extension
 by: [MT, claude]
 links:
   - to: scalable-oversight
-    type: safety
+    type: related
     proposed: true
     by: claude
   - to: complexity-classes

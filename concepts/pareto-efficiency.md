@@ -6,7 +6,7 @@ origin: notes
 by: [claude]
 links:
   - to: nash-equilibrium
-    type: vs
+    type: related
     note: "A Nash equilibrium need not be Pareto efficient, and the reverse."
     proposed: true
     by: claude

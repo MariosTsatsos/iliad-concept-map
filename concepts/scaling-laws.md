@@ -7,7 +7,7 @@ weight: 1
 by: [claude]
 links:
   - to: hidden-progress
-    type: vs
+    type: related
     note: "Smooth in aggregate, abrupt per capability."
     proposed: true
     by: claude

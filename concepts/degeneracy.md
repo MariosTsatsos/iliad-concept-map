@@ -1,5 +1,5 @@
 ---
-title: "Degeneracy"
+title: "Degeneracy: directions in weight space that do not change the function"
 kind: concept
 days: [15]
 origin: extension

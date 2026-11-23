@@ -7,7 +7,7 @@ weight: 2              # 1 small, 2 normal, 3 key idea (large node). Delete the 
 by: [your-github-name]
 links:                 # link to at least one existing card (its file name without .md)
   - needs: bellman-equation
-  # link types: needs, gen, tool, vs, safety, eg (see README)
+  # link types: needs, eg, related, challenges (see README)
 ---
 
 ## In one sentence

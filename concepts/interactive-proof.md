@@ -6,7 +6,7 @@ origin: notes
 by: [claude]
 links:
   - to: certificate
-    type: gen
+    type: related
     note: "A certificate is an interactive proof with one message and no questions."
     proposed: true
     by: claude

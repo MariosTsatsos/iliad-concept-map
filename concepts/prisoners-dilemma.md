@@ -1,5 +1,5 @@
 ---
-title: "Prisoner's dilemma"
+title: "Prisoner's dilemma (a two-player game)"
 kind: case
 days: [9]
 origin: notes

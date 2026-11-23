@@ -9,7 +9,7 @@ links:
     type: needs
     proposed: true
   - to: specification-gaming
-    type: safety
+    type: related
     proposed: true
     note: "A checker can be gamed too, for example code that special-cases the tests."
 ---

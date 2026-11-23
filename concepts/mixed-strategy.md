@@ -6,7 +6,7 @@ origin: notes
 by: [claude]
 links:
   - to: policy
-    type: tool
+    type: related
     note: "A stochastic policy in a one-step game."
     proposed: true
     by: claude

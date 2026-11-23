@@ -16,7 +16,7 @@
   --accent-ink: #ffffff;
 
   --c-0: #7d8796; --c-A: #d9485f; --c-B: #2f7de1; --c-C: #0f9d8f; --c-D: #7b4fd6; --c-E: #c99a06;
-  --e-needs: #a3abba; --e-gen: #56627a; --e-tool: #c13f9a; --e-vs: #e8772e; --e-safety: #2f9e4f; --e-eg: #8f7f5f;
+  --e-needs: #a3abba; --e-eg: #8f7f5f; --e-related: #2f9e4f; --e-challenges: #e8772e;
 
   --f-display: "IBM Plex Serif", Georgia, "Times New Roman", serif;
   --f-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -28,7 +28,7 @@
     --bg: #0f1217; --panel: #161a21; --ink: #e7eaf0; --muted: #9ba4b3; --line: #293040; --soft: #1d222b;
     --accent: #8796ff; --accent-ink: #0f1217;
     --c-0: #8f99a8; --c-A: #f06a7e; --c-B: #5b9cf0; --c-C: #2cc2b2; --c-D: #9d7cf0; --c-E: #e0b62a;
-    --e-needs: #566073; --e-gen: #9aa6bb; --e-tool: #e061b8; --e-vs: #f39150; --e-safety: #4cc06c; --e-eg: #b39f78;
+    --e-needs: #566073; --e-eg: #b39f78; --e-related: #4cc06c; --e-challenges: #f39150;
     color-scheme: dark;
   }
 }
@@ -36,7 +36,7 @@
   --bg: #0f1217; --panel: #161a21; --ink: #e7eaf0; --muted: #9ba4b3; --line: #293040; --soft: #1d222b;
   --accent: #8796ff; --accent-ink: #0f1217;
   --c-0: #8f99a8; --c-A: #f06a7e; --c-B: #5b9cf0; --c-C: #2cc2b2; --c-D: #9d7cf0; --c-E: #e0b62a;
-  --e-needs: #566073; --e-gen: #9aa6bb; --e-tool: #e061b8; --e-vs: #f39150; --e-safety: #4cc06c; --e-eg: #b39f78;
+  --e-needs: #566073; --e-eg: #b39f78; --e-related: #4cc06c; --e-challenges: #f39150;
   color-scheme: dark;
 }
 
@@ -281,7 +281,7 @@ const DATA = /*__DATA__*/null;
     $("#legend-inner").innerHTML =
       `<div><h4>Course cluster</h4><ul>${clusters}</ul></div>` +
       `<div><h4>Link</h4><ul>${edges}<li><svg class="swatch" viewBox="0 0 26 8" aria-hidden="true"><line x1="1" y1="4" x2="25" y2="4" stroke="${tok("--muted")}" stroke-width="2" stroke-dasharray="4 3"/></svg>dashed: proposed, not confirmed</li></ul></div>` +
-      `<div><h4>Card</h4><ul><li>● concept &nbsp; ◆ problem &nbsp; ▬ case</li><li>hollow: stub, no one-sentence yet</li><li>dashed ring: island, no links</li><li>size: weight 1, 2 or 3 (3 = key idea)</li></ul></div>`;
+      `<div><h4>Card</h4><ul><li>ring: a participant's own idea</li><li>hollow: stub, no one-sentence yet</li><li>dashed ring: island, no links</li><li>size: weight 1, 2 or 3 (3 = key idea)</li></ul></div>`;
   }
 
   // ---------- graph ----------
@@ -290,8 +290,10 @@ const DATA = /*__DATA__*/null;
     return;
   }
   const isolated = new Set(S.isolated);
+  // The label under a node is the title up to its first ": " or " (". The panel and the hover label show the full title.
+  const shortLabel = (t) => { const m = t.match(/^(.{3,}?)(: | \()/); return m ? m[1] : t; };
   const elements = [
-    ...DATA.nodes.map((n) => ({ group: "nodes", data: { ...n, label: n.title, island: isolated.has(n.id) }, position: { x: n.x, y: n.y } })),
+    ...DATA.nodes.map((n) => ({ group: "nodes", data: { ...n, label: shortLabel(n.title), shown: "", fs: 11, tw: 150, mx: 0, my: 4, to: 2.5, tv: "bottom", th: "center", island: isolated.has(n.id) }, position: { x: n.x, y: n.y } })),
     ...DATA.edges.map((e) => ({ group: "edges", data: { ...e, label: LT[e.type].label } })),
   ];
 
@@ -301,15 +303,16 @@ const DATA = /*__DATA__*/null;
       { selector: "node", style: {
         "width": (e) => SIZE[e.data("weight")] || 34,
         "height": (e) => SIZE[e.data("weight")] || 34,
-        "shape": (e) => ({ concept: "ellipse", problem: "diamond", case: "round-rectangle" }[e.data("kind")] || "ellipse"),
+        "shape": "ellipse", "z-index": (e) => (e.data("weight") || 2),
         "background-color": (e) => clusterColor(e.data("cluster")),
         "background-opacity": (e) => (e.data("status") === "stub" ? 0.16 : 1),
         "border-width": (e) => (e.data("status") === "stub" ? 2 : 0),
         "border-color": (e) => clusterColor(e.data("cluster")),
-        "label": "data(label)", "color": ink, "font-family": '"IBM Plex Sans", system-ui, sans-serif',
-        "font-size": (e) => ({ 1: 10, 2: 11, 3: 14 }[e.data("weight")] || 11), "font-weight": (e) => (e.data("weight") === 3 ? 600 : 400), "text-valign": "bottom", "text-margin-y": 5, "text-wrap": "wrap", "text-max-width": 120,
-        "text-outline-color": bg, "text-outline-width": 2.5, "min-zoomed-font-size": 6,
+        "label": "data(shown)", "color": ink, "font-family": '"IBM Plex Sans", system-ui, sans-serif',
+        "font-size": "data(fs)", "font-weight": (e) => (e.data("weight") === 3 ? 600 : 400), "text-valign": "data(tv)", "text-halign": "data(th)", "text-margin-x": "data(mx)", "text-margin-y": "data(my)", "text-wrap": "wrap", "text-max-width": "data(tw)",
+        "text-outline-color": bg, "text-outline-width": "data(to)", "min-zoomed-font-size": 0,
       }},
+      { selector: 'node[origin = "participant"]', style: { "outline-width": 2.5, "outline-color": ink, "outline-offset": 3, "outline-style": "solid" } },
       { selector: "node[?island]", style: { "border-width": 2.5, "border-style": "dashed", "border-color": ink } },
       { selector: "edge", style: {
         "width": 1.6, "curve-style": "bezier", "line-color": (e) => edgeColor(e.data("type")),
@@ -332,16 +335,71 @@ const DATA = /*__DATA__*/null;
 
   const cy = cytoscape({
     container: $("#cy"), elements, style: styles(),
-    layout: { name: "preset", fit: true, padding: 40 },
+    layout: { name: "preset", fit: true, padding: 60 },
     minZoom: 0.15, maxZoom: 3, wheelSensitivity: 0.25, boxSelectionEnabled: false,
   });
   legend();
   if (innerWidth >= 1280 && innerHeight >= 980) $("#legend").open = true;
 
-  const restyle = () => { cy.style(styles()); legend(); };
+  // ---------- labels ----------
+  // Labels keep a fixed size on screen at every zoom. At each view the map shows as many labels
+  // as fit without covering each other: the selected card and its neighbours first, then by weight, then by number of links.
+  const LABEL_PX = { 1: 10, 2: 10.5, 3: 12.5 }, LABEL_W = 150;
+  const meas = document.createElement("canvas").getContext("2d");
+  function labelBox(text, px, bold, maxW) {
+    meas.font = `${bold ? 600 : 400} ${px}px "IBM Plex Sans", system-ui, sans-serif`;
+    let lines = 1, cur = "", widest = 0;
+    text.split(/\s+/).forEach((word) => {
+      const t = cur ? cur + " " + word : word;
+      if (!cur || meas.measureText(t).width <= maxW) cur = t; else { widest = Math.max(widest, meas.measureText(cur).width); cur = word; lines += 1; }
+    });
+    return { w: Math.max(widest, meas.measureText(cur).width), h: lines * px * 1.22 };
+  }
+  function relabel() {
+    const z = cy.zoom(), W = cy.width(), H = cy.height(), grow = Math.min(1.6, Math.max(1, Math.sqrt(z))), maxW = LABEL_W * grow;
+    const sel = cy.$("node:selected"), hood = sel.length ? sel.closedNeighborhood().nodes() : cy.collection();
+    const rank = (n) => (n.selected() ? 1e6 : 0) + (hood.contains(n) ? 1e5 : 0) + (n.hasClass("faded") ? -1e4 : 0) + (n.data("weight") || 2) * 100 + (n.data("degree") || 0);
+    const discs = [], texts = [];
+    cy.nodes().forEach((n) => {                      // every visible node is an obstacle: a label should not cover a node
+      if (n.hasClass("hidden")) return;
+      const q = n.renderedPosition(), r = n.renderedHeight() / 2 * 0.85;
+      discs.push({ x1: q.x - r, x2: q.x + r, y1: q.y - r, y2: q.y + r, id: n.id() });
+    });
+    const over = (b, list, skip) => list.some((p) => (skip === undefined || p.id !== skip) && b.x1 < p.x2 && b.x2 > p.x1 && b.y1 < p.y2 && b.y2 > p.y1);
+    const next = new Map();
+    cy.nodes().filter((n) => !n.hasClass("hidden")).sort((a, b) => rank(b) - rank(a)).forEach((n) => {
+      const rp = n.renderedPosition(), r = n.renderedHeight() / 2, wt = n.data("weight") || 2, px = (LABEL_PX[wt] || 10.5) * grow, g = 4;
+      if (rp.x < -60 || rp.x > W + 60 || rp.y < -40 || rp.y > H + 40) return;
+      const s = labelBox(n.data("label"), px, wt === 3, maxW);
+      const spots = [                                  // below, above, right, left of the node
+        { tv: "bottom", th: "center", mx: 0, my: g, x: rp.x - s.w / 2, y: rp.y + r + g },
+        { tv: "top", th: "center", mx: 0, my: -g, x: rp.x - s.w / 2, y: rp.y - r - g - s.h },
+        { tv: "center", th: "right", mx: g, my: 0, x: rp.x + r + g, y: rp.y - s.h / 2 },
+        { tv: "center", th: "left", mx: -g, my: 0, x: rp.x - r - g - s.w, y: rp.y - s.h / 2 },
+      ].map((o) => ({ ...o, x1: o.x - 3, y1: o.y - 2, x2: o.x + s.w + 3, y2: o.y + s.h + 2 }));
+      const inside = (b) => b.x1 >= 2 && b.x2 <= W - 2 && b.y1 >= 2 && b.y2 <= H - 2;   // never cut a label at the edge of the map
+      let pick = spots.find((b) => inside(b) && !over(b, texts) && !over(b, discs, n.id()));
+      const must = n.selected() || hood.contains(n) || wt === 3;
+      if (!pick && must) pick = spots.find((b) => inside(b) && !over(b, texts));   // an important label may cover a node, never another label
+      if (!pick) return;
+      texts.push(pick); next.set(n.id(), { px, tv: pick.tv, th: pick.th, mx: pick.mx, my: pick.my });
+    });
+    cy.batch(() => cy.nodes().forEach((n) => {
+      const k = next.get(n.id()), shown = k ? n.data("label") : "", fs = ((k && k.px) || 10.5 * grow) / z;
+      const tv = k ? k.tv : "bottom", th = k ? k.th : "center";
+      if (n.data("shown") !== shown || n.data("tv") !== tv || n.data("th") !== th || Math.abs(n.data("fs") - fs) > 0.02 * fs)
+        n.data({ shown, fs, tw: maxW / z, mx: (k ? k.mx : 0) / z, my: (k ? k.my : 4) / z, to: 2.5 / z, tv, th });
+    }));
+  }
+  let relabelTimer = 0;
+  const relabelSoon = () => { clearTimeout(relabelTimer); relabelTimer = setTimeout(relabel, 60); };
+  cy.on("zoom pan resize select unselect layoutstop", relabelSoon);
+  relabel();
+
+  const restyle = () => { cy.style(styles()); legend(); relabelSoon(); };
   matchMedia("(prefers-color-scheme: dark)").addEventListener("change", restyle);
   new MutationObserver(restyle).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => cy.style().update());
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { cy.style().update(); relabel(); });
 
   // ---------- filters ----------
   function applyFilters() {
@@ -358,7 +416,8 @@ const DATA = /*__DATA__*/null;
     const sel = cy.$("node:selected");
     if (sel.length && sel.hasClass("hidden")) clear();           // the open card was filtered out
     if ($("#q").value.trim()) runSearch();                        // keep the search in step with the filters
-    cy.animate({ fit: { eles: cy.elements(":visible"), padding: 40 } }, { duration: reduced ? 0 : 300 });
+    cy.animate({ fit: { eles: cy.elements(":visible"), padding: 60 } }, { duration: reduced ? 0 : 300 });
+    relabelSoon();
   }
   $("#proposed").addEventListener("change", applyFilters);
   $("#keyonly").addEventListener("change", applyFilters);
@@ -384,7 +443,7 @@ const DATA = /*__DATA__*/null;
   cy.on("mouseout", "node", () => { tip.hidden = true; });
   cy.on("pan zoom", () => { tip.hidden = true; });
   $("#random").addEventListener("click", randomCard);
-  $("#fit").addEventListener("click", () => cy.animate({ fit: { eles: cy.elements(":visible"), padding: 40 } }, { duration: reduced ? 0 : 300 }));
+  $("#fit").addEventListener("click", () => cy.animate({ fit: { eles: cy.elements(":visible"), padding: 60 } }, { duration: reduced ? 0 : 300 }));
   $("#relayout").addEventListener("click", () => {
     cy.elements(":visible").layout({ name: "cose", animate: !reduced, nodeRepulsion: () => 9000, idealEdgeLength: () => 90, padding: 40, randomize: false }).run();
   });
@@ -421,8 +480,8 @@ const DATA = /*__DATA__*/null;
 
   // ---------- selection ----------
   const REL = {
-    needs: ["Needs", "Needed by"], gen: ["Generalises", "Special case of"], tool: ["Same maths as", "Same maths as"],
-    vs: ["In tension with", "In tension with"], safety: ["Bears on", "Relevant concepts"], eg: ["Example of", "Examples"],
+    needs: ["Needs", "Needed by"], eg: ["Example of", "Examples"],
+    related: ["Related to", "Related to"], challenges: ["Challenges", "Challenged by"],
   };
   function select(id) {
     const node = cy.getElementById(id);
@@ -474,7 +533,7 @@ const DATA = /*__DATA__*/null;
     const fields = [["statement", "In one sentence"], ["twist", "Twist"], ["safety", "Why it matters for safety"], ["question", "Open question"], ["selftest", "Self-test"], ["notes", "Notes"]];
     const missing = fields.filter(([k]) => k !== "notes" && !sec[k]).map(([, l]) => l.toLowerCase());
     let html = `<button class="btn back" data-home type="button">← All concepts</button>`;
-    html += `<div class="badges"><span class="badge">${esc(n.kind)}</span>${n.weight === 3 ? '<span class="badge key">key idea</span>' : ""}<span class="badge origin">${esc((OR[n.origin] || {}).label || n.origin)}</span>${n.status === "stub" ? '<span class="badge stub">stub</span>' : ""}${n.load_bearing ? '<span class="badge">load-bearing</span>' : ""}${isolated.has(n.id) ? '<span class="badge stub">island</span>' : ""}</div>`;
+    html += `<div class="badges">${n.weight === 3 ? '<span class="badge key">key idea</span>' : ""}<span class="badge origin">${esc((OR[n.origin] || {}).label || n.origin)}</span>${n.status === "stub" ? '<span class="badge stub">stub</span>' : ""}${n.load_bearing ? '<span class="badge">load-bearing</span>' : ""}${isolated.has(n.id) ? '<span class="badge stub">island</span>' : ""}</div>`;
     html += `<h2>${esc(n.title)}</h2><div class="meta">${modChip(n)}<span>${dayLine(n)}</span></div>`;
     fields.forEach(([k, label]) => {
       if (!sec[k]) return;
@@ -525,7 +584,7 @@ const DATA = /*__DATA__*/null;
     const stubs = DATA.nodes.filter((n) => n.status === "stub").sort((a, b) => b.degree - a.degree).slice(0, 12);
     let html = `<h2>${S.cards} concepts from ${daysPresent.length} days</h2>`;
     html += `<p>Click a concept to read its card. Click a line to see why two concepts are linked. Large nodes are the key ideas. Each card names who wrote it.</p>`;
-    html += `<p class="missing">Colour: course cluster (A alignment, D agency, C interpretability…). Shape: ● concept, ◆ problem, ▬ case. Size: weight (large = key idea). Hollow: stub. Dashed line: proposed link, not yet confirmed. Dashed ring: island.</p>`;
+    html += `<p class="missing">Colour: course cluster (A alignment, D agency, C interpretability…). Ring: a participant's own idea. Size: weight (large = key idea). Hollow: stub. Dashed line: proposed link, not yet confirmed. Dashed ring: island.</p>`;
     const keys = DATA.nodes.filter((n) => n.weight === 3).sort((a, b) => (a.days[0] || 0) - (b.days[0] || 0));
     if (keys.length) html += `<h3>Start here: ${keys.length} key ideas</h3><ul class="home-list">${keys.map((n) => `<li>${go(n.id)}${n.days.length ? ` <span class="muted">day ${n.days.join(", ")}</span>` : ""}</li>`).join("")}</ul>`;
     html += `<h3>Islands</h3>`;

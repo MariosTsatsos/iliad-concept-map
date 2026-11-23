@@ -1,5 +1,5 @@
 ---
-title: "K-composition and Q-composition"
+title: "K- and Q-composition: one attention head feeding another"
 kind: concept
 days: [10]
 origin: extension

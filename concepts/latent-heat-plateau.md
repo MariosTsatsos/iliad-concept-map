@@ -1,5 +1,5 @@
 ---
-title: "The loss plateau as latent heat"
+title: "The loss plateau compared to latent heat"
 kind: concept
 days: [14]
 origin: participant
@@ -10,7 +10,7 @@ links:
     proposed: true
     by: claude
   - to: thermodynamics-of-learning
-    type: tool
+    type: related
     proposed: true
     by: claude
 ---

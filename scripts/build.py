@@ -250,6 +250,24 @@ def build_graph(course: dict, cards: dict, probs: Problems) -> nx.MultiDiGraph:
     return g
 
 
+def landscape(p: dict) -> dict:
+    """Turn the layout so that its long side is horizontal, and widen it to suit a wide screen.
+    Screens are wider than tall, so this leaves more room for labels. The result is the same on every machine."""
+    import numpy as np
+    ids = sorted(p)
+    a = np.array([p[n] for n in ids], dtype=float)
+    a -= a.mean(axis=0)
+    _, _, vt = np.linalg.svd(a, full_matrices=False)
+    a = a @ vt.T                                   # long axis first
+    for k in (0, 1):                               # fix the mirror image: first card (by id) sits left and above
+        if a[0, k] > 0:
+            a[:, k] *= -1
+    w, h = np.ptp(a[:, 0]), np.ptp(a[:, 1])
+    if w > 0 and h > 0:
+        a[:, 0] *= min(1.5, max(1.0, 1.6 * h / w))  # aim for 1.6 wide to 1 high, widen by at most half
+    return {n: (float(x), float(y)) for n, (x, y) in zip(ids, a)}
+
+
 def layout(g: nx.MultiDiGraph) -> dict[str, tuple[float, float]]:
     """Deterministic positions: biggest connected group in the middle,
     smaller groups to the right, isolated cards in a row underneath."""
@@ -262,9 +280,11 @@ def layout(g: nx.MultiDiGraph) -> dict[str, tuple[float, float]]:
         main = u.subgraph(groups[0])
         scale = 90 * math.sqrt(len(main))
         p = nx.kamada_kawai_layout(main, scale=scale) if len(main) > 2 else nx.circular_layout(main, scale=scale)
+        p = landscape(p)
+        p0 = dict(p)
         pos.update({n: (float(x), float(y)) for n, (x, y) in p.items()})
-        right = scale + 190
-        y_cursor = -scale
+        right = max(x for x, _ in p.values()) + 190
+        y_cursor = min(y for _, y in p.values())
         for comp in groups[1:]:
             sub = u.subgraph(comp)
             s = 52 * math.sqrt(len(sub))
@@ -272,7 +292,7 @@ def layout(g: nx.MultiDiGraph) -> dict[str, tuple[float, float]]:
             for n, (x, y) in p.items():
                 pos[n] = (float(x) + right, float(y) + y_cursor + s)
             y_cursor += 2 * s + 110
-        bottom = scale + 120
+        bottom = max(y for _, y in p0.values()) + 120
     else:
         bottom = 0
     for i, n in enumerate(isolates):

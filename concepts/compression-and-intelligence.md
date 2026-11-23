@@ -10,11 +10,11 @@ links:
     proposed: true
     by: claude
   - to: solomonoff-induction
-    type: tool
+    type: related
     proposed: true
     by: claude
   - to: entropy
-    type: tool
+    type: related
     note: "Entropy is the number of bits per symbol after ideal compression."
     proposed: true
     by: claude

@@ -7,7 +7,7 @@ weight: 1
 by: [claude]
 links:
   - to: obfuscated-arguments
-    type: safety
+    type: related
     proposed: true
     by: claude
 ---

@@ -1,5 +1,5 @@
 ---
-title: "QK and OV circuits"
+title: "QK and OV circuits: where an attention head looks and what it copies"
 kind: concept
 days: [1]
 by: [MT, claude]

@@ -1,5 +1,5 @@
 ---
-title: "Reward: the fifth axiom adds time"
+title: "Reward, and the axiom about time behind it"
 kind: concept
 days: [3]
 module: D.1.1

@@ -26,7 +26,7 @@ Dashed lines are suggestions nobody has checked.
 
 - **Agree:** open the card that declares the link and delete its `proposed: true` line.
 - **Disagree:** delete the whole link, and say why in the pull request.
-- **Better type:** change `type:`. For example `vs` instead of `needs`.
+- **Better type:** change `type:`. For example `related` instead of `needs`.
 
 ## The card format
 
@@ -40,9 +40,9 @@ weight: 2              # 1, 2 or 3 (node size); optional
 by: [your-github-name]
 links:
   - needs: reward
-  - tool: transitivity
+  - related: transitivity
   - to: specification-gaming      # long form, when you want a note
-    type: safety
+    type: related
     note: "Non-potential shaping can be gamed."
 ---
 
@@ -55,7 +55,7 @@ links:
 ## Sources
 ```
 
-Link types: `needs`, `gen` (generalises), `tool` (same maths), `vs` (in tension with), `safety` (bears on a safety problem), `eg` (example of). A link goes on one card only; the map draws it both ways.
+Link types: `needs`, `eg` (example of), `related` (related to), `challenges`. A link goes on one card only; the map draws it both ways.
 
 All attributes and their allowed values are listed in [README.md](README.md).
 

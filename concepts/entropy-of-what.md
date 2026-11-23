@@ -14,7 +14,7 @@ links:
     proposed: true
     by: claude
   - to: compression-and-intelligence
-    type: tool
+    type: related
     note: "Learning as compression of the data into the weights."
     proposed: true
     by: claude

@@ -10,7 +10,7 @@ links:
     proposed: true
     by: claude
   - to: interactive-proof
-    type: tool
+    type: related
     note: "The verifier's randomness does the work in both."
     proposed: true
     by: claude

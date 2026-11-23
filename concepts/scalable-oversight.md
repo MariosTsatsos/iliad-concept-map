@@ -6,7 +6,7 @@ origin: notes
 by: [claude]
 links:
   - to: ai-alignment
-    type: safety
+    type: related
     proposed: true
     by: claude
 ---

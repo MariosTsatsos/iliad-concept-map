@@ -1,5 +1,5 @@
 ---
-title: "Representability"
+title: "Representability: preferences written as a utility function"
 kind: concept
 days: [3]
 module: D.1.1

@@ -10,7 +10,7 @@ links:
     proposed: true
     by: claude
   - to: backdoor
-    type: safety
+    type: related
     proposed: true
     by: claude
 ---

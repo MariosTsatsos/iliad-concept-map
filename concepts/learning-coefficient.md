@@ -11,7 +11,7 @@ links:
     proposed: true
     by: claude
   - to: occam-factor
-    type: gen
+    type: related
     proposed: true
     by: claude
 ---

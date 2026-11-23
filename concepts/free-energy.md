@@ -15,7 +15,7 @@ links:
     proposed: true
     by: claude
   - to: pac-bayes
-    type: tool
+    type: related
     note: "The PAC-Bayes bound is written in terms of the free energy."
     proposed: true
     by: claude

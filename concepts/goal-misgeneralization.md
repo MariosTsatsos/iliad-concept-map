@@ -5,7 +5,7 @@ days: [2]
 by: [MT, claude]
 links:
   - to: reward-hypothesis
-    type: vs
+    type: challenges
     proposed: true
     note: "Undesired goals arise even with correct rewards: a correct reward does not pin down the goal the agent learns."
 ---

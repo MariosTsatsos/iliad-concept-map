@@ -1,5 +1,5 @@
 ---
-title: "Approximation, generalisation, optimisation"
+title: "Three questions of learning: approximation, generalisation, optimisation"
 kind: concept
 days: [14]
 origin: notes

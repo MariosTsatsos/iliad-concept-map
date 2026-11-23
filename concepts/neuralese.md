@@ -7,7 +7,7 @@ weight: 1
 by: [MT, claude]
 links:
   - to: steganography
-    type: tool
+    type: related
     note: "Both are reasoning or communication a human monitor cannot read."
     proposed: true
     by: claude

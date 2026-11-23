@@ -9,7 +9,7 @@ links:
     proposed: true
     note: "Bayes assumes you already know every logical consequence of what you believe. Logical induction gives probabilities to logical facts a bounded reasoner has not proved yet."
   - to: dutch-book
-    type: tool
+    type: related
     proposed: true
     note: "Both define good reasoning as 'no bettor can exploit you'. Dutch book for ordinary probabilities; for logical induction, no efficiently computable trader can exploit the market prices (Garrabrant et al. 2016)."
 ---

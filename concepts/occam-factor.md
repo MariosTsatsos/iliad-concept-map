@@ -1,5 +1,5 @@
 ---
-title: "Occam factor and BIC"
+title: "Occam factor and the Bayesian information criterion (BIC)"
 kind: concept
 days: [13]
 origin: notes
@@ -10,7 +10,7 @@ links:
     proposed: true
     by: claude
   - to: kolmogorov-complexity
-    type: tool
+    type: related
     note: "Both prefer the shorter description."
     proposed: true
     by: claude

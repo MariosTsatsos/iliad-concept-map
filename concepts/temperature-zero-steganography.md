@@ -1,5 +1,5 @@
 ---
-title: "Temperature 0 leaves no room for steganography"
+title: "Temperature 0: no room to hide a message"
 kind: concept
 days: [10]
 origin: participant
@@ -10,7 +10,7 @@ links:
     proposed: true
     by: claude
   - to: steganography
-    type: safety
+    type: related
     proposed: true
     by: claude
   - to: three-temperatures

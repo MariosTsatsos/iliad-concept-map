@@ -39,12 +39,10 @@ days:
 # Link types. A card lists links from itself to other cards.
 # directed: true means "this card -> other card" reads as the label.
 link_types:
-  needs:   {label: needs, directed: true,  help: "You must understand the other card first."}
-  gen:     {label: generalises, directed: true, help: "The other card is a special case of this one."}
-  tool:    {label: same maths, directed: false, help: "Both use the same mathematical idea."}
-  vs:      {label: in tension with, directed: false, help: "The two pull against each other."}
-  safety:  {label: bears on, directed: true, help: "This card matters for the safety problem on the other card."}
-  eg:      {label: example of, directed: true, help: "This card is a concrete example of the other card."}
+  needs:      {label: needs, directed: true, help: "You must understand the other card first."}
+  eg:         {label: example of, directed: true, help: "This card is a concrete example of the other card."}
+  related:    {label: related to, directed: false, help: "The two share an idea, a method or a concern. The note on the link says which."}
+  challenges: {label: challenges, directed: true, help: "This card is a problem for the other card. The note on the link says why."}
 
 # Where a card's idea came from. 'weight' is the default node size (1 small, 3 large)
 # for cards of that origin; a card can override it with its own 'weight'.
@@ -54,6 +52,7 @@ origins:
   notes:       {label: From the course material, weight: 2}
   claude:      {label: Added by Claude, weight: 1}
 
+# Kinds are stored in the cards but not drawn at present (all nodes are circles).
 kinds:
   concept: An idea, definition or result.
   problem: A safety problem or failure mode.

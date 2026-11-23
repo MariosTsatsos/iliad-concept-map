@@ -10,7 +10,7 @@ links:
     proposed: true
     by: claude
   - to: steganography
-    type: safety
+    type: related
     proposed: true
     by: claude
 ---

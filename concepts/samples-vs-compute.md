@@ -1,5 +1,5 @@
 ---
-title: "Samples versus computing, and the bitter lesson"
+title: "Samples versus computing power, and the bitter lesson"
 kind: concept
 days: [14]
 origin: participant

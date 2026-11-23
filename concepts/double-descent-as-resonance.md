@@ -1,5 +1,5 @@
 ---
-title: "Double descent as resonance"
+title: "Double descent compared to resonance"
 kind: concept
 days: [13]
 origin: participant

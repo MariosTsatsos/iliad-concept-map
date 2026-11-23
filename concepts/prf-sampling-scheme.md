@@ -1,5 +1,5 @@
 ---
-title: "Steganography by PRF sampling"
+title: "PRF sampling: hiding a message in token choices with a pseudo-random function"
 kind: concept
 days: [10]
 origin: extension
@@ -10,7 +10,7 @@ links:
     proposed: true
     by: claude
   - to: steganography
-    type: safety
+    type: related
     proposed: true
     by: claude
   - to: no-fixed-key

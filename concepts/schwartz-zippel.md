@@ -6,7 +6,7 @@ origin: notes
 by: [claude]
 links:
   - to: spot-check
-    type: tool
+    type: related
     note: "A random check that catches a difference with high probability."
     proposed: true
     by: claude

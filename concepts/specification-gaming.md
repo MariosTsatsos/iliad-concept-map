@@ -5,7 +5,7 @@ days: [2]
 by: [MT, claude]
 links:
   - to: reward-hypothesis
-    type: vs
+    type: challenges
     proposed: true
     note: "If goals are 'maximise reward', a hacked reward counts as success. Specification gaming is the gap between the reward and what we meant."
 ---

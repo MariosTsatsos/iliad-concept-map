@@ -1,5 +1,5 @@
 ---
-title: "Certificate"
+title: "Certificate (evidence that is quick to check)"
 kind: concept
 days: [6]
 origin: notes

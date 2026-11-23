@@ -6,11 +6,11 @@ origin: notes
 by: [claude]
 links:
   - to: goal-misgeneralization
-    type: gen
+    type: related
     proposed: true
     by: claude
   - to: evals
-    type: vs
+    type: challenges
     proposed: true
     by: claude
   - to: implicit-bias

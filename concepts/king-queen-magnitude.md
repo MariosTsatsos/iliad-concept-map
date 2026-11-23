@@ -1,5 +1,5 @@
 ---
-title: "king + female = queen: does magnitude matter?"
+title: "king + female = queen: does the length of the vector matter?"
 kind: concept
 days: [10]
 origin: participant

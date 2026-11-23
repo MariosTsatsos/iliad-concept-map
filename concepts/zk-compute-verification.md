@@ -22,7 +22,7 @@ links:
     proposed: true
     by: claude
   - to: compute-verification
-    type: safety
+    type: related
     proposed: true
     by: claude
 ---

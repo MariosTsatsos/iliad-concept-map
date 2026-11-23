@@ -7,7 +7,7 @@ weight: 1
 by: [claude]
 links:
   - to: three-temperatures
-    type: tool
+    type: related
     proposed: true
     by: claude
 ---

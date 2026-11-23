@@ -6,7 +6,7 @@ origin: notes
 by: [claude]
 links:
   - to: mechanistic-interpretability
-    type: tool
+    type: related
     proposed: true
     by: claude
 ---

@@ -14,7 +14,7 @@ links:
     proposed: true
     by: claude
   - to: landauer-limit
-    type: tool
+    type: related
     proposed: true
     by: claude
 ---

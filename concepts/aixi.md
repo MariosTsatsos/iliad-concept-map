@@ -1,5 +1,5 @@
 ---
-title: "AIXI"
+title: "AIXI: an agent that plans with Solomonoff induction"
 kind: concept
 days: [7]
 origin: notes
@@ -14,7 +14,7 @@ links:
     proposed: true
     by: claude
   - to: wireheading
-    type: safety
+    type: related
     proposed: true
     by: claude
 ---

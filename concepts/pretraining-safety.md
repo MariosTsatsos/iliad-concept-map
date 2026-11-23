@@ -5,7 +5,7 @@ days: [5]
 by: [MT]
 links:
   - to: misuse
-    type: safety
+    type: related
     proposed: true
     note: "Stopping users from extracting dangerous knowledge is the misuse problem from Day 2."
 ---

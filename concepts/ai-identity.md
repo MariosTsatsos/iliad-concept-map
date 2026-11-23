@@ -5,7 +5,7 @@ days: [4]
 by: [MT]
 links:
   - to: corrigibility
-    type: safety
+    type: related
     proposed: true
     note: "Shutdown means something different for each candidate 'self': deleting a context is not deleting weights. Which one an AI identifies with changes what it would resist."
   - to: personas

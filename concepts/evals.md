@@ -5,7 +5,7 @@ days: [5]
 by: [MT, claude]
 links:
   - to: misuse
-    type: safety
+    type: related
     proposed: true
     note: "Dangerous-capability evals check whether misuse is possible before release."
 ---

@@ -11,11 +11,11 @@ links:
     proposed: true
     by: claude
   - to: backdoor
-    type: safety
+    type: related
     proposed: true
     by: claude
   - to: backdoor-checker-trace
-    type: safety
+    type: related
     note: "A possible route to an answer."
     proposed: true
     by: claude

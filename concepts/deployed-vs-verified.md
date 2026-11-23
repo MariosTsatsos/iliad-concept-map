@@ -6,7 +6,7 @@ origin: participant
 by: [MT, claude]
 links:
   - to: zk-compute-verification
-    type: vs
+    type: challenges
     proposed: true
     by: claude
   - to: commitment
@@ -14,12 +14,12 @@ links:
     proposed: true
     by: claude
   - to: watching-training
-    type: tool
+    type: related
     note: "Both ask whether the object in hand came from the verified process."
     proposed: true
     by: claude
   - to: compute-verification
-    type: safety
+    type: related
     proposed: true
     by: claude
 ---

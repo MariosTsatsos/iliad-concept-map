@@ -1,12 +1,12 @@
 ---
-title: "Hidden progress"
+title: "Hidden progress: learning that a flat loss does not show"
 kind: concept
 days: [14]
 origin: extension
 by: [MT, claude]
 links:
   - to: evals
-    type: vs
+    type: challenges
     note: "A flat metric before a sudden jump gives an evaluation nothing to warn about."
     proposed: true
     by: claude

@@ -1,5 +1,5 @@
 ---
-title: "P, NP, IP, PSPACE"
+title: "Complexity classes: P, NP, IP, PSPACE"
 kind: concept
 days: [6]
 origin: notes

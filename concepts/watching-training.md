@@ -1,16 +1,16 @@
 ---
-title: "Watching training"
+title: "Watching training: checking how a network was made"
 kind: concept
 days: [8]
 origin: extension
 by: [MT, claude]
 links:
   - to: backdoor
-    type: safety
+    type: related
     proposed: true
     by: claude
   - to: zk-compute-verification
-    type: tool
+    type: related
     note: "Both verify the process that produced a model, not the model."
     proposed: true
     by: claude

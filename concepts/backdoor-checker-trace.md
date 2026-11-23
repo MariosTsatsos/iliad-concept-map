@@ -5,16 +5,12 @@ days: [8]
 origin: participant
 by: [MT, claude]
 links:
-  - to: indistinguishability-obfuscation
-    type: vs
-    proposed: true
-    by: claude
   - to: backdoor
-    type: safety
+    type: related
     proposed: true
     by: claude
   - to: mechanistic-interpretability
-    type: tool
+    type: related
     note: "Looking for the checker is a mechanistic interpretability task."
     proposed: true
     by: claude

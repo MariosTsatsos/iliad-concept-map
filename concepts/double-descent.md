@@ -6,7 +6,7 @@ origin: notes
 by: [claude]
 links:
   - to: generalisation-gap
-    type: vs
+    type: challenges
     note: "Against the classical picture that more parameters means more overfitting."
     proposed: true
     by: claude

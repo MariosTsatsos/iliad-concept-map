@@ -1,5 +1,5 @@
 ---
-title: "The 10^25 FLOP threshold"
+title: "The 10^25 FLOP threshold of the EU AI Act"
 kind: case
 days: [11]
 origin: notes

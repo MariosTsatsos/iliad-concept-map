@@ -10,7 +10,7 @@ links:
     proposed: true
     by: claude
   - to: linear-representation
-    type: vs
+    type: challenges
     note: "A test of how far the direction picture goes."
     proposed: true
     by: claude

@@ -5,7 +5,7 @@ days: [1]
 by: [MT, claude]
 links:
   - to: mechanistic-interpretability
-    type: vs
+    type: challenges
     proposed: true
     note: "More features than neurons, so one neuron mixes several features. That is why reading a network neuron by neuron fails."
 ---

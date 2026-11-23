@@ -1,5 +1,5 @@
 ---
-title: "Hardness of learning"
+title: "Hardness of learning: enough data, not enough computation"
 kind: concept
 days: [14]
 origin: notes

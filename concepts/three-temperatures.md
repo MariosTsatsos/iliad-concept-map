@@ -1,5 +1,5 @@
 ---
-title: "Three temperatures"
+title: "Three different meanings of temperature"
 kind: concept
 days: [13]
 origin: extension
@@ -10,7 +10,7 @@ links:
     proposed: true
     by: claude
   - to: free-energy
-    type: tool
+    type: related
     proposed: true
     by: claude
 ---

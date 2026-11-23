@@ -1,5 +1,5 @@
 ---
-title: "Commitment"
+title: "Commitment (a cryptographic lockbox)"
 kind: concept
 days: [11]
 origin: notes

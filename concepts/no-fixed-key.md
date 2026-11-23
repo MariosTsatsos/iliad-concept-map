@@ -1,12 +1,12 @@
 ---
-title: "No fixed key fits every context"
+title: "No fixed key: why one key table cannot work in every context"
 kind: concept
 days: [10]
 origin: participant
 by: [MT, claude]
 links:
   - to: steganography
-    type: safety
+    type: related
     proposed: true
     by: claude
 ---

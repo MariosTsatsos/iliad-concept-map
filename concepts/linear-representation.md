@@ -10,7 +10,7 @@ links:
     proposed: true
     by: claude
   - to: superposition
-    type: tool
+    type: related
     proposed: true
     by: claude
 ---

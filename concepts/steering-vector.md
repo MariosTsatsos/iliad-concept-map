@@ -10,7 +10,7 @@ links:
     proposed: true
     by: claude
   - to: sparse-autoencoder
-    type: tool
+    type: related
     note: "SAE features are a source of steering directions."
     proposed: true
     by: claude

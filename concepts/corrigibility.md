@@ -3,11 +3,6 @@ title: "Corrigibility"
 kind: concept
 days: [2]
 by: [MT, claude]
-links:
-  - to: vnm-theorem
-    type: vs
-    proposed: true
-    note: "A coherent utility maximiser usually prefers to keep its utility function, because a changed one scores badly by its current one. Corrigibility asks for the opposite."
 ---
 
 ## In one sentence
