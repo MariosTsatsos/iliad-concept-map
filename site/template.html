@@ -466,31 +466,37 @@ const DATA = /*__DATA__*/null;
   cy.nodes().forEach((n) => { const p = n.position(); ORIGIN.set(n.id(), { x: p.x, y: p.y }); HOME.set(n.id(), { x: p.x, y: p.y }); });
   const SPRINGS = cy.edges().map((e) => { const a = e.source().id(), b = e.target().id(), ha = ORIGIN.get(a), hb = ORIGIN.get(b); return [a, b, Math.hypot(ha.x - hb.x, ha.y - hb.y)]; });
   const K_HOME = 0.008, K_LINK = 0.012, DAMP = 0.92;
-  let simOn = false, simLabel = 0;
-  function simStep() {
+  let simOn = false, simLabel = 0, simLast = 0;
+  function simStep(now) {
+    // one physics step per 1/60 s of real time, so the speed is the same on slow and fast screens
+    const steps = simLast ? Math.max(1, Math.min(6, Math.round((now - simLast) / 16.7))) : 1;
+    simLast = now;
     const P = new Map();
     cy.nodes().forEach((n) => { if (!n.hasClass("hidden")) { const p = n.position(); P.set(n.id(), { x: p.x, y: p.y }); } });
-    const F = new Map();
-    P.forEach((p, id) => { const h = HOME.get(id); F.set(id, { x: K_HOME * (h.x - p.x), y: K_HOME * (h.y - p.y) }); });
-    SPRINGS.forEach(([a, b, rest]) => {
-      const pa = P.get(a), pb = P.get(b);
-      if (!pa || !pb) return;
-      const dx = pb.x - pa.x, dy = pb.y - pa.y, d = Math.hypot(dx, dy) || 1, f = K_LINK * (d - rest) / d;
-      F.get(a).x += f * dx; F.get(a).y += f * dy; F.get(b).x -= f * dx; F.get(b).y -= f * dy;
-    });
     let moving = 0;
-    cy.batch(() => P.forEach((p, id) => {
-      if (GRAB.has(id)) return;
-      const v = VEL.get(id) || { x: 0, y: 0 }, f = F.get(id);
-      v.x = (v.x + f.x) * DAMP; v.y = (v.y + f.y) * DAMP; VEL.set(id, v);
-      if (Math.abs(v.x) + Math.abs(v.y) > 0.08) moving += 1;
-      cy.getElementById(id).position({ x: p.x + v.x, y: p.y + v.y });
-    }));
-    const now = performance.now();
+    for (let s = 0; s < steps; s += 1) {
+      const F = new Map();
+      P.forEach((p, id) => { const h = HOME.get(id); F.set(id, { x: K_HOME * (h.x - p.x), y: K_HOME * (h.y - p.y) }); });
+      SPRINGS.forEach(([a, b, rest]) => {
+        const pa = P.get(a), pb = P.get(b);
+        if (!pa || !pb) return;
+        const dx = pb.x - pa.x, dy = pb.y - pa.y, d = Math.hypot(dx, dy) || 1, f = K_LINK * (d - rest) / d;
+        F.get(a).x += f * dx; F.get(a).y += f * dy; F.get(b).x -= f * dx; F.get(b).y -= f * dy;
+      });
+      moving = 0;
+      P.forEach((p, id) => {
+        if (GRAB.has(id)) return;
+        const v = VEL.get(id) || { x: 0, y: 0 }, f = F.get(id);
+        v.x = (v.x + f.x) * DAMP; v.y = (v.y + f.y) * DAMP; VEL.set(id, v);
+        p.x += v.x; p.y += v.y;
+        if (Math.abs(v.x) + Math.abs(v.y) > 0.08) moving += 1;
+      });
+    }
+    cy.batch(() => P.forEach((p, id) => { if (!GRAB.has(id)) cy.getElementById(id).position({ x: p.x, y: p.y }); }));
     if (now - simLabel > 250) { simLabel = now; relabel(); }
-    if (moving || GRAB.size) requestAnimationFrame(simStep); else { simOn = false; relabel(); }
+    if (moving || GRAB.size) requestAnimationFrame(simStep); else { simOn = false; simLast = 0; relabel(); }
   }
-  function simStart() { if (reduced || simOn) return; simOn = true; requestAnimationFrame(simStep); }
+  function simStart() { if (reduced || simOn) return; simOn = true; simLast = 0; requestAnimationFrame(simStep); }
   // throw the visible nodes off their places: pulled towards the middle by 'squeeze' (0 to 1), plus a random kick
   function shake(squeeze, kick) {
     if (reduced) return;
