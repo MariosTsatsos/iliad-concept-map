@@ -31,7 +31,7 @@ body:
     id: links
     attributes:
       label: Links to existing cards
-      description: "needs, gen, tool, vs, safety, eg. Example: needs bellman-equation; vs corrigibility"
+      description: "needs, eg, related, challenges. Example: needs bellman-equation; related entropy"
   - type: input
     id: source
     attributes:
