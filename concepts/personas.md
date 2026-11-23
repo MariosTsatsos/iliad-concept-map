@@ -2,7 +2,7 @@
 title: "Personas and simulators"
 kind: concept
 days: [5]
-by: [MariosTsatsos, claude]
+by: [claude]
 links: []
 ---
 

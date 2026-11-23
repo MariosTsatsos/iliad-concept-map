@@ -3,7 +3,7 @@ title: "Card puzzle 2: three protocols and a zero-leak one"
 kind: case
 days: [11]
 origin: participant
-by: [MariosTsatsos, claude]
+by: [claude]
 links:
   - to: zero-knowledge-proof
     type: eg
@@ -17,7 +17,7 @@ links:
 ---
 
 ## In one sentence
-Marios's protocols for proving that two drawn cards have the same colour: each early version left N of the 650 possible same-colour pairs as candidates, a leak of log2(650/N) bits, and his final protocol leaks nothing: sort the deck into two colour groups with the pair face down in one, shuffle, reveal.
+Protocols for proving that two drawn cards have the same colour: each early version left N of the 650 possible same-colour pairs as candidates, a leak of log2(650/N) bits, and the final protocol leaks nothing: sort the deck into two colour groups with the pair face down in one, shuffle, reveal.
 
 ## Twist
 The leak can be counted exactly, in bits.
@@ -36,5 +36,5 @@ Answer to the self-test: 2 colours x (26 choose 2) = 2 x 325.
 
 ## Sources
 - Day 11 slides, David Zeidler: A toy model of zero-knowledge inference verification, warm-up puzzle 2
-- Discussion between Marios and Claude during the course
+- Discussion during the course
 - [Zeidler, Zero-Knowledge Training Pause (LessWrong, 2026)](https://www.lesswrong.com/posts/CuzBTs3RfekGiBaAj/zero-knowledge-training-pause)

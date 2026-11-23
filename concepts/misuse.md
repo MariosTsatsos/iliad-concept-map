@@ -2,7 +2,7 @@
 title: "Misuse"
 kind: problem
 days: [2]
-by: [MariosTsatsos, claude]
+by: [claude]
 links: []
 ---
 

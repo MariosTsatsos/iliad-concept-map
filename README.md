@@ -146,8 +146,7 @@ No slides, PDFs or exercise sheets are stored here. Cards link to the module pag
 
 ## Authors
 
-- Marios Tsatsos ([@MariosTsatsos](https://github.com/MariosTsatsos)): the ideas marked "Participant's own idea", the notes behind Days 1 to 5, and the direction of the map.
-- Claude (Anthropic): the code, the wording of every card that lists `claude` in its `by:` line (this includes the wording of Marios's own ideas, until he rewrites them), and the first draft of the links, all marked as proposed. Edit them freely.
+- Claude (Anthropic): the code, the wording of every card that lists `claude` in its `by:` line, and the first draft of the links, all marked as proposed. Edit them freely.
 
 Every card names its authors in `by:`. Add your name when you edit one.
 

@@ -2,7 +2,7 @@
 title: "Logical induction"
 kind: concept
 days: [4]
-by: [MariosTsatsos, claude]
+by: [claude]
 links:
   - to: bayesian-update
     type: needs
@@ -22,7 +22,6 @@ Logical induction treats beliefs about mathematical statements as a market: ever
 ## Why it matters for safety
 
 ## Open question
-Got completely lost after the market part.
 
 ## Self-test
 

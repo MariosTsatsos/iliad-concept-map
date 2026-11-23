@@ -4,7 +4,7 @@ kind: concept
 days: [10, 13]
 origin: chat
 weight: 3
-by: [MariosTsatsos, claude]
+by: [claude]
 ---
 
 ## In one sentence
@@ -25,4 +25,4 @@ What is the entropy of a fair coin, and of a coin that always lands heads?
 ## Sources
 - [Day 10 slides, Julian Schulz: Steganography and Backdoors](https://iliad-intensive.org/safety/steganography/)
 - Day 13 notes, Artemy Kolchinsky: Physics of Deep Learning
-- Discussion between Marios and Claude during the course
+- Discussion during the course

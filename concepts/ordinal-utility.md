@@ -3,7 +3,7 @@ title: "Ordinal utility"
 kind: concept
 days: [3, 4]
 module: D.1.1
-by: [MariosTsatsos, claude]
+by: [claude]
 links:
   - needs: completeness
   - needs: transitivity

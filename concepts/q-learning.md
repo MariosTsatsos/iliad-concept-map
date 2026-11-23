@@ -3,7 +3,7 @@ title: "Q-learning"
 kind: concept
 days: [3]
 module: D.1.2
-by: [MariosTsatsos, claude]
+by: [claude]
 links:
   - to: bellman-equation
     type: needs

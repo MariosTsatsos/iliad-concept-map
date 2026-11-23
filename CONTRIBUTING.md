@@ -9,7 +9,7 @@ Hollow nodes have no one-sentence statement yet.
 1. On the map, click a hollow node, then **Write it**.
 2. Under `## In one sentence`, write one sentence in your own words.
 3. Add a `## Twist` or `## Self-test` question if you have one.
-4. Add your GitHub name to `by:`, for example `by: [MariosTsatsos, your-name]`.
+4. Add your GitHub name to `by:`, for example `by: [claude, your-name]`.
 5. **Commit changes** → **Propose changes** → **Create pull request**.
 
 ## 2. Add a concept
@@ -68,4 +68,4 @@ All attributes and their allowed values are listed in [README.md](README.md).
 
 ## No GitHub account?
 
-Use the **Suggest a concept** issue form, or send the card to Marios and he will add it with your name on it.
+Use the **Suggest a concept** issue form, and the card will be added with your name on it.

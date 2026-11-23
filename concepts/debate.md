@@ -3,7 +3,7 @@ title: "AI safety via debate"
 kind: concept
 days: [6]
 origin: chat
-by: [MariosTsatsos, claude]
+by: [claude]
 links:
   - to: scalable-oversight
     type: safety

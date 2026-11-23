@@ -32,7 +32,7 @@ The no-coincidence principle says a reason exists; this principle says the reaso
 
 
 ## Notes
-Marios's Notion note for this concept reads: cumulant propagation.
+Keyword: cumulant propagation.
 
 ## Sources
 - Day 8 slides, George Robinson: Heuristic arguments and verification, session 4

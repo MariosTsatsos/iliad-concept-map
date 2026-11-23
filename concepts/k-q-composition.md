@@ -3,7 +3,7 @@ title: "K-composition and Q-composition"
 kind: concept
 days: [10]
 origin: chat
-by: [MariosTsatsos, claude]
+by: [claude]
 links:
   - to: qk-ov-circuits
     type: needs

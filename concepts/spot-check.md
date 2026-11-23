@@ -3,7 +3,7 @@ title: "Random spot checks"
 kind: concept
 days: [11]
 origin: chat
-by: [MariosTsatsos, claude]
+by: [claude]
 links:
   - to: commitment
     type: needs
@@ -33,5 +33,5 @@ Why must the prover commit before the verifier picks the sample?
 
 ## Sources
 - Day 11 slides, David Zeidler: A toy model of zero-knowledge inference verification, protocol step 3
-- Discussion between Marios and Claude during the course
+- Discussion during the course
 - [Zeidler, Zero-Knowledge Training Pause (LessWrong, 2026)](https://www.lesswrong.com/posts/CuzBTs3RfekGiBaAj/zero-knowledge-training-pause)

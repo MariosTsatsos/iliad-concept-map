@@ -3,7 +3,7 @@ title: "Is the deployed model the one that was verified?"
 kind: problem
 days: [11]
 origin: participant
-by: [MariosTsatsos, claude]
+by: [claude]
 links:
   - to: zk-compute-verification
     type: vs
@@ -25,7 +25,7 @@ links:
 ---
 
 ## In one sentence
-Marios's question: a proof about a committed model says nothing unless the model that is later deployed is the same one that was committed.
+The question: a proof about a committed model says nothing unless the model that is later deployed is the same one that was committed.
 
 ## Twist
 
@@ -40,4 +40,4 @@ What binds the commitment to the deployment?
 
 
 ## Sources
-- Discussion between Marios and Claude during the course
+- Discussion during the course

@@ -3,7 +3,7 @@ title: "The loss plateau as latent heat"
 kind: concept
 days: [14]
 origin: participant
-by: [MariosTsatsos, claude]
+by: [claude]
 links:
   - to: hidden-progress
     type: needs
@@ -16,7 +16,7 @@ links:
 ---
 
 ## In one sentence
-Marios's analogy: during a phase change heat keeps flowing in while the thermometer stays flat; in the same way something accumulates in the network during a loss plateau while the loss, the thermometer, does not move.
+Analogy: during a phase change heat keeps flowing in while the thermometer stays flat; in the same way something accumulates in the network during a loss plateau while the loss, the thermometer, does not move.
 
 ## Twist
 
@@ -31,4 +31,4 @@ What is the quantity that accumulates, and can it be measured during the plateau
 
 
 ## Sources
-- Discussion between Marios and Claude during the course
+- Discussion during the course

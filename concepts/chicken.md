@@ -16,7 +16,7 @@ links:
     by: claude
   - to: break-even-point
     type: eg
-    note: "Marios's derivation was done for this game."
+    note: "The derivation was done for this game."
     proposed: true
     by: claude
 ---

@@ -3,7 +3,7 @@ title: "Compressibility and intelligence"
 kind: concept
 days: [7]
 origin: participant
-by: [MariosTsatsos, claude]
+by: [claude]
 links:
   - to: kolmogorov-complexity
     type: needs
@@ -24,7 +24,6 @@ links:
 A string that can be compressed has a pattern, and finding the pattern is what a predictor does, so compressing data well and predicting it well are closely linked.
 
 ## Twist
-Marios marked this link as worth keeping in mind and in his notes.
 
 ## Why it matters for safety
 
@@ -37,4 +36,4 @@ If you can predict the next symbol perfectly, how many bits do you need to store
 
 ## Sources
 - [Day 7 notes and exercises, David Quarel: Solomonoff Induction and AIXI](https://iliad-intensive.org/agency/solomonoff-induction/)
-- Discussion between Marios and Claude during the course
+- Discussion during the course

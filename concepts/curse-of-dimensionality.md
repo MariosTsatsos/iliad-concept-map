@@ -27,4 +27,4 @@ Answer to the self-test: 2^8 = 256.
 ## Sources
 - [Day 14 slide deck by Zach Furman: Mysteries of Deep Learning](https://iliad-intensive.org/learning/mysteries-of-deep-learning/), 'the universal approximation razor'
 - [Day 14 slides, Miguel Donaire Arcas-Sariot: Historical introduction to the science of deep learning](https://iliad-intensive.org/learning/mysteries-of-deep-learning/)
-- Discussion between Marios and Claude during the course
+- Discussion during the course

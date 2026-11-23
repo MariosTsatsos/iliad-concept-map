@@ -3,7 +3,7 @@ title: "Entropy falls in training and in inference: entropy of what?"
 kind: concept
 days: [13]
 origin: participant
-by: [MariosTsatsos, claude]
+by: [claude]
 links:
   - to: entropy
     type: needs
@@ -21,7 +21,7 @@ links:
 ---
 
 ## In one sentence
-Marios's distinction: in training it is the entropy of the distribution over weights that falls, in inference it is the entropy of the distribution over next tokens; the two are different quantities and should not be mixed.
+The distinction: in training it is the entropy of the distribution over weights that falls, in inference it is the entropy of the distribution over next tokens; the two are different quantities and should not be mixed.
 
 ## Twist
 
@@ -36,4 +36,4 @@ Marios's distinction: in training it is the entropy of the distribution over wei
 Which of the two does sampling temperature change?
 
 ## Sources
-- Discussion between Marios and Claude during the course
+- Discussion during the course

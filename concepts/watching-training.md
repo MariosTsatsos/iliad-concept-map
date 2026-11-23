@@ -3,7 +3,7 @@ title: "Watching training"
 kind: concept
 days: [8]
 origin: chat
-by: [MariosTsatsos, claude]
+by: [claude]
 links:
   - to: backdoor
     type: safety

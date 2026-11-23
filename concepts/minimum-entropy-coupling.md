@@ -3,7 +3,7 @@ title: "Minimum-entropy coupling"
 kind: concept
 days: [10]
 origin: chat
-by: [MariosTsatsos, claude]
+by: [claude]
 links:
   - to: entropy
     type: needs
@@ -19,7 +19,7 @@ links:
 A joint distribution of message and output text that keeps both of their own distributions unchanged and has the smallest joint entropy, so the text reveals as much as possible about the message while looking exactly like normal output.
 
 ## Twist
-Marios and Claude pictured it as handing out tickets: each cell of the table is a share of probability given to one (message, text) pair.
+One picture is handing out tickets: each cell of the table is a share of probability given to one (message, text) pair.
 
 ## Why it matters for safety
 
@@ -32,4 +32,4 @@ Marios and Claude pictured it as handing out tickets: each cell of the table is 
 
 ## Sources
 - [Day 10 slides, Julian Schulz: Steganography and Backdoors](https://iliad-intensive.org/safety/steganography/), p. 18
-- Discussion between Marios and Claude during the course
+- Discussion during the course

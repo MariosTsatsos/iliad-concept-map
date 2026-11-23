@@ -2,7 +2,7 @@
 title: "Sparse autoencoder (SAE)"
 kind: concept
 days: [1]
-by: [MariosTsatsos, claude]
+by: [claude]
 links:
   - to: superposition
     type: needs

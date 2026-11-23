@@ -2,7 +2,6 @@
 title: "METR: OpenAI / Hugging Face hacking incident"
 kind: case
 days: [2]
-by: [MariosTsatsos]
 links:
   - to: specification-gaming
     type: eg

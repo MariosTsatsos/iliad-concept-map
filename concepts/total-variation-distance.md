@@ -3,7 +3,7 @@ title: "Total variation distance"
 kind: concept
 days: [10]
 origin: chat
-by: [MariosTsatsos, claude]
+by: [claude]
 ---
 
 ## In one sentence
@@ -26,4 +26,4 @@ Answer to the self-test: 0.3.
 
 ## Sources
 - [Day 10 slides, Julian Schulz: Steganography and Backdoors](https://iliad-intensive.org/safety/steganography/)
-- Discussion between Marios and Claude during the course
+- Discussion during the course

@@ -4,7 +4,7 @@ kind: problem
 days: [10]
 origin: chat
 weight: 1
-by: [MariosTsatsos, claude]
+by: [claude]
 links:
   - to: steganography
     type: tool
@@ -23,10 +23,10 @@ links:
 
 
 ## Open question
-Stub. Marios listed 'Neuralese and reasoning without chain of thought' as a topic to come back to.
+Stub. Topic: neuralese and reasoning without chain of thought.
 
 ## Self-test
 
 
 ## Sources
-- Discussion between Marios and Claude during the course
+- Discussion during the course

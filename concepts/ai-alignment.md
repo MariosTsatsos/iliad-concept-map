@@ -2,7 +2,7 @@
 title: "AI alignment"
 kind: concept
 days: [2]
-by: [MariosTsatsos, claude]
+by: [claude]
 links:
   - to: goal
     type: needs

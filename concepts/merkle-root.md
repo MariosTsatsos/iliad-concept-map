@@ -29,4 +29,4 @@ One short hash (a fingerprint computed from data) that commits to a long list of
 
 ## Sources
 - [Peigné et al., Zero knowledge verification for frontier AI training is possible (arXiv 2606.05433)](https://arxiv.org/abs/2606.05433)
-- Discussion between Marios and Claude during the course
+- Discussion during the course

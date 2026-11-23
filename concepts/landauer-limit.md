@@ -4,7 +4,7 @@ kind: concept
 days: [13]
 origin: chat
 weight: 1
-by: [MariosTsatsos, claude]
+by: [claude]
 links:
   - to: entropy
     type: needs
@@ -28,4 +28,4 @@ This is the one place where the hardware temperature and information meet direct
 
 
 ## Sources
-- Discussion between Marios and Claude during the course
+- Discussion during the course

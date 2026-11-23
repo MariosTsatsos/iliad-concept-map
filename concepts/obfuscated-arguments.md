@@ -21,7 +21,6 @@ A dishonest debater splits a false claim into very many steps, one of which is w
 The honest debater then cannot win efficiently, so the guarantee of debate fails.
 
 ## Open question
-Marked by Marios as a gap to study.
 
 ## Self-test
 

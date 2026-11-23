@@ -3,7 +3,7 @@ title: "Does a backdoor's checker leave a trace?"
 kind: problem
 days: [8]
 origin: participant
-by: [MariosTsatsos, claude]
+by: [claude]
 links:
   - to: indistinguishability-obfuscation
     type: vs
@@ -21,7 +21,7 @@ links:
 ---
 
 ## In one sentence
-A backdoor has to check every input for the trigger, so the checking computation runs on every input, including the normal ones; Marios's question is whether that leaves something a defender can see.
+A backdoor has to check every input for the trigger, so the checking computation runs on every input, including the normal ones; the open question is whether that leaves something a defender can see.
 
 ## Twist
 
@@ -36,5 +36,5 @@ Open. The iO result says that in the worst case reading the weights does not hel
 
 
 ## Sources
-- Discussion between Marios and Claude during the course
+- Discussion during the course
 - Day 8 slides, George Robinson: Heuristic arguments and verification

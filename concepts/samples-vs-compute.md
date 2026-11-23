@@ -3,7 +3,7 @@ title: "Samples versus computing, and the bitter lesson"
 kind: concept
 days: [14]
 origin: participant
-by: [MariosTsatsos, claude]
+by: [claude]
 links:
   - to: sparse-parity
     type: needs
@@ -20,7 +20,7 @@ links:
 ---
 
 ## In one sentence
-Marios's link: sparse parity shows that having enough samples and having enough computation are separate requirements, and the bitter lesson says that the methods that win are the ones that can use more computation.
+The link: sparse parity shows that having enough samples and having enough computation are separate requirements, and the bitter lesson says that the methods that win are the ones that can use more computation.
 
 ## Twist
 
@@ -35,4 +35,4 @@ When is the binding limit data, and when is it compute?
 
 
 ## Sources
-- Discussion between Marios and Claude during the course
+- Discussion during the course

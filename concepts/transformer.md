@@ -2,7 +2,7 @@
 title: "Transformer"
 kind: concept
 days: [1]
-by: [MariosTsatsos, claude]
+by: [claude]
 links:
   - to: attention
     type: needs

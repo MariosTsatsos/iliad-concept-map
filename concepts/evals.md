@@ -2,7 +2,7 @@
 title: "Pre-deployment evals"
 kind: concept
 days: [5]
-by: [MariosTsatsos, claude]
+by: [claude]
 links:
   - to: misuse
     type: safety

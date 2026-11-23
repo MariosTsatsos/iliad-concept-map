@@ -3,7 +3,7 @@ title: "Zero-knowledge means the view does not depend on the secret"
 kind: concept
 days: [11]
 origin: participant
-by: [MariosTsatsos, claude]
+by: [claude]
 links:
   - to: zero-knowledge-proof
     type: needs
@@ -17,7 +17,7 @@ links:
 ---
 
 ## In one sentence
-Marios's point: a protocol is zero-knowledge when the distribution of everything the verifier sees is the same whatever the secret is; whether cards are face up or face down is not the criterion.
+The point: a protocol is zero-knowledge when the distribution of everything the verifier sees is the same whatever the secret is; whether cards are face up or face down is not the criterion.
 
 ## Twist
 Cards can be turned face up and the protocol can still leak nothing.
@@ -32,4 +32,4 @@ Cards can be turned face up and the protocol can still leak nothing.
 Give a protocol step that shows cards face up and leaks nothing.
 
 ## Sources
-- Discussion between Marios and Claude during the course
+- Discussion during the course

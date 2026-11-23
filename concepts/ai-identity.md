@@ -2,7 +2,6 @@
 title: "AI identity"
 kind: concept
 days: [4]
-by: [MariosTsatsos]
 links:
   - to: corrigibility
     type: safety
@@ -26,7 +25,7 @@ Which threat is the most threatening to an AI: weights removed, instance or cont
 ## Self-test
 
 ## Notes
-Paper discussed: "The Artificial Prompt" (title as I noted it). An identity prompt is given: "You are Claude 4.6, and your identity is a character…"
+Paper discussed: "The Artificial Prompt" (title not verified). An identity prompt is given: "You are Claude 4.6, and your identity is a character…"
 
 ## Sources
 - [Day 4 slides, Ashe Vazquez Nuñez](https://iliad-intensive.org/agency/agent-foundations/)

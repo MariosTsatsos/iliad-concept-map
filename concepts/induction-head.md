@@ -3,7 +3,7 @@ title: "Induction head"
 kind: concept
 days: [10]
 origin: chat
-by: [MariosTsatsos, claude]
+by: [claude]
 links:
   - to: k-q-composition
     type: needs

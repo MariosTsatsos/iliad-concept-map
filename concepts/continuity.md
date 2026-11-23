@@ -3,7 +3,7 @@ title: "Continuity (axiom 3 on preferences)"
 kind: concept
 days: [3]
 module: D.1.1
-by: [MariosTsatsos, claude]
+by: [claude]
 links: []
 ---
 

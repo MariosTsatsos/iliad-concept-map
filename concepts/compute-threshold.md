@@ -29,4 +29,4 @@ A rule stated in FLOPs needs someone to count FLOPs. Who counts, and how is the 
 
 ## Sources
 - [EU AI Act, Article 51(2)](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-51)
-- Discussion between Marios and Claude during the course
+- Discussion during the course

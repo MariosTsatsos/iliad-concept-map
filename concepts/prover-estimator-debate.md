@@ -22,7 +22,7 @@ A debate protocol designed so that obfuscated arguments do not help the dishones
 
 
 ## Open question
-Marked by Marios as a gap to study. The card states only the purpose; the mechanism is not written here yet.
+The card states only the purpose; the mechanism is not written here yet.
 
 ## Self-test
 

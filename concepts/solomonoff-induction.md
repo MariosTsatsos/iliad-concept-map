@@ -4,7 +4,7 @@ kind: concept
 days: [7, 14]
 origin: chat
 weight: 3
-by: [MariosTsatsos, claude]
+by: [claude]
 links:
   - to: bayesian-mixture
     type: eg
@@ -33,7 +33,6 @@ Day 14 asks whether deep learning solves approximation and generalisation in a s
 Why does a shorter program get more prior weight?
 
 ## Notes
-Marios: "Solomonoff rocks."
 
 ## Sources
 - [Day 7 notes and exercises, David Quarel: Solomonoff Induction and AIXI](https://iliad-intensive.org/agency/solomonoff-induction/)

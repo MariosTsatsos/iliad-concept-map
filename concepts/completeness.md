@@ -3,7 +3,7 @@ title: "Completeness (axiom 1 on preferences)"
 kind: concept
 days: [3]
 module: D.1.1
-by: [MariosTsatsos, claude]
+by: [claude]
 links: []
 ---
 
