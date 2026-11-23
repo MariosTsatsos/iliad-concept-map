@@ -20,7 +20,7 @@ links:                 # link to at least one existing card (its file name witho
 
 ## Open question
 
-## Self-test
+## Quiz
 <!-- One question a classmate can answer in a minute. -->
 
 ## Sources

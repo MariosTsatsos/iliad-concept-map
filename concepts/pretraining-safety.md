@@ -19,7 +19,7 @@ Two levers in pre-training against dangerous knowledge: shape what knowledge the
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 

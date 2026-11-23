@@ -18,7 +18,7 @@ Reverse-engineering a trained network: working out which internal components com
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 

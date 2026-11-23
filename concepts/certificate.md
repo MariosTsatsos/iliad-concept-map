@@ -18,7 +18,7 @@ A short piece of evidence that lets a weak checker confirm a yes answer quickly,
 ## Open question
 
 
-## Self-test
+## Quiz
 What is the certificate that a number is not prime?
 
 ## Sources

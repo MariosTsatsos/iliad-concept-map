@@ -20,7 +20,7 @@ Reinforcement learning in which the feedback comes from an AI model's judgments 
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 

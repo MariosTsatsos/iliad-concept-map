@@ -14,7 +14,7 @@ A corrigible agent does not resist being corrected, updated or shut down: if we 
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 Discussed for an agent that maximises a utility function.

@@ -28,7 +28,7 @@ Cards can be turned face up and the protocol can still leak nothing.
 ## Open question
 
 
-## Self-test
+## Quiz
 Give a protocol step that shows cards face up and leaks nothing.
 
 ## Sources

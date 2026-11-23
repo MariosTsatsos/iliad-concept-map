@@ -31,7 +31,7 @@ Analogy: treat learning as a thermodynamic process, with training as cooling, an
 ## Open question
 Open. What are the two reservoirs, and what is the work?
 
-## Self-test
+## Quiz
 
 
 ## Sources

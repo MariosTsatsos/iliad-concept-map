@@ -32,7 +32,7 @@ To a watcher without the key the text is distributed like ordinary samples from 
 ## Open question
 The sender and receiver steps should be written out here with a small numeric example.
 
-## Self-test
+## Quiz
 
 
 ## Sources

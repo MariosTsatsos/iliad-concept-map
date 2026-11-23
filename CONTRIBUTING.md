@@ -8,7 +8,7 @@ Hollow nodes have no one-sentence statement yet.
 
 1. On the map, click a hollow node, then **Write it**.
 2. Under `## In one sentence`, write one sentence in your own words.
-3. Add a `## Twist` or `## Self-test` question if you have one.
+3. Add a `## Twist` or `## Quiz` question if you have one.
 4. Add your GitHub name to `by:`, for example `by: [MT, claude, your-name]`.
 5. **Commit changes** → **Propose changes** → **Create pull request**.
 
@@ -50,7 +50,7 @@ links:
 ## Twist
 ## Why it matters for safety
 ## Open question
-## Self-test
+## Quiz
 ## Notes
 ## Sources
 ```

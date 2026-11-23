@@ -23,7 +23,7 @@ Reinforcement learning where the reward comes from an automatic check that the a
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 

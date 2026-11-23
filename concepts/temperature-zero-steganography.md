@@ -31,7 +31,7 @@ At sampling temperature 0 the model always emits the most likely token (word or 
 ## Open question
 Is forcing low-entropy output a practical defence, and what does it cost in quality?
 
-## Self-test
+## Quiz
 How many hidden bits can a deterministic output carry?
 
 ## Sources

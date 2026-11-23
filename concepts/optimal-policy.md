@@ -19,7 +19,7 @@ An optimal policy is one whose value is at least as high as that of any other po
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 Policy iteration: start from any policy, then alternate two steps, working out the value of the current policy and improving the policy using that value, until the policy stops changing.

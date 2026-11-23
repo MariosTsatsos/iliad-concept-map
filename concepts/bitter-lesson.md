@@ -23,7 +23,7 @@ Sutton's reading of 70 years of AI research: general methods that use more compu
 ## Open question
 
 
-## Self-test
+## Quiz
 
 
 ## Sources

@@ -16,7 +16,7 @@ If A is preferred to B and B to C, then some lottery between A and C (a random c
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 

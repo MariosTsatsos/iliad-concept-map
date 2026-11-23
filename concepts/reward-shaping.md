@@ -24,7 +24,7 @@ Adding extra reward to guide learning; done carelessly it changes which behaviou
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 

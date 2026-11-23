@@ -19,7 +19,7 @@ A network stores more features than it has dimensions by using directions that o
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 

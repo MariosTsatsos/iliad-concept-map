@@ -17,7 +17,7 @@ Agency was described as planning (doing things) together with beliefs (reasons f
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 There are several definitions: first person, second person, third person.

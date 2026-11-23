@@ -23,7 +23,7 @@ The gap between test loss and training loss; classical bounds control it by the 
 ## Open question
 
 
-## Self-test
+## Quiz
 What does 'vacuous' mean for a bound on an error rate?
 
 ## Sources

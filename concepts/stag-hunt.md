@@ -23,7 +23,7 @@ The problem is trust, not conflicting interests.
 ## Open question
 
 
-## Self-test
+## Quiz
 
 
 ## Sources

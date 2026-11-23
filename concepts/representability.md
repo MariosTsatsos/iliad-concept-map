@@ -18,7 +18,7 @@ The lecture put it as 'pay assumptions in exchange for reward': each added assum
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 

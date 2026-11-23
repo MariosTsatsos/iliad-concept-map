@@ -33,7 +33,7 @@ Flag the inputs on which a model acts for unusual reasons, which requires a desc
 ## Open question
 
 
-## Self-test
+## Quiz
 
 
 ## Sources

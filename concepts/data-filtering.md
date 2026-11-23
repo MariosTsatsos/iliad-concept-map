@@ -18,7 +18,7 @@ links:
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 

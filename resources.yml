@@ -1,0 +1,891 @@
+# Links found in the lecture files, by course day. Shown on the map when a day is selected.
+# kind: exercise (notebooks, exercise pages), tool (things to try in the browser), reading (papers, posts, books, videos).
+# 'from' says where the link was found. Titles are the linked text on the slide, or the citation printed there.
+# What is listed: every exercise and tool link; reading that a lecturer put on a slide, a reading list or an agenda.
+# What is not listed: entries that appear only in a bibliography at the end of a deck, private share links, and links to scanned books.
+1:
+- kind: exercise
+  title: Implement optimizers (Colab notebook)
+  url: https://colab.research.google.com/github/iliad-team/iliad-intensive-C.1.1/blob/main/lectures/01_a_ml_foundations/exercises/02_optimizers/notebook.ipynb
+  from: Day 1 slides, page 36
+- kind: exercise
+  title: Build an MLP (Colab notebook)
+  url: https://colab.research.google.com/github/iliad-team/iliad-intensive-C.1.1/blob/main/lectures/01_a_ml_foundations/exercises/04_mlp/notebook.ipynb
+  from: Day 1 slides, page 37
+- kind: exercise
+  title: Implement attention (Colab notebook)
+  url: https://colab.research.google.com/github/iliad-team/iliad-intensive-C.1.1/blob/main/lectures/01_a_ml_foundations/exercises/05_attention/notebook.ipynb
+  from: Day 1 slides, page 37
+- kind: reading
+  title: LayerNorm paper (arXiv:1607.06450)
+  url: https://arxiv.org/abs/1607.06450
+  from: Day 1 slides, page 28
+2:
+- kind: reading
+  title: AISafety.com field map
+  url: https://aisafety.com/map
+  from: Day 2 slides, page 3
+- kind: reading
+  title: Davidson et al. (2025), AI-enabled coups
+  url: https://www.forethought.org/research/ai-enabled-coups-how-a-small-group-could-use-ai-to-seize-power
+  from: Day 2 slides, page 4
+- kind: reading
+  title: Kulveit et al. (2025), Gradual disempowerment
+  url: https://gradual-disempowerment.ai/
+  from: Day 2 slides, page 4
+- kind: reading
+  title: METR, GPT-5.6 Sol evaluation (26 Jun 2026)
+  url: https://metr.org/blog/2026-06-26-gpt-5-6-sol/
+  from: Day 2 slides, page 5
+- kind: reading
+  title: METR, Hugging Face investigation (26 Aug 2026)
+  url: https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/
+  from: Day 2 slides, page 5
+- kind: reading
+  title: METR, review of Anthropic’s risk report
+  url: https://metr.org/blog/2026-10-20-misalignment-risk-report-august-2026-review
+  from: Day 2 slides, page 5
+- kind: reading
+  title: Christiano, Clarifying AI alignment (2018)
+  url: https://ai-alignment.com/clarifying-ai-alignment-cec47cd69dd6
+  from: Day 2 slides, page 8
+- kind: reading
+  title: Anthropic, Claude’s constitution (Jan 2026)
+  url: https://www.anthropic.com/constitution
+  from: Day 2 slides, page 8
+- kind: reading
+  title: OpenAI, Model Spec (29 Oct 2026)
+  url: https://model-spec.openai.com/2026-10-29.html
+  from: Day 2 slides, page 8
+- kind: reading
+  title: Yudkowsky, CEV (2004)
+  url: https://intelligence.org/files/CEV.pdf
+  from: Day 2 slides, page 8
+- kind: reading
+  title: Corrigibility (LessWrong wiki)
+  url: https://www.lesswrong.com/w/corrigibility-1
+  from: Day 2 slides, page 10
+- kind: reading
+  title: Redwood, The case for AI control
+  url: https://blog.redwoodresearch.org/p/the-case-for-ensuring-that-powerful
+  from: Day 2 slides, page 10
+- kind: reading
+  title: Ouyang et al., InstructGPT (2022)
+  url: https://arxiv.org/abs/2203.02155
+  from: Day 2 slides, page 14
+- kind: reading
+  title: Hubinger, How do we become confident in the safety of a machine learning system? (2021)
+  url: https://www.alignmentforum.org/posts/FDJnZt8Ks2djouQTZ/how-do-we-become-confident-in-the-safety-of-a-machine
+  from: Day 2 slides, page 15
+- kind: reading
+  title: Hubinger et al., Risks from learned optimization (2019)
+  url: https://arxiv.org/abs/1906.01820
+  from: Day 2 slides, page 16
+- kind: reading
+  title: DeepMind, Specification gaming (2020)
+  url: https://deepmind.google/blog/specification-gaming-the-flip-side-of-ai-ingenuity/
+  from: Day 2 slides, page 17
+- kind: reading
+  title: DeepMind, Goal misgeneralization (2022)
+  url: https://deepmind.google/blog/how-undesired-goals-can-arise-with-correct-rewards/
+  from: Day 2 slides, page 17
+- kind: reading
+  title: Turner, Reward is not the optimization target (2022)
+  url: https://www.alignmentforum.org/posts/pdaGN6pQyQarFHXF4
+  from: Day 2 slides, page 18
+- kind: reading
+  title: Wilson, Deep learning is not so mysterious or different (2025)
+  url: https://arxiv.org/abs/2503.02113
+  from: Day 2 slides, page 19
+- kind: reading
+  title: Betley et al., Emergent misalignment (Nature, 2026)
+  url: https://www.nature.com/articles/s41586-025-09937-5
+  from: Day 2 slides, page 19
+- kind: reading
+  title: Anthropic, The persona selection model (Feb 2026)
+  url: https://alignment.anthropic.com/2026/psm
+  from: Day 2 slides, page 20
+- kind: reading
+  title: MacDiarmid et al., Natural emergent misalignment from reward hacking (2025)
+  url: https://arxiv.org/abs/2511.18397
+  from: Day 2 slides, page 20
+- kind: reading
+  title: Training a misaligned reward seeker (Anthropic alignment blog, 2026)
+  url: https://alignment.anthropic.com/2026/reward-seeker/
+  from: Day 2 slides, page 21
+- kind: reading
+  title: Shah, Will humans build goal-directed agents? (2019)
+  url: https://www.alignmentforum.org/posts/9zpT9dikrrebdq3Jf/will-humans-build-goal-directed-agents
+  from: Day 2 slides, page 24
+- kind: reading
+  title: Omohundro, The basic AI drives (2008)
+  url: https://selfawaresystems.com/wp-content/uploads/2008/01/ai_drives_final.pdf
+  from: Day 2 slides, page 25
+- kind: reading
+  title: Anthropic, Core views on AI safety (2023)
+  url: https://www.anthropic.com/news/core-views-on-ai-safety
+  from: Day 2 slides, page 29
+- kind: reading
+  title: Grace et al., Thousands of AI authors (2024)
+  url: https://arxiv.org/abs/2401.02843
+  from: Day 2 slides, page 29
+- kind: reading
+  title: Model organisms of misalignment (2023)
+  url: https://www.lesswrong.com/posts/ChDH335ckdvpxXaXX/model-organisms-of-misalignment-the-case-for-a-new-pillar-of-1
+  from: Day 2 slides, page 30
+- kind: reading
+  title: Sleeper agents (arXiv:2401.05566)
+  url: https://arxiv.org/abs/2401.05566
+  from: Day 2 slides, page 30
+- kind: reading
+  title: Sycophancy to subterfuge (Anthropic)
+  url: https://www.anthropic.com/research/reward-tampering
+  from: Day 2 slides, page 30
+- kind: reading
+  title: Alignment faking (Anthropic)
+  url: https://www.anthropic.com/research/alignment-faking
+  from: Day 2 slides, page 30
+- kind: reading
+  title: Yudkowsky, The rocket alignment problem
+  url: https://www.alignmentforum.org/posts/Gg9a4y8reWKtLe3Tn/the-rocket-alignment-problem
+  from: Day 2 slides, page 31
+- kind: reading
+  title: Kokotajlo et al., AI 2027 (3 Apr 2025)
+  url: https://ai-2027.com/
+  from: Day 2 slides, page 35
+- kind: reading
+  title: 'AI 2027: August 2026 update'
+  url: https://blog.aifutures.org/p/q25-2026-timelines-update-uplift
+  from: Day 2 slides, page 36
+- kind: reading
+  title: Grading AI 2027’s 2025 predictions
+  url: https://blog.aifutures.org/p/grading-ai-2027s-2025-predictions
+  from: Day 2 slides, page 36
+- kind: reading
+  title: Hugging Face, technical timeline (27 Jul 2026)
+  url: https://huggingface.co/blog/agent-intrusion-technical-timeline
+  from: Day 2 slides, page 39
+- kind: reading
+  title: OpenAI, technical report (26 Aug 2026)
+  url: https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf
+  from: Day 2 slides, page 39
+- kind: reading
+  title: Hugging Face disclosure (July 2026)
+  url: https://huggingface.co/blog/security-incident-july-2026
+  from: Day 2 slides, page 41
+3:
+- kind: exercise
+  title: 'ARENA: Intro to RL (chapter 2)'
+  url: https://learn.arena.education/chapter2_rl/01_intro_rl/
+  from: Day 3 exercise sheet, page 1
+- kind: reading
+  title: Settling the reward hypothesis (arXiv:2212.10420)
+  url: https://arxiv.org/abs/2212.10420
+  from: Day 3 notes, page 15
+4:
+- kind: exercise
+  title: 'Exercise: The complete class theorem'
+  url: https://iliad-intensive.org/agency/agent-foundations/#ex-complete-class
+  from: Day 4 reading agenda, page 1
+- kind: exercise
+  title: 'Exercise: Löb’s theorem'
+  url: https://iliad-intensive.org/agency/agent-foundations/#ex-lob
+  from: Day 4 reading agenda, page 3
+- kind: exercise
+  title: Exercises on condensation from the Iliad intensive curriculum
+  url: https://iliad-intensive.org/interpretability/condensation/#ex-bits
+  from: Day 4 reading agenda, page 4
+- kind: reading
+  title: VNM utility theorem
+  url: https://gtl.csa.iisc.ac.in/gametheory/ln/web-ncp7-utility.pdf
+  from: Day 4 reading agenda, page 1
+- kind: reading
+  title: Harsanyi’s utility theorem
+  url: https://web.stanford.edu/~hammond/HarsanyiFest.pdf
+  from: Day 4 reading agenda, page 1
+- kind: reading
+  title: 'Complete Class: Consequentialist Foundations'
+  url: https://www.lesswrong.com/posts/sZuw6SGfmZHvcAAEP/complete-class-consequentialist-foundations
+  from: Day 4 reading agenda, page 1
+- kind: reading
+  title: Geometric rationality
+  url: https://www.lesswrong.com/s/4hmf7rdfuXDJkxhfg
+  from: Day 4 reading agenda, page 1
+- kind: reading
+  title: Intuitive Explanation of AIXI
+  url: https://www.lesswrong.com/posts/DFdSD3iKYwFS29iQs/intuitive-explanation-of-aixi
+  from: Day 4 reading agenda, page 1
+- kind: reading
+  title: An Introduction to Universal Artificial Intelligence
+  url: https://www.hutter1.net/publ/uaibook2.pdf
+  from: Day 4 reading agenda, page 1
+- kind: reading
+  title: Responses to ~all criticisms of AIXI
+  url: https://alignmentforum.org/posts/TXmXrnFqLqKDx882e/responses-to-all-criticisms-of-aixi
+  from: Day 4 reading agenda, page 1
+- kind: reading
+  title: Settling the reward hypothesis
+  url: https://arxiv.org/pdf/2212.10420
+  from: Day 4 reading agenda, page 1
+- kind: reading
+  title: 'Iliad Intensive module D.3.1: Solomonoff Induction'
+  url: https://iliad-intensive.org/agency/solomonoff-induction/
+  from: Day 4 reading agenda, page 2
+- kind: reading
+  title: 'Iliad Intensive module D.3.2: AIXI'
+  url: https://iliad-intensive.org/agency/aixi/
+  from: Day 4 reading agenda, page 2
+- kind: reading
+  title: Formalizing Embeddedness Failures in Universal Artificial Intelligence
+  url: https://arxiv.org/abs/2505.17882
+  from: Day 4 reading agenda, page 2
+- kind: reading
+  title: A Theory of Universal Artificial Intelligence based on Algorithmic Complexity
+  url: https://arxiv.org/pdf/cs/0004001
+  from: Day 4 reading agenda, page 2
+- kind: reading
+  title: 'New paper: "Logical induction" (MIRI)'
+  url: https://intelligence.org/2016/09/12/new-paper-logical-induction
+  from: Day 4 reading agenda, page 2
+- kind: reading
+  title: Why I’m not a Bayesian
+  url: https://www.mindthefuture.info/p/why-im-not-a-bayesian
+  from: Day 4 reading agenda, page 2
+- kind: reading
+  title: Logical Induction
+  url: https://arxiv.org/pdf/1609.03543
+  from: Day 4 reading agenda, page 2
+- kind: reading
+  title: A Theory of Bounded Inductive Rationality
+  url: https://arxiv.org/pdf/2307.05068
+  from: Day 4 reading agenda, page 2
+- kind: reading
+  title: History of the Development of Logical Induction
+  url: https://www.lesswrong.com/posts/iBBK4j6RWC7znEiDv/history-of-the-development-of-logical-induction
+  from: Day 4 reading agenda, page 2
+- kind: reading
+  title: An Intuitive Guide to Garrabrant Induction
+  url: https://www.lesswrong.com/posts/y5GftLezdozEHdXkL/an-intuitive-guide-to-garrabrant-induction
+  from: Day 4 reading agenda, page 2
+- kind: reading
+  title: Logical induction for software engineers
+  url: https://www.lesswrong.com/posts/jtMXj24Masrnq3SpS/logical-induction-for-software-engineers
+  from: Day 4 reading agenda, page 2
+- kind: reading
+  title: Implications of Logical Induction
+  url: https://www.lesswrong.com/s/HmANELvkhAZ9eDxFS
+  from: Day 4 reading agenda, page 2
+- kind: reading
+  title: Logical induction formalised in lean
+  url: https://github.com/A-M-Berns/Formalized-Agent-Foundations/tree/main/LogicalInduction
+  from: Day 4 reading agenda, page 2
+- kind: reading
+  title: Robust Cooperation in the Prisoner's Dilemma
+  url: https://www.lesswrong.com/posts/iQWk5jYeDg5ACCmpx/robust-cooperation-in-the-prisoner-s-dilemma
+  from: Day 4 reading agenda, page 2
+- kind: reading
+  title: 'Robust Cooperation in the Prisoner''s Dilemma: Program Equilibrium via Provability Logic'
+  url: https://arxiv.org/abs/1401.5577
+  from: Day 4 reading agenda, page 2
+- kind: reading
+  title: Robust Program Equilibrium
+  url: https://doi.org/10.1007/s11238-018-9679-3
+  from: Day 4 reading agenda, page 2
+- kind: reading
+  title: Characterising Simulation-Based Program Equilibria
+  url: https://arxiv.org/abs/2412.14570
+  from: Day 4 reading agenda, page 2
+- kind: reading
+  title: 'Iliad Intensive module D.5.2: Open-Source Game Theory'
+  url: https://iliad-intensive.org/agency/open-source-game-theory/
+  from: Day 4 reading agenda, page 3
+- kind: reading
+  title: Annotated program equilibrium bibliography
+  url: https://www.andrew.cmu.edu/user/coesterh/AnnotatedProgEqBibliography.html
+  from: Day 4 reading agenda, page 3
+- kind: reading
+  title: 'Cooperative and uncooperative institution designs: Surprises and problems in open-source game theory'
+  url: https://arxiv.org/pdf/2208.07006
+  from: Day 4 reading agenda, page 3
+- kind: reading
+  title: When would AGIs engage in conflict?
+  url: https://www.lesswrong.com/posts/cLDcKgvM6KxBhqhGq/when-would-agis-engage-in-conflict
+  from: Day 4 reading agenda, page 3
+- kind: reading
+  title: Safe Pareto Improvements for Expected Utility Maximizers in Program Games
+  url: https://arxiv.org/abs/2403.05103
+  from: Day 4 reading agenda, page 3
+- kind: reading
+  title: Introduction to Löb’s theorem
+  url: https://intelligence.org/files/lob-notes-IAFF.pdf
+  from: Day 4 reading agenda, page 3
+- kind: reading
+  title: Tiling Agents for Self-Modifying AI, and the Löbian Obstacle
+  url: https://intelligence.org/files/TilingAgentsDraft.pdf
+  from: Day 4 reading agenda, page 3
+- kind: reading
+  title: Functional Decision Theory
+  url: https://arxiv.org/pdf/1710.05060
+  from: Day 4 reading agenda, page 3
+- kind: reading
+  title: Communication and Trust
+  url: https://openreview.net/pdf?id=Rf1CeGPA22
+  from: Day 4 reading agenda, page 3
+- kind: reading
+  title: 'Iliad Intensive module D.5.1: Decision theory'
+  url: https://iliad-intensive.org/agency/decision-theory/
+  from: Day 4 reading agenda, page 3
+- kind: reading
+  title: General time consistent discounting
+  url: https://openresearch-repository.anu.edu.au/server/api/core/bitstreams/73bd5934-3633-43a8-b9ae-c2b405cccc44/content
+  from: Day 4 reading agenda, page 3
+- kind: reading
+  title: Condensation
+  url: https://www.lesswrong.com/posts/BstHXPgQyfeNnLjjp/condensation
+  from: Day 4 reading agenda, page 3
+- kind: reading
+  title: Testing the Natural Abstraction Hypothesis
+  url: https://alignmentforum.org/posts/cy3BhHrGinZCp3LXE/testing-the-natural-abstraction-hypothesis-project-intro
+  from: Day 4 reading agenda, page 3
+- kind: reading
+  title: 'Condensation: a theory of concepts'
+  url: https://openreview.net/forum?id=HwKFJ3odui
+  from: Day 4 reading agenda, page 3
+- kind: reading
+  title: 'Natural Latents: Latent Variables Stable Across Ontologies'
+  url: https://arxiv.org/abs/2509.03780
+  from: Day 4 reading agenda, page 4
+- kind: reading
+  title: A summary of Condensation and its relation to Natural Latents
+  url: https://www.lesswrong.com/posts/agw7HhW4cWjADpBgo/a-summary-of-condensation-and-its-relation-to-natural
+  from: Day 4 reading agenda, page 4
+- kind: reading
+  title: Convergent Abstraction Hypothesis
+  url: https://www.lesswrong.com/posts/fYF8v2ukZmsNvmkkX/convergent-abstraction-hypothesis
+  from: Day 4 reading agenda, page 4
+- kind: reading
+  title: Elementary Condensation
+  url: https://www.lesswrong.com/posts/JKexLeze9kNhCYYzT/elementary-condensation
+  from: Day 4 reading agenda, page 4
+- kind: reading
+  title: 'Research directions in condensation: varieties of objectivity'
+  url: https://www.lesswrong.com/posts/89GJeixwhFHLWxNbX/research-directions-in-condensation-varieties-of-objectivity
+  from: Day 4 reading agenda, page 4
+- kind: reading
+  title: 'Natural Abstractions: Key Claims, Theorems, and Critiques'
+  url: https://www.lesswrong.com/posts/gvzW46Z3BsaZsLc25/natural-abstractions-key-claims-theorems-and-critiques
+  from: Day 4 reading agenda, page 4
+- kind: reading
+  title: The Copernican Revolution from the inside
+  url: https://jacoblagerros.wordpress.com/2017/10/26/the-copernican-revolution-from-the-inside/
+  from: Day 4 reading agenda, page 4
+- kind: reading
+  title: There’s more to mathematics than rigour and proofs
+  url: https://terrytao.wordpress.com/career-advice/theres-more-to-mathematics-than-rigour-and-proofs/
+  from: Day 4 reading agenda, page 4
+- kind: reading
+  title: Orientation (LessWrong sequence post)
+  url: https://www.lesswrong.com/s/evLkoqsbi79AnM5sz/p/pPWiLGsWCtN92vLwu
+  from: Day 4 reading agenda, page 4
+- kind: reading
+  title: Knowing (LessWrong sequence post)
+  url: https://www.lesswrong.com/s/evLkoqsbi79AnM5sz/p/S8kAJamj66gekjBwC
+  from: Day 4 reading agenda, page 4
+- kind: reading
+  title: The Territory (LessWrong sequence post)
+  url: https://www.lesswrong.com/s/evLkoqsbi79AnM5sz/p/bRcsFM6jm272ELyx8
+  from: Day 4 reading agenda, page 4
+- kind: reading
+  title: Embedded agency
+  url: https://arxiv.org/abs/1902.09469
+  from: Day 4 reading agenda, page 4
+- kind: reading
+  title: 'Boundaries: a key missing concept from utility theory'
+  url: https://www.lesswrong.com/posts/8oMF8Lv5jiGaQSFvo/boundaries-part-1-a-key-missing-concept-from-utility-theory
+  from: Day 4 reading agenda, page 5
+- kind: reading
+  title: Explaining Knightianism on one foot
+  url: https://www.mindthefuture.info/p/explaining-knightianism-on-one-foot
+  from: Day 4 reading agenda, page 5
+- kind: reading
+  title: Deontology and virtue ethics as effective theories of consequentialism
+  url: https://www.lesswrong.com/posts/JvXNCc6w58iHTYHuz/deontology-and-virtue-ethics-as-effective-theories-of
+  from: Day 4 reading agenda, page 5
+- kind: reading
+  title: Surreal Numbers (book, Goodreads page)
+  url: https://www.goodreads.com/en/book/show/484458.Surreal_Numbers
+  from: Day 4 reading agenda, page 5
+5:
+- kind: reading
+  title: Anthropic, Pretraining data filtering (2025)
+  url: https://alignment.anthropic.com/2025/pretraining-data-filtering/
+  from: Day 5 slides, page 72
+- kind: reading
+  title: Anthropic, Selective gradient masking, SGTM (2025)
+  url: https://alignment.anthropic.com/2025/selective-gradient-masking/
+  from: Day 5 slides, page 72
+- kind: reading
+  title: Anthropic, The persona selection model (2026)
+  url: https://alignment.anthropic.com/2026/psm/
+  from: Day 5 slides, page 72
+- kind: reading
+  title: Anthropic, the Claude constitution
+  url: https://www.anthropic.com/constitution
+  from: Day 5 slides, page 73
+- kind: reading
+  title: OpenAI, Model Spec (18 Aug 2026)
+  url: https://model-spec.openai.com/2026-08-18.html
+  from: Day 5 slides, page 73
+- kind: reading
+  title: Anthropic, Teaching Claude Why (2026)
+  url: https://alignment.anthropic.com/2026/teaching-claude-why/
+  from: Day 5 slides, page 73
+- kind: reading
+  title: Anthropic, threat intelligence report (September 2026)
+  url: https://www.anthropic.com/threat-intelligence-report-september-2026
+  from: Day 5 slides, page 74
+- kind: reading
+  title: Constitutional Classifiers (arXiv:2501.18837)
+  url: https://arxiv.org/abs/2501.18837
+  from: Day 5 slides, page 74
+- kind: reading
+  title: 'TIME100 AI 2025: Pliny the Liberator'
+  url: https://time.com/collections/time100-ai-2025/7305870/pliny-the-liberator/
+  from: Day 5 slides, page 74
+- kind: reading
+  title: Decoding the Elder Plinius repository (Medium)
+  url: https://medium.com/@JMerilehto/decoding-the-elder-plinius-repository-an-autopsy-of-the-ai-control-plane-88c503224940
+  from: Day 5 slides, page 74
+- kind: reading
+  title: Anthropic, Responsible Scaling Policy
+  url: https://www.anthropic.com/responsible-scaling-policy
+  from: Day 5 slides, page 74
+- kind: reading
+  title: OpenAI, Preparedness Framework (update)
+  url: https://openai.com/index/updating-our-preparedness-framework/
+  from: Day 5 slides, page 74
+- kind: reading
+  title: 'pacing.tech: pacing the frontier'
+  url: https://pacing.tech/
+  from: Day 5 slides, page 74
+6:
+- kind: reading
+  title: Heckett, Gour, Ahuja, Rowney, Shah, Synthetic Scalable Oversight (LessWrong, July 2026)
+  url: https://www.lesswrong.com/posts/w3MGffxeaTfZHoW24/synthetic-scalable-oversight
+  from: Day 6 slides on recursive debate, page 38
+- kind: reading
+  title: Heckett, Local Factor Graph Debate (LessWrong, September 2026)
+  url: https://www.lesswrong.com/posts/GwhDhEgEc8YjDK4jd/local-factor-graph-debate
+  from: Day 6 slides on recursive debate, page 38
+- kind: reading
+  title: Buhl, Pfau, Hilton and Irving, An alignment safety case sketch based on debate (2025)
+  url: https://arxiv.org/abs/2505.03989
+  from: Day 6 slides on the safety case, page 2
+7:
+- kind: exercise
+  title: 'ARENA: Intro to RL (chapter 2)'
+  url: https://learn.arena.education/chapter2_rl/01_intro_rl/
+  from: Day 7 reinforcement learning exercises, page 1
+- kind: exercise
+  title: 'Exercise 1: PyTorch Basics (Colab notebook)'
+  url: https://colab.research.google.com/github/wusche1/Illiad_ML_Engineering/blob/main/lectures/01_a_ml_foundations/exercises/01_pytorch_basics/notebook.ipynb
+  from: Day 7 ML foundations slides, page 14
+- kind: exercise
+  title: 'Exercise 2: Implement Optimizers (Colab notebook)'
+  url: https://colab.research.google.com/github/wusche1/Illiad_ML_Engineering/blob/main/lectures/01_a_ml_foundations/exercises/02_optimizers/notebook.ipynb
+  from: Day 7 ML foundations slides, page 27
+- kind: exercise
+  title: 'Exercise 3: Build Simple Architectures (Colab notebook)'
+  url: https://colab.research.google.com/github/wusche1/Illiad_ML_Engineering/blob/main/lectures/01_a_ml_foundations/exercises/03_architectures/notebook.ipynb
+  from: Day 7 ML foundations slides, page 40
+- kind: exercise
+  title: 'Exercise: MLP (Colab notebook)'
+  url: https://colab.research.google.com/github/wusche1/Illiad_ML_Engineering/blob/main/lectures/01_a_ml_foundations/exercises/04_mlp/notebook.ipynb
+  from: Day 7 ML foundations slides, page 56
+- kind: exercise
+  title: 'Exercise: Attention (Colab notebook)'
+  url: https://colab.research.google.com/github/wusche1/Illiad_ML_Engineering/blob/main/lectures/01_a_ml_foundations/exercises/05_attention/notebook.ipynb
+  from: Day 7 ML foundations slides, page 56
+- kind: exercise
+  title: 'Exercise 6: RLHF (Colab notebook)'
+  url: https://colab.research.google.com/github/wusche1/Illiad_ML_Engineering/blob/main/lectures/01_a_ml_foundations/exercises/06_rlhf/notebook.ipynb
+  from: Day 7 ML foundations slides, page 75
+- kind: tool
+  title: 'TensorFlow Playground (Exercise 4: hyperparameter tuning)'
+  url: https://playground.tensorflow.org/
+  from: Day 7 ML foundations slides, page 45
+- kind: reading
+  title: An Introduction to Universal Artificial Intelligence (book, PDF on the author's site)
+  url: https://www.hutter1.net/publ/uaibook2.pdf
+  from: Day 7 AIXI exercises, page 21
+- kind: reading
+  title: 'Universal Artificial Intelligence: Sequential Decisions Based on Algorithmic Probability (book page)'
+  url: http://www.hutter1.net/ai/uaibook.htm
+  from: Day 7 AIXI exercises, page 21
+- kind: reading
+  title: Bad Universal Priors and Notions of Optimality (arXiv:1510.04931)
+  url: https://arxiv.org/abs/1510.04931
+  from: Day 7 AIXI exercises, page 21
+- kind: reading
+  title: Merging of Opinions with Increasing Information (paper)
+  url: https://doi.org/10.1214/aoms/1177704456
+  from: Day 7 AIXI exercises, page 21
+- kind: reading
+  title: A technical introduction to Solomonoff induction without K-complexity (LessWrong)
+  url: https://www.lesswrong.com/posts/HSDumToH57nSRdLST/a-technical-introduction-to-solomonoff-induction-without-k
+  from: Day 7 Solomonoff induction exercises, page 3
+- kind: reading
+  title: Paper linked on the Q-learning slide (convergence conditions)
+  url: https://link.springer.com/article/10.1007/BF00992698
+  from: Day 7 intro to RL slides, page 26
+- kind: reading
+  title: Book linked on the exploration slide (tor-lattimore.com)
+  url: https://tor-lattimore.com/downloads/book/book.pdf
+  from: Day 7 intro to RL slides, page 32
+8:
+- kind: reading
+  title: Goldwasser, Kim, Vaikuntanathan, Zamir, Planting undetectable backdoors in ML models (2022)
+  url: https://arxiv.org/abs/2204.06974
+  from: Day 8 slides, page 3
+- kind: reading
+  title: Christiano, Hilton, Lecomte, Xu, Backdoor defense, learnability and obfuscation (2024)
+  url: https://arxiv.org/abs/2409.03077
+  from: Day 8 slides, page 3
+- kind: reading
+  title: Jain, Lin, Sahai, Indistinguishability obfuscation from well-founded assumptions (2021)
+  url: https://arxiv.org/abs/2008.09317
+  from: Day 8 slides, page 4
+- kind: reading
+  title: Gross et al., Compact proofs of model performance via mechanistic interpretability (2024)
+  url: https://arxiv.org/abs/2406.11779
+  from: Day 8 slides, page 8
+- kind: reading
+  title: Christiano, Mechanistic anomaly detection and ELK (2022)
+  url: https://www.alignmentforum.org/posts/vwt3wKXWaCvqZyF74/mechanistic-anomaly-detection-and-elk
+  from: Day 8 slides, page 8
+- kind: reading
+  title: Nanda, Interpretability will not reliably find deceptive AI (2025)
+  url: https://www.lesswrong.com/posts/PwnadG4BFjaER3MGf/interpretability-will-not-reliably-find-deceptive-ai
+  from: Day 8 slides, page 8
+- kind: reading
+  title: A computational no-coincidence principle (ARC blog)
+  url: https://www.alignment.org/blog/a-computational-no-coincidence-principle/
+  from: Day 8 slides, page 10
+- kind: reading
+  title: Competing with sampling (ARC blog)
+  url: https://www.alignment.org/blog/competing-with-sampling/
+  from: Day 8 slides, page 10
+- kind: reading
+  title: Gowers, What makes mathematicians believe unproved mathematical statements? (2023)
+  url: https://mxphi.com/wp-content/uploads/2023/04/MxPhi-Gowers2023.pdf
+  from: Day 8 slides, page 12
+- kind: reading
+  title: Wu, Lecomte, Winer, R., Hilton, Christiano, Estimating the expected output of wide random MLPs more efficiently than sampling (2026)
+  url: https://arxiv.org/abs/2605.05179
+  from: Day 8 slides, page 24
+- kind: reading
+  title: Hilton et al., Mechanistic estimation for expectations of random products (2026)
+  url: https://www.alignment.org/blog/mechanistic-estimation-for-expectations-of-random-products/
+  from: Day 8 slides, page 24
+- kind: reading
+  title: Hilton, AlgZoo (2026)
+  url: https://www.alignment.org/blog/algzoo-uninterpreted-models-with-fewer-than-1-500-parameters/
+  from: Day 8 slides, page 24
+9:
+- kind: reading
+  title: Hammond, L., Chan, A., Clifton, J., et al. (2025). Multi-Agent Risks from Advanced AI
+  url: https://arxiv.org/abs/2502.14143
+  from: Day 9 schedule and reading list
+- kind: reading
+  title: 'Schroeder de Witt, C., et al. (2025). Open Challenges in Multi-Agent Security: Towards Secure Systems of Interacting AI Agents'
+  url: https://arxiv.org/abs/2505.02077
+  from: Day 9 schedule and reading list
+- kind: reading
+  title: 'Barasz, M., Christiano, P., Fallenstein, B., Herreshoff, M., LaVictoire, P., and Yudkowsky, E. (2014). Robust Cooperation in the Prisoner’s Dilemma: Program Equilibrium via Provability Logic'
+  url: https://arxiv.org/abs/1401.5577
+  from: Day 9 schedule and reading list
+- kind: reading
+  title: 'Critch, A., Dennis, M., and Russell, S. (2022). Cooperative and uncooperative institution designs: Surprises and problems in open-source game theory'
+  url: https://arxiv.org/abs/2208.07006
+  from: Day 9 schedule and reading list
+- kind: reading
+  title: Vallinder, A. and Hughes, E. (2024). Cultural Evolution of Cooperation among LLM Agents
+  url: https://arxiv.org/abs/2412.10270
+  from: Day 9 schedule and reading list
+- kind: reading
+  title: Leibo, J. Z., et al. (2026). A theory of appropriateness that accounts for norms of rationality
+  url: https://arxiv.org/abs/2603.14050
+  from: Day 9 schedule and reading list
+- kind: reading
+  title: Russell, B., Leung, C., and Turrini, P. (2026). The Dynamics of Policy Gradient in Social Dilemmas with Partner Selection
+  url: https://arxiv.org/abs/2605.18185
+  from: Day 9 schedule and reading list
+- kind: reading
+  title: Russell, B., Nugent, A., and Bara, J. (2026). Mean-field imitation dynamics on fast assortative networks
+  url: https://arxiv.org/abs/2606.11892
+  from: Day 9 schedule and reading list
+- kind: reading
+  title: Russell, B., Leung, C., and Turrini, P. (2026). Convergence of Replicator Dynamics in the Repeated Prisoner's Dilemma with Restarts
+  url: https://arxiv.org/abs/2606.18965
+  from: Day 9 schedule and reading list
+- kind: reading
+  title: 'Bengio, Y., Cohen, M., Fornasiere, D., et al. (2025). Superintelligent Agents Pose Catastrophic Risks: Can Scientist AI Offer a Safer Path?'
+  url: https://arxiv.org/abs/2502.15657
+  from: Day 9 schedule and reading list
+10:
+- kind: exercise
+  title: 'Logit lens exercise: normal (Colab notebook)'
+  url: https://colab.research.google.com/github/wusche1/Illiad_Mech_Interp/blob/main/exercises/01_logit_lens/notebook_normal.ipynb
+  from: Day 10 mechanistic interpretability slides, page 39
+- kind: exercise
+  title: 'Logit lens exercise: hard (Colab notebook)'
+  url: https://colab.research.google.com/github/wusche1/Illiad_Mech_Interp/blob/main/exercises/01_logit_lens/notebook_hard.ipynb
+  from: Day 10 mechanistic interpretability slides, page 39
+- kind: exercise
+  title: 'Exercise 1: Watermarking (Colab notebook)'
+  url: https://colab.research.google.com/github/wusche1/Iliad_steganography_and_backdoors/blob/main/exercises/watermarking/notebook.ipynb
+  from: Day 10 steganography slides, page 46
+- kind: exercise
+  title: 'Exercise: Backdoor via Random ReLU Measurements (course page)'
+  url: https://iliad-intensive.org/safety/steganography/#15-summary-backdoor-via-random-relu-measurements
+  from: Day 10 steganography slides, page 86
+- kind: tool
+  title: 'Neuronpedia: Gemma 3 27B, Gemma Scope 2 features'
+  url: https://www.neuronpedia.org/gemma-3-27b/31-gemmascope-2-res-16k
+  from: Day 10 mechanistic interpretability slides, page 68
+- kind: tool
+  title: 'Neuronpedia: attribution graphs for Gemma 2 2B'
+  url: https://www.neuronpedia.org/gemma-2-2b/graph
+  from: Day 10 mechanistic interpretability slides, page 103
+- kind: tool
+  title: 'Neuronpedia: natural language autoencoder (NLA) for Llama 3.3 70B'
+  url: https://www.neuronpedia.org/llama3.3-70b-it/nla
+  from: Day 10 mechanistic interpretability slides, page 131
+- kind: tool
+  title: 'Neuronpedia: J-lens for DeepSeek V4 Flash'
+  url: https://www.neuronpedia.org/deepseek-v4-flash/jlens
+  from: Day 10 mechanistic interpretability slides, page 136
+- kind: reading
+  title: 'Zoom In: An Introduction to Circuits'
+  url: https://distill.pub/2020/circuits/zoom-in
+  from: Day 10 mechanistic interpretability slides, page 5
+- kind: reading
+  title: A Longlist of Theories of Impact for Interpretability
+  url: https://www.lesswrong.com/posts/uK6sQCNMw8WKzJeCQ/a-longlist-of-theories-of-impact-for-interpretability
+  from: Day 10 mechanistic interpretability slides, page 7
+- kind: reading
+  title: Toy Models of Superposition
+  url: http://arxiv.org/abs/2209.10652
+  from: Day 10 mechanistic interpretability slides, page 7
+- kind: reading
+  title: Feature Visualization
+  url: https://distill.pub/2017/feature-visualization
+  from: Day 10 mechanistic interpretability slides, page 14
+- kind: reading
+  title: Alignment By Default
+  url: https://www.lesswrong.com/posts/Nwgdq6kHke5LY692J/alignment-by-default
+  from: Day 10 mechanistic interpretability slides, page 21
+- kind: reading
+  title: 'Natural Abstractions: Key Claims, Theorems, and Critiques'
+  url: https://www.alignmentforum.org/posts/gvzW46Z3BsaZsLc25/natural-abstractions-key-claims-theorems-and-critiques-1
+  from: Day 10 mechanistic interpretability slides, page 21
+- kind: reading
+  title: Linguistic Regularities in Continuous Space Word Representations
+  url: https://aclanthology.org/N13-1090/
+  from: Day 10 mechanistic interpretability slides, page 23
+- kind: reading
+  title: Refusal in Language Models Is Mediated by a Single Direction
+  url: http://arxiv.org/abs/2406.11717
+  from: Day 10 mechanistic interpretability slides, page 26
+- kind: reading
+  title: Emergent Linear Representations in World Models of Self-Supervised Sequence Models
+  url: https://aclanthology.org/2023.blackboxnlp-1.2
+  from: Day 10 mechanistic interpretability slides, page 31
+- kind: reading
+  title: Steering Llama 2 via Contrastive Activation Addition
+  url: http://arxiv.org/abs/2312.06681
+  from: Day 10 mechanistic interpretability slides, page 34
+- kind: reading
+  title: 'Interpreting GPT: The Logit Lens'
+  url: https://www.lesswrong.com/posts/AcKRB8wDpdaN6v6ru/interpreting-gpt-the-logit-lens
+  from: Day 10 mechanistic interpretability slides, page 37
+- kind: reading
+  title: New Algorithms for Learning Incoherent and Overcomplete Dictionaries
+  url: https://arxiv.org/abs/1308.6273
+  from: Day 10 mechanistic interpretability slides, page 55
+- kind: reading
+  title: 'Robust Uncertainty Principles: Exact Signal Reconstruction from Highly Incomplete Frequency Information'
+  url: http://arxiv.org/abs/math/0409186
+  from: Day 10 mechanistic interpretability slides, page 56
+- kind: reading
+  title: Compressed Sensing
+  url: http://ieeexplore.ieee.org/document/1614066/
+  from: Day 10 mechanistic interpretability slides, page 56
+- kind: reading
+  title: 'Towards Monosemanticity: Decomposing Language Models With Dictionary Learning'
+  url: https://transformer-circuits.pub/2023/monosemantic-features
+  from: Day 10 mechanistic interpretability slides, page 59
+- kind: reading
+  title: How I think about feature absorption (comment on “A is for Absorption”)
+  url: https://www.lesswrong.com/posts/3zBsxeZzd3cvuueMJ/paper-a-is-for-absorption-studying-feature-splitting-and?commentId=LvT7Wem4Wqw3D9sqt
+  from: Day 10 mechanistic interpretability slides, page 69
+- kind: reading
+  title: 'A Is for Absorption: Studying Feature Splitting and Absorption in Sparse Autoencoders'
+  url: https://arxiv.org/abs/2409.14507
+  from: Day 10 mechanistic interpretability slides, page 69
+- kind: reading
+  title: BatchTopK Sparse Autoencoders
+  url: http://arxiv.org/abs/2412.06410
+  from: Day 10 mechanistic interpretability slides, page 73
+- kind: reading
+  title: 'Scaling Monosemanticity: Extracting Interpretable Features from Claude 3 Sonnet'
+  url: https://transformer-circuits.pub/2024/scaling-monosemanticity/
+  from: Day 10 mechanistic interpretability slides, page 74
+- kind: reading
+  title: Sparse Crosscoders for Cross-Layer Features and Model Diffing
+  url: https://transformer-circuits.pub/2024/crosscoders/index.html
+  from: Day 10 mechanistic interpretability slides, page 77
+- kind: reading
+  title: A Mathematical Framework for Transformer Circuits
+  url: https://transformer-circuits.pub/2021/framework/index.html
+  from: Day 10 mechanistic interpretability slides, page 82
+- kind: reading
+  title: Induction Heads - Illustrated
+  url: https://www.lesswrong.com/posts/TvrfY4c9eaGLeyDkE/induction-heads-illustrated
+  from: Day 10 mechanistic interpretability slides, page 87
+- kind: reading
+  title: 'Interpretability in the Wild: A Circuit for Indirect Object Identification in GPT-2 Small'
+  url: https://arxiv.org/abs/2211.00593
+  from: Day 10 mechanistic interpretability slides, page 96
+- kind: reading
+  title: 'Circuit Tracing: Revealing Computational Graphs in Language Models'
+  url: https://transformer-circuits.pub/2025/attribution-graphs/methods.html
+  from: Day 10 mechanistic interpretability slides, page 100
+- kind: reading
+  title: On the Biology of a Large Language Model
+  url: https://transformer-circuits.pub/2025/attribution-graphs/biology.html
+  from: Day 10 mechanistic interpretability slides, page 104
+- kind: reading
+  title: 'Activation Oracles: Training and Evaluating LLMs as General-Purpose Activation Explainers'
+  url: http://arxiv.org/abs/2512.15674
+  from: Day 10 mechanistic interpretability slides, page 124
+- kind: reading
+  title: Natural Language Autoencoders Produce Unsupervised Explanations of LLM Activations
+  url: https://transformer-circuits.pub/2026/nla/
+  from: Day 10 mechanistic interpretability slides, page 124
+- kind: reading
+  title: Verbalizable Representations Form a Global Workspace in Language Models
+  url: http://arxiv.org/abs/2607.15495
+  from: Day 10 mechanistic interpretability slides, page 132
+- kind: reading
+  title: Open Problems in Mechanistic Interpretability
+  url: http://arxiv.org/abs/2501.16496
+  from: Day 10 mechanistic interpretability slides, page 138
+- kind: reading
+  title: A Pragmatic Vision for Interpretability
+  url: https://www.alignmentforum.org/posts/StENzDcD3kpfGJssR/a-pragmatic-vision-for-interpretability
+  from: Day 10 mechanistic interpretability slides, page 140
+11:
+- kind: reading
+  title: 'Thaler''s book: Proofs, Arguments, and Zero-Knowledge (PDF on the author''s page)'
+  url: https://people.cs.georgetown.edu/jthaler/ProofsArgsAndZK.pdf
+  from: Day 11 slides, page 73
+13:
+- kind: reading
+  title: Czejdo, Dimofte, Grado-White, Renshaw-Whitman, Physics of Deep Learning (notes for earlier runs of this day)
+  url: https://iliad-intensive.org/learning/qft/
+  from: Day 13 lecture 1 slides, page 2
+- kind: reading
+  title: Simon et al., There Will Be a Scientific Theory of Deep Learning (2026)
+  url: https://arxiv.org/abs/2604.21691
+  from: Day 13 lecture 1 slides, page 2
+- kind: reading
+  title: Roberts, Yaida, Hanin, The Principles of Deep Learning Theory (Cambridge, 2022)
+  url: https://arxiv.org/abs/2106.10165
+  from: Day 13 lecture 1 slides, page 2
+15:
+- kind: exercise
+  title: 'Furman, Singular learning theory: Exercises (LessWrong, 2024)'
+  url: https://www.lesswrong.com/posts/3HYqTAi4kD35G3BzQ/
+  from: Day 15 SLT notes, page 59
+- kind: reading
+  title: Carroll, Distilling singular learning theory (LessWrong sequence, 2023)
+  url: https://www.lesswrong.com/s/czrXjvCLsqGepybHC
+  from: Day 15 SLT notes, page 58
+- kind: reading
+  title: Carroll, Phase Transitions in Neural Networks (Master's thesis, 2021)
+  url: https://therisingsea.org/notes/MSc-Carroll.pdf
+  from: Day 15 SLT notes, page 58
+- kind: reading
+  title: Farrugia-Roberts, Structural Degeneracy in Neural Networks (Master's thesis)
+  url: https://far.in.net/mthesis
+  from: Day 15 SLT notes, page 58
+- kind: reading
+  title: 'Furman, Mysteries of deep learning: reading guide (Iliad Intensive, 2026)'
+  url: https://iliad-intensive.org/learning/mysteries-of-deep-learning/
+  from: Day 15 SLT notes, page 59
+- kind: reading
+  title: Watanabe, Singular learning theory, part 1 (2023)
+  url: https://sites.google.com/view/sumiowatanabe/home/singular-learning-theory
+  from: Day 15 SLT notes, page 60
+- kind: reading
+  title: Watanabe, Singular learning theory, part 2 (2023)
+  url: https://sites.google.com/view/sumiowatanabe/home/singular-learning-theory-2
+  from: Day 15 SLT notes, page 60
+- kind: reading
+  title: 'Lau and Chen, Singular learning theory: The low road (lecture series, YouTube, 2023)'
+  url: https://www.youtube.com/playlist?list=PL4vaU_gO_6LIf5CHU3Z3CT39fha55pe16
+  from: Day 15 SLT notes, page 59
+- kind: reading
+  title: 'Murfet and Carroll, Singular learning theory: The high road (lecture series, YouTube, 2023)'
+  url: https://www.youtube.com/playlist?list=PL4vaU_gO_6LJ4isj5DESGg4OwfVEk98Y-
+  from: Day 15 SLT notes, page 59
+- kind: reading
+  title: DSLT 2. Why Neural Networks obey Occam's Razor (LessWrong)
+  url: https://www.lesswrong.com/posts/CZHwwDd7t9aYra5HN/dslt-2-why-neural-networks-obey-occam-s-razor
+  from: Slides 'Bayes vs SGD', page 3
+16:
+- kind: exercise
+  title: 'Learning dynamics: exercise notebook (Colab)'
+  url: https://colab.research.google.com/drive/1LijVg6IvVw1KG9BkN9PJsfbW3vFo-laC?usp=sharing
+  from: shared with participants on the day
+- kind: reading
+  title: Saxe, McClelland, Ganguli, A mathematical theory of semantic development in deep neural networks (PNAS 2019)
+  url: https://arxiv.org/abs/1810.10531
+  from: Day 16 reading list, page 1
+- kind: reading
+  title: 'Kunin, Sagastuy-Brena, Ganguli, Yamins, Tanaka, Neural mechanics: symmetry and broken conservation laws in deep learning dynamics (ICLR 2021)'
+  url: https://arxiv.org/abs/2012.04728
+  from: Day 16 reading list, page 1
+- kind: reading
+  title: Menon, The geometry of the deep linear network (2024)
+  url: https://arxiv.org/abs/2411.09004
+  from: Day 16 reading list, page 1
+- kind: reading
+  title: Zhang, Saxe, Latham, Saddle-to-saddle dynamics explains a simplicity bias across neural network architectures (ICLR 2026)
+  url: https://proceedings.iclr.cc/paper_files/paper/2026/file/5e96d63b20f335f57999a1aca7fa0474-Paper-Conference.pdf
+  from: Day 16 reading list, page 1
+- kind: reading
+  title: 'Kunin, Marchetti, Chen, Karkada, Simon, DeWeese, Ganguli, Miolane, Alternating gradient flows: a theory of feature learning in two-layer neural networks (NeurIPS 2025)'
+  url: https://proceedings.neurips.cc/paper_files/paper/2025/file/06cbd2e81dfbd3bb4cb0abce95b32584-Paper-Conference.pdf
+  from: Day 16 reading list, page 1
+- kind: reading
+  title: 'Pezeshki, Kaba, Bengio, Courville, Precup, Lajoie, Gradient starvation: a learning proclivity in neural networks (NeurIPS 2021)'
+  url: https://arxiv.org/abs/2011.09468
+  from: Day 16 reading list, page 1
+- kind: reading
+  title: Sagawa, Koh, Hashimoto, Liang, Distributionally robust neural networks for group shifts (ICLR 2020)
+  url: https://arxiv.org/abs/1911.08731
+  from: Day 16 intro slides, page 5
+- kind: reading
+  title: 'Betley et al., Emergent misalignment: narrow finetuning can produce broadly misaligned LLMs (2025)'
+  url: https://arxiv.org/abs/2502.17424
+  from: Day 16 intro slides, page 7
+- kind: reading
+  title: 'Cloud et al., Subliminal learning: language models transmit behavioral traits via hidden signals in data (2025)'
+  url: https://arxiv.org/abs/2507.14805
+  from: Day 16 intro slides, page 7
+- kind: reading
+  title: Simon, Kunin, et al., There will be a scientific theory of deep learning (2026)
+  url: https://arxiv.org/abs/2604.21691
+  from: Day 16 intro slides, page 11

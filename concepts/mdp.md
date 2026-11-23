@@ -21,7 +21,7 @@ The environment is much better described than the agent itself!
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 

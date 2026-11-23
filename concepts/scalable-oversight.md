@@ -23,7 +23,7 @@ If the check does not scale with capability, the overseer ends up trusting what 
 ## Open question
 
 
-## Self-test
+## Quiz
 Name one way to check an answer that you could not have produced yourself.
 
 ## Sources

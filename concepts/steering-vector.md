@@ -28,11 +28,11 @@ A direction added to the model's activations during a forward pass to push its b
 ## Open question
 
 
-## Self-test
+## Quiz
 What two numbers do you have to choose besides the direction?
 
 ## Notes
-Answer to the self-test: the layer and the strength.
+Answer to the quiz: the layer and the strength.
 
 ## Sources
 - [Day 10 slides: Mech Interp](https://iliad-intensive.org/interpretability/mechanistic-interpretability/)

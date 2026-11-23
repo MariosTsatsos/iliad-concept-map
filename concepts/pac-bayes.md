@@ -27,7 +27,7 @@ For the Ising perceptron the notes show the bound is valid but loose.
 ## Open question
 
 
-## Self-test
+## Quiz
 
 
 ## Notes

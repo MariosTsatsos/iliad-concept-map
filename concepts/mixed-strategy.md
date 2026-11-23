@@ -24,7 +24,7 @@ A player chooses each action with a probability, in place of choosing one action
 ## Open question
 
 
-## Self-test
+## Quiz
 In matching pennies, why is any pure strategy exploitable?
 
 ## Sources

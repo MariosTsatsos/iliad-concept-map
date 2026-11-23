@@ -28,7 +28,7 @@ Two models, or one model and its later self, could coordinate through text that 
 ## Open question
 
 
-## Self-test
+## Quiz
 How does this differ from encryption?
 
 ## Sources

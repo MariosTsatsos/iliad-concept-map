@@ -18,7 +18,7 @@ A cryptographic lockbox: the prover puts a value inside and hands over the box; 
 ## Open question
 
 
-## Self-test
+## Quiz
 Which of the two properties stops the prover from cheating?
 
 ## Sources

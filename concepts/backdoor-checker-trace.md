@@ -28,7 +28,7 @@ A backdoor has to check every input for the trigger, so the checking computation
 ## Open question
 Open. The iO result says that in the worst case reading the weights does not help. It does not say what a trained network's checker looks like.
 
-## Self-test
+## Quiz
 
 
 ## Sources

@@ -19,7 +19,7 @@ A model keeps its capabilities in a new situation and uses them for a goal other
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 

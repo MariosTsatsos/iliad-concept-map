@@ -32,7 +32,7 @@ A proposal for scalable oversight: the judge only has to check one small step th
 ## Open question
 The theorem assumes optimal debaters. What is left of it for trained models that are not optimal?
 
-## Self-test
+## Quiz
 Why does the judge need to check only one step of a long argument?
 
 ## Sources

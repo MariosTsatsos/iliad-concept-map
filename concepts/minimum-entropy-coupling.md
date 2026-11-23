@@ -27,7 +27,7 @@ One picture is handing out tickets: each cell of the table is a share of probabi
 ## Open question
 
 
-## Self-test
+## Quiz
 
 
 ## Sources

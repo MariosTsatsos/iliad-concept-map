@@ -23,7 +23,7 @@ Zhang et al. showed that standard networks reach zero training error on images w
 ## Open question
 
 
-## Self-test
+## Quiz
 
 
 ## Sources

@@ -16,7 +16,7 @@ Some interpretability researchers say that pre-trained models are more aligned t
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 

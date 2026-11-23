@@ -16,7 +16,7 @@ When a reward arrives after many actions, which of those actions earned it? Ther
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 

@@ -22,7 +22,7 @@ The value of a state equals the expected reward of the next step plus the discou
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 Working out the value of every state for a given policy is called policy evaluation.

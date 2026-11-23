@@ -21,7 +21,7 @@ A network that processes a sequence of tokens (words or pieces of words) by alte
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 

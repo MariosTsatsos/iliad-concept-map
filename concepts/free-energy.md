@@ -33,7 +33,7 @@ One quantity ties together Bayesian learning, training by gradient descent on ra
 ## Open question
 
 
-## Self-test
+## Quiz
 What does a larger T favour: fit or closeness to the prior?
 
 ## Sources

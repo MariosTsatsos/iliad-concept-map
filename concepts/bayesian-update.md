@@ -15,7 +15,7 @@ Revise the probability of each hypothesis after an observation by multiplying it
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 

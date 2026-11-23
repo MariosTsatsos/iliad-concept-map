@@ -15,7 +15,7 @@ Harm that comes from a person using an AI system for a harmful purpose, as disti
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 

@@ -28,11 +28,11 @@ What a protocol gives away can be counted exactly, in bits.
 ## Open question
 
 
-## Self-test
+## Quiz
 Why are there 650 same-colour pairs in a 52-card deck?
 
 ## Notes
-Answer to the self-test: 2 colours x (26 choose 2) = 2 x 325.
+Answer to the quiz: 2 colours x (26 choose 2) = 2 x 325.
 
 A candidate protocol that narrows nothing down: sort the rest of the deck into its two colours, add the pair face down to the group of its colour, shuffle, then reveal. The steps still have to be written out one by one.
 

@@ -23,7 +23,7 @@ What a model does outside the training data is decided by this bias, so it decid
 ## Open question
 
 
-## Self-test
+## Quiz
 
 
 ## Sources

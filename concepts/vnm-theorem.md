@@ -32,7 +32,7 @@ The utility is not unique: adding a constant or multiplying by a positive number
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 Day 4 reading: this kind of utility is called cardinal, which means that ratios of differences between the numbers carry meaning too, not only their order.

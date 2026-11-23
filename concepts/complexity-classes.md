@@ -23,7 +23,7 @@ IP = PSPACE: letting the checker ask random questions takes it from NP all the w
 ## Open question
 
 
-## Self-test
+## Quiz
 Which of the four classes needs no prover at all?
 
 ## Sources

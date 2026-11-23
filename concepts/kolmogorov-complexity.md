@@ -23,7 +23,7 @@ No program can compute it for every string.
 ## Open question
 
 
-## Self-test
+## Quiz
 Which has lower Kolmogorov complexity: one million zeros, or one million coin flips?
 
 ## Sources

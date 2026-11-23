@@ -25,7 +25,7 @@ Some well-defined quantities cannot be computed by any program; the halting prob
 ## Open question
 
 
-## Self-test
+## Quiz
 Why can you not find the shortest program for a string by trying all programs in order of length?
 
 ## Sources

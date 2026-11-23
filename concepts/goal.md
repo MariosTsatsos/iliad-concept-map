@@ -17,7 +17,7 @@ A state of the world or an outcome that an agent's behaviour is directed at.
 ## Open question
 What is a goal? Called a hard question on Day 3.
 
-## Self-test
+## Quiz
 
 ## Notes
 

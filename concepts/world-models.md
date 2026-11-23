@@ -19,7 +19,7 @@ by: [claude]
 ## Open question
 Stub for Day 19.
 
-## Self-test
+## Quiz
 
 
 ## Sources

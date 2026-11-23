@@ -19,7 +19,7 @@ The return is the sum of all the rewards an agent collects from a given moment o
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 

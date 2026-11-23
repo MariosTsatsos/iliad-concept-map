@@ -23,7 +23,7 @@ Some classes can be learned from few examples, yet no efficient algorithm is kno
 ## Open question
 
 
-## Self-test
+## Quiz
 
 
 ## Sources

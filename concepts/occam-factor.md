@@ -28,7 +28,7 @@ Bayesian model comparison penalises a model for the volume of parameter space it
 ## Open question
 
 
-## Self-test
+## Quiz
 
 
 ## Sources

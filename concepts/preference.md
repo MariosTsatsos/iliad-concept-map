@@ -17,7 +17,7 @@ Preference, utility and reward are three different things: a preference is a ran
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 Preferences were the starting point of the Day 3 class.

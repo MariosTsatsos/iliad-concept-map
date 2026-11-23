@@ -24,7 +24,7 @@ A backdoor for random ReLU networks that stays undetectable even to someone who 
 ## Open question
 
 
-## Self-test
+## Quiz
 
 
 ## Sources

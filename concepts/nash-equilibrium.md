@@ -18,7 +18,7 @@ It says nothing about whether the outcome is good for anyone.
 ## Open question
 
 
-## Self-test
+## Quiz
 In the prisoner's dilemma, why is (defect, defect) a Nash equilibrium?
 
 ## Sources

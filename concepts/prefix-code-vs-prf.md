@@ -27,7 +27,7 @@ A comparison of two ways to turn a message into token choices: a prefix code map
 ## Open question
 
 
-## Self-test
+## Quiz
 Who can tell PRF output from random bits?
 
 ## Sources

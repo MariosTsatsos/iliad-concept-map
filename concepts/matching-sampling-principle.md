@@ -28,7 +28,7 @@ The no-coincidence principle says a reason exists; this principle says the reaso
 ## Open question
 
 
-## Self-test
+## Quiz
 
 
 ## Notes

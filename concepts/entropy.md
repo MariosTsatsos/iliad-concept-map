@@ -19,7 +19,7 @@ It measures the uncertainty of a distribution, not of a single outcome.
 ## Open question
 
 
-## Self-test
+## Quiz
 What is the entropy of a fair coin, and of a coin that always lands heads?
 
 ## Sources

@@ -25,7 +25,7 @@ The laws were fitted without a mechanism, so they give no warning of where they 
 ## Open question
 
 
-## Self-test
+## Quiz
 
 
 ## Sources

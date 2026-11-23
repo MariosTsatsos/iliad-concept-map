@@ -24,7 +24,7 @@ Two functions on 100 bits that differ at a single input need about 2^99 direct q
 ## Open question
 
 
-## Self-test
+## Quiz
 
 
 ## Sources

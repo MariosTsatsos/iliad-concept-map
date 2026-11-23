@@ -19,7 +19,7 @@ A device that records all data passing into and out of a group of graphics proce
 ## Open question
 The scheme assumes all data leaving the compute pods passes a tap. How is that assumption checked?
 
-## Self-test
+## Quiz
 
 
 ## Sources

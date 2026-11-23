@@ -15,7 +15,7 @@ The vector at each token position that every layer reads from and adds to; it is
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 

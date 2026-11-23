@@ -22,7 +22,7 @@ The honest debater then cannot win efficiently, so the guarantee of debate fails
 
 ## Open question
 
-## Self-test
+## Quiz
 
 
 ## Sources

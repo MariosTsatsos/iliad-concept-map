@@ -27,7 +27,7 @@ For the game of chicken the payoff has the form 3q + m(1 - 2q): the term with m 
 ## Open question
 
 
-## Self-test
+## Quiz
 In the formula above, what is the payoff at q = 1/2, and does it depend on m?
 
 ## Notes

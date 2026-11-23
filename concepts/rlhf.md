@@ -24,7 +24,7 @@ Reinforcement learning from human feedback: train a reward model on human compar
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 

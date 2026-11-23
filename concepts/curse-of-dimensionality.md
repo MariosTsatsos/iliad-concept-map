@@ -18,11 +18,11 @@ Networks solve real problems with far fewer parameters, so real targets cannot b
 ## Open question
 
 
-## Self-test
+## Quiz
 How many Boolean functions of 3 bits are there?
 
 ## Notes
-Answer to the self-test: 2^8 = 256.
+Answer to the quiz: 2^8 = 256.
 
 ## Sources
 - [Day 14 slide deck by Zach Furman: Mysteries of Deep Learning](https://iliad-intensive.org/learning/mysteries-of-deep-learning/), 'the universal approximation razor'

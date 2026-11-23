@@ -27,7 +27,7 @@ The temperature of SGD is set by the optimiser and differs from 1/n in general; 
 ## Open question
 
 
-## Self-test
+## Quiz
 Which of the three does a user change in a chat interface?
 
 ## Notes

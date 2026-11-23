@@ -24,7 +24,7 @@ Regularisation and early stopping suppress the peak.
 ## Open question
 
 
-## Self-test
+## Quiz
 Where is the peak, in terms of d and n?
 
 ## Sources

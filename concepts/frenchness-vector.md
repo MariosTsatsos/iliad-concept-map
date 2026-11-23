@@ -28,7 +28,7 @@ The question: if concepts are directions, why can one not make a model speak Fre
 ## Open question
 Open as stated. Which behaviours are one direction, and which need many components working together?
 
-## Self-test
+## Quiz
 
 
 ## Sources

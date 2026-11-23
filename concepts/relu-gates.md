@@ -18,7 +18,7 @@ In this form OR uses two units (the Day 8 exercise asks which gate needs two, an
 ## Open question
 
 
-## Self-test
+## Quiz
 Check AND on all four inputs.
 
 ## Sources

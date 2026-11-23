@@ -18,7 +18,7 @@ The Day 11 threat model: the prover's overt goal is to prove that approved compu
 ## Open question
 
 
-## Self-test
+## Quiz
 
 
 ## Sources

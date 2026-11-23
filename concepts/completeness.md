@@ -16,7 +16,7 @@ For any two options A and B, the agent prefers A, prefers B, or is indifferent: 
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 

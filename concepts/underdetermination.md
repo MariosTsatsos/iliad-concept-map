@@ -31,7 +31,7 @@ Behavioural evaluation alone cannot tell them apart.
 ## Open question
 
 
-## Self-test
+## Quiz
 
 
 ## Sources

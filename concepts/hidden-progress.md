@@ -24,7 +24,7 @@ A capability can appear suddenly in the loss or in an evaluation, with no visibl
 ## Open question
 
 
-## Self-test
+## Quiz
 
 
 ## Sources

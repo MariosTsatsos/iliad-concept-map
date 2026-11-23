@@ -31,7 +31,7 @@ A formal model of a maximally capable reward maximiser, useful for asking what s
 ## Open question
 
 
-## Self-test
+## Quiz
 Which two ingredients does AIXI combine?
 
 ## Sources

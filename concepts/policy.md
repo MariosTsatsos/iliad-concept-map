@@ -19,7 +19,7 @@ A policy says what the agent should do in every situation: at time t it gives a 
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 After the agent acts, the environment picks the next state at random, with probabilities that depend on the current state and the action, and gives the reward.

@@ -27,7 +27,7 @@ The working assumption that a model represents a concept as a direction in its a
 ## Open question
 
 
-## Self-test
+## Quiz
 
 
 ## Sources

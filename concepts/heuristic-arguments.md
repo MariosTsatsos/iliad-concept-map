@@ -23,7 +23,7 @@ An argument that gives a reason for a property without proving it, often by assu
 ## Open question
 From the slides: nobody yet knows exactly what 'structure' should mean.
 
-## Self-test
+## Quiz
 
 
 ## Sources

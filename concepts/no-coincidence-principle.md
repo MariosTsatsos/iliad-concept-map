@@ -27,7 +27,7 @@ For networks: if a network has a surprising property, such as never misbehaving,
 ## Open question
 The Day 8 discussion asks: can you think of a striking coincidence that has no reason?
 
-## Self-test
+## Quiz
 Why do we believe Goldbach's conjecture without a proof?
 
 ## Sources

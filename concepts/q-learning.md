@@ -23,7 +23,7 @@ Knowing the best achievable value of each state does not tell the agent which ac
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 In some applications Q is represented by a deep neural network.

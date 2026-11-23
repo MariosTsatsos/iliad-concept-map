@@ -24,7 +24,7 @@ A debate protocol designed so that obfuscated arguments do not help the dishones
 ## Open question
 The card states only the purpose; the mechanism is not written here yet.
 
-## Self-test
+## Quiz
 
 
 ## Sources

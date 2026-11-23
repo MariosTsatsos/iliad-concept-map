@@ -23,7 +23,7 @@ A question about the true-or-false item 'king + female = queen': if a concept is
 ## Open question
 Open. What sets the scale of a feature direction, and is scale itself used to store information?
 
-## Self-test
+## Quiz
 
 
 ## Sources

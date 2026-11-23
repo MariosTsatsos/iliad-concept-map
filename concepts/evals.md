@@ -19,7 +19,7 @@ Tests run on a model before release to measure what it can do and what it tends 
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 

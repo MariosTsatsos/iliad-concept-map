@@ -18,7 +18,7 @@ A function with a secret key whose outputs no efficient observer without the key
 ## Open question
 
 
-## Self-test
+## Quiz
 Is the output random for someone who holds the key?
 
 ## Sources

@@ -28,7 +28,7 @@ A minimal model of a race: each actor's best reply leads to an outcome nobody wa
 ## Open question
 
 
-## Self-test
+## Quiz
 
 
 ## Sources

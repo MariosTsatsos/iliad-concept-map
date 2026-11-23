@@ -39,7 +39,7 @@ One layer of a defence in depth for compute governance: the prover's covert goal
 ## Open question
 
 
-## Self-test
+## Quiz
 
 
 ## Sources

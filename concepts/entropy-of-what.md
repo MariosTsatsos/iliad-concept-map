@@ -32,7 +32,7 @@ The distinction: in training it is the entropy of the distribution over weights 
 ## Open question
 
 
-## Self-test
+## Quiz
 Which of the two does sampling temperature change?
 
 ## Sources

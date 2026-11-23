@@ -24,7 +24,7 @@ links:
 ## Open question
 Stub. Day 16 has no card yet. Add what you took from it.
 
-## Self-test
+## Quiz
 
 
 ## Sources

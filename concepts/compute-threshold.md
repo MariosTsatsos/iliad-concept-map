@@ -24,7 +24,7 @@ Under Article 51(2) of the EU AI Act a general-purpose model is presumed to have
 ## Open question
 A rule stated in FLOPs needs someone to count FLOPs. Who counts, and how is the count verified?
 
-## Self-test
+## Quiz
 
 
 ## Sources

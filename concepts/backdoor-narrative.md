@@ -31,7 +31,7 @@ Each step uses the one before: because gates fit in a ReLU network, an obfuscate
 ## Open question
 
 
-## Self-test
+## Quiz
 Which step lets a result about circuits become a result about neural networks?
 
 ## Sources

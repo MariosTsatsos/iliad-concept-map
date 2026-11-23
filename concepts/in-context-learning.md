@@ -18,7 +18,7 @@ A trained language model solves a new task from a few examples or a description 
 ## Open question
 
 
-## Self-test
+## Quiz
 
 
 ## Sources

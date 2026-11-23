@@ -18,7 +18,7 @@ The reward hypothesis is the claim that any goal can be expressed as maximising 
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 

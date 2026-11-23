@@ -23,7 +23,7 @@ With cross-examination the class a polynomial-time judge can decide grows from P
 ## Open question
 
 
-## Self-test
+## Quiz
 
 
 ## Sources

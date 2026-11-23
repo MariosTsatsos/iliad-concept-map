@@ -18,7 +18,7 @@ The fifth axiom says that putting the same step in front of two different future
 
 ## Open question
 
-## Self-test
+## Quiz
 Which axiom has to be added to the four axioms of expected utility before reward and discount appear?
 
 ## Notes

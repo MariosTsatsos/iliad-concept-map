@@ -30,7 +30,8 @@ SECTIONS = {
     "twist": "twist",
     "why it matters for safety": "safety",
     "open question": "question",
-    "self-test": "selftest",
+    "quiz": "selftest",
+    "self-test": "selftest",      # old name of the Quiz section, still accepted
     "notes": "notes",
     "sources": "sources",
 }
@@ -123,6 +124,28 @@ def load(probs: Problems):
             probs.error("course.yml", f"origin '{name}' needs 'weight: 1', '2' or '3'")
             spec["weight"] = 2
     days = {int(k): v for k, v in course["days"].items()}
+
+    # links from the lectures, by day (resources.yml)
+    resources: dict[str, list] = {}
+    res_path = ROOT / "resources.yml"
+    if res_path.exists():
+        raw = yaml.safe_load(res_path.read_text(encoding="utf-8")) or {}
+        for day, items in raw.items():
+            for n, item in enumerate(items or [], 1):
+                where = f"resources.yml, day {day}, entry {n}"
+                if not isinstance(item, dict) or not all(item.get(k) for k in ("kind", "title", "url")):
+                    probs.error(where, "needs 'kind', 'title' and 'url'")
+                    continue
+                if item["kind"] not in ("exercise", "tool", "reading"):
+                    probs.error(where, f"unknown kind '{item['kind']}' (use exercise, tool or reading)")
+                    continue
+                if not str(item["url"]).startswith(("http://", "https://")):
+                    probs.error(where, "url must start with http:// or https://")
+                    continue
+                resources.setdefault(str(day), []).append(
+                    {"kind": item["kind"], "title": str(item["title"]), "url": str(item["url"]), "from": str(item.get("from") or "")}
+                )
+    course["resources"] = resources
 
     cards: dict[str, dict] = {}
     for path in sorted(CONCEPTS.glob("*.md")):
@@ -354,6 +377,7 @@ def to_payload(course: dict, g: nx.MultiDiGraph, pos: dict, st: dict, template: 
             "kinds": course["kinds"],
             "origins": course["origins"],
             "days": days,
+            "resources": course.get("resources", {}),
             "card_template": template,
         },
         "nodes": nodes,

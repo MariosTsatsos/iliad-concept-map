@@ -24,7 +24,7 @@ One short hash (a fingerprint computed from data) that commits to a long list of
 ## Open question
 
 
-## Self-test
+## Quiz
 
 
 ## Sources

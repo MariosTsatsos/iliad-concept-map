@@ -15,7 +15,7 @@ A language model holds representations of many characters and can speak as any o
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 

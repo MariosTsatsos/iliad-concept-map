@@ -31,7 +31,7 @@ A string that can be compressed has a pattern, and finding the pattern is what a
 ## Open question
 Is intelligence more than compression? What does compression leave out?
 
-## Self-test
+## Quiz
 If you can predict the next symbol perfectly, how many bits do you need to store it?
 
 ## Sources

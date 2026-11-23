@@ -28,7 +28,7 @@ Singular learning theory uses the amount of degeneracy to say which solutions tr
 ## Open question
 
 
-## Self-test
+## Quiz
 
 
 ## Sources

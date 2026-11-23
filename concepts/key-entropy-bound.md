@@ -27,7 +27,7 @@ For perfect secrecy the key needs at least the entropy of the message, H(M) <= H
 ## Open question
 
 
-## Self-test
+## Quiz
 Why can a 10-bit key not perfectly hide a 20-bit message?
 
 ## Sources

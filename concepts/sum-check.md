@@ -28,7 +28,7 @@ links:
 ## Open question
 Stub. The slides describe it as a way to prove that a sum has a claimed value; someone who followed part 2 should write the sentence.
 
-## Self-test
+## Quiz
 
 
 ## Sources

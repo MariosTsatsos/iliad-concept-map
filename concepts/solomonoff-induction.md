@@ -29,7 +29,7 @@ It is the reference point for what an ideal learner would do, against which real
 ## Open question
 Day 14 asks whether deep learning solves approximation and generalisation in a similar way.
 
-## Self-test
+## Quiz
 Why does a shorter program get more prior weight?
 
 ## Notes

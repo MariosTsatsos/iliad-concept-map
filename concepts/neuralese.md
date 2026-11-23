@@ -25,7 +25,7 @@ links:
 ## Open question
 Stub. Topic: neuralese and reasoning without chain of thought.
 
-## Self-test
+## Quiz
 
 
 ## Sources

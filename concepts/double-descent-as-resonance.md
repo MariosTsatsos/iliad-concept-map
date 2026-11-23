@@ -23,7 +23,7 @@ Analogy: the peak of test error at d = n is like the peak of a driven oscillator
 ## Open question
 How far does the analogy go? Is there a quantity that plays the role of the driving frequency exactly?
 
-## Self-test
+## Quiz
 
 
 ## Sources

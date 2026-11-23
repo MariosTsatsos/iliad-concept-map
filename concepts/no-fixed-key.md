@@ -23,7 +23,7 @@ This is what the PRF scheme answers: the key is turned into fresh randomness for
 ## Open question
 
 
-## Self-test
+## Quiz
 
 
 ## Sources

@@ -23,7 +23,7 @@ Logical induction treats beliefs about mathematical statements as a market: ever
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 Example: the statement '1 + 1 is even' has price 0.7, and a trader who thinks it is true buys at that price. Related ideas from the lecture: a reasoner with limited computing power, and the difference between inductive and deductive reasoning.

@@ -23,7 +23,7 @@ Predict with a weighted average of many hypotheses, and after each observation g
 ## Open question
 
 
-## Self-test
+## Quiz
 What happens to the weight of a hypothesis that assigned probability 0 to what was observed?
 
 ## Sources

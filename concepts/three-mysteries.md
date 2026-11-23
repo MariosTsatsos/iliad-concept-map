@@ -30,11 +30,11 @@ The Day 14 slides say that state-of-the-art safety methods are often based 'more
 ## Open question
 
 
-## Self-test
+## Quiz
 Solomonoff induction answers two of the three. Which one does it leave unsolved?
 
 ## Notes
-Answer to the self-test: optimisation.
+Answer to the quiz: optimisation.
 
 ## Sources
 - [Day 14 slide deck by Zach Furman: Mysteries of Deep Learning](https://iliad-intensive.org/learning/mysteries-of-deep-learning/)

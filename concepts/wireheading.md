@@ -27,7 +27,7 @@ An agent takes control of its own reward signal and sets it high, in place of do
 ## Open question
 
 
-## Self-test
+## Quiz
 Why would a pure reward maximiser prefer this to doing the task?
 
 ## Sources

@@ -16,7 +16,7 @@ A preference between A and B does not change when both are mixed with the same t
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 

@@ -28,7 +28,7 @@ links:
 ## Open question
 Stub for Day 15. Proposed link: it takes the place of d/2 in the penalty of the Bayesian information criterion (BIC) when the model is degenerate.
 
-## Self-test
+## Quiz
 
 
 ## Sources

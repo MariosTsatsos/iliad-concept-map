@@ -33,7 +33,7 @@ A two-player game where each wants the other to give way, and the worst outcome 
 ## Open question
 
 
-## Self-test
+## Quiz
 
 
 ## Sources

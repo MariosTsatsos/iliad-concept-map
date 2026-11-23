@@ -16,7 +16,7 @@ Further training of a pretrained model on examples of the desired input and outp
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 

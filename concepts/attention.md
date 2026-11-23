@@ -15,7 +15,7 @@ The transformer operation in which each token position looks at earlier position
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 

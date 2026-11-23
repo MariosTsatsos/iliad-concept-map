@@ -28,7 +28,7 @@ If 1% of claims are false, 4605 random checks all pass with probability 0.99^460
 ## Open question
 
 
-## Self-test
+## Quiz
 Why must the prover commit before the verifier picks the sample?
 
 ## Sources

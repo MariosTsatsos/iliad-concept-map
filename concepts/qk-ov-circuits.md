@@ -25,7 +25,7 @@ The two parts of an attention head: the QK circuit (query and key) decides which
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 

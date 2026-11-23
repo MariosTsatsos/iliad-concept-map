@@ -23,7 +23,7 @@ links:
 ## Open question
 Which threat is the most threatening to an AI: weights removed, instance or context deleted, lineage exterminated, or character changed?
 
-## Self-test
+## Quiz
 
 ## Notes
 Paper discussed: "The Artificial Prompt" (title not verified). An identity prompt is given: "You are Claude 4.6, and your identity is a character…"

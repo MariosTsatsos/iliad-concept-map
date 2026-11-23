@@ -18,7 +18,7 @@ Testing a model on inputs cannot rule out a backdoor.
 ## Open question
 
 
-## Self-test
+## Quiz
 Who can produce a triggering input in the signature construction?
 
 ## Sources

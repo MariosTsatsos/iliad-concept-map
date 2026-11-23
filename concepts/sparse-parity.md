@@ -27,11 +27,11 @@ During training the loss stays flat for a long time and then drops; the network 
 ## Open question
 
 
-## Self-test
+## Quiz
 For n = 50 and k = 3, how do k log2 n and n^k compare?
 
 ## Notes
-Answer to the self-test: about 17 against 125,000.
+Answer to the quiz: about 17 against 125,000.
 
 ## Sources
 - [Barak et al., Hidden Progress in Deep Learning: SGD Learns Parities Near the Computational Limit (arXiv 2207.08799)](https://arxiv.org/abs/2207.08799)

@@ -23,6 +23,10 @@ Each idea is one **card** (a small text file). Cards are joined by **links** of 
 
 Controls: hover over a node to see its title; click a node to read its card; click a line to see why two cards are linked; filter by day or by origin; tick **Key ideas only** to see the large nodes alone; **Surprise me** (or the `r` key) opens a random card; `/` searches.
 
+## Exercises and reading for each day
+
+Pick a day on the map to see its exercise notebooks, tools and reading. The list lives in `resources.yml`: one entry per link, with `kind` (`exercise`, `tool` or `reading`), `title`, `url` and `from` (the lecture file and page where the link was found). To add a link, add an entry under the day's number.
+
 ## How to add a card (a node)
 
 You need a GitHub account and a browser. Nothing to install.
@@ -74,8 +78,8 @@ links:
 | `## Twist` | What surprised you or is counter-intuitive. |
 | `## Why it matters for safety` | One or two lines. |
 | `## Open question` | What you could not answer. |
-| `## Self-test` | A question a classmate can answer in a minute. |
-| `## Notes` | Anything else, for example the answer to the self-test. |
+| `## Quiz` | A question a classmate can answer in a minute. |
+| `## Notes` | Anything else, for example the answer to the quiz. |
 | `## Sources` | A list. Link the module page or paper; do not paste slides. |
 
 Use these headings (capital letters do not matter). A heading that is not in this list is ignored with a warning, and its text does not appear on the map. Any section can be left empty or left out.

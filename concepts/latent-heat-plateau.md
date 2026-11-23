@@ -27,7 +27,7 @@ Analogy: during a phase change heat keeps flowing in while the thermometer stays
 ## Open question
 What is the quantity that accumulates, and can it be measured during the plateau?
 
-## Self-test
+## Quiz
 
 
 ## Sources

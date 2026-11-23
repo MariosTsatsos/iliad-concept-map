@@ -22,7 +22,7 @@ A second network trained to rewrite a model's activations as a sum of a few acti
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 

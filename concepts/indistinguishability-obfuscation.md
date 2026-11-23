@@ -27,7 +27,7 @@ With it, a trigger can be made impossible to flag even for a defender who reads 
 ## Open question
 Scrambled circuits are huge and unnatural, and training would not produce them. Does that make the result irrelevant to real models?
 
-## Self-test
+## Quiz
 
 
 ## Sources

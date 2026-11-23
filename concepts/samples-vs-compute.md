@@ -31,7 +31,7 @@ The link: sparse parity shows that having enough samples and having enough compu
 ## Open question
 When is the binding limit data, and when is it compute?
 
-## Self-test
+## Quiz
 
 
 ## Sources

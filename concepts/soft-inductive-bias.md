@@ -32,7 +32,7 @@ Wilson's argument is that this, with bounds such as PAC-Bayes, makes deep learni
 ## Open question
 
 
-## Self-test
+## Quiz
 
 
 ## Sources

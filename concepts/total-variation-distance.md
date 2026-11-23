@@ -18,11 +18,11 @@ It equals the largest advantage any test can have in telling the two distributio
 ## Open question
 
 
-## Self-test
+## Quiz
 Distributions (0.5, 0.5) and (0.8, 0.2): what is the distance?
 
 ## Notes
-Answer to the self-test: 0.3.
+Answer to the quiz: 0.3.
 
 ## Sources
 - [Day 10 slides, Julian Schulz: Steganography and Backdoors](https://iliad-intensive.org/safety/steganography/)

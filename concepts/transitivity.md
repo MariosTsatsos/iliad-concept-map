@@ -17,7 +17,7 @@ In the picture used in the lecture, transitive preferences are like a vector fie
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 

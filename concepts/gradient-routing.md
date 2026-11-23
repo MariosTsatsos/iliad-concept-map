@@ -19,7 +19,7 @@ A training method that lets each kind of data update only chosen parts of the ne
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 Paper: "Beyond data filtering: knowledge localization for capability removal in LLMs".

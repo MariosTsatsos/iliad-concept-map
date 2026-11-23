@@ -24,7 +24,7 @@ Different networks, trained in different ways, often arrive at similar internal 
 ## Open question
 Related topic: feature alignment.
 
-## Self-test
+## Quiz
 
 
 ## Sources

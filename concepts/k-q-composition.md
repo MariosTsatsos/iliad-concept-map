@@ -27,7 +27,7 @@ A later attention head uses the output of an earlier head as part of its key (K-
 ## Open question
 
 
-## Self-test
+## Quiz
 
 
 ## Sources

@@ -146,6 +146,13 @@ aside.panel {
 .actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px; }
 .back { margin-bottom: 4px; }
 .by { color: var(--muted); font-size: 12.5px; margin-top: 14px; }
+.daybox { background: var(--soft); border-radius: var(--r); padding: 12px 14px; margin-bottom: 18px; }
+.daybox h2 { margin-top: 0; }
+.daybox summary { cursor: pointer; font-weight: 600; margin: 8px 0 4px; }
+.res { padding-left: 18px; margin: 4px 0 10px; }
+.res li { margin: 4px 0; }
+.res .muted, .home-list .muted { font-size: 12.5px; }
+.daylinks { font-size: 13.5px; margin: 6px 0 0; }
 .kbd { font: 11px var(--f-mono); border: 1px solid var(--line); border-radius: 4px; padding: 0 4px; }
 .prose code { font: 12.5px var(--f-mono); background: var(--soft); padding: 0 4px; border-radius: 3px; }
 .home-list { list-style: none; padding: 0 !important; display: flex; flex-wrap: wrap; gap: 6px; }
@@ -255,6 +262,7 @@ const DATA = /*__DATA__*/null;
   };
   mkChip("all", "All days");
   daysPresent.forEach((d) => mkChip(String(d), `Day ${d}`));
+  const setDay = (val) => { activeDay = String(val); [...dayWrap.children].forEach((c) => c.setAttribute("aria-pressed", String(c.dataset.day === activeDay))); applyFilters(); };
 
   const OR = M.origins || {};
   const SIZE = { 1: 22, 2: 34, 3: 54 };
@@ -418,6 +426,7 @@ const DATA = /*__DATA__*/null;
     if ($("#q").value.trim()) runSearch();                        // keep the search in step with the filters
     cy.animate({ fit: { eles: cy.elements(":visible"), padding: 60 } }, { duration: reduced ? 0 : 300 });
     relabelSoon();
+    if (!cy.$("node:selected").length) renderHome();              // the home panel shows the chosen day's links
   }
   $("#proposed").addEventListener("change", applyFilters);
   $("#keyonly").addEventListener("change", applyFilters);
@@ -512,6 +521,8 @@ const DATA = /*__DATA__*/null;
   panel.addEventListener("click", (ev) => {
     const b = ev.target.closest("[data-go]");
     if (b) { ev.preventDefault(); select(b.dataset.go); panel.scrollTop = 0; }
+    const dd = ev.target.closest("[data-day]");
+    if (dd) { ev.preventDefault(); setDay(dd.dataset.day); clear(); panel.scrollTop = 0; return; }
     const h = ev.target.closest("[data-home]");
     if (h) { ev.preventDefault(); clear(); }
     const c = ev.target.closest("[data-copy]");
@@ -524,17 +535,35 @@ const DATA = /*__DATA__*/null;
   });
 
   const go = (id) => `<button class="linkbtn" data-go="${esc(id)}">${esc(byId[id].title)}</button>`;
+  // ---------- links from the lectures, by day ----------
+  const RES = M.resources || {};
+  const RKIND = [["exercise", "Exercises"], ["tool", "Tools to try"], ["reading", "Reading"]];
+  function dayBox(d) {
+    const D = M.days[String(d)] || {}, items = RES[String(d)] || [];
+    let h = `<div class="daybox"><h2>Day ${d}${D.title ? ": " + esc(D.title) : ""}</h2>`;
+    h += `<p class="muted">${D.lecturer ? esc(D.lecturer) : ""}${D.url ? `${D.lecturer ? " · " : ""}<a href="${esc(D.url)}" target="_blank" rel="noopener">lecture page</a>` : ""}</p>`;
+    RKIND.forEach(([k, label]) => {
+      const xs = items.filter((x) => x.kind === k);
+      if (!xs.length) return;
+      const list = `<ul class="res">${xs.map((x) => `<li><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a>${x.from ? ` <span class="muted">${esc(x.from)}</span>` : ""}</li>`).join("")}</ul>`;
+      h += xs.length > 8 ? `<details><summary>${label} (${xs.length})</summary>${list}</details>` : `<h3>${label} (${xs.length})</h3>${list}`;
+    });
+    if (!items.length) h += `<p class="muted">No links recorded for this day yet.</p>`;
+    return h + `<p><button class="linkbtn" data-day="all">Show all days</button></p></div>`;
+  }
   const dayLine = (n) => n.days.map((d) => { const D = M.days[String(d)] || {}; return `Day ${d}${D.lecturer ? " · " + esc(D.lecturer) : ""}`; }).join("<br>");
   const modChip = (n) => n.module ? `<span class="mod" style="background:${clusterColor(n.cluster)}">${esc(n.module)}</span>` : "";
 
   function renderCard(id) {
     const n = byId[id];
     const sec = n.sections;
-    const fields = [["statement", "In one sentence"], ["twist", "Twist"], ["safety", "Why it matters for safety"], ["question", "Open question"], ["selftest", "Self-test"], ["notes", "Notes"]];
+    const fields = [["statement", "In one sentence"], ["twist", "Twist"], ["safety", "Why it matters for safety"], ["question", "Open question"], ["selftest", "Quiz"], ["notes", "Notes"]];
     const missing = fields.filter(([k]) => k !== "notes" && !sec[k]).map(([, l]) => l.toLowerCase());
     let html = `<button class="btn back" data-home type="button">← All concepts</button>`;
     html += `<div class="badges">${n.weight === 3 ? '<span class="badge key">key idea</span>' : ""}<span class="badge origin">${esc((OR[n.origin] || {}).label || n.origin)}</span>${n.status === "stub" ? '<span class="badge stub">stub</span>' : ""}${n.load_bearing ? '<span class="badge">load-bearing</span>' : ""}${isolated.has(n.id) ? '<span class="badge stub">island</span>' : ""}</div>`;
     html += `<h2>${esc(n.title)}</h2><div class="meta">${modChip(n)}<span>${dayLine(n)}</span></div>`;
+    const dayBtns = n.days.filter((d) => (RES[String(d)] || []).length).map((d) => `<button class="linkbtn" data-day="${d}">Day ${d}: exercises and reading (${RES[String(d)].length})</button>`).join(" · ");
+    if (dayBtns) html += `<p class="daylinks">${dayBtns}</p>`;
     fields.forEach(([k, label]) => {
       if (!sec[k]) return;
       html += `<h3>${label}</h3><div class="prose${k === "statement" ? " lead" : ""}">${md(sec[k])}</div>`;
@@ -582,11 +611,14 @@ const DATA = /*__DATA__*/null;
     const isl = S.isolated.map(go).join("");
     const groups = S.cut_off_groups.map((g) => `<li>${g.map(go).join(", ")}</li>`).join("");
     const stubs = DATA.nodes.filter((n) => n.status === "stub").sort((a, b) => b.degree - a.degree).slice(0, 12);
-    let html = `<h2>${S.cards} concepts from ${daysPresent.length} days</h2>`;
+    let html = activeDay !== "all" ? dayBox(Number(activeDay)) : "";
+    html += `<h2>${S.cards} concepts from ${daysPresent.length} days</h2>`;
     html += `<p>Click a concept to read its card. Click a line to see why two concepts are linked. Large nodes are the key ideas. Each card names who wrote it.</p>`;
     html += `<p class="missing">Colour: course cluster (A alignment, D agency, C interpretability…). Ring: a participant's own idea. Size: weight (large = key idea). Hollow: stub. Dashed line: proposed link, not yet confirmed. Dashed ring: island.</p>`;
     const keys = DATA.nodes.filter((n) => n.weight === 3).sort((a, b) => (a.days[0] || 0) - (b.days[0] || 0));
     if (keys.length) html += `<h3>Start here: ${keys.length} key ideas</h3><ul class="home-list">${keys.map((n) => `<li>${go(n.id)}${n.days.length ? ` <span class="muted">day ${n.days.join(", ")}</span>` : ""}</li>`).join("")}</ul>`;
+    const resDays = Object.keys(RES).map(Number).sort((a, b) => a - b);
+    if (resDays.length) html += `<h3>Exercises and reading, by day</h3><ul class="home-list">${resDays.map((d) => `<li><button class="linkbtn" data-day="${d}">Day ${d}${(M.days[String(d)] || {}).title ? ": " + esc(M.days[String(d)].title) : ""}</button> <span class="muted">${RES[String(d)].length} links</span></li>`).join("")}</ul>`;
     html += `<h3>Islands</h3>`;
     html += isl ? `<p>No links at all:</p><ul class="home-list">${S.isolated.map((id) => `<li>${go(id)}</li>`).join("")}</ul>` : "<p>None. Every card has a link.</p>";
     if (groups) html += `<p style="margin-top:10px">Groups cut off from the main map:</p><ul>${groups}</ul>`;

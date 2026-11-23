@@ -32,11 +32,11 @@ A worked example of an algorithm found inside a trained network, and a mechanism
 ## Open question
 
 
-## Self-test
+## Quiz
 Which earlier head does it rely on, and what does that head do?
 
 ## Notes
-Answer to the self-test: a previous-token head, which writes into each position what the token before it was.
+Answer to the quiz: a previous-token head, which writes into each position what the token before it was.
 
 ## Sources
 - [Day 10 slides: Mech Interp](https://iliad-intensive.org/interpretability/mechanistic-interpretability/)

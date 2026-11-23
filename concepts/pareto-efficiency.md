@@ -24,7 +24,7 @@ An outcome is Pareto efficient if no other outcome makes someone better off with
 ## Open question
 
 
-## Self-test
+## Quiz
 Can an outcome be Pareto efficient and very unequal?
 
 ## Sources

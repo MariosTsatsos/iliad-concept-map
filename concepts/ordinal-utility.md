@@ -22,7 +22,7 @@ If an agent's preferences over a countable set of options are complete and trans
 ## Open question
 What if the set of options is not countable?
 
-## Self-test
+## Quiz
 
 ## Notes
 Answer to the open question: then such a function can fail to exist. Example: rank points in the plane by x first and use y only to break ties; no single number per point can represent that ranking. The result was Lemma 3 in the Day 3 lecture. Day 4 reading: 'ordinal' means that only the ordering of the numbers carries meaning.

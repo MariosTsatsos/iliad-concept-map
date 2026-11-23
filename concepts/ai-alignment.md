@@ -20,7 +20,7 @@ Recent empirical studies (toy models of the past ~4 years), even though deep and
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 

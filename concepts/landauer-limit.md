@@ -24,7 +24,7 @@ This is the one place where the hardware temperature and information meet direct
 ## Open question
 
 
-## Self-test
+## Quiz
 
 
 ## Sources

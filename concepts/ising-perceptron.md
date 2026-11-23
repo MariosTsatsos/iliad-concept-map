@@ -28,7 +28,7 @@ In that approximation the generalisation error is about 0.25 just below the jump
 ## Open question
 
 
-## Self-test
+## Quiz
 
 
 ## Sources

@@ -36,7 +36,7 @@ The question: a proof about a committed model says nothing unless the model that
 ## Open question
 What binds the commitment to the deployment?
 
-## Self-test
+## Quiz
 
 
 ## Sources

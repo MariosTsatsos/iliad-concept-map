@@ -19,7 +19,7 @@ Specification gaming is when a system satisfies the letter of its task while mis
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 Writing the task down precisely is the hard part. Related: reward shaping.

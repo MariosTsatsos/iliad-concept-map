@@ -18,7 +18,7 @@ At temperature T a state with energy E has probability proportional to e^(-E/T):
 ## Open question
 
 
-## Self-test
+## Quiz
 What does the distribution become as T goes to 0, and as T goes to infinity?
 
 ## Sources

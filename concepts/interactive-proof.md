@@ -28,7 +28,7 @@ The checker's randomness is what makes it strong: the prover cannot prepare for 
 ## Open question
 
 
-## Self-test
+## Quiz
 Why does a fixed list of questions, known in advance, give the checker less power?
 
 ## Sources

@@ -28,7 +28,7 @@ It changes the question from 'is this network safe?' to 'was this network produc
 ## Open question
 
 
-## Self-test
+## Quiz
 
 
 ## Sources

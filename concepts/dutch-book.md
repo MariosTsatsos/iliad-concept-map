@@ -16,7 +16,7 @@ A set of bets, each acceptable to an agent with inconsistent preferences or beli
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 

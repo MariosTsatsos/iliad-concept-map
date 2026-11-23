@@ -24,7 +24,7 @@ A lab could prove what it ran on its chips without showing weights or data.
 ## Open question
 
 
-## Self-test
+## Quiz
 Which of the three properties protects the prover, and which protect the verifier?
 
 ## Sources

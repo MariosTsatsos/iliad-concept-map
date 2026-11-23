@@ -22,7 +22,7 @@ The value of a state is the return the agent can expect from that state onward i
 
 ## Open question
 
-## Self-test
+## Quiz
 
 ## Notes
 It is the expected return (the discounted sum of all future rewards), not the expected reward of one step.
