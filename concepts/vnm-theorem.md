@@ -3,7 +3,7 @@ title: "von Neumann-Morgenstern theorem"
 kind: concept
 days: [3, 4]
 module: D.1.1
-by: [claude]
+by: [MT, claude]
 links:
   - needs: completeness
   - needs: transitivity

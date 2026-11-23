@@ -2,9 +2,9 @@
 title: "Entropy"
 kind: concept
 days: [10, 13]
-origin: chat
+origin: extension
 weight: 3
-by: [claude]
+by: [MT, claude]
 ---
 
 ## In one sentence
@@ -25,4 +25,3 @@ What is the entropy of a fair coin, and of a coin that always lands heads?
 ## Sources
 - [Day 10 slides, Julian Schulz: Steganography and Backdoors](https://iliad-intensive.org/safety/steganography/)
 - Day 13 notes, Artemy Kolchinsky: Physics of Deep Learning
-- Discussion during the course

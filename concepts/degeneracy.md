@@ -2,8 +2,8 @@
 title: "Degeneracy"
 kind: concept
 days: [15]
-origin: chat
-by: [claude]
+origin: extension
+by: [MT, claude]
 links:
   - to: parameter-function-map
     type: needs
@@ -33,4 +33,3 @@ Singular learning theory uses the amount of degeneracy to say which solutions tr
 
 ## Sources
 - [Kai Ogden, Oxford SLT course notes, Lectures 1 to 5](https://iliad-intensive.org/learning/singular-learning-theory/), Exercises 1.2.1 and 1.2.2
-- Discussion during the course

@@ -2,7 +2,7 @@
 title: "RLAIF: reinforcement learning from AI feedback"
 kind: concept
 days: [5]
-by: [claude]
+by: [MT, claude]
 links:
   - eg: post-training
   - to: rlhf

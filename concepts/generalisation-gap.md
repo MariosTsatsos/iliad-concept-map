@@ -2,8 +2,8 @@
 title: "Generalisation gap and vacuous bounds"
 kind: problem
 days: [14]
-origin: chat
-by: [claude]
+origin: extension
+by: [MT, claude]
 links:
   - to: three-mysteries
     type: needs
@@ -29,4 +29,3 @@ What does 'vacuous' mean for a bound on an error rate?
 ## Sources
 - [Day 14 slide deck by Zach Furman: Mysteries of Deep Learning](https://iliad-intensive.org/learning/mysteries-of-deep-learning/)
 - [Day 14 slides, Miguel Donaire Arcas-Sariot: Historical introduction to the science of deep learning](https://iliad-intensive.org/learning/mysteries-of-deep-learning/)
-- Discussion during the course

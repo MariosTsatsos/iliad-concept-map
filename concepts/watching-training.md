@@ -2,8 +2,8 @@
 title: "Watching training"
 kind: concept
 days: [8]
-origin: chat
-by: [claude]
+origin: extension
+by: [MT, claude]
 links:
   - to: backdoor
     type: safety

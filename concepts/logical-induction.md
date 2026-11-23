@@ -2,7 +2,7 @@
 title: "Logical induction"
 kind: concept
 days: [4]
-by: [claude]
+by: [MT, claude]
 links:
   - to: bayesian-update
     type: needs

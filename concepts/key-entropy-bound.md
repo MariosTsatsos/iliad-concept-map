@@ -3,7 +3,7 @@ title: "The key must carry as much entropy as the message"
 kind: concept
 days: [10]
 origin: participant
-by: [claude]
+by: [MT, claude]
 links:
   - to: entropy
     type: needs
@@ -32,4 +32,3 @@ Why can a 10-bit key not perfectly hide a 20-bit message?
 
 ## Sources
 - [Day 10 slides, Julian Schulz: Steganography and Backdoors](https://iliad-intensive.org/safety/steganography/)
-- Discussion during the course

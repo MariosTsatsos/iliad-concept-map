@@ -3,7 +3,7 @@ title: "Entropy falls in training and in inference: entropy of what?"
 kind: concept
 days: [13]
 origin: participant
-by: [claude]
+by: [MT, claude]
 links:
   - to: entropy
     type: needs
@@ -36,4 +36,3 @@ The distinction: in training it is the entropy of the distribution over weights 
 Which of the two does sampling temperature change?
 
 ## Sources
-- Discussion during the course

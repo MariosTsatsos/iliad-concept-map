@@ -2,7 +2,7 @@
 title: "Transformer"
 kind: concept
 days: [1]
-by: [claude]
+by: [MT, claude]
 links:
   - to: attention
     type: needs

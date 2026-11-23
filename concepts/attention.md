@@ -2,7 +2,7 @@
 title: "Attention"
 kind: concept
 days: [1]
-by: [claude]
+by: [MT, claude]
 links: []
 ---
 

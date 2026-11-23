@@ -3,7 +3,7 @@ title: "Samples versus computing, and the bitter lesson"
 kind: concept
 days: [14]
 origin: participant
-by: [claude]
+by: [MT, claude]
 links:
   - to: sparse-parity
     type: needs
@@ -35,4 +35,3 @@ When is the binding limit data, and when is it compute?
 
 
 ## Sources
-- Discussion during the course

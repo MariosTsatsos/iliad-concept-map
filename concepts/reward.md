@@ -3,7 +3,7 @@ title: "Reward: the fifth axiom adds time"
 kind: concept
 days: [3]
 module: D.1.1
-by: [claude]
+by: [MT, claude]
 links:
   - needs: vnm-theorem
 ---

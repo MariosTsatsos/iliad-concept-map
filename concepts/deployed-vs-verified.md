@@ -3,7 +3,7 @@ title: "Is the deployed model the one that was verified?"
 kind: problem
 days: [11]
 origin: participant
-by: [claude]
+by: [MT, claude]
 links:
   - to: zk-compute-verification
     type: vs
@@ -40,4 +40,3 @@ What binds the commitment to the deployment?
 
 
 ## Sources
-- Discussion during the course

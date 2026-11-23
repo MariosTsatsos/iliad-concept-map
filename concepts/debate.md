@@ -2,8 +2,8 @@
 title: "AI safety via debate"
 kind: concept
 days: [6]
-origin: chat
-by: [claude]
+origin: extension
+by: [MT, claude]
 links:
   - to: scalable-oversight
     type: safety

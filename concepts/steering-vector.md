@@ -2,8 +2,8 @@
 title: "Steering vector"
 kind: concept
 days: [10]
-origin: chat
-by: [claude]
+origin: extension
+by: [MT, claude]
 links:
   - to: linear-representation
     type: needs
@@ -36,4 +36,3 @@ Answer to the self-test: the layer and the strength.
 
 ## Sources
 - [Day 10 slides: Mech Interp](https://iliad-intensive.org/interpretability/mechanistic-interpretability/)
-- Discussion during the course

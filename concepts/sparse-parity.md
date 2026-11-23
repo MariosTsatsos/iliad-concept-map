@@ -2,8 +2,8 @@
 title: "Sparse parity"
 kind: case
 days: [14]
-origin: chat
-by: [claude]
+origin: extension
+by: [MT, claude]
 links:
   - to: hardness-of-learning
     type: eg
@@ -35,4 +35,3 @@ Answer to the self-test: about 17 against 125,000.
 
 ## Sources
 - [Barak et al., Hidden Progress in Deep Learning: SGD Learns Parities Near the Computational Limit (arXiv 2207.08799)](https://arxiv.org/abs/2207.08799)
-- Discussion during the course

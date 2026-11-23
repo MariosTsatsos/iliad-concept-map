@@ -2,8 +2,8 @@
 title: "Three temperatures"
 kind: concept
 days: [13]
-origin: chat
-by: [claude]
+origin: extension
+by: [MT, claude]
 links:
   - to: boltzmann-distribution
     type: needs
@@ -35,4 +35,3 @@ Symbols: n is the number of training examples, eta the step size, B the batch si
 
 ## Sources
 - Day 13 notes, Artemy Kolchinsky: Physics of Deep Learning, Sec. IV and Eq. (42)
-- Discussion during the course

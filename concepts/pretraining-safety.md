@@ -2,6 +2,7 @@
 title: "Safety in pre-training"
 kind: concept
 days: [5]
+by: [MT]
 links:
   - to: misuse
     type: safety

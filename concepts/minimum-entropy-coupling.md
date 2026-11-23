@@ -2,8 +2,8 @@
 title: "Minimum-entropy coupling"
 kind: concept
 days: [10]
-origin: chat
-by: [claude]
+origin: extension
+by: [MT, claude]
 links:
   - to: entropy
     type: needs
@@ -32,4 +32,3 @@ One picture is handing out tickets: each cell of the table is a share of probabi
 
 ## Sources
 - [Day 10 slides, Julian Schulz: Steganography and Backdoors](https://iliad-intensive.org/safety/steganography/), p. 18
-- Discussion during the course

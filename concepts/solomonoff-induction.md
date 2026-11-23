@@ -2,9 +2,9 @@
 title: "Solomonoff induction"
 kind: concept
 days: [7, 14]
-origin: chat
+origin: extension
 weight: 3
-by: [claude]
+by: [MT, claude]
 links:
   - to: bayesian-mixture
     type: eg

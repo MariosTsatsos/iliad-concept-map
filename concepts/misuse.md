@@ -2,7 +2,7 @@
 title: "Misuse"
 kind: problem
 days: [2]
-by: [claude]
+by: [MT, claude]
 links: []
 ---
 

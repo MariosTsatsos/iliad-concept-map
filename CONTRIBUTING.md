@@ -9,7 +9,7 @@ Hollow nodes have no one-sentence statement yet.
 1. On the map, click a hollow node, then **Write it**.
 2. Under `## In one sentence`, write one sentence in your own words.
 3. Add a `## Twist` or `## Self-test` question if you have one.
-4. Add your GitHub name to `by:`, for example `by: [claude, your-name]`.
+4. Add your GitHub name to `by:`, for example `by: [MT, claude, your-name]`.
 5. **Commit changes** → **Propose changes** → **Create pull request**.
 
 ## 2. Add a concept
@@ -35,7 +35,7 @@ Dashed lines are suggestions nobody has checked.
 title: Potential-based shaping
 kind: concept          # concept | problem | case
 days: [3]
-origin: participant    # participant | chat | notes | claude
+origin: participant    # participant | extension | notes | claude
 weight: 2              # 1, 2 or 3 (node size); optional
 by: [your-github-name]
 links:

@@ -3,7 +3,7 @@ title: "Thermodynamics of learning: training as cooling"
 kind: concept
 days: [13]
 origin: participant
-by: [claude]
+by: [MT, claude]
 links:
   - to: free-energy
     type: needs
@@ -35,5 +35,4 @@ Open. What are the two reservoirs, and what is the work?
 
 
 ## Sources
-- Discussion during the course
 - [Day 14 slides, Miguel Donaire Arcas-Sariot: Historical introduction to the science of deep learning](https://iliad-intensive.org/learning/mysteries-of-deep-learning/), 'Steam engines to thermodynamics'

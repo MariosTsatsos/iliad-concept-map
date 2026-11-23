@@ -3,7 +3,7 @@ title: "The mixed strategy as a break-even point"
 kind: concept
 days: [9]
 origin: participant
-by: [claude]
+by: [MT, claude]
 links:
   - to: mixed-strategy
     type: needs
@@ -34,5 +34,4 @@ In the formula above, what is the payoff at q = 1/2, and does it depend on m?
 Also called the indifference principle. Which player m and q belong to still has to be checked.
 
 ## Sources
-- Discussion during the course
 - Day 9 exercises: multi-agent systems

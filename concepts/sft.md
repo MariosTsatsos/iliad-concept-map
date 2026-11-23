@@ -2,7 +2,7 @@
 title: "Supervised fine-tuning (SFT)"
 kind: concept
 days: [5]
-by: [claude]
+by: [MT, claude]
 links:
   - eg: post-training
 ---

@@ -2,8 +2,8 @@
 title: "Steganography by PRF sampling"
 kind: concept
 days: [10]
-origin: chat
-by: [claude]
+origin: extension
+by: [MT, claude]
 links:
   - to: prf
     type: needs
@@ -37,4 +37,3 @@ The sender and receiver steps should be written out here with a small numeric ex
 
 ## Sources
 - [Day 10 slides, Julian Schulz: Steganography and Backdoors](https://iliad-intensive.org/safety/steganography/)
-- Discussion during the course

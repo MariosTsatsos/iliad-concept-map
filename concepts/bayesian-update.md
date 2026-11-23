@@ -2,7 +2,7 @@
 title: "Bayesian update"
 kind: concept
 days: [4]
-by: [claude]
+by: [MT, claude]
 links: []
 ---
 

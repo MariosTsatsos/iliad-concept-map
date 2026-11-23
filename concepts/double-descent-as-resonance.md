@@ -3,7 +3,7 @@ title: "Double descent as resonance"
 kind: concept
 days: [13]
 origin: participant
-by: [claude]
+by: [MT, claude]
 links:
   - to: double-descent
     type: needs
@@ -27,4 +27,3 @@ How far does the analogy go? Is there a quantity that plays the role of the driv
 
 
 ## Sources
-- Discussion during the course

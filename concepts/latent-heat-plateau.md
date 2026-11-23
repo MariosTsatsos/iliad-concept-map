@@ -3,7 +3,7 @@ title: "The loss plateau as latent heat"
 kind: concept
 days: [14]
 origin: participant
-by: [claude]
+by: [MT, claude]
 links:
   - to: hidden-progress
     type: needs
@@ -31,4 +31,3 @@ What is the quantity that accumulates, and can it be measured during the plateau
 
 
 ## Sources
-- Discussion during the course

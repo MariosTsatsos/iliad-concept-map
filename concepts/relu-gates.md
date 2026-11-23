@@ -2,8 +2,8 @@
 title: "Logic gates from ReLU units"
 kind: concept
 days: [8]
-origin: chat
-by: [claude]
+origin: extension
+by: [MT, claude]
 ---
 
 ## In one sentence
@@ -23,4 +23,3 @@ Check AND on all four inputs.
 
 ## Sources
 - Day 8 slides, George Robinson: Heuristic arguments and verification, exercise 1
-- Discussion during the course

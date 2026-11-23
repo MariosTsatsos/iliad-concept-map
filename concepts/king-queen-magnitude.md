@@ -3,7 +3,7 @@ title: "king + female = queen: does magnitude matter?"
 kind: concept
 days: [10]
 origin: participant
-by: [claude]
+by: [MT, claude]
 links:
   - to: linear-representation
     type: needs
@@ -27,5 +27,4 @@ Open. What sets the scale of a feature direction, and is scale itself used to st
 
 
 ## Sources
-- Discussion during the course
 - [Day 10 slides: Mech Interp](https://iliad-intensive.org/interpretability/mechanistic-interpretability/)

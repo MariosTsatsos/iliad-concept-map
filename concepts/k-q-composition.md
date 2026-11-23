@@ -2,8 +2,8 @@
 title: "K-composition and Q-composition"
 kind: concept
 days: [10]
-origin: chat
-by: [claude]
+origin: extension
+by: [MT, claude]
 links:
   - to: qk-ov-circuits
     type: needs

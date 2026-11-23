@@ -3,7 +3,7 @@ title: "Card puzzle 2: three protocols and a zero-leak one"
 kind: case
 days: [11]
 origin: participant
-by: [claude]
+by: [MT, claude]
 links:
   - to: zero-knowledge-proof
     type: eg
@@ -36,5 +36,4 @@ Answer to the self-test: 2 colours x (26 choose 2) = 2 x 325.
 
 ## Sources
 - Day 11 slides, David Zeidler: A toy model of zero-knowledge inference verification, warm-up puzzle 2
-- Discussion during the course
 - [Zeidler, Zero-Knowledge Training Pause (LessWrong, 2026)](https://www.lesswrong.com/posts/CuzBTs3RfekGiBaAj/zero-knowledge-training-pause)

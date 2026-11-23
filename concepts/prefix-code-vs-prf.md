@@ -3,7 +3,7 @@ title: "Prefix code versus PRF: looks random but is not"
 kind: concept
 days: [10]
 origin: participant
-by: [claude]
+by: [MT, claude]
 links:
   - to: prf
     type: needs
@@ -31,5 +31,4 @@ A comparison of two ways to turn a message into token choices: a prefix code map
 Who can tell PRF output from random bits?
 
 ## Sources
-- Discussion during the course
 - [Day 10 slides, Julian Schulz: Steganography and Backdoors](https://iliad-intensive.org/safety/steganography/)

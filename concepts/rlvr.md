@@ -2,7 +2,7 @@
 title: "RLVR: reinforcement learning with verifiable rewards"
 kind: concept
 days: [5]
-by: [claude]
+by: [MT, claude]
 links:
   - eg: post-training
   - to: reward

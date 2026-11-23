@@ -58,8 +58,8 @@ links:
 | `title` | yes | any text; put it in quotes if it contains `:` | The node's label |
 | `kind` | no, default `concept` | `concept` (idea, definition, result), `problem` (safety problem or failure mode), `case` (paper, incident, scenario, forecast, worked example) | Node shape |
 | `days` | recommended | list of course day numbers without quotes, e.g. `[9]` or `[10, 13]` | Day filter; the first day sets the colour. A card with no day is grey and appears only under "All days". |
-| `origin` | no, default `notes` | `participant` (your own idea, question or analogy), `chat` (worked out in discussion), `notes` (from the course material), `claude` (added by Claude) | Badge on the card, origin filter, and the default weight |
-| `weight` | no | the number `1`, `2` or `3`, without quotes | Node size. If omitted or left blank: `participant` 3, `chat` 2, `notes` 2, `claude` 1 |
+| `origin` | no, default `notes` | `participant` (your own idea, question or analogy), `extension` (developed beyond the lecture), `notes` (from the course material), `claude` (added by Claude) | Badge on the card, origin filter, and the default weight |
+| `weight` | no | the number `1`, `2` or `3`, without quotes | Node size. If omitted or left blank: `participant` 3, `extension` 2, `notes` 2, `claude` 1 |
 | `by` | recommended | list of GitHub names | Credit line on the card |
 | `links` | recommended | see below | Lines to other cards |
 | `module` | no | course module code, e.g. `B.2` | Overrides the colour that `days` gives |
@@ -146,6 +146,7 @@ No slides, PDFs or exercise sheets are stored here. Cards link to the module pag
 
 ## Authors
 
+- Marios Tsatsos ([@MariosTsatsos](https://github.com/MariosTsatsos)): the ideas marked "Participant's own idea" and the direction of the map. In the `by:` line of a card he appears as `MT`.
 - Claude (Anthropic): the code, the wording of every card that lists `claude` in its `by:` line, and the first draft of the links, all marked as proposed. Edit them freely.
 
 Every card names its authors in `by:`. Add your name when you edit one.

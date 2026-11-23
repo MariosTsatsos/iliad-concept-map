@@ -3,7 +3,7 @@ title: "Zero-knowledge means the view does not depend on the secret"
 kind: concept
 days: [11]
 origin: participant
-by: [claude]
+by: [MT, claude]
 links:
   - to: zero-knowledge-proof
     type: needs
@@ -32,4 +32,3 @@ Cards can be turned face up and the protocol can still leak nothing.
 Give a protocol step that shows cards face up and leaks nothing.
 
 ## Sources
-- Discussion during the course

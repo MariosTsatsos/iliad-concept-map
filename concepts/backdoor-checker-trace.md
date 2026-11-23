@@ -3,7 +3,7 @@ title: "Does a backdoor's checker leave a trace?"
 kind: problem
 days: [8]
 origin: participant
-by: [claude]
+by: [MT, claude]
 links:
   - to: indistinguishability-obfuscation
     type: vs
@@ -36,5 +36,4 @@ Open. The iO result says that in the worst case reading the weights does not hel
 
 
 ## Sources
-- Discussion during the course
 - Day 8 slides, George Robinson: Heuristic arguments and verification

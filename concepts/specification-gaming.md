@@ -2,7 +2,7 @@
 title: "Specification gaming"
 kind: problem
 days: [2]
-by: [claude]
+by: [MT, claude]
 links:
   - to: reward-hypothesis
     type: vs

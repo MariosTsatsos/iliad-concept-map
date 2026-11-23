@@ -3,7 +3,7 @@ title: "Temperature 0 leaves no room for steganography"
 kind: concept
 days: [10]
 origin: participant
-by: [claude]
+by: [MT, claude]
 links:
   - to: entropy
     type: needs
@@ -35,4 +35,3 @@ Is forcing low-entropy output a practical defence, and what does it cost in qual
 How many hidden bits can a deterministic output carry?
 
 ## Sources
-- Discussion during the course

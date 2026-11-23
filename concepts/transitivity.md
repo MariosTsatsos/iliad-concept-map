@@ -3,7 +3,7 @@ title: "Transitivity (axiom 2 on preferences)"
 kind: concept
 days: [3]
 module: D.1.1
-by: [claude]
+by: [MT, claude]
 links: []
 ---
 

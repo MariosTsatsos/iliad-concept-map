@@ -2,7 +2,7 @@
 title: "Superposition and polysemanticity"
 kind: concept
 days: [1]
-by: [claude]
+by: [MT, claude]
 links:
   - to: mechanistic-interpretability
     type: vs

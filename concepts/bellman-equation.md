@@ -3,7 +3,7 @@ title: "Bellman equation"
 kind: concept
 days: [3]
 module: D.1.2
-by: [claude]
+by: [MT, claude]
 links:
   - to: value-function
     type: needs

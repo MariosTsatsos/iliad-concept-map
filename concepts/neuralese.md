@@ -2,9 +2,9 @@
 title: "Neuralese: reasoning without written steps"
 kind: problem
 days: [10]
-origin: chat
+origin: extension
 weight: 1
-by: [claude]
+by: [MT, claude]
 links:
   - to: steganography
     type: tool
@@ -29,4 +29,3 @@ Stub. Topic: neuralese and reasoning without chain of thought.
 
 
 ## Sources
-- Discussion during the course

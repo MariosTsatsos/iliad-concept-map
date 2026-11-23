@@ -2,6 +2,7 @@
 title: "AI identity"
 kind: concept
 days: [4]
+by: [MT]
 links:
   - to: corrigibility
     type: safety

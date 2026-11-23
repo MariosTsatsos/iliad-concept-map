@@ -2,9 +2,9 @@
 title: "Landauer limit"
 kind: concept
 days: [13]
-origin: chat
+origin: extension
 weight: 1
-by: [claude]
+by: [MT, claude]
 links:
   - to: entropy
     type: needs
@@ -28,4 +28,3 @@ This is the one place where the hardware temperature and information meet direct
 
 
 ## Sources
-- Discussion during the course

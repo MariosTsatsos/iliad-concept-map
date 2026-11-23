@@ -2,6 +2,7 @@
 title: "Data filtering"
 kind: concept
 days: [5]
+by: [MT]
 links:
   - to: pretraining-safety
     type: eg

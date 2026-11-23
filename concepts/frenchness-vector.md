@@ -3,7 +3,7 @@ title: "Why not add a 'Frenchness' vector?"
 kind: concept
 days: [10]
 origin: participant
-by: [claude]
+by: [MT, claude]
 links:
   - to: steering-vector
     type: needs
@@ -32,4 +32,3 @@ Open as stated. Which behaviours are one direction, and which need many componen
 
 
 ## Sources
-- Discussion during the course

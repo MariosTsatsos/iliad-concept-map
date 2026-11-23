@@ -2,8 +2,8 @@
 title: "Hidden progress"
 kind: concept
 days: [14]
-origin: chat
-by: [claude]
+origin: extension
+by: [MT, claude]
 links:
   - to: evals
     type: vs
@@ -29,4 +29,3 @@ A capability can appear suddenly in the loss or in an evaluation, with no visibl
 
 ## Sources
 - [Barak et al. (2022)](https://arxiv.org/abs/2207.08799)
-- Discussion during the course

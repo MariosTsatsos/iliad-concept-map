@@ -2,8 +2,8 @@
 title: "Induction head"
 kind: concept
 days: [10]
-origin: chat
-by: [claude]
+origin: extension
+by: [MT, claude]
 links:
   - to: k-q-composition
     type: needs

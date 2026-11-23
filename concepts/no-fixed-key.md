@@ -3,7 +3,7 @@ title: "No fixed key fits every context"
 kind: concept
 days: [10]
 origin: participant
-by: [claude]
+by: [MT, claude]
 links:
   - to: steganography
     type: safety
@@ -27,5 +27,4 @@ This is what the PRF scheme answers: the key is turned into fresh randomness for
 
 
 ## Sources
-- Discussion during the course
 - [Day 10 slides, Julian Schulz: Steganography and Backdoors](https://iliad-intensive.org/safety/steganography/)

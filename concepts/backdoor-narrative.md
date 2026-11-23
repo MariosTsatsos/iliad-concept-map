@@ -3,7 +3,7 @@ title: "From software backdoors to obfuscated weights, in five steps"
 kind: concept
 days: [8]
 origin: participant
-by: [claude]
+by: [MT, claude]
 links:
   - to: backdoor
     type: needs
@@ -36,4 +36,3 @@ Which step lets a result about circuits become a result about neural networks?
 
 ## Sources
 - Day 8 slides, George Robinson: Heuristic arguments and verification
-- Discussion during the course

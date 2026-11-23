@@ -50,7 +50,7 @@ link_types:
 # for cards of that origin; a card can override it with its own 'weight'.
 origins:
   participant: {label: Participant's own idea, weight: 3}
-  chat:        {label: Worked out in discussion, weight: 2}
+  extension:   {label: Developed beyond the lecture, weight: 2}
   notes:       {label: From the course material, weight: 2}
   claude:      {label: Added by Claude, weight: 1}
 

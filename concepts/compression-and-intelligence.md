@@ -3,7 +3,7 @@ title: "Compressibility and intelligence"
 kind: concept
 days: [7]
 origin: participant
-by: [claude]
+by: [MT, claude]
 links:
   - to: kolmogorov-complexity
     type: needs
@@ -36,4 +36,3 @@ If you can predict the next symbol perfectly, how many bits do you need to store
 
 ## Sources
 - [Day 7 notes and exercises, David Quarel: Solomonoff Induction and AIXI](https://iliad-intensive.org/agency/solomonoff-induction/)
-- Discussion during the course
