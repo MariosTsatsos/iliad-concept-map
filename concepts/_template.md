@@ -6,7 +6,7 @@ origin: participant    # participant | extension | notes | claude  (see README)
 by: [your-github-name]
 links:                 # link to at least one existing card (its file name without .md)
   - needs: bellman-equation
-  # link types: needs, eg, related, challenges (see README)
+  # link types: needs (builds on), eg (example of), related (similar to), challenges (problem for); see README
 ---
 
 ## In one sentence

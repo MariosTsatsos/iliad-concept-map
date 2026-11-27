@@ -1,156 +1,97 @@
 # Iliad concept map
 
-An interactive map of the ideas from the [Iliad Intensive](https://iliad-intensive.org/) (London, November 2026): the course material, and the questions and analogies that participants came up with while studying it.
+An interactive map of the ideas from the [Iliad Intensive](https://iliad-intensive.org/) (London, November 2026): the course material, the questions and analogies participants came up with, and the projects they proposed at the end.
 
-[![Preview of the concept map: 147 cards as nodes, coloured by course cluster, with the list of key ideas on the right](docs/preview.png)](https://mariostsatsos.github.io/iliad-concept-map/)
+[![Preview of the concept map: about 200 cards as nodes, coloured by course cluster](docs/preview.png)](https://mtsatsos.com/iliad-concept-map/)
 
-**Open the interactive map:** https://mariostsatsos.github.io/iliad-concept-map/
+**Open the map:** https://mtsatsos.com/iliad-concept-map/
 
-The picture above is a still image. Click it, or the link, to open the map itself.
-
-Each idea is one **card** (a small text file). Cards are joined by **links** of six types. The map draws every card as a node and every link as a line.
+Each idea is one **card**, a small text file in `concepts/`. Cards are joined by **links**. The map draws every card as a node and every link as a line.
 
 ## Reading the map
 
 | You see | It means |
 |---|---|
-| Node size | The number of cards the card is linked to. More links, larger node. |
-| Node colour | Course cluster: A alignment, B learning, C interpretability, D agency, E safety guarantees |
-| Ring around a node | A participant's own idea |
+| Colour | Course cluster: A alignment, B learning, C interpretability, D agency, E safety guarantees |
+| Size | Number of cards the card is linked to |
+| Ring | A participant's own idea |
 | Hollow node | Stub: nobody has written its one sentence yet |
-| Dashed line | Proposed link that no participant has confirmed yet. Every link drafted by Claude starts as proposed. |
-| Dashed ring | Island: a card with no links |
+| Dashed line | Proposed link, not yet confirmed |
+| Dotted line (open card only) | Close but not linked: a hint for a new link |
+| Small square (Projects on) | A project a participant proposed on the last day |
 
-Controls: hover over a node to see its title; click a node to read its card; click a line to see why two cards are linked; filter by day or by origin; tick **Most linked only** to see the large nodes alone; **Relax** shakes the map and lets it settle; drag a node and its neighbours follow; **Surprise me** (or the `r` key) opens a random card; `/` searches.
+Click a node to read its card: a refresher in one sentence, a twist, why it matters for safety, a quiz, and links to the slides and papers. Some cards have an interactive plot (**Try it**). Pick a day to see its slides, exercises and reading.
 
-## Exercises and reading for each day
+## Finding new connections
 
-Pick a day on the map to see its exercise notebooks, tools and reading. The list lives in `resources.yml`: one entry per link, with `kind` (`exercise`, `tool` or `reading`), `title`, `url` and `from` (the lecture file and page where the link was found). To add a link, add an entry under the day's number.
+**Arrange by** (top left of the map) moves the cards and lets them glide to new places:
 
-## How to add a card (a node)
+- **Links**: linked cards sit close.
+- **Words**: cards whose texts share uncommon words sit close, across days.
+- **Sources**: cards from the same day, or citing the same papers and files, sit close.
 
-You need a GitHub account and a browser. Nothing to install.
+Cards that end up side by side without a link are candidates for one. The open card shows its three closest unlinked cards as dotted lines, with the words or sources they share, and the home panel lists the closest unlinked pairs from different days. These are hints computed from the text, not claims.
 
-1. Open the map and click **Add a concept**. GitHub opens a new file that already contains the blank card.
-2. **Name the file.** Replace `new-concept.md` with the idea in lowercase words joined by hyphens, for example `loss-plateau.md`. The file name without `.md` is the card's **id**. Other cards use the id to link to yours.
-3. **Fill in the header** (the block between the two `---` lines). The attributes are listed in the next section. Only `title` is required.
-4. **Write the sentence** under `## In one sentence`, in your own words. The other sections are optional. A card with an empty sentence is shown as a hollow stub.
-5. **Link it** to at least one existing card (see "How to add a link").
-6. Click **Commit changes**, then **Propose changes**, then **Create pull request**. A check runs on the pull request (for a first-time contributor, GitHub may wait for the maintainer to approve the run). If it turns red, its log names the file and says what is wrong. Once the pull request is merged, the live map rebuilds within a few minutes.
+**Relax** shakes the map and lets it settle; drag a node and its neighbours follow.
 
-To **edit** an existing card: click its node, then **Edit this card on GitHub**, change the text, and commit in the same way.
+## Course material
 
-To **delete** a card: delete its file, and remove the links that point to it from other cards (the check lists them).
+`materials/` holds the slides, notes, exercise sheets and solutions of the Intensive, published with Iliad's permission. `materials/README.md` lists them by day, and the map links to them from each day and from the cards. Books and papers by other authors are linked, not copied.
 
-## Card attributes (the header)
+## Add or edit a card
+
+You need a GitHub account and a browser.
+
+1. Click **Add a concept** on the map. GitHub opens a new file with the blank card.
+2. Name the file in lowercase words joined by hyphens, for example `loss-plateau.md`. The name without `.md` is the card's id.
+3. Fill in the header and write the sentence under `## In one sentence`, in your own words.
+4. Link it to at least one existing card.
+5. Commit, then **Create pull request**. A check runs; once merged, the live map rebuilds in a few minutes.
+
+To edit a card, open it on the map and click **Edit this card on GitHub**.
 
 ```yaml
 ---
 title: "The loss plateau as latent heat"
-kind: concept
-days: [14]
-origin: participant
+kind: concept            # concept, problem or case
+days: [14]               # course days, without quotes
+origin: participant      # participant, extension, notes or claude
 by: [your-github-name]
 links:
   - needs: hidden-progress
+  - to: double-descent
+    type: related
+    note: "Why the two are similar."
+    proposed: true       # dashed until someone confirms it
 ---
 ```
 
-| Attribute | Required | Values | What it does on the map |
-|---|---|---|---|
-| `title` | yes | any text; put it in quotes if it contains `:` | The node's label |
-| `kind` | no, default `concept` | `concept` (idea, definition, result), `problem` (safety problem or failure mode), `case` (paper, incident, scenario, forecast, worked example) | Not drawn at present; kept for later use |
-| `days` | recommended | list of course day numbers without quotes, e.g. `[9]` or `[10, 13]` | Day filter; the first day sets the colour. A card with no day is grey and appears only under "All days". |
-| `origin` | no, default `notes` | `participant` (your own idea, question or analogy), `extension` (developed beyond the lecture), `notes` (from the course material), `claude` (added by Claude) | Badge on the card and the origin filter |
-| `by` | recommended | list of GitHub names | Credit line on the card |
-| `links` | recommended | see below | Lines to other cards |
-| `module` | no | course module code, e.g. `B.2` | Overrides the colour that `days` gives |
-| `aliases` | no | list of other names | Found by search |
-| `load_bearing` | no | `true` | Badge "load-bearing" |
+Optional attributes: `module` (overrides the colour), `aliases` (found by search), `load_bearing: true`, `plot` (a page in `site/plots/`). Sections: `In one sentence`, `Twist`, `Why it matters for safety`, `Open question`, `Quiz`, `Notes`, `Sources`.
 
-## Card sections (the body)
-
-| Heading | What to write |
-|---|---|
-| `## In one sentence` | The idea, in your own words. Without it the card is a stub. |
-| `## Twist` | What surprised you or is counter-intuitive. |
-| `## Why it matters for safety` | One or two lines. |
-| `## Open question` | What you could not answer. |
-| `## Quiz` | A question a classmate can answer in a minute. |
-| `## Notes` | Anything else, for example the answer to the quiz. |
-| `## Sources` | A list. Link the module page or paper; do not paste slides. |
-
-Use these headings (capital letters do not matter). A heading that is not in this list is ignored with a warning, and its text does not appear on the map. Any section can be left empty or left out.
-
-An attribute name that is not in the table above (for example a misspelt `orgin`) is also ignored with a warning, so read the check's log even when it is green.
-
-## How to add a link
-
-A link is written on **one** of the two cards, in its `links:` list. The target is the other card's id (its file name without `.md`).
-
-Short form:
-
-```yaml
-links:
-  - needs: entropy
-  - eg: zero-knowledge-proof
-```
-
-Long form, when you want to say why:
-
-```yaml
-links:
-  - to: double-descent
-    type: needs
-    note: "The analogy is about the peak at d = n."
-    proposed: true      # optional: draws a dashed line until someone confirms it
-```
-
-| Type | Read "A, type, B" as | Arrow |
+| Type | Shown as | Read "A, type, B" as |
 |---|---|---|
-| `needs` | A needs B: understand B first | A to B |
-| `eg` | A is an example of B | A to B |
-| `related` | A and B share an idea, a method or a concern; the note says which | none |
-| `challenges` | A is a problem for B; the note says why | A to B |
+| `needs` | builds on | A builds on B: read B first |
+| `eg` | example of | A is an example of B |
+| `related` | similar to | A and B share an idea, method or concern; the note says which |
+| `challenges` | problem for | A is a problem for B; the note says why |
 
-To **confirm** a dashed link, delete its `proposed: true` line. To **reject** it, delete the link and say why in the pull request.
+To confirm a dashed link, delete its `proposed: true` line. Participants' projects live in `projects.yml` (title and area only). Days, clusters and link types live in `course.yml`; links per day in `resources.yml`.
 
-## How to add a new tag value
-
-The allowed values live in `course.yml`. Colours live in `site/template.html`.
-
-- A new **origin**: add a line under `origins:` with a `label`.
-- A new **link type**: add a line under `link_types:` with `label`, `directed` (`true` draws an arrow) and `help`. Then add a colour for it in `site/template.html` (search for `--e-needs` and add `--e-yourtype` next to it in each of the three places it appears). The card panel then shows the link under its `label`; to give it two phrasings, one for each direction, add a line to the `REL` table in the same file.
-- A new **kind**: add a line under `kinds:`. Kinds are stored in the cards but not drawn at present.
-- A new **day**: add a line under `days:`. Give it a `module` (such as `B.2`) or a `cluster` letter, otherwise its cards are grey.
-
-## Run it locally (optional)
+## Run it locally
 
 ```sh
 pip install -r requirements.txt
-python scripts/build.py --check  # checks every card; prints errors with file names
-python scripts/build.py          # writes site/dist/index.html; open it in a browser
+python scripts/build.py --check   # checks every card
+python scripts/build.py           # writes site/dist/index.html
 ```
 
-## What is in here
-
-- `concepts/`: one Markdown file per card (`_template.md` is the blank card)
-- `course.yml`: days, lecturers, clusters, link types, kinds, origins
-- `scripts/build.py`: checks the cards, builds the graph with networkx, writes the page
-- `site/template.html`: the interactive page (Cytoscape.js)
-- `.github/workflows/`: the check on pull requests, and the publishing of the live map after every change to `main`
-- `scripts/publish.sh`: puts the built page on the `gh-pages` branch, which GitHub Pages serves at the address above
-- `docs/preview.png`: the still image at the top of this page (a screenshot, replaced by hand)
-
-No slides, PDFs or exercise sheets are stored here. Cards link to the module pages and papers.
+`scripts/build.py` checks the cards, builds the graph with networkx and computes the three layouts and the nearness of cards. `site/template.html` is the page (Cytoscape.js). On every push to `main`, the workflow in `.github/workflows/` builds the page and `scripts/publish.sh` puts it, with `materials/`, on the `gh-pages` branch that GitHub Pages serves.
 
 ## Authors
 
-- Marios Tsatsos ([@MariosTsatsos](https://github.com/MariosTsatsos)): the ideas marked "Participant's own idea" and the direction of the map. In the `by:` line of a card he appears as `MT`.
-- Claude (Anthropic): the code, the wording of every card that lists `claude` in its `by:` line, and the first draft of the links, all marked as proposed. Edit them freely.
-
-Every card names its authors in `by:`. Add your name when you edit one.
+- Marios Tsatsos ([@MariosTsatsos](https://github.com/MariosTsatsos)): the ideas marked "Participant's own idea" and the direction of the map. In `by:` lines he is `MT`.
+- Claude (Anthropic): the code, the wording of every card that lists `claude` in `by:`, and the first draft of the links, all marked as proposed. Edit them freely.
 
 ## Licence
 
-Course material is by the Iliad team, published at [iliad-intensive.org](https://iliad-intensive.org/) under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Cards are CC BY 4.0, by the people named in each card's `by:` field. Code is MIT (see `LICENSE`).
+Course material is by the Iliad team and the lecturers; see [iliad-intensive.org](https://iliad-intensive.org/). Cards are CC BY 4.0, by the people named in each card's `by:` field. Code is MIT (see `LICENSE`).

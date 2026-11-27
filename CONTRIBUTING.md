@@ -54,7 +54,7 @@ links:
 ## Sources
 ```
 
-Link types: `needs`, `eg` (example of), `related` (related to), `challenges`. A link goes on one card only; the map draws it both ways.
+Link types, with the label the map shows: `needs` (builds on), `eg` (example of), `related` (similar to), `challenges` (problem for). A link goes on one card only; the map draws it both ways.
 
 All attributes and their allowed values are listed in [README.md](README.md).
 

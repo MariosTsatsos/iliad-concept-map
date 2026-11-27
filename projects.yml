@@ -1,0 +1,65 @@
+# Projects proposed by participants on proposal day 2 (27 November 2026): working titles and areas only.
+# Names and document links are left out on purpose. 'links' are the cards each project builds on,
+# drafted by Claude from the title alone; correct them freely. Shown on the map when "Projects" is ticked.
+note: "A project proposed by a participant on proposal day 2 (27 November 2026). Only the working title and the area are shown. MT's own proposal is the ringed card \"Speed limits for unlearning recovery\"."
+areas:
+  Physics for deep learning: {cluster: B}
+  Mysteries of deep learning: {cluster: B}
+  Singular learning theory: {cluster: B}
+  Training dynamics: {cluster: B}
+  Data attribution: {cluster: B}
+  Computational mechanics: {cluster: C}
+  World models: {cluster: D}
+  General: {cluster: "0"}
+projects:
+  - {title: "Belief states about two-player hidden information games", area: World models, links: [belief-state, nash-equilibrium]}
+  - {title: "Is training dynamics for a deep linear network integrable?", area: Training dynamics, links: [deep-linear-network, conserved-quantity]}
+  - {title: "Testing SLT predictions in training dynamics of tree tensor networks", area: Singular learning theory, links: [learning-coefficient, training-dynamics]}
+  - {title: "Quantum math meets self-destructing models", area: Singular learning theory, links: [degeneracy, gradient-routing]}
+  - {title: "When does data attribution explain learning in GRPO?", area: Data attribution, links: [data-attribution, rlvr]}
+  - {title: "The local learning coefficient as a marker of rule learning in in-context causal inference", area: Singular learning theory, links: [learning-coefficient, in-context-learning]}
+  - {title: "Exact model verification", area: Training dynamics, links: [training-dynamics, deployed-vs-verified]}
+  - {title: "Mapping AI lab goals and oversight", area: General, links: [scalable-oversight, ai-alignment]}
+  - {title: "Shared coarse geometry, different fine details: do concept distances across models and training predict errors?", area: Training dynamics, links: [representational-alignment, training-dynamics]}
+  - {title: "Reverse causal states in masked world models: storing the future and inferring without it", area: Computational mechanics, links: [causal-states, world-models]}
+  - {title: "Shared blind spots: predicting when agent discussion overturns a correct majority", area: World models, links: [debate, scalable-oversight]}
+  - {title: "Attributing collective behaviour to training experience", area: Data attribution, links: [data-attribution, nash-equilibrium]}
+  - {title: "Logit monitoring for emergent misalignment", area: Training dynamics, links: [emergent-misalignment, evals]}
+  - {title: "Can compression predict the mathematical ideas an AI learns?", area: Mysteries of deep learning, links: [program-synthesis, compression-and-intelligence]}
+  - {title: "What does a clean safety record tell us about an AI assistant?", area: Singular learning theory, links: [evals, bayesian-update]}
+  - {title: "AlgZoo and bilinear forms", area: Singular learning theory, links: [learning-coefficient, parameter-function-map]}
+  - {title: "Do agents lucid dream?", area: Computational mechanics, links: [ha-schmidhuber, world-models]}
+  - {title: "Composition and context: how post-training deploys pretrained atomic units", area: Training dynamics, links: [post-training, training-dynamics]}
+  - {title: "The learning theory of algebraic structures", area: Mysteries of deep learning, links: [hardness-of-learning, sparse-parity]}
+  - {title: "A data-derived stagewise approximation score", area: Training dynamics, links: [saddle-to-saddle, three-mysteries]}
+  - {title: "Algorithms for process discovery", area: Computational mechanics, links: [causal-states, hidden-markov-model]}
+  - {title: "How do transformers compress their world models under per-token compute limits?", area: Computational mechanics, links: [belief-state-geometry, compression-and-intelligence]}
+  - {title: "A free energy formalisation of the factored world hypothesis", area: Computational mechanics, links: [beliefs-factor, free-energy-formula]}
+  - {title: "Allegory of the cave: preventing misaligned AI from knowing when it is deployed", area: Computational mechanics, links: [agent-sandboxing, interface-vs-mechanism]}
+  - {title: "Platonic representation geometry and limits of unlearning", area: Mysteries of deep learning, links: [representational-alignment, speed-limits-unlearning-recovery]}
+  - {title: "Data attribution without model weights", area: Data attribution, links: [data-attribution, influence-functions]}
+  - {title: "Quantitative stability in reinforcement learning via optimal transport", area: Mysteries of deep learning, links: [policy, fokker-planck]}
+  - {title: "Towards identifying sub-programs within transformers: a planted-program test", area: Computational mechanics, links: [program-synthesis, induction-head]}
+  - {title: "Born or made? Tracing the origins of LLM advice personas", area: Data attribution, links: [personas, data-attribution]}
+  - {title: "From gradient steps to program steps", area: Training dynamics, links: [program-synthesis, training-dynamics]}
+  - {title: "How many counterexamples does it take to unlearn a shortcut?", area: Singular learning theory, links: [shortcut-learning, bayesian-phase-transition]}
+  - {title: "Can interpretability help us understand natural language?", area: Mysteries of deep learning, links: [linear-representation, sparse-autoencoder]}
+  - {title: "Langevin dynamics on zero sets of piecewise-analytic (ReLU) losses", area: Singular learning theory, links: [posterior-sampling-sgld, degeneracy]}
+  - {title: "From belief to action: do LLM agents act on in-context belief states about their opponents?", area: Computational mechanics, links: [belief-state, in-context-learning]}
+  - {title: "pCFG belief states", area: Computational mechanics, links: [belief-state, belief-state-geometry]}
+  - {title: "When can we trust susceptibilities?", area: Data attribution, links: [susceptibility, localisation]}
+  - {title: "Finding belief states for grammar in LLMs", area: Computational mechanics, links: [belief-state-geometry, linear-representation]}
+  - {title: "Data as a drive: how changing data creates, destroys and recombines saddles in tensor networks", area: Training dynamics, links: [saddle-to-saddle, hessian]}
+  - {title: "Predicting learning transitions with SLT", area: Singular learning theory, links: [bayesian-phase-transition, learning-coefficient]}
+  - {title: "World models for AI safety: reliable testing and bounds", area: World models, links: [agent-sandboxing, world-models]}
+  - {title: "Belief-state geometry in LLMs reading natural language", area: Computational mechanics, links: [belief-state-geometry, residual-stream]}
+  - {title: "Do LLMs simulate other agents?", area: World models, links: [world-models, personas]}
+  - {title: "How does an LLM's grasp of deep latent features degrade when input tokens are corrupted, and do activation autocorrelations detect it?", area: Computational mechanics, links: [belief-state-geometry, mechanistic-anomaly-detection]}
+  - {title: "The agent-environment boundary: internal and external states in predictive transducer models", area: World models, links: [epsilon-transducer, beliefs-factor, agent-boundaries]}
+  - {title: "Can compositional world models correct their own errors?", area: World models, links: [world-models, beliefs-factor]}
+  - {title: "Escape volume geometry of the loss landscape", area: Training dynamics, links: [saddle-to-saddle, hessian]}
+  - {title: "Large deviations theory for stochastic gradient descent", area: Physics for deep learning, links: [three-temperatures, bayes-vs-sgd]}
+  - {title: "Subliminal learning: how a trait installation shapes subliminal data", area: Data attribution, links: [subliminal-learning, bif-subliminal-learning]}
+  - {title: "Decoder-aware influence for structured-output models", area: Data attribution, links: [influence-functions]}
+  - {title: "Which two reminders reveal what a model still knows?", area: Training dynamics, links: [speed-limits-unlearning-recovery, evals]}
+  - {title: "Capturing knowledge representation in Euclidean structures: towards a Yoneda philosophy in machine learning", area: Mysteries of deep learning, links: [representational-alignment, linear-representation]}

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One example's weight β and the loss surface · Iliad concept map</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@600&display=swap">
+<style>
+  :root { --bg: #f3f4f7; --panel: #fff; --ink: #161a22; --muted: #5d6676; --line: #d9dde5; --accent: #2c3fd1; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #0f1217; --panel: #161a21; --ink: #e7eaf0; --muted: #9ba4b3; --line: #293040; --accent: #8796ff; color-scheme: dark; } }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 14px/1.5 "IBM Plex Sans", system-ui, sans-serif; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 18px 16px 30px; display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 16px; }
+  h1 { font: 600 21px/1.25 "IBM Plex Serif", Georgia, serif; margin: 0 0 6px; grid-column: 1 / -1; }
+  .lead { grid-column: 1 / -1; margin: 0; color: var(--muted); max-width: 900px; }
+  #plot { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; height: min(72vh, 640px); min-height: 380px; }
+  aside { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; }
+  h2 { font: 500 10.5px "IBM Plex Sans", sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 14px 0 6px; }
+  h2:first-child { margin-top: 0; }
+  label { display: flex; gap: 8px; align-items: center; margin: 6px 0; cursor: pointer; }
+  input[type=range] { width: 100%; }
+  .beta { font: 600 20px "IBM Plex Sans", sans-serif; }
+  table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+  td { padding: 3px 0; vertical-align: top; } td:last-child { text-align: right; }
+  .k { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+  .note { color: var(--muted); font-size: 13px; }
+  a { color: var(--accent); }
+  @media (max-width: 860px) { .wrap { grid-template-columns: minmax(0, 1fr); } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>One example's weight β and the loss surface</h1>
+  <p class="lead">Two weights, w1 and w2. The loss is L(w; β) = (all other data) + β × (loss on example i). The other data make a bowl centred at (−1, −0.5). Example i wants w1 + w2 = 2. β is the weight of example i: β = 1 is normal training, β = 0 removes the example. Move β and watch the surface tilt and bend, and the minimum move. Drag the plot to turn it.</p>
+  <div id="plot" role="img" aria-label="Rotatable 3D loss surface over w1 and w2"></div>
+  <aside>
+    <h2>Weight of example i</h2>
+    <div class="beta">β = <span id="bv">1.00</span></div>
+    <input id="beta" type="range" min="0" max="3" step="0.05" value="1" aria-label="beta">
+    <label><input type="checkbox" id="cloud"> Show the posterior cloud (Bayesian view)</label>
+    <label><input type="checkbox" id="flat"> Give H a zero (one flat direction in the other data)</label>
+    <h2>Readout</h2>
+    <table>
+      <tr><td><span class="k" style="background:#d9485f"></span>True minimum</td><td id="r-true"></td></tr>
+      <tr><td><span class="k" style="background:#2f7de1"></span>Influence-function prediction</td><td id="r-if"></td></tr>
+      <tr><td><span class="k" style="background:#7b4fd6"></span>Centre of the cloud</td><td id="r-cloud">off</td></tr>
+      <tr><td>Bends of H (eigenvalues)</td><td id="r-h"></td></tr>
+    </table>
+    <h2>What to look for</h2>
+    <p class="note">At β = 1 the red and blue points coincide. The influence function predicts the minimum by a straight line from β = 1 (a first-order step, −H⁻¹ × gradient of example i's loss). The grey curve is the true path of the minimum; the further β is from 1, the more the line and the curve part.</p>
+    <p class="note">The cloud is the posterior, density ∝ exp(−L). The Bayesian influence function asks how its centre moves with β. With H given a zero and β = 0 there is no single minimum: the floor is a line, H cannot be inverted, and the cloud spreads along it (cut off by the edge of the plot).</p>
+    <p class="note">Caveat: true as long as observable = loss.</p>
+    <p class="note"><a href="../#bayesian-influence-function">Back to the card on the map</a></p>
+  </aside>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.27.0/plotly.min.js"></script>
+<script>
+(function () {
+  if (typeof Plotly === "undefined") { document.getElementById("plot").textContent = "The plotting library did not load. Check your connection and reload."; return; }
+  const Y = 2, C = [-1, -0.5], ZMAX = 14;
+  const $ = (id) => document.getElementById(id);
+  const A = () => ($("flat").checked ? [2, 0] : [2, 1]);              // bends of the other data's bowl
+  function loss(w1, w2, b) { const a = A(), r = Y - w1 - w2; return 0.5 * (a[0] * (w1 - C[0]) ** 2 + a[1] * (w2 - C[1]) ** 2) + b * 0.5 * r * r; }
+  // H = [[a1 + b, b], [b, a2 + b]]; the minimum solves H w = (a1 c1 + b Y, a2 c2 + b Y)
+  function solve(b) {
+    const a = A(), m11 = a[0] + b, m12 = b, m22 = a[1] + b, r1 = a[0] * C[0] + b * Y, r2 = a[1] * C[1] + b * Y, det = m11 * m22 - m12 * m12;
+    const tr = m11 + m22, disc = Math.sqrt(Math.max(0, tr * tr / 4 - det));
+    return { e1: tr / 2 + disc, e2: tr / 2 - disc, w: Math.abs(det) < 1e-9 ? null : [(r1 * m22 - m12 * r2) / det, (m11 * r2 - m12 * r1) / det] };
+  }
+  // influence function: w*(beta) ≈ w*(1) + (beta - 1) × (−H⁻¹ ∇L_i), everything at beta = 1
+  function ifPred(b) {
+    const s = solve(1); if (!s.w) return null;
+    const a = A(), m11 = a[0] + 1, m12 = 1, m22 = a[1] + 1, det = m11 * m22 - m12 * m12;
+    const res = Y - s.w[0] - s.w[1], g = [-res, -res];
+    const ip = [-(m22 * g[0] - m12 * g[1]) / det, -(-m12 * g[0] + m11 * g[1]) / det];
+    return [s.w[0] + (b - 1) * ip[0], s.w[1] + (b - 1) * ip[1]];
+  }
+  const xs = []; for (let v = -3; v <= 3.0001; v += 0.12) xs.push(+v.toFixed(2));
+  const fmt = (p) => (p ? `(${p[0].toFixed(2)}, ${p[1].toFixed(2)})` : "none");
+  const dark = matchMedia("(prefers-color-scheme: dark)").matches;
+  const ink = dark ? "#e7eaf0" : "#161a22", grid = dark ? "#293040" : "#d9dde5";
+  function draw(keepCamera) {
+    const b = +$("beta").value; $("bv").textContent = b.toFixed(2);
+    const Z = xs.map((w2) => xs.map((w1) => Math.min(ZMAX, loss(w1, w2, b))));   // capped at ZMAX; the cap is drawn transparent
+    const s = solve(b), ip = ifPred(b);
+    const path = []; for (let t = 0.05; t <= 3.0001; t += 0.05) { const q = solve(t); if (q.w) path.push(q.w); }
+    const z = (p) => Math.min(ZMAX, loss(p[0], p[1], b)) + 0.6;
+    const data = [
+      { type: "surface", x: xs, y: xs, z: Z, surfacecolor: Z, cmin: 0, cmax: ZMAX, colorscale: [[0, "#0f9d8f"], [0.35, "#7cc6b4"], [0.7, "#e0b62a"], [1, "#fbf3df"]], showscale: false,
+        opacityscale: [[0, 0.93], [0.985, 0.93], [1, 0]],
+        contours: { z: { show: true, usecolormap: true, project: { z: true }, width: 1 } }, hovertemplate: "w1 %{x:.2f}<br>w2 %{y:.2f}<br>L %{z:.2f}<extra></extra>" },
+      { type: "scatter3d", mode: "lines", x: path.map((p) => p[0]), y: path.map((p) => p[1]), z: path.map((p) => loss(p[0], p[1], b) + 0.15), line: { color: "#7d8796", width: 5 }, name: "path of the minimum", hoverinfo: "skip" },
+    ];
+    if (s.w) data.push({ type: "scatter3d", mode: "markers", x: [s.w[0]], y: [s.w[1]], z: [z(s.w)], marker: { size: 9, color: "#d9485f", line: { color: "#ffffff", width: 1 } }, name: "true minimum" });
+    if (ip) data.push({ type: "scatter3d", mode: "markers", x: [ip[0]], y: [ip[1]], z: [z(ip)], marker: { size: 9, color: "#2f7de1", symbol: "diamond", line: { color: "#ffffff", width: 1 } }, name: "IF prediction" });
+    if ($("cloud").checked) {
+      let lmin = Infinity; Z.forEach((r) => r.forEach((v) => { lmin = Math.min(lmin, v); }));
+      let m = 0, mx = 0, my = 0;
+      const D = xs.map((w2) => xs.map((w1) => { const d = Math.exp(-(loss(w1, w2, b) - lmin)); m += d; mx += d * w1; my += d * w2; return d; }));
+      const cm = [mx / m, my / m];
+      // the cloud is drawn only where it has some density, just above the surface
+      data.push({ type: "surface", x: xs, y: xs, z: Z.map((r, i) => r.map((v, j) => (D[i][j] < 0.02 ? null : v + 0.1))), surfacecolor: D, cmin: 0, cmax: 1,
+        colorscale: [[0, "rgba(123,79,214,0)"], [1, "rgba(123,79,214,1)"]], opacityscale: [[0, 0], [0.15, 0.25], [1, 0.95]], showscale: false, hoverinfo: "skip", name: "posterior cloud" });
+      data.push({ type: "scatter3d", mode: "markers", x: [cm[0]], y: [cm[1]], z: [z(cm) + 0.2], marker: { size: 8, color: "#7b4fd6", symbol: "cross" }, name: "centre of the cloud" });
+      $("r-cloud").textContent = fmt(cm);
+    } else $("r-cloud").textContent = "off";
+    $("r-true").textContent = s.w ? fmt(s.w) : "no single minimum";
+    $("r-if").textContent = fmt(ip);
+    $("r-h").textContent = `${s.e1.toFixed(2)} and ${s.e2.toFixed(2)}`;
+    const axis = (t) => ({ title: { text: t }, color: ink, gridcolor: grid, zerolinecolor: grid, backgroundcolor: "rgba(0,0,0,0)" });
+    const el = $("plot");
+    const layout = { margin: { l: 0, r: 0, t: 0, b: 0 }, paper_bgcolor: "rgba(0,0,0,0)", showlegend: false, font: { family: "IBM Plex Sans, sans-serif", color: ink },
+      scene: { xaxis: axis("w1"), yaxis: axis("w2"), zaxis: { ...axis("L"), range: [0, ZMAX] }, aspectmode: "manual", aspectratio: { x: 1, y: 1, z: 0.65 },
+        camera: { eye: { x: 1.3, y: -1.25, z: 1.55 } }, uirevision: "keep" }, uirevision: "keep" };
+    Plotly.react(el, data, layout, { responsive: true, displaylogo: false });
+  }
+  ["beta", "cloud", "flat"].forEach((id) => $(id).addEventListener("input", () => draw(true)));
+  draw(false);
+})();
+</script>
+</body>
+</html>

@@ -1,9 +1,14 @@
 #!/usr/bin/env python3
 """Build the Iliad concept map.
 
-Reads course.yml and every card in concepts/*.md, checks them, builds a
-networkx graph, and writes site/dist/index.html and site/dist/graph.json.
-The page loads Cytoscape.js and its fonts from public CDNs.
+Reads course.yml, resources.yml, materials/index.yml, projects.yml and every card in
+concepts/*.md, checks them, builds a networkx graph, and writes site/dist/index.html,
+site/dist/graph.json and site/dist/plots/. The page loads Cytoscape.js and its fonts
+from public CDNs.
+
+Besides the layout by links, the build computes two more layouts, by shared words and by
+shared sources, and for every card the cards closest to it in each sense. The page uses
+them for "Arrange by" and for the dotted "close but not linked" lines.
 
     python scripts/build.py           # check and build
     python scripts/build.py --check   # check only; exit 1 on errors (used in CI)
@@ -15,7 +20,9 @@ import datetime as dt
 import json
 import math
 import re
+import shutil
 import sys
+from collections import Counter
 from pathlib import Path
 
 import networkx as nx
@@ -24,6 +31,8 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent
 CONCEPTS = ROOT / "concepts"
 SITE = ROOT / "site"
+PLOTS = SITE / "plots"
+RES_KINDS = ("material", "exercise", "tool", "reading")
 
 SECTIONS = {
     "in one sentence": "statement",
@@ -35,7 +44,7 @@ SECTIONS = {
     "notes": "notes",
     "sources": "sources",
 }
-KNOWN_KEYS = {"title", "kind", "days", "origin", "by", "links", "module", "aliases", "load_bearing"}
+KNOWN_KEYS = {"title", "kind", "days", "origin", "by", "links", "module", "aliases", "load_bearing", "plot"}
 ID_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 COMMENT_RE = re.compile(r"<!--.*?-->", re.S)
 
@@ -133,8 +142,8 @@ def load(probs: Problems):
                 if not isinstance(item, dict) or not all(item.get(k) for k in ("kind", "title", "url")):
                     probs.error(where, "needs 'kind', 'title' and 'url'")
                     continue
-                if item["kind"] not in ("exercise", "tool", "reading"):
-                    probs.error(where, f"unknown kind '{item['kind']}' (use exercise, tool or reading)")
+                if item["kind"] not in RES_KINDS:
+                    probs.error(where, f"unknown kind '{item['kind']}' (use {', '.join(RES_KINDS)})")
                     continue
                 if not str(item["url"]).startswith(("http://", "https://")):
                     probs.error(where, "url must start with http:// or https://")
@@ -142,7 +151,38 @@ def load(probs: Problems):
                 resources.setdefault(str(day), []).append(
                     {"kind": item["kind"], "title": str(item["title"]), "url": str(item["url"]), "from": str(item.get("from") or "")}
                 )
+    # uploaded course material (materials/index.yml), listed first under each day
+    mat_path = ROOT / "materials" / "index.yml"
+    if mat_path.exists():
+        for n, item in enumerate(yaml.safe_load(mat_path.read_text(encoding="utf-8")) or [], 1):
+            where = f"materials/index.yml, entry {n}"
+            if not isinstance(item, dict) or not all(item.get(k) for k in ("day", "title", "path")):
+                probs.error(where, "needs 'day', 'title' and 'path'")
+                continue
+            if not (ROOT / item["path"]).is_file():
+                probs.error(where, f"file {item['path']} does not exist")
+                continue
+            size = f"{item['bytes'] / 1e6:.1f} MB" if item.get("bytes") else ""
+            resources.setdefault(str(item["day"]), []).insert(
+                sum(1 for x in resources.get(str(item["day"]), []) if x["kind"] == "material"),
+                {"kind": "material", "title": str(item["title"]), "url": str(item["path"]), "from": size})
     course["resources"] = resources
+
+    # participants' projects (projects.yml): titles and areas only
+    projects = []
+    proj_path = ROOT / "projects.yml"
+    if proj_path.exists():
+        raw = yaml.safe_load(proj_path.read_text(encoding="utf-8")) or {}
+        areas = raw.get("areas") or {}
+        for n, item in enumerate(raw.get("projects") or [], 1):
+            where = f"projects.yml, project {n}"
+            if not isinstance(item, dict) or not item.get("title") or item.get("area") not in areas:
+                probs.error(where, f"needs a 'title' and an 'area' from: {', '.join(areas)}")
+                continue
+            projects.append({"id": f"project-{n}", "title": str(item["title"]).strip(), "area": item["area"],
+                             "cluster": str(areas[item["area"]].get("cluster", "")), "links": list(item.get("links") or [])})
+        course["project_note"] = str(raw.get("note") or "")
+    course["projects"] = projects
 
     cards: dict[str, dict] = {}
     for path in sorted(CONCEPTS.glob("*.md")):
@@ -205,6 +245,16 @@ def load(probs: Problems):
             if link:
                 links.append(link)
         sections = parse_sections(body, where, probs)
+        plots = []
+        raw_plot = fm.get("plot") or []
+        for pl in (raw_plot if isinstance(raw_plot, list) else [raw_plot]):
+            if not isinstance(pl, dict) or not pl.get("file") or not pl.get("title"):
+                probs.error(where, "plot needs 'title' and 'file' (a file in site/plots/)")
+                continue
+            if not (PLOTS / str(pl["file"])).is_file():
+                probs.error(where, f"plot file site/plots/{pl['file']} does not exist")
+                continue
+            plots.append({"title": str(pl["title"]), "url": f"plots/{pl['file']}"})
         cards[cid] = {
             "id": cid,
             "title": title,
@@ -218,6 +268,7 @@ def load(probs: Problems):
             "aliases": fm.get("aliases") or [],
             "sections": sections,
             "status": "draft" if sections["statement"] else "stub",
+            "plots": plots,
             "links": links,
             "path": f"concepts/{path.name}",
         }
@@ -260,6 +311,11 @@ def build_graph(course: dict, cards: dict, probs: Problems) -> nx.MultiDiGraph:
     for cid, card in cards.items():
         if card["status"] == "stub":
             probs.warn(card["path"], "stub: '## In one sentence' is empty")
+    for p in course.get("projects", []):
+        bad = [t for t in p["links"] if t not in cards]
+        if bad:
+            probs.error("projects.yml", f"'{p['title']}' links to {', '.join(bad)}, which are not cards")
+        p["links"] = [t for t in p["links"] if t in cards]
     return g
 
 
@@ -313,6 +369,208 @@ def layout(g: nx.MultiDiGraph) -> dict[str, tuple[float, float]]:
     return pos
 
 
+# ---------- nearness: shared words and shared sources ----------
+STOP = set("""a about above after again against all also am an and any are as at be because been before being below
+between both but by can could did do does doing down during each either else even ever every few for from further had
+has have having he her here hers him his how however i if in into is it its itself just less let like may me might
+more most much must my no nor not now of off often on once one only or other ought our ours out over own per quite
+rather same she should since so some such than that the their theirs them then there these they this those though
+three through thus to too two under until up upon us use used uses using very via was we were what when where whether
+which while who whom whose why will with within without would yet you your yours itself themselves first second
+new get gets got make makes made way ways thing things something anything everything see seen say says said give
+gives given take takes taken lot well many card cards day days lecture lectures note notes slide slides question
+questions quiz answer sentence page pages example examples also e g i e eg ie etc versus vs exercise exercises
+part parts chapter section sections remark called call known called kind kinds same different another
+still together large small big break least open time times set group pass number unit network networks neural show
+shows find finds work works good better best right hard easy far whole often exact exactly simple simply way
+change changes changed law laws""".split())
+WORD_RE = re.compile(r"[a-z][a-z0-9]+(?:-[a-z0-9]+)*")
+URL_RE = re.compile(r"\((?:https?://|materials/|plots/)[^)\s]+\)")
+
+
+def stem(w: str) -> str:
+    w = re.sub(r"(?<=[a-z]{3})iz(e|ed|es|ing|ation|ations)$", r"is\1", w)
+    if len(w) > 4 and w.endswith("ies"):
+        return w[:-3] + "y"
+    if len(w) > 3 and w.endswith("s") and not w.endswith(("ss", "us", "is")):
+        return w[:-1]
+    return w
+
+
+def words_of(card: dict) -> Counter:
+    sec = card["sections"]
+    c: Counter = Counter()
+    def add(text: str, weight: float) -> None:
+        text = URL_RE.sub(" ", text.lower())
+        for tok in WORD_RE.findall(text):
+            for part in tok.split("-") + ([tok] if "-" in tok else []):
+                if len(part) >= 3 and part not in STOP and not part.isdigit():
+                    c[stem(part)] += weight
+    add(card["title"], 3.0)
+    add(" ".join(map(str, card["aliases"])), 2.0)
+    for k in ("statement", "twist", "safety", "question", "selftest", "notes"):
+        add(sec.get(k, ""), 1.0)
+    return c
+
+
+ARXIV_RE = re.compile(r"arxiv\.org/(?:abs|pdf)/(\d{4}\.\d{4,5})")
+LINK_RE = re.compile(r"\[([^\]]+)\]\(((?:https?://|materials/)[^)\s]+)\)")
+
+
+def sources_of(card: dict, course: dict) -> dict[str, str]:
+    """Features a card shares with others: its days, the module, and every paper, page or file it cites.
+    Maps a feature key to a readable label."""
+    out: dict[str, str] = {}
+    for d in card["days"]:
+        out[f"day:{d}"] = f"Day {d}"
+        lec = (course["days"].get(d) or {}).get("lecturer")
+        if lec:
+            out[f"lecturer:{lec}"] = f"lectures by {lec}"
+    for label, url in LINK_RE.findall(card["sections"].get("sources", "")):
+        m = ARXIV_RE.search(url)
+        key = f"arxiv:{m.group(1)}" if m else re.sub(r"^https?://(www\.)?", "", url).split("#")[0].rstrip("/")
+        out[key] = label if len(label) <= 70 else label[:67] + "..."
+    return out
+
+
+def tfidf(feats: dict[str, Counter], min_df: int = 2, max_df_frac: float = 0.2) -> dict[str, dict[str, float]]:
+    n = len(feats)
+    df: Counter = Counter()
+    for f in feats.values():
+        df.update(set(f))
+    vecs = {}
+    for cid, f in feats.items():
+        v = {t: w * math.log(n / df[t]) for t, w in f.items() if min_df <= df[t] <= max_df_frac * n}
+        norm = math.sqrt(sum(x * x for x in v.values())) or 1.0
+        vecs[cid] = {t: x / norm for t, x in v.items()}
+    return vecs
+
+
+def nearest(vecs: dict[str, dict[str, float]], k: int, labels=None) -> dict[str, list]:
+    """For each card the k most similar cards (cosine), with the three shared features that count most."""
+    inv: dict[str, list] = {}
+    for cid, v in vecs.items():
+        for t, x in v.items():
+            inv.setdefault(t, []).append((cid, x))
+    out = {}
+    for cid, v in vecs.items():
+        acc: Counter = Counter()
+        why: dict[str, Counter] = {}
+        for t, x in v.items():
+            for other, y in inv[t]:
+                if other != cid:
+                    acc[other] += x * y
+                    why.setdefault(other, Counter())[t] += x * y
+        best = []
+        for other, sc in acc.most_common(k):
+            if sc < 0.04:
+                break
+            terms = [t for t, _ in why[other].most_common(3)]
+            if labels:
+                terms = [labels.get(t, t) for t in terms]
+            best.append([other, round(sc, 3), terms])
+        out[cid] = best
+    return out
+
+
+def proximity(cards: dict, course: dict) -> dict:
+    words = nearest(tfidf({cid: words_of(c) for cid, c in cards.items()}), 8)
+    labels: dict[str, str] = {}
+    sfeats = {}
+    for cid, c in cards.items():
+        f = sources_of(c, course)
+        labels.update(f)
+        sfeats[cid] = Counter({k: 1.0 for k in f})
+    sources = nearest(tfidf(sfeats, max_df_frac=0.35), 8, labels)
+    cites = {cid: Counter({k: 1.0 for k in f if not k.startswith(("day:", "lecturer:"))}) for cid, f in sfeats.items()}
+    return {"words": words, "sources": sources, "cites": nearest(tfidf(cites, max_df_frac=0.35), 8, labels)}
+
+
+def spread_out(a, size, rounds: int = 60):
+    """Push apart nodes that overlap, a little at a time, so that no node hides another."""
+    import numpy as np
+    a = a.copy() + np.stack([np.cos(np.arange(len(a))), np.sin(np.arange(len(a)))], 1) * 1e-3   # split exact ties
+    rad = np.array(size, dtype=float) / 2
+    need = (rad[:, None] + rad[None, :]) * 1.25 + 6         # wanted distance between centres
+    np.fill_diagonal(need, 0)
+    for _ in range(rounds):
+        d = a[:, None, :] - a[None, :, :]
+        dist = np.maximum(np.sqrt((d ** 2).sum(-1)), 1e-6) + np.eye(len(a))
+        push = np.clip(need - dist, 0, None) / dist / 2
+        np.fill_diagonal(push, 0)
+        if push.max() <= 0:
+            break
+        a += (d * push[:, :, None]).sum(1) * 0.5
+    return a
+
+
+def near_layout(near: dict[str, list], ref: dict, sizes: dict, k: int = 4) -> dict[str, tuple[float, float]]:
+    """A layout in which cards that are near (by one notion) sit close. Each card is joined to its k nearest;
+    edge length falls as similarity rises; Kamada-Kawai then places the cards, and the result is turned and
+    scaled to match the layout by links as closely as possible, so that switching moves the cards as little as it can."""
+    import numpy as np
+    g = nx.Graph()
+    g.add_nodes_from(near)
+    for a, lst in near.items():
+        for b, sc, _ in lst[:k]:
+            length = 1.0 - min(0.85, sc)
+            if not g.has_edge(a, b) or g[a][b]["length"] > length:
+                g.add_edge(a, b, length=length)
+    # Distances along the near-graph; groups that are not joined at all are kept apart at a fixed, larger distance,
+    # so that every card is placed (for sources, the days form groups of their own).
+    sp = dict(nx.shortest_path_length(g, weight="length"))
+    far = 1.25 * max(d for row in sp.values() for d in row.values())
+    ids = sorted(g)
+    dist = {a: {b: sp[a].get(b, far) for b in ids} for a in ids}
+    scale = 90 * math.sqrt(len(ids))
+    p = nx.kamada_kawai_layout(g, dist=dist, scale=scale)
+    # Procrustes: turn (or mirror) and scale onto the links layout, so that switching moves the cards as little as it can
+    a = np.array([p[n] for n in ids]); b = np.array([ref[n] for n in ids])
+    am, bm = a.mean(0), b.mean(0)
+    u, sv, vt = np.linalg.svd((a - am).T @ (b - bm))
+    r = u @ vt
+    sc = math.sqrt(((b - bm) ** 2).sum() / ((a - am) ** 2).sum())   # same spread as the links layout
+    a2 = spread_out((a - am) @ r * sc + bm, [sizes.get(n, 18) for n in ids])
+    pos = {n: (float(x), float(y)) for n, (x, y) in zip(ids, a2)}
+    return pos
+
+
+def hidden_connections(g: nx.MultiDiGraph, prox: dict, top: int = 12) -> list:
+    """Pairs of cards that are close in words and in sources but have no link: candidates for a new link."""
+    u = nx.Graph(g.to_undirected())
+    score: dict[tuple, float] = {}
+    why: dict[tuple, list] = {}
+    for mode, wt in (("words", 1.0), ("cites", 0.3)):
+        for a, lst in prox[mode].items():
+            for b, sc, terms in lst:
+                key = tuple(sorted((a, b)))
+                if mode == "words":
+                    if len(terms) < 2:
+                        continue                             # one shared word is too weak a hint
+                elif key not in score:
+                    continue                                 # a shared source alone is not enough: the texts must meet too
+                score[key] = score.get(key, 0.0) + wt * sc / 2      # each pair is seen from both ends
+                why.setdefault(key, [])
+                for t in terms:
+                    if t not in why[key] and len(why[key]) < 4:
+                        why[key].append(t)
+    out, seen = [], Counter()
+    for (a, b), sc in sorted(score.items(), key=lambda kv: -kv[1]):
+        if u.has_edge(a, b) or nx.has_path(u, a, b) and nx.shortest_path_length(u, a, b) <= 2:
+            continue                                         # already linked, or one step apart
+        if set(g.nodes[a]["days"]) & set(g.nodes[b]["days"]):
+            continue                                         # same day: the interesting ones cross days
+        if "stub" in (g.nodes[a]["status"], g.nodes[b]["status"]):
+            continue
+        if seen[a] >= 2 or seen[b] >= 2:
+            continue                                         # at most two pairs per card, so the list stays varied
+        seen[a] += 1; seen[b] += 1
+        out.append([a, b, round(sc, 3), why.get((a, b), [])])
+        if len(out) >= top:
+            break
+    return out
+
+
 def stats(g: nx.MultiDiGraph) -> dict:
     u = nx.Graph(g.to_undirected())
     comps = sorted(nx.connected_components(u), key=len, reverse=True)
@@ -338,7 +596,7 @@ def stats(g: nx.MultiDiGraph) -> dict:
     }
 
 
-def to_payload(course: dict, g: nx.MultiDiGraph, pos: dict, st: dict, template: str) -> dict:
+def to_payload(course: dict, g: nx.MultiDiGraph, pos: dict, st: dict, template: str, prox: dict, alt: dict) -> dict:
     u = nx.Graph(g.to_undirected())
     nodes = []
     for n, d in g.nodes(data=True):
@@ -346,8 +604,10 @@ def to_payload(course: dict, g: nx.MultiDiGraph, pos: dict, st: dict, template: 
         nodes.append({
             "id": n, "title": d["title"], "kind": d["kind"], "days": d["days"], "module": d["module"],
             "cluster": d["cluster"], "by": d["by"], "origin": d["origin"], "load_bearing": d["load_bearing"], "aliases": d["aliases"],
-            "status": d["status"], "sections": d["sections"], "path": d["path"],
+            "status": d["status"], "sections": d["sections"], "path": d["path"], "plots": d["plots"],
             "degree": u.degree(n), "x": round(x, 1), "y": round(y, 1),
+            "alt": {m: [round(alt[m][n][0], 1), round(alt[m][n][1], 1)] for m in alt},
+            "near": {m: prox[m].get(n, [])[:6] for m in ("words", "sources")},
         })
     edges = []
     for i, (s, t, d) in enumerate(g.edges(data=True)):
@@ -369,7 +629,10 @@ def to_payload(course: dict, g: nx.MultiDiGraph, pos: dict, st: dict, template: 
             "days": days,
             "resources": course.get("resources", {}),
             "card_template": template,
+            "project_note": course.get("project_note", ""),
         },
+        "projects": course.get("projects", []),
+        "hidden": hidden_connections(g, prox),
         "nodes": nodes,
         "edges": edges,
         "stats": st,
@@ -399,13 +662,20 @@ def main() -> int:
     if probs.errors:
         print(f"\n{len(probs.errors)} error(s). Fix them and run again.")
         return 1
+    pos = layout(g)                                    # the layouts run in --check too, so a failure shows on the pull request
+    prox = proximity(cards, course)
+    u = nx.Graph(g.to_undirected())
+    sizes = {n: 18 + 15 * math.sqrt(u.degree(n)) for n in u}      # node diameter on the page, as in the template
+    alt = {m: near_layout(prox[m], pos, sizes) for m in ("words", "sources")}
     if args.check:
         return 0
 
     template = (CONCEPTS / "_template.md").read_text(encoding="utf-8")
-    payload = to_payload(course, g, layout(g), st, template)
+    payload = to_payload(course, g, pos, st, template, prox, alt)
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
+    if PLOTS.is_dir():                                 # the interactive plots that cards link to
+        shutil.copytree(PLOTS, out / "plots", dirs_exist_ok=True)
     data = json.dumps(payload, ensure_ascii=False, indent=None, separators=(",", ":"))
     (out / "graph.json").write_text(data, encoding="utf-8")
     fragment = (SITE / "template.html").read_text(encoding="utf-8")

@@ -889,3 +889,58 @@
   title: Simon, Kunin, et al., There will be a scientific theory of deep learning (2026)
   url: https://arxiv.org/abs/2604.21691
   from: Day 16 intro slides, page 11
+17:
+- kind: reading
+  title: Koh and Liang, Understanding black-box predictions via influence functions (2017)
+  url: https://arxiv.org/abs/1703.04730
+  from: Day 17 notes, references, page 48
+- kind: reading
+  title: Bae, Ng, Lo, Ghassemi, Grosse, If influence functions are the answer, then what is the question? (2022)
+  url: https://arxiv.org/abs/2209.05364
+  from: Day 17 notes, references, page 47
+- kind: reading
+  title: Grosse et al., Studying large language model generalization with influence functions (2023)
+  url: https://arxiv.org/abs/2308.03296
+  from: Day 17 notes, references, page 48
+- kind: reading
+  title: Bae, Lin, Lorraine, Grosse, Training data attribution via approximate unrolled differentiation (2024)
+  url: https://arxiv.org/abs/2405.12186
+  from: Day 17 notes, references, page 47
+- kind: reading
+  title: Kreer, Wu, Adam, Furman, Hoogland, Bayesian influence functions for Hessian-free data attribution (2026)
+  url: https://arxiv.org/abs/2509.26544
+  from: Day 17 notes, references, page 49
+- kind: reading
+  title: 'Lau, Furman, Wang, Murfet, Wei, The local learning coefficient: a singularity-aware complexity measure (2023)'
+  url: https://arxiv.org/abs/2308.12108
+  from: Day 17 notes, references, page 49
+- kind: reading
+  title: 'Betley et al., Emergent misalignment: narrow finetuning can produce broadly misaligned LLMs (2025)'
+  url: https://arxiv.org/abs/2502.17424
+  from: Day 17 slides, page 4
+- kind: reading
+  title: 'Cloud et al., Subliminal learning: language models transmit behavioral traits via hidden signals in data (2025)'
+  url: https://arxiv.org/abs/2507.14805
+  from: Day 17 slides, page 4
+18:
+- kind: reading
+  title: Shai et al., Transformers represent belief state geometry in their residual stream (NeurIPS 2024)
+  url: https://arxiv.org/abs/2405.15943
+  from: Day 18 slides part 1, page 13
+19:
+- kind: reading
+  title: Ha and Schmidhuber, World models (2018)
+  url: https://arxiv.org/abs/1803.10122
+  from: Day 19 reading material slides, page 4
+- kind: reading
+  title: Richens, Abel, Bellot, Everitt, General agents need world models (2025)
+  url: https://arxiv.org/abs/2506.01622
+  from: Day 19 slides set 1
+- kind: reading
+  title: Ehrlich, Baltieri, Rosas, Boyd (2026), on factored beliefs in agent-environment loops
+  url: https://arxiv.org/abs/2611.02047
+  from: Day 19 slides sets 2 and 3
+- kind: reading
+  title: Boyd et al., From monoliths to modules (2025)
+  url: https://arxiv.org/abs/2512.02193
+  from: Day 19 slides sets 2 and 3

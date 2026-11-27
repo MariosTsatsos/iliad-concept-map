@@ -39,11 +39,10 @@ days:
 # Link types. A card lists links from itself to other cards.
 # directed: true means "this card -> other card" reads as the label.
 link_types:
-  needs:      {label: needs, directed: true, help: "You must understand the other card first."}
+  needs:      {label: builds on, directed: true, help: "This card builds on the other one: read the other card first."}
   eg:         {label: example of, directed: true, help: "This card is a concrete example of the other card."}
-  related:    {label: related to, directed: false, help: "The two share an idea, a method or a concern. The note on the link says which."}
-  challenges: {label: challenges, directed: true, help: "This card is a problem for the other card. The note on the link says why."}
-
+  related:    {label: similar to, directed: false, help: "The two share an idea, a method or a concern. The note on the link says which."}
+  challenges: {label: problem for, directed: true, help: "This card is a problem for the other card. The note on the link says why."}
 # Where a card's idea came from. Shown as a badge on the card; cards marked 'participant' get a ring on the map.
 origins:
   participant: {label: Participant's own idea}

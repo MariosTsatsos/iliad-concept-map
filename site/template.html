@@ -157,7 +157,19 @@ aside.panel {
 .prose code { font: 12.5px var(--f-mono); background: var(--soft); padding: 0 4px; border-radius: 3px; }
 .home-list { list-style: none; padding: 0 !important; display: flex; flex-wrap: wrap; gap: 6px; }
 .home-list .linkbtn { font-weight: 400; }
-.fallback { padding: 24px; color: var(--muted); }
+.fallback { padding: 64px 24px 24px; color: var(--muted); }
+.maptools {
+  position: absolute; left: 12px; top: 12px; z-index: 4; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px;
+  max-width: calc(100% - 24px); padding: 6px 10px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); font-size: 12.5px;
+}
+.maptools .lbl { color: var(--muted); }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
+.seg button { border: 0; background: transparent; padding: 3px 11px; cursor: pointer; color: var(--muted); font-size: 12.5px; }
+.seg button + button { border-left: 1px solid var(--line); }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.plotbtn { margin: 10px 0 2px; }
+.plotbtn .btn { white-space: normal; text-align: left; }
+.badge.project { background: transparent; border: 1px solid var(--muted); color: var(--ink); }
 
 @media (max-width: 860px) {
   html, body { height: auto; }
@@ -166,6 +178,9 @@ aside.panel {
   aside.panel { border-left: 0; border-top: 1px solid var(--line); padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
   .stats { margin-left: 0; width: 100%; }
   .search { max-width: none; margin-left: 0; }
+  .chips { flex-wrap: nowrap; overflow-x: auto; width: 100%; padding-bottom: 2px; scrollbar-width: none; }
+  .chips::-webkit-scrollbar { display: none; }
+  .chip { flex: none; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
@@ -198,6 +213,15 @@ aside.panel {
 <main>
   <section class="graph-wrap" aria-label="Concept graph">
     <div id="cy"></div>
+    <div class="maptools" id="maptools">
+      <span class="lbl">Arrange by</span>
+      <div class="seg" id="modes" role="group" aria-label="Arrange the map by">
+        <button type="button" data-mode="links" aria-pressed="true" title="Linked cards sit close">Links</button>
+        <button type="button" data-mode="words" aria-pressed="false" title="Cards whose texts use the same words sit close">Words</button>
+        <button type="button" data-mode="sources" aria-pressed="false" title="Cards from the same day, or citing the same papers and files, sit close">Sources</button>
+      </div>
+      <label class="toggle" title="Show the projects participants proposed on the last day, next to the concepts they build on"><input type="checkbox" id="projects" autocomplete="off"> <span id="projlabel">Projects</span></label>
+    </div>
     <div id="empty" class="empty-note" hidden>No cards match these filters.</div>
     <div id="tip" class="tip" hidden></div>
     <details class="legend" id="legend">
@@ -224,7 +248,7 @@ const DATA = /*__DATA__*/null;
     return esc(s)
       .replace(/`([^`]+)`/g, "<code>$1</code>")
       .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
-      .replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+      .replace(/\[([^\]]+)\]\(((?:https?:\/\/|materials\/|plots\/)[^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
   }
   function md(s) {
     if (!s) return "";
@@ -292,8 +316,8 @@ const DATA = /*__DATA__*/null;
       `<li><svg class="swatch" viewBox="0 0 26 8" aria-hidden="true"><line x1="1" y1="4" x2="${v.directed ? 19 : 25}" y2="4" stroke="${edgeColor(k)}" stroke-width="2"/>${v.directed ? `<path d="M19 0.5 L25 4 L19 7.5 Z" fill="${edgeColor(k)}"/>` : ""}</svg>${esc(v.label)}</li>`).join("");
     $("#legend-inner").innerHTML =
       `<div><h4>Course cluster</h4><ul>${clusters}</ul></div>` +
-      `<div><h4>Link</h4><ul>${edges}<li><svg class="swatch" viewBox="0 0 26 8" aria-hidden="true"><line x1="1" y1="4" x2="25" y2="4" stroke="${tok("--muted")}" stroke-width="2" stroke-dasharray="4 3"/></svg>dashed: proposed, not confirmed</li></ul></div>` +
-      `<div><h4>Card</h4><ul><li>ring: a participant's own idea</li><li>hollow: stub, no one-sentence yet</li><li>dashed ring: island, no links</li><li>size: number of linked cards</li></ul></div>`;
+      `<div><h4>Link</h4><ul>${edges}<li><svg class="swatch" viewBox="0 0 26 8" aria-hidden="true"><line x1="1" y1="4" x2="25" y2="4" stroke="${tok("--muted")}" stroke-width="2" stroke-dasharray="4 3"/></svg>dashed: proposed, not confirmed</li><li><svg class="swatch" viewBox="0 0 26 8" aria-hidden="true"><line x1="1" y1="4" x2="25" y2="4" stroke="${tok("--accent")}" stroke-width="2" stroke-dasharray="1.5 3"/></svg>dotted: close but not linked (open card)</li></ul></div>` +
+      `<div><h4>Card</h4><ul><li>ring: a participant's own idea</li><li>hollow: stub, no one-sentence yet</li><li>dashed ring: island, no links</li><li>size: number of linked cards</li><li>small square: a participant's project (Projects)</li></ul></div>`;
   }
 
   // ---------- graph ----------
@@ -304,9 +328,24 @@ const DATA = /*__DATA__*/null;
   const isolated = new Set(S.isolated);
   // The label under a node is the title up to its first ": " or " (". The panel and the hover label show the full title.
   const shortLabel = (t) => { const m = t.match(/^(.{3,}?)(: | \()/); return m ? m[1] : t; };
+  // Participants' projects: a layer that is off by default. Each sits next to the cards it builds on.
+  const PROJ = Object.fromEntries((DATA.projects || []).map((p) => [p.id, p]));
+  const projLabel = (t) => { const w = t.split(/\s+/); return w.length > 6 ? w.slice(0, 6).join(" ") + "…" : t; };
+  function projectHome(base, p, i) {
+    const pts = p.links.map((l) => base.get(l)).filter(Boolean);
+    if (!pts.length) return { x: 0, y: 0 };
+    const cx = pts.reduce((a, q) => a + q.x, 0) / pts.length, cyy = pts.reduce((a, q) => a + q.y, 0) / pts.length;
+    const ang = i * 2.39996, r = 52 + (i % 3) * 16;       // golden-angle offsets, so projects on the same cards do not stack
+    return { x: cx + r * Math.cos(ang), y: cyy + r * Math.sin(ang) };
+  }
+  const BASE = { links: new Map(DATA.nodes.map((n) => [n.id, { x: n.x, y: n.y }])) };
+  ["words", "sources"].forEach((m) => { BASE[m] = new Map(DATA.nodes.map((n) => [n.id, { x: n.alt[m][0], y: n.alt[m][1] }])); });
+  Object.values(BASE).forEach((base) => (DATA.projects || []).forEach((p, i) => base.set(p.id, projectHome(base, p, i))));
   const elements = [
     ...DATA.nodes.map((n) => ({ group: "nodes", data: { ...n, label: shortLabel(n.title), shown: "", fs: 11, tw: 150, mx: 0, my: 4, to: 2.5, tv: "bottom", th: "center", island: isolated.has(n.id) }, position: { x: n.x, y: n.y } })),
     ...DATA.edges.map((e) => ({ group: "edges", data: { ...e, label: LT[e.type].label } })),
+    ...(DATA.projects || []).map((p) => ({ group: "nodes", classes: "hidden", data: { id: p.id, project: true, title: p.title, label: projLabel(p.title), cluster: p.cluster, days: [], degree: 0, shown: "", fs: 10, tw: 150, mx: 0, my: 4, to: 2.5, tv: "bottom", th: "center" }, position: BASE.links.get(p.id) })),
+    ...(DATA.projects || []).flatMap((p) => p.links.map((l, k) => ({ group: "edges", classes: "hidden", data: { id: `${p.id}-${k}`, source: p.id, target: l, proj: true, type: "related", label: "builds on" } }))),
   ];
 
   function styles() {
@@ -327,18 +366,22 @@ const DATA = /*__DATA__*/null;
       { selector: 'node[origin = "participant"]', style: { "outline-width": 2.5, "outline-color": ink, "outline-offset": 3, "outline-style": "solid" } },
       { selector: "node[?island]", style: { "border-width": 2.5, "border-style": "dashed", "border-color": ink } },
       { selector: "edge", style: {
-        "width": 1.6, "curve-style": "bezier", "line-color": (e) => edgeColor(e.data("type")),
-        "target-arrow-color": (e) => edgeColor(e.data("type")),
-        "target-arrow-shape": (e) => (LT[e.data("type")].directed ? "triangle" : "none"),
+        "width": 1.6, "curve-style": "bezier", "line-color": (e) => edgeColor(e.data("type") || "related"),
+        "target-arrow-color": (e) => edgeColor(e.data("type") || "related"),
+        "target-arrow-shape": (e) => ((LT[e.data("type")] || {}).directed ? "triangle" : "none"),
         "arrow-scale": 0.85, "opacity": 0.9,
       }},
       { selector: "edge[?proposed]", style: { "line-style": "dashed", "line-dash-pattern": [6, 4], "opacity": 0.7 } },
+      { selector: "edge.quiet", style: { "opacity": 0.22 } },
       { selector: ".faded", style: { "opacity": 0.12, "text-opacity": 0.25 } },
       { selector: "edge.lit", style: {
         "width": 2.4, "opacity": 1, "label": "data(label)", "font-size": 10, "color": muted,
         "text-rotation": "autorotate", "text-background-color": bg, "text-background-opacity": 1, "text-background-padding": 2,
         "font-family": '"IBM Plex Sans", system-ui, sans-serif',
       }},
+      { selector: "node[?project]", style: { "shape": "round-rectangle", "width": 26, "height": 26, "background-opacity": 0.95, "border-width": 2.5, "border-color": bg, "border-style": "solid", "outline-width": 0, "font-weight": 400, "z-index": 0 } },
+      { selector: "edge[?proj]", style: { "width": 1, "line-style": "dotted", "line-color": muted, "target-arrow-shape": "none", "opacity": 0.55 } },
+      { selector: "edge.suggest", style: { "width": 2, "line-style": "dotted", "line-color": accent, "target-arrow-shape": "none", "opacity": 0.9, "curve-style": "straight" } },
       { selector: "node.match", style: { "border-width": 3, "border-color": accent, "border-style": "solid" } },
       { selector: "node:selected", style: { "border-width": 3.5, "border-color": accent, "border-style": "solid", "font-weight": 600 } },
       { selector: ".hidden", style: { "display": "none" } },
@@ -350,6 +393,7 @@ const DATA = /*__DATA__*/null;
     layout: { name: "preset", fit: true, padding: 60 },
     minZoom: 0.15, maxZoom: 3, wheelSensitivity: 0.25, boxSelectionEnabled: false,
   });
+  window.conceptMap = cy;                                          // handy for debugging in the browser console
   legend();
   if (innerWidth >= 1280 && innerHeight >= 980) $("#legend").open = true;
 
@@ -370,8 +414,10 @@ const DATA = /*__DATA__*/null;
   function relabel() {
     const z = cy.zoom(), W = cy.width(), H = cy.height(), grow = Math.min(1.6, Math.max(1, Math.sqrt(z))), maxW = LABEL_W * grow;
     const sel = cy.$("node:selected"), hood = sel.length ? sel.closedNeighborhood().nodes() : cy.collection();
-    const rank = (n) => (n.selected() ? 1e6 : 0) + (hood.contains(n) ? 1e5 : 0) + (n.hasClass("faded") ? -1e4 : 0) + (n.data("degree") || 0) * 100;
+    const rank = (n) => (n.selected() ? 1e6 : 0) + (hood.contains(n) ? 1e5 : 0) + (n.hasClass("faded") ? -1e4 : 0) + (n.data("project") ? -500 : 0) + (n.data("degree") || 0) * 100;
     const discs = [], texts = [];
+    const tb = $("#maptools").getBoundingClientRect(), cb = $("#cy").getBoundingClientRect();
+    texts.push({ x1: tb.left - cb.left - 4, x2: tb.right - cb.left + 4, y1: tb.top - cb.top - 4, y2: tb.bottom - cb.top + 4, id: "tools" });
     cy.nodes().forEach((n) => {                      // every visible node is an obstacle: a label should not cover a node
       if (n.hasClass("hidden")) return;
       const q = n.renderedPosition(), r = n.renderedHeight() / 2 * 0.85;
@@ -392,7 +438,10 @@ const DATA = /*__DATA__*/null;
       const inside = (b) => b.x1 >= 2 && b.x2 <= W - 2 && b.y1 >= 2 && b.y2 <= H - 2;   // never cut a label at the edge of the map
       let pick = spots.find((b) => inside(b) && !over(b, texts) && !over(b, discs, n.id()));
       const must = n.selected() || hood.contains(n) || wt === 3;
-      if (!pick && must) pick = spots.find((b) => inside(b) && !over(b, texts));   // an important label may cover a node, never another label
+      if (!pick && must) {                             // an important label may cover a node, never another label: cover as few as possible
+        const hits = (b) => discs.filter((q) => q.id !== n.id() && b.x1 < q.x2 && b.x2 > q.x1 && b.y1 < q.y2 && b.y2 > q.y1).length;
+        pick = spots.filter((b) => inside(b) && !over(b, texts)).sort((a, b) => hits(a) - hits(b))[0];
+      }
       if (!pick) return;
       texts.push(pick); next.set(n.id(), { px, tv: pick.tv, th: pick.th, mx: pick.mx, my: pick.my });
     });
@@ -421,19 +470,24 @@ const DATA = /*__DATA__*/null;
         (activeDay !== "all" && !n.data("days").includes(Number(activeDay))) ||
         (activeOrigin !== "all" && n.data("origin") !== activeOrigin) ||
         (keyOnly && !isKey(n.data()))));
+      const showProj = $("#projects").checked && !keyOnly;
+      cy.nodes("[?project]").forEach((n) => n.toggleClass("hidden", !showProj || !PROJ[n.id()].links.some((l) => !cy.getElementById(l).hasClass("hidden"))));
       const showProp = $("#proposed").checked;
-      cy.edges().forEach((e) => e.toggleClass("hidden", !showProp && e.data("proposed")));
+      cy.edges().forEach((e) => e.toggleClass("hidden", Boolean((!showProp && e.data("proposed")) || (e.data("proj") && (e.source().hasClass("hidden") || e.target().hasClass("hidden"))))));
     });
     $("#empty").hidden = cy.nodes().some((n) => !n.hasClass("hidden"));
+    $("#projlabel").textContent = `Projects (${(DATA.projects || []).length})`;
     const sel = cy.$("node:selected");
     if (sel.length && sel.hasClass("hidden")) clear();           // the open card was filtered out
     if ($("#q").value.trim()) runSearch();                        // keep the search in step with the filters
     cy.animate({ fit: { eles: cy.elements(":visible"), padding: 60 } }, { duration: reduced ? 0 : 300 });
     relabelSoon();
+    if (typeof simStart === "function") simStart();               // nodes that reappear settle if they are off their places
     if (!cy.$("node:selected").length) renderHome();              // the home panel shows the chosen day's links
   }
   $("#proposed").addEventListener("change", applyFilters);
   $("#keyonly").addEventListener("change", applyFilters);
+  $("#projects").addEventListener("change", () => { applyFilters(); simStart(); });
   function resetFilters() {
     activeDay = "all"; activeOrigin = "all"; $("#keyonly").checked = false;
     [...dayWrap.children].forEach((c) => c.setAttribute("aria-pressed", String(c.dataset.day === "all")));
@@ -441,7 +495,7 @@ const DATA = /*__DATA__*/null;
     applyFilters();
   }
   const randomCard = () => {
-    let vis = cy.nodes().filter((n) => !n.hasClass("hidden") && n.data("status") !== "stub");
+    let vis = cy.nodes().filter((n) => !n.hasClass("hidden") && n.data("status") !== "stub" && !n.data("project"));
     if (vis.length > 1) vis = vis.filter((n) => !n.selected());   // do not reopen the card that is already open
     if (vis.length) select(vis[Math.floor(Math.random() * vis.length)].id());
   };
@@ -462,9 +516,16 @@ const DATA = /*__DATA__*/null;
   // A small physics simulation. Every node is held to its computed place by a soft spring, and every link is a spring
   // between its two cards. When the map opens, or when Relax is pressed, the nodes are thrown off their places and
   // settle back. While a node is dragged, its neighbours are pulled along. The settled picture is the same for everyone.
+  // "Arrange by" swaps the places the nodes are held to: by links, by shared words, or by shared sources
+  // (both computed when the map is built), and the nodes glide to their new places.
   const ORIGIN = new Map(), HOME = new Map(), VEL = new Map(), GRAB = new Set();
-  cy.nodes().forEach((n) => { const p = n.position(); ORIGIN.set(n.id(), { x: p.x, y: p.y }); HOME.set(n.id(), { x: p.x, y: p.y }); });
-  const SPRINGS = cy.edges().map((e) => { const a = e.source().id(), b = e.target().id(), ha = ORIGIN.get(a), hb = ORIGIN.get(b); return [a, b, Math.hypot(ha.x - hb.x, ha.y - hb.y)]; });
+  let SPRINGS = [], MODE = "links";
+  function setHomes(mode) {
+    ORIGIN.clear(); HOME.clear();
+    BASE[mode].forEach((p, id) => { ORIGIN.set(id, { x: p.x, y: p.y }); HOME.set(id, { x: p.x, y: p.y }); });
+    SPRINGS = cy.edges().filter((e) => !e.data("suggest")).map((e) => { const a = e.source().id(), b = e.target().id(), ha = ORIGIN.get(a), hb = ORIGIN.get(b); return [a, b, Math.hypot(ha.x - hb.x, ha.y - hb.y)]; });
+  }
+  setHomes("links");
   const K_HOME = 0.008, K_LINK = 0.012, DAMP = 0.92;
   let simOn = false, simLabel = 0, simLast = 0;
   function simStep(now) {
@@ -515,6 +576,32 @@ const DATA = /*__DATA__*/null;
   cy.on("grab", "node", (ev) => { GRAB.add(ev.target.id()); simStart(); });
   cy.on("free", "node", (ev) => { const n = ev.target, p = n.position(); GRAB.delete(n.id()); HOME.set(n.id(), { x: p.x, y: p.y }); VEL.set(n.id(), { x: 0, y: 0 }); });
   $("#relax").addEventListener("click", () => { ORIGIN.forEach((p, id) => HOME.set(id, { x: p.x, y: p.y })); shake(0.55, 260); });
+  // move the view to where the visible nodes are going, while they travel
+  function viewHomes() {
+    let x1 = Infinity, y1 = Infinity, x2 = -Infinity, y2 = -Infinity;
+    cy.nodes().forEach((n) => { if (n.hasClass("hidden")) return; const h = HOME.get(n.id()); if (!h) return; x1 = Math.min(x1, h.x); x2 = Math.max(x2, h.x); y1 = Math.min(y1, h.y); y2 = Math.max(y2, h.y); });
+    if (!isFinite(x1)) return;
+    const pad = 70, W = cy.width(), H = cy.height();
+    const zoom = Math.max(cy.minZoom(), Math.min(cy.maxZoom(), Math.min((W - 2 * pad) / Math.max(1, x2 - x1), (H - 2 * pad) / Math.max(1, y2 - y1))));
+    cy.animate({ zoom, pan: { x: W / 2 - zoom * (x1 + x2) / 2, y: H / 2 - zoom * (y1 + y2) / 2 } }, { duration: reduced ? 0 : 700 });
+  }
+  function setMode(m) {
+    if (!BASE[m] || m === MODE) return;
+    MODE = m;
+    [...$("#modes").children].forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.mode === m)));
+    setHomes(m);
+    cy.edges().filter((e) => !e.data("suggest")).toggleClass("quiet", m !== "links");
+    cy.batch(() => cy.nodes().forEach((n) => {                    // hidden nodes (and all nodes, without motion) jump straight there
+      const h = HOME.get(n.id());
+      if (h && (reduced || n.hasClass("hidden"))) { n.position(h); VEL.set(n.id(), { x: 0, y: 0 }); }
+    }));
+    viewHomes();
+    simStart();
+    const sel = cy.$("node:selected");
+    if (sel.length) { highlight(sel); if (!sel.data("project")) renderCard(sel.id()); }
+    else if (!$("#q").value.trim()) renderHome();
+  }
+  $("#modes").addEventListener("click", (ev) => { const b = ev.target.closest("[data-mode]"); if (b) setMode(b.dataset.mode); });
 
   // ---------- search ----------
   const hay = (n) => [n.title, n.id, ...(n.aliases || []), ...Object.values(n.sections)].join(" ").toLowerCase();
@@ -548,33 +635,54 @@ const DATA = /*__DATA__*/null;
 
   // ---------- selection ----------
   const REL = {
-    needs: ["Needs", "Needed by"], eg: ["Example of", "Examples"],
-    related: ["Related to", "Related to"], challenges: ["Challenges", "Challenged by"],
+    needs: ["Builds on", "Foundation for"], eg: ["Example of", "Examples"],
+    related: ["Similar to", "Similar to"], challenges: ["Problem for", "Problems"],
   };
-  function select(id) {
-    const node = cy.getElementById(id);
-    if (!node.length) return;
-    if (node.hasClass("hidden")) resetFilters();                  // show the card that was asked for
+  // Cards close to the open card (by shared words, or by shared sources when arranged by sources) that have no link to it.
+  function nearUnlinked(id) {
+    const n = byId[id]; if (!n) return [];
+    const linked = new Set(cy.getElementById(id).connectedEdges().filter((e) => !e.data("suggest")).connectedNodes().map((x) => x.id()));
+    const pool = MODE === "sources" ? n.near.sources : n.near.words;
+    return pool.filter(([o]) => byId[o] && !linked.has(o) && !cy.getElementById(o).hasClass("hidden")).slice(0, 3);
+  }
+  function showSuggestions(id) {
+    cy.remove("edge.suggest");
+    const near = nearUnlinked(id);
+    cy.batch(() => near.forEach(([o, sc, why]) => {
+      cy.add({ group: "edges", classes: "suggest", data: { id: `near-${id}-${o}`, source: id, target: o, suggest: true, why, score: sc } });
+      cy.getElementById(o).removeClass("faded");
+    }));
+  }
+  function highlight(node) {
+    cy.remove("edge.suggest");
     cy.batch(() => {
       cy.elements().removeClass("match lit").addClass("faded").unselect();
-      const hood = node.closedNeighborhood();
-      hood.removeClass("faded");
+      node.closedNeighborhood().removeClass("faded");
       node.connectedEdges().addClass("lit");
       node.select();
     });
+    if (!node.data("project")) showSuggestions(node.id());
+  }
+  function select(id) {
+    const node = cy.getElementById(id);
+    if (!node.length) return;
+    if (node.data("project") && !$("#projects").checked) { $("#projects").checked = true; applyFilters(); simStart(); }
+    if (node.hasClass("hidden")) resetFilters();                  // show the card that was asked for
+    highlight(node);
     if (!node.hasClass("hidden")) cy.animate({ center: { eles: node }, zoom: Math.max(cy.zoom(), 0.9) }, { duration: reduced ? 0 : 280 });
-    renderCard(id);
+    if (node.data("project")) renderProject(id); else renderCard(id);
     if (location.hash !== "#" + id) history.replaceState(null, "", "#" + id);
   }
   function clear() {
+    cy.remove("edge.suggest");
     cy.elements().removeClass("faded lit match").unselect();
     renderHome();
     if (location.hash) history.replaceState(null, "", location.pathname + location.search);
   }
   cy.on("tap", "node", (ev) => select(ev.target.id()));
-  cy.on("tap", "edge", (ev) => renderEdge(ev.target));
+  cy.on("tap", "edge", (ev) => { if (ev.target.data("suggest")) renderNear(ev.target); else if (ev.target.data("proj")) select(ev.target.source().id()); else renderEdge(ev.target); });
   cy.on("tap", (ev) => { if (ev.target === cy) clear(); });
-  window.addEventListener("hashchange", () => { const id = location.hash.slice(1); if (byId[id]) select(id); });
+  window.addEventListener("hashchange", () => { const id = location.hash.slice(1); if (byId[id] || PROJ[id]) select(id); });
 
   const panel = $("#panel");
   panel.addEventListener("click", (ev) => {
@@ -593,10 +701,10 @@ const DATA = /*__DATA__*/null;
     }
   });
 
-  const go = (id) => `<button class="linkbtn" data-go="${esc(id)}">${esc(byId[id].title)}</button>`;
+  const go = (id) => `<button class="linkbtn" data-go="${esc(id)}">${esc((byId[id] || PROJ[id]).title)}</button>`;
   // ---------- links from the lectures, by day ----------
   const RES = M.resources || {};
-  const RKIND = [["exercise", "Exercises"], ["tool", "Tools to try"], ["reading", "Reading"]];
+  const RKIND = [["material", "Course material"], ["exercise", "Exercises"], ["tool", "Tools to try"], ["reading", "Reading"]];
   function dayBox(d) {
     const D = M.days[String(d)] || {}, items = RES[String(d)] || [];
     let h = `<div class="daybox"><h2>Day ${d}${D.title ? ": " + esc(D.title) : ""}</h2>`;
@@ -621,17 +729,21 @@ const DATA = /*__DATA__*/null;
     let html = `<button class="btn back" data-home type="button">← All concepts</button>`;
     html += `<div class="badges">${isKey(n) ? '<span class="badge key">most linked</span>' : ""}<span class="badge origin">${esc((OR[n.origin] || {}).label || n.origin)}</span>${n.status === "stub" ? '<span class="badge stub">stub</span>' : ""}${n.load_bearing ? '<span class="badge">load-bearing</span>' : ""}${isolated.has(n.id) ? '<span class="badge stub">island</span>' : ""}</div>`;
     html += `<h2>${esc(n.title)}</h2><div class="meta">${modChip(n)}<span>${dayLine(n)}</span></div>`;
-    const dayBtns = n.days.filter((d) => (RES[String(d)] || []).length).map((d) => `<button class="linkbtn" data-day="${d}">Day ${d}: exercises and reading (${RES[String(d)].length})</button>`).join(" · ");
+    const dayBtns = n.days.filter((d) => (RES[String(d)] || []).length).map((d) => `<button class="linkbtn" data-day="${d}">Day ${d}: slides, exercises and reading (${RES[String(d)].length})</button>`).join(" · ");
     if (dayBtns) html += `<p class="daylinks">${dayBtns}</p>`;
     fields.forEach(([k, label]) => {
       if (!sec[k]) return;
       html += `<h3>${label}</h3><div class="prose${k === "statement" ? " lead" : ""}">${md(sec[k])}</div>`;
+      if (k === "statement") (n.plots || []).forEach((pl) => { html += `<p class="plotbtn"><a class="btn primary" href="${esc(pl.url)}" target="_blank" rel="noopener">Try it: ${esc(pl.title)}</a></p>`; });
     });
     if (missing.length) html += `<h3>Not written yet</h3><p class="missing">${esc(missing.join(", "))}. ${ghBase ? `<a href="${ghBase}/edit/${M.branch}/${n.path}" target="_blank" rel="noopener">Write it</a>` : ""}</p>`;
 
     const groups = {};
+    const projs = [];
     cy.getElementById(id).connectedEdges().forEach((e) => {
       const d = e.data(); const out = d.source === id; const other = out ? d.target : d.source;
+      if (d.suggest) return;
+      if (d.proj) { projs.push(d.source); return; }
       const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
       const rel = REL[d.type] || [cap(LT[d.type].label), cap(LT[d.type].label) + " (incoming)"];
       const name = rel[out || !LT[d.type].directed ? 0 : 1];
@@ -646,6 +758,12 @@ const DATA = /*__DATA__*/null;
     } else {
       html += `<h3>Links</h3><p class="missing">No links yet. This card is an island: what does it need, or what is it an example of?</p>`;
     }
+    const near = nearUnlinked(id);
+    if (near.length) {
+      html += `<h3>Close but not linked</h3><p class="muted" style="font-size:12.5px">Dotted lines on the map. ${MODE === "sources" ? "Shared sources" : "Shared words"} put them near this card. If they belong together, add a link.</p><ul class="rel">` +
+        near.map(([o, , why]) => `<li><div class="row">${go(o)}</div><div class="note">${MODE === "sources" ? "shared" : "shared words"}: ${esc(why.join(", "))}</div></li>`).join("") + "</ul>";
+    }
+    if (projs.length) html += `<h3>Participants' projects that build on it (${projs.length})</h3><ul class="rel">${projs.map((p) => `<li>${go(p)}</li>`).join("")}</ul>`;
     if (sec.sources) html += `<h3>Sources</h3><div class="prose">${md(sec.sources)}</div>`;
     html += `<div class="actions">${ghBase ? `<a class="btn" href="${ghBase}/edit/${M.branch}/${n.path}" target="_blank" rel="noopener">Edit this card on GitHub</a>` : ""}<button class="btn" type="button" data-copy>Copy link</button></div>`;
     if (n.by && n.by.length) html += `<p class="by">Card by ${esc(n.by.join(", "))}</p>`;
@@ -666,6 +784,27 @@ const DATA = /*__DATA__*/null;
     panel.innerHTML = html;
   }
 
+  function renderProject(id) {
+    const p = PROJ[id];
+    let html = `<button class="btn back" data-home type="button">← All concepts</button>`;
+    html += `<div class="badges"><span class="badge project">participant's project</span></div>`;
+    html += `<h2>${esc(p.title)}</h2><div class="meta"><span class="mod" style="background:${clusterColor(p.cluster)}">${esc(p.area)}</span></div>`;
+    if (M.project_note) html += `<p class="missing" style="margin-top:12px">${esc(M.project_note)}</p>`;
+    html += `<h3>Builds on</h3><ul class="rel">${p.links.map((l) => `<li>${go(l)}</li>`).join("")}</ul>`;
+    html += `<p class="by">Links to concepts drafted by Claude from the title alone.</p>`;
+    panel.innerHTML = html;
+  }
+  function renderNear(e) {
+    const d = e.data();
+    let html = `<button class="btn back" data-home type="button">← All concepts</button>`;
+    html += `<div class="badges"><span class="badge proposed">close but not linked</span></div>`;
+    html += `<h2>${esc(byId[d.source].title)} <span style="color:var(--muted)">and</span> ${esc(byId[d.target].title)}</h2>`;
+    html += `<p class="missing">The two cards ${MODE === "sources" ? "share sources" : "use the same words"} but have no link. This is a hint, not a claim: read both and decide.</p>`;
+    html += `<h3>${MODE === "sources" ? "Shared" : "Shared words"}</h3><p>${esc((d.why || []).join(", "))}</p>`;
+    html += `<h3>Cards</h3><ul class="rel"><li>${go(d.source)}</li><li>${go(d.target)}</li></ul>`;
+    panel.innerHTML = html;
+  }
+
   function renderHome() {
     const isl = S.isolated.map(go).join("");
     const groups = S.cut_off_groups.map((g) => `<li>${g.map(go).join(", ")}</li>`).join("");
@@ -674,10 +813,12 @@ const DATA = /*__DATA__*/null;
     html += `<h2>${S.cards} concepts from ${daysPresent.length} days</h2>`;
     html += `<p>Click a concept to read its card. Click a line to see why two concepts are linked. The more cards a concept is linked to, the larger its node. Drag a node and its neighbours follow. Each card names who wrote it.</p>`;
     html += `<p class="missing">Colour: course cluster (A alignment, D agency, C interpretability…). Ring: a participant's own idea. Size: number of linked cards. Hollow: stub. Dashed line: proposed link, not yet confirmed. Dashed ring: island.</p>`;
+    html += `<p><b>Arrange by</b> (top left of the map) moves the cards: by <b>Links</b>, by <b>Words</b> (cards whose texts share words sit together) or by <b>Sources</b> (same day, same papers). Cards that end up side by side without a link are candidates for one.</p>`;
     const keys = DATA.nodes.filter(isKey).sort((a, b) => (b.degree || 0) - (a.degree || 0));
     if (keys.length) html += `<h3>Start here: the ${keys.length} most linked concepts</h3><ul class="home-list">${keys.map((n) => `<li>${go(n.id)}<span class="muted"> ${n.degree} links</span></li>`).join("")}</ul>`;
+    if ((DATA.hidden || []).length) html += `<h3>Close but not linked: possible hidden connections</h3><p class="missing">Pairs from different days whose cards share words, and sometimes sources, with no link between them. A hint, not a claim: open both and judge.</p><ul class="rel">${DATA.hidden.map(([a, b, , why]) => `<li><div class="row">${go(a)}<span class="muted">and</span>${go(b)}</div><div class="note">shared: ${esc(why.join(", "))}</div></li>`).join("")}</ul>`;
     const resDays = Object.keys(RES).map(Number).sort((a, b) => a - b);
-    if (resDays.length) html += `<h3>Exercises and reading, by day</h3><ul class="home-list">${resDays.map((d) => `<li><button class="linkbtn" data-day="${d}">Day ${d}${(M.days[String(d)] || {}).title ? ": " + esc(M.days[String(d)].title) : ""}</button> <span class="muted">${RES[String(d)].length} links</span></li>`).join("")}</ul>`;
+    if (resDays.length) html += `<h3>Slides, exercises and reading, by day</h3><ul class="home-list">${resDays.map((d) => `<li><button class="linkbtn" data-day="${d}">Day ${d}${(M.days[String(d)] || {}).title ? ": " + esc(M.days[String(d)].title) : ""}</button> <span class="muted">${RES[String(d)].length} links</span></li>`).join("")}</ul>`;
     html += `<h3>Islands</h3>`;
     html += isl ? `<p>No links at all:</p><ul class="home-list">${S.isolated.map((id) => `<li>${go(id)}</li>`).join("")}</ul>` : "<p>None. Every card has a link.</p>";
     if (groups) html += `<p style="margin-top:10px">Groups cut off from the main map:</p><ul>${groups}</ul>`;
@@ -689,6 +830,7 @@ const DATA = /*__DATA__*/null;
   }
 
   const start = location.hash.slice(1);
-  if (byId[start]) select(start); else { renderHome(); shake(0.8, 160); }      // the map opens by settling into place
+  applyFilters();
+  if (byId[start] || PROJ[start]) select(start); else { renderHome(); shake(0.8, 160); }      // the map opens by settling into place
 })();
 </script>
