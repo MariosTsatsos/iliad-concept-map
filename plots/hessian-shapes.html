@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Four shapes of a loss surface, and what the Hessian sees · Iliad concept map</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@600&display=swap">
+<style>
+  :root { --bg: #f3f4f7; --panel: #fff; --ink: #161a22; --muted: #5d6676; --line: #d9dde5; --accent: #2c3fd1; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #0f1217; --panel: #161a21; --ink: #e7eaf0; --muted: #9ba4b3; --line: #293040; --accent: #8796ff; color-scheme: dark; } }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 14px/1.5 "IBM Plex Sans", system-ui, sans-serif; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 18px 16px 30px; display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 16px; }
+  h1 { font: 600 21px/1.25 "IBM Plex Serif", Georgia, serif; margin: 0 0 6px; grid-column: 1 / -1; }
+  .lead { grid-column: 1 / -1; margin: 0; color: var(--muted); max-width: 900px; }
+  #plot { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; height: min(72vh, 640px); min-height: 380px; }
+  aside { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; }
+  h2 { font: 500 10.5px "IBM Plex Sans", sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 14px 0 6px; }
+  h2:first-child { margin-top: 0; }
+  .shapes { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  .shapes button { padding: 7px 8px; border-radius: 8px; border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer; font: inherit; text-align: left; }
+  .shapes button[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  table { border-collapse: collapse; width: 100%; } td { padding: 4px 0; vertical-align: top; } td:first-child { color: var(--muted); width: 42%; }
+  .note { color: var(--muted); font-size: 13px; }
+  code { font: 12.5px "IBM Plex Mono", ui-monospace, monospace; }
+  a { color: var(--accent); }
+  @media (max-width: 860px) { .wrap { grid-template-columns: minmax(0, 1fr); } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Four shapes of a loss surface, and what the Hessian sees</h1>
+  <p class="lead">The Hessian H is the matrix of second derivatives of the loss: how the surface bends in each direction at a point. Its eigenvalues are the bends along its main directions: positive bends up, zero is flat, negative bends down. The influence function needs H⁻¹, so it needs every bend to be nonzero. Pick a shape and drag the plot to turn it.</p>
+  <div id="plot" role="img" aria-label="Rotatable 3D loss surface over w1 and w2"></div>
+  <aside>
+    <h2>Shape</h2>
+    <div class="shapes" id="shapes"></div>
+    <h2>At the centre point (0, 0)</h2>
+    <table>
+      <tr><td>Loss</td><td id="f"></td></tr>
+      <tr><td>H</td><td id="h"></td></tr>
+      <tr><td>Bends</td><td id="e"></td></tr>
+      <tr><td>Minimum</td><td id="m"></td></tr>
+      <tr><td>Influence function</td><td id="i"></td></tr>
+      <tr><td>Learning coefficient λ</td><td id="l"></td></tr>
+    </table>
+    <p class="note" id="t"></p>
+    <p class="note">λ is the learning coefficient of singular learning theory (Day 15). For a bowl in d dimensions λ = d/2; flatter minima have smaller λ. Valley and flat bottom show that H can miss what λ sees.</p>
+    <p class="note"><a href="../#hessian">Back to the card on the map</a></p>
+  </aside>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.27.0/plotly.min.js"></script>
+<script>
+(function () {
+  if (typeof Plotly === "undefined") { document.getElementById("plot").textContent = "The plotting library did not load. Check your connection and reload."; return; }
+  const S = [
+    { key: "bowl", name: "Bowl", f: (a, b) => 0.5 * (2 * a * a + b * b), tex: "½(2w1² + w2²)", H: "[[2, 0], [0, 1]]", e: "2 and 1",
+      m: "one point", i: "works: H can be inverted", l: "1 (= d/2, the regular case)", t: "Every direction bends up. This is the case classical statistics assumes." },
+    { key: "valley", name: "Valley: H has a zero", f: (a, b) => a * a, tex: "w1²", H: "[[2, 0], [0, 0]]", e: "2 and 0",
+      m: "a whole line (w1 = 0)", i: "fails: H cannot be inverted; the usual fix is damping, adding a small multiple of the identity to H", l: "½", t: "Moving along w2 changes nothing. Neural networks are full of such directions (degeneracy). The posterior cloud spreads along the valley floor." },
+    { key: "saddle", name: "Saddle: a bend is negative", f: (a, b) => 0.5 * (2 * a * a - b * b), tex: "½(2w1² − w2²)", H: "[[2, 0], [0, −1]]", e: "2 and −1",
+      m: "none here: downhill along w2", i: "unreliable: H⁻¹ exists but can point the wrong way; the Gauss-Newton matrix is the usual fix", l: "not defined (not a minimum)", t: "Training passes near saddles: the plateaus of Day 16 are spent near them. A checkpoint that has not converged can have negative bends." },
+    { key: "flat", name: "Flat bottom: H is zero", f: (a, b) => a ** 4 + b ** 4, tex: "w1⁴ + w2⁴", H: "[[0, 0], [0, 0]]", e: "0 and 0",
+      m: "one point", i: "fails: H is zero, though the minimum is a single point", l: "½ (each w⁴ gives ¼)", t: "A true minimum that H cannot see: every second derivative is zero. Compare with the valley: both have zeros in H, but only one has a line of minima." },
+  ];
+  const $ = (id) => document.getElementById(id);
+  let cur = 0;
+  S.forEach((s, k) => { const b = document.createElement("button"); b.type = "button"; b.textContent = s.name; b.setAttribute("aria-pressed", String(k === 0)); b.onclick = () => { cur = k; [...$("shapes").children].forEach((c, j) => c.setAttribute("aria-pressed", String(j === k))); draw(); }; $("shapes").appendChild(b); });
+  const xs = []; for (let v = -2; v <= 2.0001; v += 0.08) xs.push(+v.toFixed(2));
+  const dark = matchMedia("(prefers-color-scheme: dark)").matches;
+  const ink = dark ? "#e7eaf0" : "#161a22", grid = dark ? "#293040" : "#d9dde5";
+  function draw() {
+    const s = S[cur];
+    const Z = xs.map((b) => xs.map((a) => Math.max(-4, Math.min(6, s.f(a, b)))));
+    const axis = (t) => ({ title: { text: t }, color: ink, gridcolor: grid, zerolinecolor: grid, backgroundcolor: "rgba(0,0,0,0)" });
+    const data = [
+      { type: "surface", x: xs, y: xs, z: Z, colorscale: [[0, "#2f7de1"], [0.4, "#0f9d8f"], [0.7, "#e0b62a"], [1, "#fbf3df"]], cmin: -4, cmax: 6, showscale: false, opacity: 0.93,
+        contours: { z: { show: true, usecolormap: true, project: { z: true }, width: 1 } }, hovertemplate: "w1 %{x:.2f}<br>w2 %{y:.2f}<br>L %{z:.2f}<extra></extra>" },
+      { type: "scatter3d", mode: "markers", x: [0], y: [0], z: [s.f(0, 0) + 0.25], marker: { size: 9, color: "#d9485f", line: { color: "#ffffff", width: 1 } }, hoverinfo: "skip" },
+    ];
+    if (s.key === "valley") data.push({ type: "scatter3d", mode: "lines", x: [0, 0], y: [-2, 2], z: [0.06, 0.06], line: { color: "#d9485f", width: 6 }, hoverinfo: "skip" });
+    Plotly.react($("plot"), data, { margin: { l: 0, r: 0, t: 0, b: 0 }, paper_bgcolor: "rgba(0,0,0,0)", showlegend: false, font: { family: "IBM Plex Sans, sans-serif", color: ink },
+      scene: { xaxis: axis("w1"), yaxis: axis("w2"), zaxis: { ...axis("L"), range: [-4, 6] }, aspectmode: "manual", aspectratio: { x: 1, y: 1, z: 0.7 }, camera: { eye: { x: 1.3, y: -1.3, z: 1.45 } }, uirevision: "keep" }, uirevision: "keep" },
+      { responsive: true, displaylogo: false });
+    $("f").textContent = "L = " + s.tex; $("h").innerHTML = "<code>" + s.H + "</code>"; $("e").textContent = s.e; $("m").textContent = s.m; $("i").textContent = s.i; $("l").textContent = s.l; $("t").textContent = s.t;
+  }
+  draw();
+})();
+</script>
+</body>
+</html>

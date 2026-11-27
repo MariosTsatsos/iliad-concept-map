@@ -1,0 +1,382 @@
+# Uploaded course material. One entry per file; 'day' is the November day the map lists it under.
+# Material by the Iliad team, published with their permission; see the README in this folder.
+- day: 1
+  title: ML engineering and transformers (slides)
+  path: materials/november/day-01-intro-to-ml-engineering-and-transformers/iliad-ml-engineering-day1.pdf
+  bytes: 475921
+  sha256: 9acab5991f36
+- day: 2
+  title: AI alignment introduction (slides)
+  path: materials/november/day-02-ai-alignment-introduction/alignment-nov3.pdf
+  bytes: 170606
+  sha256: 63950fe3e84a
+- day: 2
+  title: AI alignment introduction (slides, September cohort)
+  path: materials/september/day-12_2026-09-22_ai-alignment-introduction/slides_ai-alignment-introduction_power.pdf
+  bytes: 2509677
+  sha256: 1a9279010d2e
+- day: 3
+  title: Reinforcement learning exercises
+  path: materials/november/day-03-preferences-to-rewards/iliad-intensive-rl-exercises.pdf
+  bytes: 326992
+  sha256: f5f82cd5cee9
+- day: 3
+  title: Preferences to rewards (notes)
+  path: materials/november/day-03-preferences-to-rewards/notes-preferences-rewards.pdf
+  bytes: 399954
+  sha256: 101dcdf040c3
+- day: 3
+  title: Preferences to rewards (slides 1)
+  path: materials/november/day-03-preferences-to-rewards/slides1-preferences-rewards.pdf
+  bytes: 439434
+  sha256: a56abfe805b7
+- day: 3
+  title: Introduction to RL (slides 2)
+  path: materials/november/day-03-preferences-to-rewards/slides2-introrl.pdf
+  bytes: 490171
+  sha256: 98bc7c7cdb1d
+- day: 4
+  title: Agent foundations (full slides)
+  path: materials/november/day-04-agent-foundations/af-day-full.pdf
+  bytes: 1980099
+  sha256: 7a6c510cd888
+- day: 4
+  title: Agent foundations day (slides)
+  path: materials/november/day-04-agent-foundations/agent-foundations-day-november-5th-iliad-intensive.pdf
+  bytes: 187894
+  sha256: 20bc9ec9331b
+- day: 4
+  title: Agent foundations problem sheet (September cohort)
+  path: materials/september/day-14_2026-09-24_agent-foundations/problem-sheet_agent-foundations.pdf
+  bytes: 351168
+  sha256: 1bc83bf90fc6
+- day: 4
+  title: Agent foundations readings (September cohort)
+  path: materials/september/day-14_2026-09-24_agent-foundations/readings_agent-foundations.pdf
+  bytes: 107612
+  sha256: 3ba312305b7a
+- day: 4
+  title: Agent foundations (slides, September cohort)
+  path: materials/september/day-14_2026-09-24_agent-foundations/slides_agent-foundations_power.pdf
+  bytes: 573091
+  sha256: 4221a1c13d35
+- day: 4
+  title: Agent foundations solutions (September cohort)
+  path: materials/september/day-14_2026-09-24_agent-foundations/solutions_agent-foundations.pdf
+  bytes: 297438
+  sha256: 89b183fb28e6
+- day: 4
+  title: Agent foundations, day 2 (slides, September cohort)
+  path: materials/september/day-18_2026-09-30_agent-foundations-2/slides_agent-foundations-day-2.pdf
+  bytes: 74417
+  sha256: 7e5456a31005
+- day: 5
+  title: Alignment in practice (slides)
+  path: materials/november/day-05-alignment-in-practice/alignment-in-practice-november-3.pdf
+  bytes: 1198315
+  sha256: 4089f51fcbb1
+- day: 5
+  title: 'Role-play handout: the AI (September cohort)'
+  path: materials/september/day-15_2026-09-25_alignment-in-practice/handout_ai-role.pdf
+  bytes: 101647
+  sha256: 732dc45841b5
+- day: 5
+  title: 'Role-play handout: the developer (September cohort)'
+  path: materials/september/day-15_2026-09-25_alignment-in-practice/handout_developer-role.pdf
+  bytes: 102588
+  sha256: 5fe5aba53bb1
+- day: 5
+  title: Alignment in practice (slides, September cohort)
+  path: materials/september/day-15_2026-09-25_alignment-in-practice/slides_alignment-in-practice_power.pdf
+  bytes: 5116042
+  sha256: 83e849fc6a68
+- day: 6
+  title: Cross-examination debate and NEXP (slides)
+  path: materials/november/day-06-debate-and-scalable-oversight/cx-debate-nexp.pdf
+  bytes: 219407
+  sha256: 51cc28883841
+- day: 6
+  title: Debate (slides, PDF)
+  path: materials/november/day-06-debate-and-scalable-oversight/iliad-intensive-november-2026-debate.pdf
+  bytes: 2215155
+  sha256: 1ce9ad5c8064
+- day: 6
+  title: Debate (slides, PowerPoint)
+  path: materials/november/day-06-debate-and-scalable-oversight/iliad-intensive-november-2026-debate.pptx
+  bytes: 2540208
+  sha256: 90111f5ee94a
+- day: 6
+  title: Prover-estimator debate (slides)
+  path: materials/november/day-06-debate-and-scalable-oversight/pe-debate-slides.pdf
+  bytes: 131091
+  sha256: d93d2317b47d
+- day: 6
+  title: Readings for debate day (slides, PowerPoint)
+  path: materials/november/day-06-debate-and-scalable-oversight/readings-slides-debate-day-iliad-intensive.pptx
+  bytes: 5406080
+  sha256: 0f968d4f7499
+- day: 6
+  title: Recursive debate (talk slides)
+  path: materials/november/day-06-debate-and-scalable-oversight/recursive-debate-fellowship-talk.pdf
+  bytes: 393640
+  sha256: 720006acec55
+- day: 6
+  title: Safety cases (slides)
+  path: materials/november/day-06-debate-and-scalable-oversight/safety-case-slides.pdf
+  bytes: 408126
+  sha256: c8166dce6fb4
+- day: 6
+  title: Wrong proofs, with answers (exercise)
+  path: materials/november/day-06-debate-and-scalable-oversight/wrong-proofs-with-answers.pdf
+  bytes: 216497
+  sha256: 956a43bf3311
+- day: 7
+  title: Introduction to RL (slides)
+  path: materials/november/day-07-solomonoff-induction-and-aixi/2-1-intro-to-rl.pdf
+  bytes: 2022868
+  sha256: f3921d7a54dd
+- day: 7
+  title: AIXI (exercises)
+  path: materials/november/day-07-solomonoff-induction-and-aixi/aixi-nosol.pdf
+  bytes: 416766
+  sha256: a186077591c1
+- day: 7
+  title: ML foundations (slides)
+  path: materials/november/day-07-solomonoff-induction-and-aixi/ml-foundations-iliad-intensive-julian-schulz.pdf
+  bytes: 1397794
+  sha256: 62aa681fe2d4
+- day: 7
+  title: Reinforcement learning (exercises)
+  path: materials/november/day-07-solomonoff-induction-and-aixi/reinforcement-learning-nosol.pdf
+  bytes: 335234
+  sha256: dfb0912b44cc
+- day: 7
+  title: Solomonoff induction (exercises)
+  path: materials/november/day-07-solomonoff-induction-and-aixi/solomonoff-induction-nosol.pdf
+  bytes: 285212
+  sha256: 61558bfc257a
+- day: 8
+  title: Heuristic arguments (slides)
+  path: materials/november/day-08-heuristic-arguments-and-verification/heuristicargumentsfinal.pdf
+  bytes: 277810
+  sha256: 51a14edde05e
+- day: 9
+  title: Introduction to game theory (slides)
+  path: materials/november/day-09-multi-agent-dynamics/01-james-introduction-to-game-theory.pdf
+  bytes: 322854
+  sha256: b2b0a4e12f94
+- day: 9
+  title: Multi-agent systems (lecture slides)
+  path: materials/november/day-09-multi-agent-dynamics/benedict-lecture.pdf
+  bytes: 20578662
+  sha256: aa7ed685ad6c
+- day: 9
+  title: Multi-agent systems exercises
+  path: materials/november/day-09-multi-agent-dynamics/multi-agent-systems-exercises.pdf
+  bytes: 270912
+  sha256: d57c24000a58
+- day: 9
+  title: Multi-agent systems day schedule (Word)
+  path: materials/november/day-09-multi-agent-dynamics/november-schedule-multi-agent-systems.docx
+  bytes: 2485650
+  sha256: a0dac1dcf783
+- day: 10
+  title: Mechanistic interpretability (slides)
+  path: materials/november/day-10-steganography-and-backdoors/mech-interp.pdf
+  bytes: 19334022
+  sha256: 0133fe93e5a8
+- day: 10
+  title: Steganography and backdoors (slides)
+  path: materials/november/day-10-steganography-and-backdoors/steganography.pdf
+  bytes: 5202938
+  sha256: 22dddd782f5d
+- day: 10
+  title: Hidden backdoors exercise sheet (September cohort)
+  path: materials/september/day-17_2026-09-29_steganography-and-backdoors/exercise-sheet_hidden-backdoors.pdf
+  bytes: 158439
+  sha256: 433a1d67a332
+- day: 11
+  title: Zero-knowledge proofs for compute governance (slides)
+  path: materials/november/day-11-zkp-for-compute-governance/iliad-intensive-talk-5.pdf
+  bytes: 4244482
+  sha256: 5be2d1c15239
+- day: 13
+  title: Physics of deep learning exercises
+  path: materials/november/day-13-physics-for-deep-learning/exercises.pdf
+  bytes: 287031
+  sha256: 358d43bdd87a
+- day: 13
+  title: 'Lecture 1: equilibrium (slides)'
+  path: materials/november/day-13-physics-for-deep-learning/lecture1-equilibrium.pdf
+  bytes: 1874223
+  sha256: b3789ab59750
+- day: 13
+  title: 'Lecture 2: generalisation (slides)'
+  path: materials/november/day-13-physics-for-deep-learning/lecture2-generalization.pdf
+  bytes: 817725
+  sha256: cae16135ef7c
+- day: 13
+  title: 'Lecture 3: non-equilibrium (slides)'
+  path: materials/november/day-13-physics-for-deep-learning/lecture3-nonequilibrium.pdf
+  bytes: 2398127
+  sha256: 0e22168ea356
+- day: 13
+  title: Physics of deep learning (notes)
+  path: materials/november/day-13-physics-for-deep-learning/physicsofdeeplearning-notes.pdf
+  bytes: 524351
+  sha256: 515f82d15383
+- day: 13
+  title: Physics of deep learning solutions
+  path: materials/november/day-13-physics-for-deep-learning/solutions.pdf
+  bytes: 391789
+  sha256: a7fc8df0097a
+- day: 14
+  title: Mysteries of deep learning (slides)
+  path: materials/november/day-14-mysteries-of-deep-learning/mysteries-of-deep-learning-slides.pdf
+  bytes: 1073177
+  sha256: d53ee334a61e
+- day: 14
+  title: 'Mysteries of deep learning: context (notes)'
+  path: materials/november/day-14-mysteries-of-deep-learning/mysteries-of-dl-contextualisation.pdf
+  bytes: 997853
+  sha256: 5437269fba44
+- day: 15
+  title: 'Exercise 1.9: BIC via the Laplace approximation'
+  path: materials/november/day-15-singular-learning-theory/exercise-1-9-bic-via-laplace-approximation.pdf
+  bytes: 161788
+  sha256: 581ebe2656d7
+- day: 15
+  title: 'Exercise: Hessian degeneracy in a teacher-student model'
+  path: materials/november/day-15-singular-learning-theory/exercise-hessian-degeneracy-teacher-student.pdf
+  bytes: 205455
+  sha256: ea133e5e7041
+- day: 15
+  title: 'Optional exercise: estimating the LLC'
+  path: materials/november/day-15-singular-learning-theory/exercise-optional-llc-estimation.pdf
+  bytes: 136157
+  sha256: 2351a4e54730
+- day: 15
+  title: 'Exercise: a Bayesian phase transition'
+  path: materials/november/day-15-singular-learning-theory/exercise-phase-transition.pdf
+  bytes: 274240
+  sha256: ddd93b05d6da
+- day: 15
+  title: Oxford SLT course, lectures 1 to 5 (notes)
+  path: materials/november/day-15-singular-learning-theory/oxford-slt-course-lecture-1-5.pdf
+  bytes: 877748
+  sha256: 27988e7411a2
+- day: 15
+  title: Bayesian learning compared to SGD dynamics (slides)
+  path: materials/november/day-15-singular-learning-theory/slides-bayesian-learning-vs-sgd-dynamics.pdf
+  bytes: 17894227
+  sha256: 06c269b374fe
+- day: 16
+  title: Learning dynamics lectures (slides)
+  path: materials/november/day-16-training-dynamics/christian-lectures.pdf
+  bytes: 8845654
+  sha256: d9775f53db44
+- day: 16
+  title: Learning dynamics exercise sheet
+  path: materials/november/day-16-training-dynamics/exercise-sheet.pdf
+  bytes: 499396
+  sha256: 8fcc9cae064a
+- day: 16
+  title: Introduction to training dynamics (slides)
+  path: materials/november/day-16-training-dynamics/intro-training-dynamics.pdf
+  bytes: 677009
+  sha256: 8b6f726c414d
+- day: 16
+  title: Learning dynamics reading list
+  path: materials/november/day-16-training-dynamics/reading-list.pdf
+  bytes: 293015
+  sha256: 4e5409bdc58e
+- day: 17
+  title: Data attribution (notes)
+  path: materials/november/day-17-data-attribution/data-attribution-notes-24-nov.pdf
+  bytes: 1172266
+  sha256: 2fe1700cf219
+- day: 17
+  title: Data attribution (slides)
+  path: materials/november/day-17-data-attribution/data-attribution-slides-24-nov.pdf
+  bytes: 2875893
+  sha256: b88c1d8e700c
+- day: 17
+  title: Data attribution for alignment (lecture notes draft, September cohort)
+  path: materials/september/day-19_2026-10-01_data-attribution/lecture-notes_data-attribution-for-alignment_jaburi_april-draft.pdf
+  bytes: 836663
+  sha256: 6f572600680b
+- day: 17
+  title: Causality and counterfactuals, chapter 1 (slides, September cohort)
+  path: materials/september/day-19_2026-10-01_data-attribution/slides_ch1-causality-and-counterfactuals_jaburi.pdf
+  bytes: 357796
+  sha256: e67eded74efc
+- day: 18
+  title: Computational mechanics exercises, part 2
+  path: materials/november/day-18-computational-mechanics/compmechexercisespt2.pdf
+  bytes: 267116
+  sha256: c603c8cede9a
+- day: 18
+  title: Computational mechanics exercises, part 3
+  path: materials/november/day-18-computational-mechanics/compmechexercisespt3.pdf
+  bytes: 304156
+  sha256: 1d99d679afef
+- day: 18
+  title: Computational mechanics reading guide, part 4
+  path: materials/november/day-18-computational-mechanics/compmechreadingguidept4.pdf
+  bytes: 424474
+  sha256: 5475a6be4074
+- day: 18
+  title: Computational mechanics slides, part 1
+  path: materials/november/day-18-computational-mechanics/compmechslidespt1.pdf
+  bytes: 638587
+  sha256: 1392af8e2530
+- day: 18
+  title: Computational mechanics slides, part 2
+  path: materials/november/day-18-computational-mechanics/compmechslidespt2.pdf
+  bytes: 300510
+  sha256: 2b2fd55eb17f
+- day: 18
+  title: Computational mechanics slides, part 3
+  path: materials/november/day-18-computational-mechanics/compmechslidespt3.pdf
+  bytes: 2394716
+  sha256: eb9cf47dd363
+- day: 18
+  title: Computational mechanics solutions, part 2
+  path: materials/november/day-18-computational-mechanics/compmechsolutionspt2.pdf
+  bytes: 288187
+  sha256: 192451ccbd36
+- day: 18
+  title: Computational mechanics solutions, part 3
+  path: materials/november/day-18-computational-mechanics/compmechsolutionspt3.pdf
+  bytes: 479957
+  sha256: b67f1df16d66
+- day: 19
+  title: 'World models: reading material (slides)'
+  path: materials/november/day-19-world-models/readingmaterialslides.pdf
+  bytes: 230561
+  sha256: af636093d337
+- day: 19
+  title: World models, slide set 1
+  path: materials/november/day-19-world-models/world-models-set-1.pdf
+  bytes: 2378535
+  sha256: 284a34bd1f53
+- day: 19
+  title: World models, slide sets 2 and 3
+  path: materials/november/day-19-world-models/world-models-set-2-and-3.pdf
+  bytes: 10252779
+  sha256: 9e72aedadeb6
+- day: 19
+  title: Metacognition in LLMs (slides, September cohort)
+  path: materials/september/day-05_2026-09-11_world-models/slides_metacognition-in-llms_margot.pdf
+  bytes: 358382
+  sha256: bbd0199f6f15
+- day: 20
+  title: Launch and proposal day 2 (slides)
+  path: materials/november/day-20-project-proposal-day/launch-and-proposal-day-2-27-nov.pdf
+  bytes: 1260159
+  sha256: 04ed5de4b91e
+- day: 20
+  title: Launch day (slides, September cohort, web page)
+  path: materials/september/day-20_2026-10-02_project-proposal-day-2-and-launch/slides_launch-day.html
+  bytes: 192158
+  sha256: b61b9f9a0c2e
